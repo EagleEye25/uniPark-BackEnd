@@ -1,8 +1,8 @@
 # DragonCode
 ## 2018 || 3rd Year || Project
+![dragon code](https://user-images.githubusercontent.com/28861857/36523951-c61571f0-17ac-11e8-9644-1b10abf68715.png)
 ###
-Fully automated parking service that is provided for students and stuff at the Nelson Mandela University.
-The application will allow students and staff to drive in to campus by license plate recognition.
-Students are allocated to empty student parking bays and staff reserved parking slots.
-These reserved parkings are monitored and allocated to each staff member.
-This application is user friendly and focused on security.
+Fully automated parking system, that will allow users that have access to a facilities parking area to enter.
+The program is securely setup to prevent unauthorised users access to the facility, also to help the facility
+to control traffic, ensure that person/s in the facility park in the correct area, which is assigned to them.
+The aim of the system is to improve security of the facility, and ensure that little to no theft occurs regarding motor vehicles.
