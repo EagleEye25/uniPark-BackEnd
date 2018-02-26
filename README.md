@@ -3,6 +3,6 @@
 ## 2018 || 3rd Year || Project
 ###
 Fully automated parking system, that will allow users that have access to a facilities parking area to enter.
-The program is securely setup to prevent unauthorised users access to the facility, also to help the facility
+The program is securely setup to prevent unauthorized users access to the facility, also to help the facility
 to control traffic, ensure that person/s in the facility park in the correct area, which is assigned to them.
 The aim of the system is to improve security of the facility, and ensure that little to no theft occurs regarding motor vehicles.
