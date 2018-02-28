@@ -1,6 +1,6 @@
-﻿namespace uniPark.forms
+﻿namespace uniPark
 {
-    partial class frmLogin
+    partial class Form2
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "frmLogin";
+            this.Text = "Form2";
         }
 
         #endregion

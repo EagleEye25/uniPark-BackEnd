@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace uniPark.forms
+namespace uniPark
 {
-    public partial class frmLogin : Form
+    public partial class Form2 : Form
     {
-        public frmLogin()
+        public Form2()
         {
             InitializeComponent();
         }
