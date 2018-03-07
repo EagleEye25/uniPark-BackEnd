@@ -38,5 +38,11 @@ namespace uniPark
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            IconsPage ip = new IconsPage();
+            ip.Show();
+        }
     }
 }

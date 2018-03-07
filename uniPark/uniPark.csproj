@@ -72,21 +72,24 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="IconsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconsPage.Designer.cs">
+      <DependentUpon>IconsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IconsPage.resx">
+      <DependentUpon>IconsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include=".travis.yml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -113,6 +116,72 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\parking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\verifiedUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\addUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\decision.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\deleteUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\entrance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\listDots.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\loginRounded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\LogoutRounded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\pluss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\porcessing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\removeUser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\rightTick.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
