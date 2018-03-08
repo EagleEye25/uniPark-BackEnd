@@ -12,6 +12,8 @@ namespace uniPark
 {
     public partial class IconsPage : Form
     {
+        private Color colorDefualt = Color.FromArgb(62, 62, 66);
+        private Color colorChange = Color.FromArgb(54, 54, 57);
         public IconsPage()
         {
             InitializeComponent();
@@ -24,57 +26,57 @@ namespace uniPark
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(54, 54, 57);
+            button1.BackColor = colorChange;
             pnlRight.Height = button1.Height;
             pnlRight.Top = button1.Top;
-            button2.BackColor = Color.FromArgb(45, 45, 48);
-            button3.BackColor = Color.FromArgb(45, 45, 48);
-            button4.BackColor = Color.FromArgb(45, 45, 48);
-            button5.BackColor = Color.FromArgb(45, 45, 48);
+            button2.BackColor = colorDefualt;
+            button3.BackColor = colorDefualt;
+            button4.BackColor = colorDefualt;
+            button5.BackColor = colorDefualt;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.BackColor = Color.FromArgb(54, 54, 57);
+            button2.BackColor = colorChange;
             pnlRight.Height = button2.Height;
             pnlRight.Top = button2.Top;
-            button1.BackColor = Color.FromArgb(45, 45, 48);
-            button3.BackColor = Color.FromArgb(45, 45, 48);
-            button4.BackColor = Color.FromArgb(45, 45, 48);
-            button5.BackColor = Color.FromArgb(45, 45, 48);
+            button1.BackColor = colorDefualt;
+            button3.BackColor = colorDefualt;
+            button4.BackColor = colorDefualt;
+            button5.BackColor = colorDefualt;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            button3.BackColor = Color.FromArgb(54, 54, 57);
+            button3.BackColor = colorChange;
             pnlRight.Height = button4.Height;
             pnlRight.Top = button3.Top;
-            button2.BackColor = Color.FromArgb(45, 45, 48);
-            button1.BackColor = Color.FromArgb(45, 45, 48);
-            button4.BackColor = Color.FromArgb(45, 45, 48);
-            button5.BackColor = Color.FromArgb(45, 45, 48);
+            button2.BackColor = colorDefualt;
+            button1.BackColor = colorDefualt;
+            button4.BackColor = colorDefualt;
+            button5.BackColor = colorDefualt;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            button4.BackColor = Color.FromArgb(54, 54, 57);
+            button4.BackColor = colorChange;
             pnlRight.Height = button4.Height;
             pnlRight.Top = button4.Top;
-            button2.BackColor = Color.FromArgb(45, 45, 48);
-            button3.BackColor = Color.FromArgb(45, 45, 48);
-            button1.BackColor = Color.FromArgb(45, 45, 48);
-            button5.BackColor = Color.FromArgb(45, 45, 48);
+            button2.BackColor = colorDefualt;
+            button3.BackColor = colorDefualt;
+            button1.BackColor = colorDefualt;
+            button5.BackColor = colorDefualt;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            button5.BackColor = Color.FromArgb(54, 54, 57);
+            button5.BackColor = colorChange;
             pnlRight.Height = button5.Height;
             pnlRight.Top = button5.Top;
-            button2.BackColor = Color.FromArgb(45, 45, 48);
-            button3.BackColor = Color.FromArgb(45, 45, 48);
-            button4.BackColor = Color.FromArgb(45, 45, 48);
-            button1.BackColor = Color.FromArgb(45, 45, 48);
+            button2.BackColor = colorDefualt;
+            button3.BackColor = colorDefualt;
+            button4.BackColor = colorDefualt;
+            button1.BackColor = colorDefualt;
         }
     }
 }

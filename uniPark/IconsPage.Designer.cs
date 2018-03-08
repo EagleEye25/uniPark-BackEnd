@@ -77,7 +77,7 @@
             // 
             // pnlRight
             // 
-            this.pnlRight.BackColor = System.Drawing.Color.Red;
+            this.pnlRight.BackColor = System.Drawing.Color.Lime;
             this.pnlRight.Location = new System.Drawing.Point(196, 103);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(10, 75);
@@ -451,7 +451,7 @@
             // IconsPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1208, 692);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button18);
