@@ -118,6 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="matBtnMinimize.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADv8AAA7/AcckFk0AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAArElEQVRIS2MYBdQB/9NYhf8WVYv8KT4s/Lf4DDkYorekEmQW1FRMIPS3qBao+D+VcBXUWEwg/K94
+        NxYN5OF/xbugxmIC4T/F+7FqIgcDzYIaiwlGLcKLRy0iG49aRDYmxSKRfyWrRP4XGxOFgWqR9ZLqoylQ
+        KYIApBZFL4kWXRH6WzyTGAxSi6KXRIvIx3gtolc1QbeKD1aVC/8r2gn2HVkYqJdQVT4KiAcMDAB9wKxi
+        H8KGGQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="matBtnLogout.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAbpJREFUSEu1
+        1c1OFEEUhuEaTNzwY2TphhXCDmWpCSYS5ELgJiQBb4MFBhJYaNR7IES4BwjsFCJsEIXoqvjeqTrpqpoa
+        cOJMvjxJnXOqu2e6pzPOedcaqGqzn6rN3BvZkmO5iVjTW5DaMY1qM5iWA7kv+zIltXN0vcAr+SXkXNZk
+        Vh5HrOkxI1cyJ53nqjT55BxAPsmolHvMmHwW8lOeSr6no9HcFg4cknJeYs8XIV8lnxeNRSF8dT5dOrvL
+        I7kQkj/4rPBuR8hqrHvBMyHbsQ6ywrsTIc9iXVqWpaJnngvhJ9z0s8K7v0JqD/aF/IlYl3NuKeEcTT8r
+        vLsWMhxr80S+i+Wb0Ev3jAj5HesgK7w7EjITazwUfh1l6DGzfXaLDmMdZIV374XwwKy33u7Uw8z2vWt3
+        vNuIdZAV3s0LOZNxSWewlH32/hDyWppZVgR7QniLH0g6s6Q99tiLtivprHoBXndee/JB0hfOYjWzj+1O
+        OGZSbBZ0NIKXcinkVN4KfQvrFeFWEvZyTHqOoNoMJsRuF6FXW7OHvemxjWozxx/OZlxbWNP7rz+cmvQC
+        /6ba7G7gF+hdtdk3rnUL9We/WjEp39MAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="matBtnEditUser.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAX1JREFUSEvd
@@ -210,7 +233,4 @@
         CbBoIBEbFUCNGoQA2aVQIeqCUQsIglELhjJgYAAAdLy50Q91+eMAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="tmrSlide.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

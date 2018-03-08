@@ -11,6 +11,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using MaterialSkin.Animations;
 using uniPark.Main.Forms.Login;
+using uniPark.Main.Forms.Landing;
 
 namespace uniPark
 {
@@ -54,6 +55,14 @@ namespace uniPark
             login.Show();
             test.Hide();
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmLanding landing = new frmLanding();
+            landing.Show();
+            Form2 test = this;
+            test.Hide();
         }
     }
 }

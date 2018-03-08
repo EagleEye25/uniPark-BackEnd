@@ -12,66 +12,42 @@ namespace uniPark.Main.Forms.Landing
 {
     public partial class frmLanding : Form
     {
-        int panelWidth;
         bool hidden;
          
         public frmLanding()
         {
             InitializeComponent();
-            panelWidth = pnlMenu.Width;
             hidden = false;
         }
 
-        private void tmrTest_Tick(object sender, EventArgs e)
-        {
-        }
-        
-        private void btntest1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void frmLanding_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tmrSlide_Tick(object sender, EventArgs e)
-        {
+        private void matBtnMenu_Click(object sender, EventArgs e)
+        {   /* When button is pressed, slides the panel to the left, right */
             if (hidden)
             {
-                pnlMenu.Width = pnlMenu.Width + 10;
-                if (pnlMenu.Width >= panelWidth)
+                while (pnlMenu.Width != 207)
                 {
-                    tmrSlide.Stop();
+                    pnlMenu.Width += 1;
+                    System.Threading.Thread.Sleep(1);
+                    pnlMenu.Refresh();
                     hidden = false;
-                    this.Refresh();
                 }
             }
             else
             {
-                pnlMenu.Width = pnlMenu.Width - 10;
-                if (pnlMenu.Width <= 52.5)
+                while (pnlMenu.Width != 54)
                 {
-                    tmrSlide.Stop();
+                    pnlMenu.Width -= 1;
+                    System.Threading.Thread.Sleep(1);
+                    pnlMenu.Refresh();
                     hidden = true;
-                    this.Refresh();
                 }
             }
         }
 
-        private void matBtnMenu_Click(object sender, EventArgs e)
+        private void matBtnMinimize_Click(object sender, EventArgs e)
         {
-            tmrSlide.Start();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlMenu_Paint(object sender, PaintEventArgs e)
-        {
-
+            /* Minimizes application */
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
