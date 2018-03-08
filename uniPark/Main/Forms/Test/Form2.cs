@@ -50,7 +50,10 @@ namespace uniPark
         private void button2_Click(object sender, EventArgs e)
         {
             frmLogin login = new frmLogin();
+            Form2 test = this;
             login.Show();
+            test.Hide();
+
         }
     }
 }
