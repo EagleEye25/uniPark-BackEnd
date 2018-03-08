@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using MaterialSkin.Animations;
+using uniPark.Main.Forms.Login;
+
 namespace uniPark
 {
     public partial class Form2 : MaterialForm
@@ -26,7 +28,7 @@ namespace uniPark
                 Primary.Green900,
                 Primary.Green500,
                 Accent.Green200,
-                TextShade.WHITE);
+                TextShade.BLACK);
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -43,6 +45,12 @@ namespace uniPark
         {
             IconsPage ip = new IconsPage();
             ip.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.Show();
         }
     }
 }
