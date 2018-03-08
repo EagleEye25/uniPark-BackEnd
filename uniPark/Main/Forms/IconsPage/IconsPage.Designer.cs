@@ -57,7 +57,6 @@
             this.button19 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -190,9 +189,6 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button21);
-            this.panel2.Controls.Add(this.button23);
-            this.panel2.Controls.Add(this.button14);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(206, 528);
             this.panel2.Name = "panel2";
@@ -206,7 +202,7 @@
             this.button21.Font = new System.Drawing.Font("MS Reference Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button21.ForeColor = System.Drawing.Color.White;
             this.button21.Image = ((System.Drawing.Image)(resources.GetObject("button21.Image")));
-            this.button21.Location = new System.Drawing.Point(3, -8);
+            this.button21.Location = new System.Drawing.Point(212, 390);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(192, 75);
             this.button21.TabIndex = 19;
@@ -222,7 +218,7 @@
             this.button23.Font = new System.Drawing.Font("MS Reference Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button23.ForeColor = System.Drawing.Color.White;
             this.button23.Image = ((System.Drawing.Image)(resources.GetObject("button23.Image")));
-            this.button23.Location = new System.Drawing.Point(399, -8);
+            this.button23.Location = new System.Drawing.Point(630, 390);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(192, 75);
             this.button23.TabIndex = 21;
@@ -238,7 +234,7 @@
             this.button14.Font = new System.Drawing.Font("MS Reference Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
             this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
-            this.button14.Location = new System.Drawing.Point(201, -8);
+            this.button14.Location = new System.Drawing.Point(404, 379);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(192, 75);
             this.button14.TabIndex = 12;
@@ -453,7 +449,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1208, 692);
+            this.Controls.Add(this.button21);
             this.Controls.Add(this.button19);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button23);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button17);
@@ -473,12 +472,12 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "IconsPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IconsPage";
             this.Load += new System.EventHandler(this.IconsPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
