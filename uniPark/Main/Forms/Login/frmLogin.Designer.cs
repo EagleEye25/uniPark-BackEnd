@@ -185,6 +185,7 @@
             this.matBtnLogin.Text = "Login";
             this.matBtnLogin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.matBtnLogin.UseVisualStyleBackColor = true;
+            this.matBtnLogin.Click += new System.EventHandler(this.matBtnLogin_Click);
             // 
             // frmLogin
             // 

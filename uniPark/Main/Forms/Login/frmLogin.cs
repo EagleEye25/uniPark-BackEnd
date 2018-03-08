@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using uniPark.Main.Forms.Loading;
 
 namespace uniPark.Main.Forms.Login
 {
@@ -16,14 +17,6 @@ namespace uniPark.Main.Forms.Login
         public frmLogin()
         {
             InitializeComponent();
-
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Green300,
-                Primary.Green400,
-                Primary.Green50,
-                Accent.Green100,
-                TextShade.BLACK);
         }
 
         private void matTextUsername_Click(object sender, EventArgs e)
@@ -33,11 +26,13 @@ namespace uniPark.Main.Forms.Login
 
         private void btnclose_Click(object sender, EventArgs e)
         {
+            /* Exits the application */ 
             Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /* Minimizes the application */
             this.WindowState = FormWindowState.Minimized;
         }
 
@@ -57,6 +52,15 @@ namespace uniPark.Main.Forms.Login
         private void frmLogin_Load(object sender, EventArgs e)
         {
             lblIncorrect.Visible = false;
+        }
+
+        private void matBtnLogin_Click(object sender, EventArgs e)
+        {
+            /* Showing loading form, hiding login form */
+            frmLoading loading = new frmLoading();
+            frmLogin login = this;
+            login.Hide();
+            loading.Show();
         }
     }
 }
