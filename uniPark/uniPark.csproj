@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Main\Forms\Landing\frmLanding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Forms\Landing\frmLanding.Designer.cs">
+      <DependentUpon>frmLanding.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Forms\Loading\frmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Main\Forms\Landing\frmLanding.resx">
+      <DependentUpon>frmLanding.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\Forms\Loading\frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
     </EmbeddedResource>

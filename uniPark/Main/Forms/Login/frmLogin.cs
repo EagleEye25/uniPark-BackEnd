@@ -51,6 +51,7 @@ namespace uniPark.Main.Forms.Login
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            /* hides error message on load */
             lblIncorrect.Visible = false;
         }
 
