@@ -91,17 +91,40 @@ namespace uniPark.Main.Forms.Landing
             /* will change heading title */
             lblHeadings.Text = "View Parkings";
 
+            /* Hides other panels, shows View Parkings */
+            pnlSearchParkings.Hide();
             pnlViewParkings.Show();
-            pnlViewParkings.Dock = DockStyle.Bottom;
+            pnlViewParkings.Dock = DockStyle.Fill;
         }
 
         private void matbtnSearchParking_Click(object sender, EventArgs e)
         {
+            /* will change heading title */
+            lblHeadings.Text = "Search Parkings";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Show();
+            pnlSearchParkings.Dock = DockStyle.Fill;
         }
 
         private void lblHeadings_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void matTextParkingName_Click(object sender, EventArgs e)
+        {
+            /* sets the text of the textbox to nothing */
+            matTextParkingName.Text = "";
+        }
+
+        private void matTextParkingName_Leave(object sender, EventArgs e)
+        {
+            if (matTextParkingName.Text != "")
+                matTextParkingName.Text = matTextParkingName.Text;
+            else
+                matTextParkingName.Text = "Enter Parking Name";
         }
     }
 }
