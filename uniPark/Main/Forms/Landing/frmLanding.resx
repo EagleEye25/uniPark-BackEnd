@@ -251,4 +251,34 @@
   <metadata name="dataGridViewTextBoxColumn6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="dataGridViewTextBoxColumn7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn9.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn10.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn11.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn12.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="matBtnSearch.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXBJREFUSEvd
+        lM1Kw0AQx3NU1IPQNrvbIt48+LW7xUOtoqDvIPjxBoKPoBfBkwffoogHLz6EXsS38FhJQzcLXWeS8ZBK
+        SCKJoD8YSP/ZmX9nszve/6Tl1nxh9BWP1AvEO8Uzs/LSdxstWvYzuNGnUGwE4TIiEEYe0/JyQPIZxAQL
+        iUgOhO3uLLn1RQxu9S636p5MJtzIE0orRifcbENimBTX5yR/g0fygkyChutykvNhRt0kxeWApEygk4fY
+        xOhrkvIRkXqLDWBbSMqEWbVHXbySlA8sDjAJTskcSZk03ep8YiA/SMqnjEHDrSyUNqh9i2r/yE23xbDl
+        xKTQMR2WvtUwHo4gMXXRlt3+DEb6oknnR/qW0spRZFSwsbqj57BtVY9SizM17NAMIzXsoIsxaGgyFFZu
+        x4lVgv8ci5PJCH4f0Kvq+BUT3J6v04cmwqpDelUdUyZhLSa4PVg8NjHqieRqgU76MEYeO643S9Kfx/M+
+        AQKIGtE241aAAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
