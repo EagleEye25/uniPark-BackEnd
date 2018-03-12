@@ -51,10 +51,5 @@ namespace uniPark.Main.Forms.Loading
             tmrLoading.Interval = 1000;
             matpgbLoading.Maximum = 10;
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
