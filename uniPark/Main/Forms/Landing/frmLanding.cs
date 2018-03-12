@@ -43,6 +43,8 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides all pannels on start */
             pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
         }
 
         private void matBtnMenu_Click(object sender, EventArgs e)
@@ -92,8 +94,9 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "View Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlSearchParkings.Hide();
             pnlViewParkings.Show();
+            pnlSearchParkings.Hide();
+            //pnlUpdateParkings.Hide();
             pnlViewParkings.Dock = DockStyle.Fill;
         }
 
@@ -105,6 +108,7 @@ namespace uniPark.Main.Forms.Landing
             /* Hides other panels, shows View Parkings */
             pnlViewParkings.Hide();
             pnlSearchParkings.Show();
+            pnlUpdateParkings.Hide();
             pnlSearchParkings.Dock = DockStyle.Fill;
         }
 
@@ -121,10 +125,63 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextParkingName_Leave(object sender, EventArgs e)
         {
+            /* will set text field back to message if user doesnt enter data */
             if (matTextParkingName.Text != "")
                 matTextParkingName.Text = matTextParkingName.Text;
             else
                 matTextParkingName.Text = "Enter Parking Name";
+        }
+
+        private void matbtnUpdateParking_Click(object sender, EventArgs e)
+        {
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Show();
+            pnlSearchParkings.Dock = DockStyle.Fill;
+        }
+
+        private void matTextParkingAreaID_Click(object sender, EventArgs e)
+        {
+            /* sets the text of the textbox to nothing */
+            matTextParkingAreaID.Text = "";
+        }
+
+        private void matTextParkingAreaID_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaID.Text != "")
+                matTextParkingAreaID.Text = matTextParkingAreaID.Text;
+            else
+                matTextParkingAreaID.Text = "Parking Area ID";
+        }
+
+        private void matTextParkingAreaAL_Click(object sender, EventArgs e)
+        {
+            /* sets the text of the textbox to nothing */
+            matTextParkingAreaAL.Text = "";
+        }
+
+        private void matTextParkingAName_Click(object sender, EventArgs e)
+        {
+            matTextParkingAName.Text = "";
+        }
+
+        private void matTextParkingAName_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAName.Text != "")
+                matTextParkingAName.Text = matTextParkingAName.Text;
+            else
+                matTextParkingAName.Text = "Parking Area Name";
+        }
+
+        private void matTextParkingAreaAL_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaAL.Text != "")
+                matTextParkingAreaAL.Text = matTextParkingAreaAL.Text;
+            else
+                matTextParkingAreaAL.Text = "Parking Area Access Level";
         }
     }
 }
