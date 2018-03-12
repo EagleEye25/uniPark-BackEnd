@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLanding));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.matBtnMinimize = new MaterialSkin.Controls.MaterialFlatButton();
+            this.matBtnLogout = new MaterialSkin.Controls.MaterialFlatButton();
             this.matBtnEditUser = new MaterialSkin.Controls.MaterialFlatButton();
             this.matBtnMenu = new MaterialSkin.Controls.MaterialFlatButton();
             this.matBtnSearchUser = new MaterialSkin.Controls.MaterialFlatButton();
@@ -39,13 +42,20 @@
             this.matBtnViewUsers = new MaterialSkin.Controls.MaterialFlatButton();
             this.matbtnUpdateParking = new MaterialSkin.Controls.MaterialFlatButton();
             this.matbtnAssignParking = new MaterialSkin.Controls.MaterialFlatButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.matBtnLogout = new MaterialSkin.Controls.MaterialFlatButton();
-            this.matBtnMinimize = new MaterialSkin.Controls.MaterialFlatButton();
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlHeadings = new System.Windows.Forms.Panel();
+            this.lblHeadings = new System.Windows.Forms.Label();
+            this.pnlViewParkings = new System.Windows.Forms.Panel();
+            this.dgvParkings = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlHeadings.SuspendLayout();
+            this.pnlViewParkings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParkings)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -68,6 +78,41 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(207, 687);
             this.pnlMenu.TabIndex = 1;
+            // 
+            // matBtnMinimize
+            // 
+            this.matBtnMinimize.AutoSize = true;
+            this.matBtnMinimize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnMinimize.Depth = 0;
+            this.matBtnMinimize.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnMinimize.Icon")));
+            this.matBtnMinimize.Location = new System.Drawing.Point(4, 597);
+            this.matBtnMinimize.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnMinimize.Name = "matBtnMinimize";
+            this.matBtnMinimize.Primary = false;
+            this.matBtnMinimize.Size = new System.Drawing.Size(189, 36);
+            this.matBtnMinimize.TabIndex = 1;
+            this.matBtnMinimize.Text = "      Minimize                 ";
+            this.matBtnMinimize.UseVisualStyleBackColor = true;
+            this.matBtnMinimize.Click += new System.EventHandler(this.matBtnMinimize_Click);
+            // 
+            // matBtnLogout
+            // 
+            this.matBtnLogout.AutoSize = true;
+            this.matBtnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnLogout.Depth = 0;
+            this.matBtnLogout.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnLogout.Icon")));
+            this.matBtnLogout.Location = new System.Drawing.Point(4, 645);
+            this.matBtnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnLogout.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnLogout.Name = "matBtnLogout";
+            this.matBtnLogout.Primary = false;
+            this.matBtnLogout.Size = new System.Drawing.Size(191, 36);
+            this.matBtnLogout.TabIndex = 20;
+            this.matBtnLogout.Text = "      Logout                    ";
+            this.matBtnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.matBtnLogout.UseVisualStyleBackColor = true;
+            this.matBtnLogout.Click += new System.EventHandler(this.matBtnLogout_Click);
             // 
             // matBtnEditUser
             // 
@@ -134,6 +179,7 @@
             this.matBtnViewParking.TabIndex = 3;
             this.matBtnViewParking.Text = "      View Parkings      ";
             this.matBtnViewParking.UseVisualStyleBackColor = true;
+            this.matBtnViewParking.Click += new System.EventHandler(this.matBtnViewParking_Click);
             // 
             // matBtnAddUser
             // 
@@ -166,6 +212,7 @@
             this.matbtnSearchParking.TabIndex = 4;
             this.matbtnSearchParking.Text = "      Search Parkings";
             this.matbtnSearchParking.UseVisualStyleBackColor = true;
+            this.matbtnSearchParking.Click += new System.EventHandler(this.matbtnSearchParking_Click);
             // 
             // matBtnViewUsers
             // 
@@ -215,74 +262,101 @@
             this.matbtnAssignParking.Text = "      Assign Parkings ";
             this.matbtnAssignParking.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // pnlHeadings
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.pnlTop);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(207, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 687);
-            this.panel1.TabIndex = 2;
+            this.pnlHeadings.Controls.Add(this.lblHeadings);
+            this.pnlHeadings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeadings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlHeadings.Location = new System.Drawing.Point(207, 0);
+            this.pnlHeadings.Name = "pnlHeadings";
+            this.pnlHeadings.Size = new System.Drawing.Size(1028, 30);
+            this.pnlHeadings.TabIndex = 4;
             // 
-            // matBtnLogout
+            // lblHeadings
             // 
-            this.matBtnLogout.AutoSize = true;
-            this.matBtnLogout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnLogout.Depth = 0;
-            this.matBtnLogout.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnLogout.Icon")));
-            this.matBtnLogout.Location = new System.Drawing.Point(4, 645);
-            this.matBtnLogout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matBtnLogout.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnLogout.Name = "matBtnLogout";
-            this.matBtnLogout.Primary = false;
-            this.matBtnLogout.Size = new System.Drawing.Size(191, 36);
-            this.matBtnLogout.TabIndex = 20;
-            this.matBtnLogout.Text = "      Logout                    ";
-            this.matBtnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.matBtnLogout.UseVisualStyleBackColor = true;
+            this.lblHeadings.BackColor = System.Drawing.Color.PaleGreen;
+            this.lblHeadings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblHeadings.ForeColor = System.Drawing.Color.Black;
+            this.lblHeadings.Location = new System.Drawing.Point(0, 0);
+            this.lblHeadings.Name = "lblHeadings";
+            this.lblHeadings.Size = new System.Drawing.Size(1028, 30);
+            this.lblHeadings.TabIndex = 0;
+            this.lblHeadings.Text = "Heading";
+            this.lblHeadings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // matBtnMinimize
+            // pnlViewParkings
             // 
-            this.matBtnMinimize.AutoSize = true;
-            this.matBtnMinimize.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnMinimize.Depth = 0;
-            this.matBtnMinimize.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnMinimize.Icon")));
-            this.matBtnMinimize.Location = new System.Drawing.Point(4, 597);
-            this.matBtnMinimize.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matBtnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnMinimize.Name = "matBtnMinimize";
-            this.matBtnMinimize.Primary = false;
-            this.matBtnMinimize.Size = new System.Drawing.Size(189, 36);
-            this.matBtnMinimize.TabIndex = 1;
-            this.matBtnMinimize.Text = "      Minimize                 ";
-            this.matBtnMinimize.UseVisualStyleBackColor = true;
-            this.matBtnMinimize.Click += new System.EventHandler(this.matBtnMinimize_Click);
+            this.pnlViewParkings.Controls.Add(this.dgvParkings);
+            this.pnlViewParkings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlViewParkings.Location = new System.Drawing.Point(207, 30);
+            this.pnlViewParkings.Name = "pnlViewParkings";
+            this.pnlViewParkings.Size = new System.Drawing.Size(1028, 657);
+            this.pnlViewParkings.TabIndex = 6;
             // 
-            // pnlTop
+            // dgvParkings
             // 
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.Location = new System.Drawing.Point(0, 0);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1028, 42);
-            this.pnlTop.TabIndex = 0;
+            this.dgvParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParkings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParkings.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvParkings.Location = new System.Drawing.Point(0, 0);
+            this.dgvParkings.Name = "dgvParkings";
+            this.dgvParkings.Size = new System.Drawing.Size(1025, 654);
+            this.dgvParkings.TabIndex = 6;
             // 
-            // panel2
+            // dataGridViewTextBoxColumn1
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 42);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1028, 645);
-            this.panel2.TabIndex = 1;
+            this.dataGridViewTextBoxColumn1.HeaderText = "TESTING 1";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "testing 2";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "testing 3";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Column5";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Column6";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // frmLanding
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1235, 687);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlViewParkings);
+            this.Controls.Add(this.pnlHeadings);
             this.Controls.Add(this.pnlMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -292,7 +366,9 @@
             this.Text = "frmLanding";
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.pnlHeadings.ResumeLayout(false);
+            this.pnlViewParkings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvParkings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,10 +384,17 @@
         private MaterialSkin.Controls.MaterialFlatButton matbtnUpdateParking;
         private MaterialSkin.Controls.MaterialFlatButton matbtnAssignParking;
         private MaterialSkin.Controls.MaterialFlatButton matBtnMenu;
-        private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialFlatButton matBtnLogout;
         private MaterialSkin.Controls.MaterialFlatButton matBtnMinimize;
-        private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlHeadings;
+        private System.Windows.Forms.Label lblHeadings;
+        private System.Windows.Forms.Panel pnlViewParkings;
+        private System.Windows.Forms.DataGridView dgvParkings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
