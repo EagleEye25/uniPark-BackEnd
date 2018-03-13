@@ -362,4 +362,34 @@
         6mYHnM0uWEDTzCG7oG26X9CeLEuSZUmyLMZVT55v20YBjI13AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="dataGridViewTextBoxColumn31.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn32.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn33.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn34.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn35.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn36.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="matBtnSearchUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAGGSURBVEhL3VO5TsNAEDUFEj8QxV4cLoFEBR5b7vkcqPkL4CsouAMUII6vQDSIBlFwFJCIgIiP
+        jWRm1hOwnCVCjhvypCftrN+8Gc/YxnBDBN6EJaFuxfCiKJ1DO3Rn+fFgUOYxNJFJjk3R9mssKw7uPG+e
+        UsI+y4rDip13rTlSxPDGsuJAo4+8cYYtlhUHjuFYY5yyjBGJyJtHM92SG6UsmfDzmap9tPB8UJr5/0Yl
+        8U1TwqoVwTmO5g5JuyBuGokxQqMTsbOL8T2Rzn8bXeKNishdx6QImV+utENnrs8f3n/5U8nSGHZ8pkns
+        8pJ0Zgw7FGMjJ9VgYboa+jOYd8qaLWWmQzfxN+Lfu6F0Eh5VnOnWCmBS6SQ88FUvsmY6YsdrShfBM8V2
+        e3FcJSKoWKqBJ77qRdZMy8i9IB2+6TbFNCIqQqSz0nSgrswGAXfb+C6cIY7xxkygwtLiUJ+pdPfQ9JUo
+        Ou4Rml9xodvaJwiWlgfqHItcUxEc4wpflwsqggWWORwKGMYXM+drJo/fix4AAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

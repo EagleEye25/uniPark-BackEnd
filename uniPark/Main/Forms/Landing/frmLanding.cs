@@ -54,6 +54,7 @@ namespace uniPark.Main.Forms.Landing
             pnlAssignParkings.Hide();
             pnlViewUsers.Hide();
             pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
          /* ======================== */
         }
 
@@ -136,7 +137,7 @@ namespace uniPark.Main.Forms.Landing
             if (matTextParkingName.Text != "")
                 matTextParkingName.Text = matTextParkingName.Text;
             else
-                matTextParkingName.Text = "Enter Parking Name";
+                matTextParkingName.Text = "Enter Parking Number";
         }
 
         private void matTextParkingAreaID_Click(object sender, EventArgs e)
@@ -264,7 +265,7 @@ namespace uniPark.Main.Forms.Landing
             pnlAssignParkings.Hide();
             pnlViewUsers.Hide();
             pnlAddUsers.Show();
-            pnlViewUsers.Dock = DockStyle.Fill;
+            pnlAddUsers.Dock = DockStyle.Fill;
         }
 
         private void matTextPersonelTagNo_Click(object sender, EventArgs e)
@@ -340,6 +341,37 @@ namespace uniPark.Main.Forms.Landing
                 matTextPersonelLevel.Text = matTextPersonelLevel.Text;
             else
                 matTextPersonelLevel.Text = "Personel Level";
+        }
+
+        private void matBtnSearchUser_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Search Personel";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Show();
+            pnlSearchUsers.Dock = DockStyle.Fill;
+        }
+
+        private void matTextSearchUsers_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextSearchUsers.Text = "";
+        }
+
+        private void matTextSearchUsers_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextSearchUsers.Text != "")
+                matTextSearchUsers.Text = matTextSearchUsers.Text;
+            else
+                matTextSearchUsers.Text = "Enter Personal Number";
         }
     }
 }
