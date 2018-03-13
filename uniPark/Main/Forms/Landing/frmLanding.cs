@@ -20,10 +20,10 @@ namespace uniPark.Main.Forms.Landing
             InitializeComponent();
             hidden = false;
 
-            /* ==================================
-             * Designing of material DataGridView
-             * ================================== */
-            /* changes table visuals */
+          /* ==================================
+          * Designing of material DataGridView
+          * ================================== */
+         /* changes table visuals */
             dgvParkings.BorderStyle = BorderStyle.None;
             dgvParkings.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(236, 252, 232);
             dgvParkings.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -45,11 +45,15 @@ namespace uniPark.Main.Forms.Landing
             /* Sets defualt headding */
             lblHeadings.Text = "Please select an option...";
 
-            /* Hides all pannels on start */
+          /* ==========================
+          * Hides all pannels on start
+          * ========================== */
             pnlViewParkings.Hide();
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Hide();
             pnlAssignParkings.Hide();
+            pnlVIewUsers.Hide();
+         /* ======================== */
         }
 
         private void matBtnMenu_Click(object sender, EventArgs e)
@@ -231,6 +235,20 @@ namespace uniPark.Main.Forms.Landing
                 matTextFacilityNoAS.Text = matTextFacilityNoAS.Text;
             else
                 matTextFacilityNoAS.Text = "User Facility Number";
+        }
+
+        private void matBtnViewUsers_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "View Users";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlVIewUsers.Show();
+            pnlVIewUsers.Dock = DockStyle.Fill;
         }
     }
 }
