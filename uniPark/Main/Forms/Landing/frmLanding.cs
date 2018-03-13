@@ -55,6 +55,7 @@ namespace uniPark.Main.Forms.Landing
             pnlViewUsers.Hide();
             pnlAddUsers.Hide();
             pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
          /* ======================== */
         }
 
@@ -371,7 +372,99 @@ namespace uniPark.Main.Forms.Landing
             if (matTextSearchUsers.Text != "")
                 matTextSearchUsers.Text = matTextSearchUsers.Text;
             else
-                matTextSearchUsers.Text = "Enter Personal Number";
+                matTextSearchUsers.Text = "Enter Personel Number";
+        }
+
+        private void matTextPersonelTagNoED_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelTagNoED.Text = "";
+        }
+
+        private void matTextPersonelTagNoED_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelTagNoED.Text != "")
+                matTextPersonelTagNoED.Text = matTextPersonelTagNoED.Text;
+            else
+                matTextPersonelTagNoED.Text = "Personel Tag Number";
+        }
+
+        private void matTextPersonelNameED_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelNameED.Text = "";
+        }
+
+        private void matTextPersonelNameED_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelNameED.Text != "")
+                matTextPersonelNameED.Text = matTextPersonelNameED.Text;
+            else
+                matTextPersonelNameED.Text = "Personel Name";
+        }
+
+        private void matTextPersonelSurED_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelSurED.Text = "";
+        }
+
+        private void matTextPersonelSurED_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelSurED.Text != "")
+                matTextPersonelSurED.Text = matTextPersonelSurED.Text;
+            else
+                matTextPersonelSurED.Text = "Personel Surname";
+        }
+
+        private void matTextPersonelTypeED_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelTypeED.Text = "";
+        }
+
+        private void matTextPersonelTypeED_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelTypeED.Text != "")
+                matTextPersonelTypeED.Text = matTextPersonelTypeED.Text;
+            else
+                matTextPersonelTypeED.Text = "Personel Type";
+        }
+
+        private void matTextPersonelLvlED_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelLvlED.Text = "";
+        }
+
+        private void matTextPersonelLvlED_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelLvlED.Text != "")
+                matTextPersonelLvlED.Text = matTextPersonelLvlED.Text;
+            else
+                matTextPersonelLvlED.Text = "Personel level";
+        }
+
+        private void matBtnEditUser_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Edit Personel";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Show();
+            pnlEditUser.Dock = DockStyle.Fill;
         }
     }
 }
