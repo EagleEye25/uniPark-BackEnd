@@ -329,11 +329,10 @@
   </metadata>
   <data name="matBtnAssignParkings.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAACdSURBVEhLYxgZQPKX4X8YhgpRFwwNC5ANIQdL/DLIghqFHWDTRCL+J/HLMA5qHCbAooFkLPXL
-        8JfUb303qJGoAJsG8rDBJ6lf+oZQYxEAu2LyMDCojkGNRQBsCsnEr2R+GKlAjUUALArJwV/FfxmbQ41E
-        BVgUk4r/SP0w9IMahwmwaCARGxVAjRqEANmlUCHqglELCIJRC4YyYGAAAHS8udEPdfnjAAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAJ1JREFUSEtj
+        GBlA8pfhfxiGClEXDA0LkA0hB0v8MsiCGoUdYNNEIv4n8cswDmocJsCigWQs9cvwl9RvfTeokagAmwby
+        sMEnqV/6hlBjEQC7YvIwMKiOQY1FAGwKycSvZH4YqUCNRQAsCsnBX8V/GZtDjUQFWBSTiv9I/TD0gxqH
+        CbBoIBEbFUCNGoQA2aVQIeqCUQsIglELhjJgYAAAdLy50Q91+eMAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="dataGridViewTextBoxColumn25.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -354,4 +353,13 @@
   <metadata name="dataGridViewTextBoxColumn30.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="matBtnAddUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANdJREFUSEvF
+        0jsOwjAQBFCnpOACHAC4IoeAi/ARNTRwGFrEp0BUMCNsBN4xVhKjaPQka5LNihDnHq76K1mWJMuSZFmS
+        LH8bwQpOHs9DUPfWXjCGI8Rhx2t2RpZpa0iFv8TOiDIk7ukCqZzBzogyJO7pCqlwuZ0RZUjcE19DKkuw
+        M/6QSxho/Cfn8jkUPlO+Lqr9maqHNifKzhYMYAJbOMDN43kDvMZ7vudMYfVgBnfIhfdMgTOv+fdB68Me
+        6mYHnM0uWEDTzCG7oG26X9CeLEuSZUmyLMZVT55v20YBjI13AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

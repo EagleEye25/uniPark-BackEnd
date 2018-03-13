@@ -52,7 +52,8 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Hide();
             pnlAssignParkings.Hide();
-            pnlVIewUsers.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
          /* ======================== */
         }
 
@@ -247,8 +248,98 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Hide();
             pnlAssignParkings.Hide();
-            pnlVIewUsers.Show();
-            pnlVIewUsers.Dock = DockStyle.Fill;
+            pnlViewUsers.Show();
+            pnlViewUsers.Dock = DockStyle.Fill;
+        }
+
+        private void matBtnAddUser_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Add Users";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Show();
+            pnlViewUsers.Dock = DockStyle.Fill;
+        }
+
+        private void matTextPersonelTagNo_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelTagNo.Text = "";
+        }
+
+        private void matTextPersonelTagNo_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelTagNo.Text != "")
+                matTextPersonelTagNo.Text = matTextPersonelTagNo.Text;
+            else
+                matTextPersonelTagNo.Text = "Perosnel Tag Number";
+        }
+
+        private void matTextPersonelName_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelName.Text = "";
+        }
+
+        private void matTextPersonelName_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelName.Text != "")
+                matTextPersonelName.Text = matTextPersonelName.Text;
+            else
+                matTextPersonelName.Text = "Personel Name";
+        }
+
+        private void matTextPersonelSurname_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelSurname.Text = "";
+        }
+
+        private void matTextPersonelSurname_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelSurname.Text != "")
+                matTextPersonelSurname.Text = matTextPersonelSurname.Text;
+            else
+                matTextPersonelSurname.Text = "Personel Surname";
+        }
+
+        private void matTextPersonelType_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelType.Text = "";
+        }
+
+        private void matTextPersonelType_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelType.Text != "")
+                matTextPersonelType.Text = matTextPersonelType.Text;
+            else
+                matTextPersonelType.Text = "Personel Type";
+        }
+
+        private void matTextPersonelLevel_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextPersonelLevel.Text = "";
+        }
+
+        private void matTextPersonelLevel_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextPersonelLevel.Text != "")
+                matTextPersonelLevel.Text = matTextPersonelLevel.Text;
+            else
+                matTextPersonelLevel.Text = "Personel Level";
         }
     }
 }
