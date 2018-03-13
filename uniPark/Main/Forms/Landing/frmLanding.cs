@@ -40,9 +40,15 @@ namespace uniPark.Main.Forms.Landing
             /* Changes column headings to bold */
             dgvParkings.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
             dgvParkings.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            /*=======================================================================================================*/
+
+            /* Sets defualt headding */
+            lblHeadings.Text = "Please select an option...";
 
             /* Hides all pannels on start */
             pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
         }
 
         private void matBtnMenu_Click(object sender, EventArgs e)
@@ -125,6 +131,62 @@ namespace uniPark.Main.Forms.Landing
                 matTextParkingName.Text = matTextParkingName.Text;
             else
                 matTextParkingName.Text = "Enter Parking Name";
+        }
+
+        private void matTextParkingAreaID_Click(object sender, EventArgs e)
+        {
+            matTextParkingAreaID.Text = "";
+        }
+
+        private void matTextParkingAreaID_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaID.Text != "")
+                matTextParkingAreaID.Text = matTextParkingAreaID.Text;
+            else
+                matTextParkingAreaID.Text = "Parking Area ID";
+        }
+
+        private void matbtnUpdateParking_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Update Parkings";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Show();
+            pnlUpdateParkings.Dock = DockStyle.Fill;
+        }
+
+        private void matTextParkingAreaName_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextParkingAreaName.Text = "";
+        }
+
+        private void matTextParkingAreaName_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaName.Text != "")
+                matTextParkingAreaName.Text = matTextParkingAreaName.Text;
+            else
+                matTextParkingAreaName.Text = "Parking Area Name";
+        }
+
+        private void matTextParkingAreaAL_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextParkingAreaAL.Text = "";
+        }
+
+        private void matTextParkingAreaAL_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaAL.Text != "")
+                matTextParkingAreaAL.Text = matTextParkingAreaAL.Text;
+            else
+                matTextParkingAreaAL.Text = "Parking Area Access Level";
         }
     }
 }
