@@ -301,12 +301,39 @@
   </metadata>
   <data name="matBtnUpdateParkingA.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
+        lU0KwjAUhLvxDLY9RdNuxYVLT+XGn0sKxR9EbxAj1KadRBPzng260Q8GkjczSUEhyf+QXUWDpbP+GtwF
+        ej9QdSbFKmmqEao9gWAn2DEX9JLlEtWeYKgV7MGMVTnrukrsMerxDzaCHUWwm0qxeT5YS89gEx9QbNNb
+        MUfEYnxsH+SyXBhTrzHuMPOAakQsxsPWhTJD85isJaYUk7W8KwW0Q8RiPGxdKNPMHSlxiPqRNZTJljzY
+        LGWyJQ82S5lsyYPNUiZb8mCzlMmWPNhszEEU/AVSnLSZq2qCURTtX3eq+6kSR4xc2gvW5gs+kv8eWNqX
+        CJdcXkrDdA6+aD9MktwBXNyw/Nn2XdAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="dataGridViewTextBoxColumn19.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn20.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn21.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn22.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn23.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn24.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="matBtnAssignParkings.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAEGSURBVEhL3ZVNCsIwFIS78Qy2PUXTbsWFS0/lxp9LCsUfRG8QI9SmnUQT854NutEPBpI3M0lB
-        Icn/kF1Fg6Wz/hrcBXo/UHUmxSppqhGqPYFgJ9gxF/SS5RLVnmCoFezBjFU567pK7DHq8Q82gh1FsJtK
-        sXk+WEvPYBMfUGzTWzFHxGJ8bB/kslwYU68x7jDzgGpELMbD1oUyQ/OYrCWmFJO1vCsFtEPEYjxsXSjT
-        zB0pcYj6kTWUyZY82CxlsiUPNkuZbMmDzVImW/Jgs5TJljzYbMxBFPwFUpy0matqglEU7V93qvupEkeM
-        XNoL1uYLPpL/HljalwiXXF5Kw3QOvmg/TJLcAVzcsPzZ9l3QAAAAAElFTkSuQmCC
+        YQUAAACdSURBVEhLYxgZQPKX4X8YhgpRFwwNC5ANIQdL/DLIghqFHWDTRCL+J/HLMA5qHCbAooFkLPXL
+        8JfUb303qJGoAJsG8rDBJ6lf+oZQYxEAu2LyMDCojkGNRQBsCsnEr2R+GKlAjUUALArJwV/FfxmbQ41E
+        BVgUk4r/SP0w9IMahwmwaCARGxVAjRqEANmlUCHqglELCIJRC4YyYGAAAHS8udEPdfnjAAAAAElFTkSu
+        QmCC
 </value>
   </data>
 </root>
