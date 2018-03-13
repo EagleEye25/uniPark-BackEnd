@@ -56,6 +56,7 @@ namespace uniPark.Main.Forms.Landing
             pnlAddUsers.Hide();
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
+            pnlAddParkings.Hide();
          /* ======================== */
         }
 
@@ -106,8 +107,15 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "View Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlSearchParkings.Hide();
             pnlViewParkings.Show();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlViewParkings.Dock = DockStyle.Fill;
         }
 
@@ -119,6 +127,13 @@ namespace uniPark.Main.Forms.Landing
             /* Hides other panels, shows View Parkings */
             pnlViewParkings.Hide();
             pnlSearchParkings.Show();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlSearchParkings.Dock = DockStyle.Fill;
         }
 
@@ -164,6 +179,12 @@ namespace uniPark.Main.Forms.Landing
             pnlViewParkings.Hide();
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Show();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlUpdateParkings.Dock = DockStyle.Fill;
         }
 
@@ -222,6 +243,11 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Hide();
             pnlAssignParkings.Show();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlAssignParkings.Dock = DockStyle.Fill;
         }
 
@@ -243,7 +269,7 @@ namespace uniPark.Main.Forms.Landing
         private void matBtnViewUsers_Click(object sender, EventArgs e)
         {
             /* will change heading title */
-            lblHeadings.Text = "View Users";
+            lblHeadings.Text = "View Personel";
 
             /* Hides other panels, shows View Parkings */
             pnlViewParkings.Hide();
@@ -251,13 +277,17 @@ namespace uniPark.Main.Forms.Landing
             pnlUpdateParkings.Hide();
             pnlAssignParkings.Hide();
             pnlViewUsers.Show();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlViewUsers.Dock = DockStyle.Fill;
         }
 
         private void matBtnAddUser_Click(object sender, EventArgs e)
         {
             /* will change heading title */
-            lblHeadings.Text = "Add Users";
+            lblHeadings.Text = "Add Personel";
 
             /* Hides other panels, shows View Parkings */
             pnlViewParkings.Hide();
@@ -266,6 +296,9 @@ namespace uniPark.Main.Forms.Landing
             pnlAssignParkings.Hide();
             pnlViewUsers.Hide();
             pnlAddUsers.Show();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlAddUsers.Dock = DockStyle.Fill;
         }
 
@@ -357,6 +390,8 @@ namespace uniPark.Main.Forms.Landing
             pnlViewUsers.Hide();
             pnlAddUsers.Hide();
             pnlSearchUsers.Show();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
             pnlSearchUsers.Dock = DockStyle.Fill;
         }
 
@@ -464,7 +499,56 @@ namespace uniPark.Main.Forms.Landing
             pnlAddUsers.Hide();
             pnlSearchUsers.Hide();
             pnlEditUser.Show();
+            pnlAddParkings.Hide();
             pnlEditUser.Dock = DockStyle.Fill;
+        }
+
+        private void matTextParkingAreaNameAD_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextParkingAreaNameAD.Text = "";
+        }
+
+        private void matTextParkingAreaNameAD_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaNameAD.Text != "")
+                matTextParkingAreaNameAD.Text = matTextParkingAreaNameAD.Text;
+            else
+                matTextParkingAreaNameAD.Text = "Parking Area Name";
+        }
+
+        private void matTextParkingAreaALAD_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextParkingAreaALAD.Text = "";
+        }
+
+        private void matTextParkingAreaALAD_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingAreaALAD.Text != "")
+                matTextParkingAreaALAD.Text = matTextParkingAreaALAD.Text;
+            else
+                matTextParkingAreaALAD.Text = "Parking Area Access Level";
+        }
+
+        private void matBtnAddParking_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Add Parkings";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Show();
+            pnlAddParkings.Dock = DockStyle.Fill;
         }
     }
 }
