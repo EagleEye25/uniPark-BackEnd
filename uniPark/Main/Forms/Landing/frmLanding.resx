@@ -281,4 +281,32 @@
         AQKIGtE241aAAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="dataGridViewTextBoxColumn13.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn14.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn15.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn16.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn17.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn18.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="matBtnUpdateParkingA.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAEGSURBVEhL3ZVNCsIwFIS78Qy2PUXTbsWFS0/lxp9LCsUfRG8QI9SmnUQT854NutEPBpI3M0lB
+        Icn/kF1Fg6Wz/hrcBXo/UHUmxSppqhGqPYFgJ9gxF/SS5RLVnmCoFezBjFU567pK7DHq8Q82gh1FsJtK
+        sXk+WEvPYBMfUGzTWzFHxGJ8bB/kslwYU68x7jDzgGpELMbD1oUyQ/OYrCWmFJO1vCsFtEPEYjxsXSjT
+        zB0pcYj6kTWUyZY82CxlsiUPNkuZbMmDzVImW/Jgs5TJljzYbMxBFPwFUpy0matqglEU7V93qvupEkeM
+        XNoL1uYLPpL/HljalwiXXF5Kw3QOvmg/TJLcAVzcsPzZ9l3QAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
