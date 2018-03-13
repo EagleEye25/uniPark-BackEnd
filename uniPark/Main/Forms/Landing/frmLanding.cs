@@ -49,6 +49,7 @@ namespace uniPark.Main.Forms.Landing
             pnlViewParkings.Hide();
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
         }
 
         private void matBtnMenu_Click(object sender, EventArgs e)
@@ -187,6 +188,49 @@ namespace uniPark.Main.Forms.Landing
                 matTextParkingAreaAL.Text = matTextParkingAreaAL.Text;
             else
                 matTextParkingAreaAL.Text = "Parking Area Access Level";
+        }
+
+        private void matTextParkingNameAS_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextParkingNameAS.Text = "";
+        }
+
+        private void matTextParkingNameAS_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextParkingNameAS.Text != "")
+                matTextParkingNameAS.Text = matTextParkingNameAS.Text;
+            else
+                matTextParkingNameAS.Text = "Parking Area Name";
+        }
+
+        private void matbtnAssignParking_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Assign Parkings";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Show();
+            pnlAssignParkings.Dock = DockStyle.Fill;
+        }
+
+        private void matTextFacilityNoAS_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextFacilityNoAS.Text = "";
+        }
+
+        private void matTextFacilityNoAS_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextFacilityNoAS.Text != "")
+                matTextFacilityNoAS.Text = matTextFacilityNoAS.Text;
+            else
+                matTextFacilityNoAS.Text = "User Facility Number";
         }
     }
 }
