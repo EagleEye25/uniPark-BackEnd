@@ -57,6 +57,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
          /* ======================== */
         }
 
@@ -116,6 +117,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlViewParkings.Dock = DockStyle.Fill;
         }
 
@@ -134,6 +136,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlSearchParkings.Dock = DockStyle.Fill;
         }
 
@@ -185,6 +188,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlUpdateParkings.Dock = DockStyle.Fill;
         }
 
@@ -248,6 +252,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlAssignParkings.Dock = DockStyle.Fill;
         }
 
@@ -281,6 +286,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlViewUsers.Dock = DockStyle.Fill;
         }
 
@@ -299,6 +305,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlAddUsers.Dock = DockStyle.Fill;
         }
 
@@ -392,6 +399,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Show();
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlSearchUsers.Dock = DockStyle.Fill;
         }
 
@@ -500,6 +508,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Show();
             pnlAddParkings.Hide();
+            pnlVerifyGuest.Hide();
             pnlEditUser.Dock = DockStyle.Fill;
         }
 
@@ -548,7 +557,102 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
             pnlAddParkings.Show();
+            pnlVerifyGuest.Hide();
             pnlAddParkings.Dock = DockStyle.Fill;
+        }
+
+        private void matBtnVerifyGuest_Click(object sender, EventArgs e)
+        {
+            /* will change heading title */
+            lblHeadings.Text = "Verify Guest";
+
+            /* Hides other panels, shows View Parkings */
+            pnlViewParkings.Hide();
+            pnlSearchParkings.Hide();
+            pnlUpdateParkings.Hide();
+            pnlAssignParkings.Hide();
+            pnlViewUsers.Hide();
+            pnlAddUsers.Hide();
+            pnlSearchUsers.Hide();
+            pnlEditUser.Hide();
+            pnlAddParkings.Hide();
+            pnlVerifyGuest.Show();
+            pnlVerifyGuest.Dock = DockStyle.Fill;
+        }
+
+        private void matTextGuestVerifyNo_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextGuestVerifyNo.Text = "";
+        }
+
+        private void matTextGuestVerifyNo_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextGuestVerifyNo.Text != "")
+                matTextGuestVerifyNo.Text = matTextGuestVerifyNo.Text;
+            else
+                matTextGuestVerifyNo.Text = "Guest Verification Number";
+        }
+
+        private void matTextGuestName_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextGuestName.Text = "";
+        }
+
+        private void matTextGuestName_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextGuestName.Text != "")
+                matTextGuestName.Text = matTextGuestName.Text;
+            else
+                matTextGuestName.Text = "Guest Name";
+        }
+
+        private void matTextGuestSurname_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextGuestSurname.Text = "";
+        }
+
+        private void matTextGuestSurname_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextGuestSurname.Text != "")
+                matTextGuestSurname.Text = matTextGuestSurname.Text;
+            else
+                matTextGuestSurname.Text = "Guest Surname";
+        }
+
+        private void matTextGuestType_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextGuestType.Text = "";
+        }
+
+        private void matTextGuestType_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextGuestType.Text != "")
+                matTextGuestType.Text = matTextGuestType.Text;
+            else
+                matTextGuestType.Text = "Guest Type";
+        }
+
+        private void matTextGuestLevel_Click(object sender, EventArgs e)
+        {
+            /* Sets text to nothing */
+            matTextGuestLevel.Text = "";
+        }
+
+        private void matTextGuestLevel_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (matTextGuestLevel.Text != "")
+                matTextGuestLevel.Text = matTextGuestLevel.Text;
+            else
+                matTextGuestLevel.Text = "Guest Access Level";
         }
     }
 }
