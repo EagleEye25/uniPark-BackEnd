@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Main\Classes\Database\DBHelper.cs" />
     <Compile Include="Main\Forms\Landing\frmLanding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,9 +211,7 @@
   <ItemGroup>
     <None Include="Properties\Images\rightTick.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Main\Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
