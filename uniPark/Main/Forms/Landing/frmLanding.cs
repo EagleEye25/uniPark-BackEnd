@@ -61,6 +61,34 @@ namespace uniPark.Main.Forms.Landing
          /* ======================== */
         }
 
+        //Method for hide all panels, but one.
+        private void PanelVisible(string panelName)
+        {
+            List<Panel> landingPanels = new List<Panel>();
+            landingPanels.Add(pnlViewParkings);
+            landingPanels.Add(pnlSearchParkings);
+            landingPanels.Add(pnlUpdateParkings);
+            landingPanels.Add(pnlAssignParkings);
+            landingPanels.Add(pnlViewUsers);
+            landingPanels.Add(pnlAddUsers);
+            landingPanels.Add(pnlSearchUsers);
+            landingPanels.Add(pnlEditUser);
+            landingPanels.Add(pnlAddParkings);
+            landingPanels.Add(pnlVerifyGuest);
+            
+            foreach (Panel p in landingPanels)
+            {
+                if (p.Name == panelName)
+                {
+                    p.Visible = true;
+                    p.Dock = DockStyle.Fill;
+                }
+                else
+                    p.Visible = false;
+            }
+        }
+
+
         private void matBtnMenu_Click(object sender, EventArgs e)
         {   /* When button is pressed, slides the panel to the left, right */
             if (hidden)
@@ -108,17 +136,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "View Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Show();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlViewParkings.Dock = DockStyle.Fill;
+         
+            PanelVisible("pnlViewParkings");
         }
 
         private void matbtnSearchParking_Click(object sender, EventArgs e)
@@ -127,17 +146,7 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Search Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Show();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlSearchParkings.Dock = DockStyle.Fill;
+            PanelVisible("pnlSearchParkings");
         }
 
         private void lblHeadings_Click(object sender, EventArgs e)
@@ -179,17 +188,9 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Update Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Show();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlUpdateParkings.Dock = DockStyle.Fill;
+            PanelVisible("pnlUpdateParkings");
+            
+
         }
 
         private void matTextParkingAreaName_Click(object sender, EventArgs e)
@@ -243,17 +244,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Assign Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Show();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlAssignParkings.Dock = DockStyle.Fill;
+            PanelVisible("pnlAssignParkings");
+           
         }
 
         private void matTextFacilityNoAS_Click(object sender, EventArgs e)
@@ -277,17 +269,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "View Personel";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Show();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlViewUsers.Dock = DockStyle.Fill;
+            PanelVisible("pnlViewUsers");
+            
         }
 
         private void matBtnAddUser_Click(object sender, EventArgs e)
@@ -296,17 +279,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Add Personel";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Show();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlAddUsers.Dock = DockStyle.Fill;
+            PanelVisible("pnlAddUsers");
+            
         }
 
         private void matTextPersonelTagNo_Click(object sender, EventArgs e)
@@ -390,17 +364,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Search Personel";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Show();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlSearchUsers.Dock = DockStyle.Fill;
+            PanelVisible("pnlSearchUsers");
+            
         }
 
         private void matTextSearchUsers_Click(object sender, EventArgs e)
@@ -499,17 +464,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Edit Personel";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Show();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Hide();
-            pnlEditUser.Dock = DockStyle.Fill;
+            PanelVisible("pnlEditUser");
+            
         }
 
         private void matTextParkingAreaNameAD_Click(object sender, EventArgs e)
@@ -548,17 +504,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Add Parkings";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Show();
-            pnlVerifyGuest.Hide();
-            pnlAddParkings.Dock = DockStyle.Fill;
+            PanelVisible("pnlAddParkings");
+            
         }
 
         private void matBtnVerifyGuest_Click(object sender, EventArgs e)
@@ -567,17 +514,8 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "Verify Guest";
 
             /* Hides other panels, shows View Parkings */
-            pnlViewParkings.Hide();
-            pnlSearchParkings.Hide();
-            pnlUpdateParkings.Hide();
-            pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
-            pnlAddUsers.Hide();
-            pnlSearchUsers.Hide();
-            pnlEditUser.Hide();
-            pnlAddParkings.Hide();
-            pnlVerifyGuest.Show();
-            pnlVerifyGuest.Dock = DockStyle.Fill;
+            PanelVisible("pnlVerifyGuest");
+           
         }
 
         private void matTextGuestVerifyNo_Click(object sender, EventArgs e)

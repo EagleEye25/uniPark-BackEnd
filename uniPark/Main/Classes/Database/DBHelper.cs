@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace uniPark.Main.Classes.Database
 {
    internal class DBHelper
     {
-       // private static string connString = ConfigurationManager.ConnectionStrings[""].ConnectionString;
+        private static string connString = ConfigurationManager.ConnectionStrings["uniparkDB"].ConnectionString;
 
         #region ParamSelect()
         internal static DataTable ParamSelect(string commandName, CommandType cmdType,
