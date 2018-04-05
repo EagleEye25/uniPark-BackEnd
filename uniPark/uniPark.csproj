@@ -53,6 +53,9 @@
       <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -108,7 +111,9 @@
     <Compile Include="Main\Forms\Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Forms\Test\Form2.cs" />
+    <Compile Include="Main\Forms\Test\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main\Forms\Test\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>

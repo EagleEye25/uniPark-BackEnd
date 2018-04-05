@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using uniPark.Main.Forms.Login;
+using uniPark.Main.Classes.Database.ViewModels;
+using uniPark.Main.Classes.Database;
+using uniPark.Main.Classes.Models;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -38,8 +41,8 @@ namespace uniPark.Main.Forms.Landing
             dgvParkings.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
             /* Changes column headings to bold */
-            dgvParkings.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
-            dgvParkings.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            //dgvParkings.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+           // dgvParkings.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
             /*=======================================================================================================*/
 
             /* Sets defualt headding */
@@ -138,6 +141,19 @@ namespace uniPark.Main.Forms.Landing
             /* Hides other panels, shows View Parkings */
          
             PanelVisible("pnlViewParkings");
+            
+            /*Connecting data to datagrid*/
+            
+            DBAccess db = new DBAccess();
+            DataTable dt = new DataTable();
+            dt = db.GetParingAreas();
+            
+            dgvParkings.DataSource = dt;
+          // cmbParkingAreas.DataSource = dt;
+          // cmbParkingAreas.DisplayMember = "ParkingAreaName";
+          // cmbParkingAreas.ValueMember = "ParkingAreaID";
+            
+
         }
 
         private void matbtnSearchParking_Click(object sender, EventArgs e)
@@ -147,6 +163,16 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlSearchParkings");
+
+            /*Connecting data to combobox*/
+            DBAccess db = new DBAccess();
+            DataTable dt = new DataTable();
+            dt = db.GetParingAreas();
+
+            
+             cmbParkingAreas.DataSource = dt;
+             cmbParkingAreas.DisplayMember = "ParkingAreaName";
+             cmbParkingAreas.ValueMember = "ParkingAreaID";
         }
 
         private void lblHeadings_Click(object sender, EventArgs e)
@@ -157,15 +183,12 @@ namespace uniPark.Main.Forms.Landing
         private void matTextParkingName_Click(object sender, EventArgs e)
         {
             /* sets the text of the textbox to nothing */
-            matTextParkingName.Text = "";
+            //matTextParkingName.Text = "";
         }
 
         private void matTextParkingName_Leave(object sender, EventArgs e)
         {
-            if (matTextParkingName.Text != "")
-                matTextParkingName.Text = matTextParkingName.Text;
-            else
-                matTextParkingName.Text = "Enter Parking Number";
+            
         }
 
         private void matTextParkingAreaID_Click(object sender, EventArgs e)
@@ -592,5 +615,62 @@ namespace uniPark.Main.Forms.Landing
             else
                 matTextGuestLevel.Text = "Guest Access Level";
         }
+
+        private void cmbParkingAreas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*Getting paramaters from ParkingAreas combobox*/
+            string parkingAreaID;
+            parkingAreaID = cmbParkingAreas.SelectedValue.ToString();
+
+            /*Connecting data to ParkingSpace combobox*/
+            DBAccess db = new DBAccess();
+            DataTable dt = new DataTable();
+            dt = db.GetParkingSpaces(parkingAreaID);
+            
+            cmbParkingSpace.DataSource = dt;
+            cmbParkingSpace.DisplayMember = "ParkingSpaceID";
+            cmbParkingSpace.ValueMember = "ParkingSpaceID";
+
+        }
+
+        private void dgvParkings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void dgvParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvParkings.SelectedRows.Count > 0)
+            {
+                string parkindAreaID;
+                parkindAreaID = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
+                               
+                DBAccess db = new DBAccess();
+                DataTable dt = new DataTable();
+                dt = db.GetParkingSpaces(parkindAreaID);
+             
+                dgvParkings.DataSource = dt;
+                
+                
+            }
+        }
+
+        private void dgvSearchParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+        }
+
+        private void cmbParkingSpace_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            /*Get Parameter for ParkingSpace details*/
+            string parkindAreaID = cmbParkingAreas.SelectedValue.ToString();
+            string parkingSearchID = cmbParkingSpace.SelectedValue.ToString();  
+
+                DBAccess db = new DBAccess();
+                DataTable dt = new DataTable();
+                dt = db.SearchParkingSpaceDetails(parkindAreaID,parkingSearchID);
+
+                dgvSearchParkings.DataSource = dt;
+            }
     }
 }
