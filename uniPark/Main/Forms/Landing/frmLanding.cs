@@ -17,33 +17,42 @@ namespace uniPark.Main.Forms.Landing
     public partial class frmLanding : Form
     {
         bool hidden;
-         
+
+
+    private void DGVload(DataGridView dgvName)
+        {
+            /* ==================================
+            * Designing of material DataGridView
+            * ================================== */
+            /* changes table visuals */
+            dgvName.BorderStyle = BorderStyle.None;
+            dgvName.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(236, 252, 232);
+            dgvName.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvName.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
+            dgvName.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvName.BackgroundColor = Color.FromArgb(247, 255, 245);
+
+            /* Changes column heading visualas */
+            dgvName.EnableHeadersVisualStyles = false;
+            dgvName.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvName.ColumnHeadersDefaultCellStyle.BackColor = Color.PaleGreen;
+            dgvName.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+
+            
+        }
+        private void DGVBoldHeadings(DataGridView dgvName)
+        {
+            /* Changes column headings to bold */
+            dgvName.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            dgvName.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+        }
         public frmLanding()
         {
             InitializeComponent();
             hidden = false;
 
-          /* ==================================
-          * Designing of material DataGridView
-          * ================================== */
-         /* changes table visuals */
-            dgvParkings.BorderStyle = BorderStyle.None;
-            dgvParkings.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(236, 252, 232);
-            dgvParkings.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvParkings.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
-            dgvParkings.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvParkings.BackgroundColor = Color.FromArgb(247, 255, 245);
-
-            /* Changes column heading visualas */
-            dgvParkings.EnableHeadersVisualStyles = false;
-            dgvParkings.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvParkings.ColumnHeadersDefaultCellStyle.BackColor = Color.PaleGreen;
-            dgvParkings.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-
-            /* Changes column headings to bold */
-            //dgvParkings.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
-           // dgvParkings.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
-            /*=======================================================================================================*/
+            /*the datagridview loaded on initial startup*/
+            DGVload(dgvParkings);
 
             /* Sets defualt headding */
             lblHeadings.Text = "Please select an option...";
