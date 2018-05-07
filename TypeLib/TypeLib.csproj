@@ -41,11 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\LicensePlatLog.cs" />
+    <Compile Include="Models\MainGate.cs" />
+    <Compile Include="Models\ParkingArea.cs" />
+    <Compile Include="Models\ParkingAreaLog.cs" />
+    <Compile Include="Models\ParkingFee.cs" />
+    <Compile Include="Models\ParkingRequest.cs" />
+    <Compile Include="Models\ParkingSpace.cs" />
+    <Compile Include="Models\ParkingSpacePersonel.cs" />
+    <Compile Include="Models\Personel.cs" />
+    <Compile Include="Models\PersonelLevel.cs" />
+    <Compile Include="Models\PersonelLog.cs" />
+    <Compile Include="Models\PersonelType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
