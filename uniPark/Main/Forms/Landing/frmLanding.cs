@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using uniPark.Main.Forms.Login;
-using uniPark.Main.Classes.Database.ViewModels;
-using uniPark.Main.Classes.Database;
-using uniPark.Main.Classes.Models;
+using TypeLib.Models;
+using TypeLib.ViewModels;
+using TypeLib.Interfaces;
+
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -153,9 +154,9 @@ namespace uniPark.Main.Forms.Landing
             
             /*Connecting data to datagrid*/
             
-            DBAccess db = new DBAccess();
+            //DBAccess db = new DBAccess();
             DataTable dt = new DataTable();
-            dt = db.GetParingAreas();
+           // dt = db.GetParingAreas();
             
             dgvParkings.DataSource = dt;
           // cmbParkingAreas.DataSource = dt;
@@ -174,9 +175,9 @@ namespace uniPark.Main.Forms.Landing
             PanelVisible("pnlSearchParkings");
 
             /*Connecting data to combobox*/
-            DBAccess db = new DBAccess();
+            //DBAccess db = new DBAccess();
             DataTable dt = new DataTable();
-            dt = db.GetParingAreas();
+          //  dt = db.GetParingAreas();
 
             
              cmbParkingAreas.DataSource = dt;
@@ -632,9 +633,9 @@ namespace uniPark.Main.Forms.Landing
             parkingAreaID = cmbParkingAreas.SelectedValue.ToString();
 
             /*Connecting data to ParkingSpace combobox*/
-            DBAccess db = new DBAccess();
+            //DBAccess db = new DBAccess();
             DataTable dt = new DataTable();
-            dt = db.GetParkingSpaces(parkingAreaID);
+           // dt = db.GetParkingSpaces(parkingAreaID);
             
             cmbParkingSpace.DataSource = dt;
             cmbParkingSpace.DisplayMember = "ParkingSpaceID";
@@ -654,9 +655,9 @@ namespace uniPark.Main.Forms.Landing
                 string parkindAreaID;
                 parkindAreaID = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
                                
-                DBAccess db = new DBAccess();
+                //DBAccess db = new DBAccess();
                 DataTable dt = new DataTable();
-                dt = db.GetParkingSpaces(parkindAreaID);
+               // dt = db.GetParkingSpaces(parkindAreaID);
              
                 dgvParkings.DataSource = dt;
                 
@@ -675,9 +676,9 @@ namespace uniPark.Main.Forms.Landing
             string parkindAreaID = cmbParkingAreas.SelectedValue.ToString();
             string parkingSearchID = cmbParkingSpace.SelectedValue.ToString();  
 
-                DBAccess db = new DBAccess();
+                //DBAccess db = new DBAccess();
                 DataTable dt = new DataTable();
-                dt = db.SearchParkingSpaceDetails(parkindAreaID,parkingSearchID);
+               // dt = db.SearchParkingSpaceDetails(parkindAreaID,parkingSearchID);
 
                 dgvSearchParkings.DataSource = dt;
             }

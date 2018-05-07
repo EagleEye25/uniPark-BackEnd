@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using TypeLib.Models;
-//using TypeLib.ViewModels;
-//using TypeLib.Interfaces;
-//using unipark-DAL;
+using TypeLib.Models;
+using TypeLib.ViewModels;
+using TypeLib.Interfaces;
+using uniPark_DAL;
+
 
 namespace uniPark_BLL
 {
@@ -16,7 +17,7 @@ namespace uniPark_BLL
 
         public DBHandler()
         {
-            db = new IDBAccess();
+            db = new DBAccess();
         }
 
 
