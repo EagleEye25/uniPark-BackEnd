@@ -39,8 +39,16 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="uniPark-BLL">
+      <HintPath>..\uniPark-BLL\bin\Debug\uniPark-BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="uniPark-DAL">
+      <HintPath>..\uniPark-DAL\bin\Debug\uniPark-DAL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDBAccess.cs" />
+    <Compile Include="Interfaces\IDBHandeler.cs" />
     <Compile Include="Models\LicensePlatLog.cs" />
     <Compile Include="Models\MainGate.cs" />
     <Compile Include="Models\ParkingArea.cs" />
@@ -62,9 +70,7 @@
     <Compile Include="ViewModels\UspViewSignedInFacility.cs" />
     <Compile Include="ViewModels\UspViewSpaces.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

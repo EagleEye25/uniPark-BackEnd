@@ -68,31 +68,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TypeLib">
+      <HintPath>..\TypeLib\bin\Debug\TypeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="uniPark-BLL">
+      <HintPath>..\uniPark-BLL\bin\Debug\uniPark-BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="uniPark-DAL">
+      <HintPath>..\uniPark-DAL\bin\Debug\uniPark-DAL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main\Classes\Database\DBAccess.cs" />
-    <Compile Include="Main\Classes\Database\DBHelper.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspCheckMainEntry.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspCheckMainExit.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspGetAllSpecificSpaces.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspGetParkingAreas.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspSearchParking.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspSearchPersonel.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspViewPersonel.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspViewSignedInFacility.cs" />
-    <Compile Include="Main\Classes\ViewModels\uspViewSpaces.cs" />
-    <Compile Include="Main\Classes\Models\LicensePlate.cs" />
-    <Compile Include="Main\Classes\Models\MainGate.cs" />
-    <Compile Include="Main\Classes\Models\ParkingArea.cs" />
-    <Compile Include="Main\Classes\Models\ParkingAreaLog.cs" />
-    <Compile Include="Main\Classes\Models\ParkingFee.cs" />
-    <Compile Include="Main\Classes\Models\ParkingRequest.cs" />
-    <Compile Include="Main\Classes\Models\ParkingSpace.cs" />
-    <Compile Include="Main\Classes\Models\ParkingSpacePersonel.cs" />
-    <Compile Include="Main\Classes\Models\Personel.cs" />
-    <Compile Include="Main\Classes\Models\PersonelLevel.cs" />
-    <Compile Include="Main\Classes\Models\PersonelLog.cs" />
-    <Compile Include="Main\Classes\Models\PersonelType.cs" />
     <Compile Include="Main\Forms\Landing\frmLanding.cs">
       <SubType>Form</SubType>
     </Compile>
