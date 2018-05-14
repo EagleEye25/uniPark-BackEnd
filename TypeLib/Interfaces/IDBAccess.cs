@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using TypeLib.Models;
 using TypeLib.ViewModels;
+using System.Data;
 
 namespace TypeLib.Interfaces
 {
     public interface IDBAccess
     {
-
+        DataTable GetParkingAreas();
+        DataTable GetParkingSpaces(string parkinngAreaID);
+        DataTable SearchParkingSpaceDetails(string parkingAreaID, string parkingSpaceID);
     }
 }

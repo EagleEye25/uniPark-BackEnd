@@ -7,6 +7,7 @@ using TypeLib.Models;
 using TypeLib.ViewModels;
 using TypeLib.Interfaces;
 using uniPark_DAL;
+using System.Data;
 
 
 namespace uniPark_BLL
@@ -18,9 +19,22 @@ namespace uniPark_BLL
         public DBHandler()
         {
             db = new DBAccess();
+
         }
 
 
+        public DataTable BLL_GetParkingAreas()
+        {
+          return  db.GetParkingAreas();
+        }
+        public DataTable BLL_GetParkingSpaces(string parkinngAreaID)
+        {
+            return db.GetParkingSpaces(parkinngAreaID);
+        }
+        public DataTable BLL_SearchParkingSpaceDetails(string parkingAreaID, string parkingSpaceID)
+        {
+            return db.SearchParkingSpaceDetails(parkingAreaID,parkingSpaceID);
+        }
 
     }
 }

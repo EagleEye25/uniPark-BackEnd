@@ -11,7 +11,7 @@ namespace uniPark_DAL
    public class DBAccess : IDBAccess
     {
         //get parking area details
-        public DataTable GetParingAreas()
+        public DataTable GetParkingAreas()
         {
 
 
