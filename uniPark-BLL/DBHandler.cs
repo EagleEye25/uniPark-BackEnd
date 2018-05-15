@@ -12,7 +12,7 @@ using System.Data;
 
 namespace uniPark_BLL
 {
-    public class DBHandler : IDBHandeler
+    public class DBHandler : IDBHandler
     {
         private IDBAccess db;
 
@@ -35,6 +35,10 @@ namespace uniPark_BLL
         {
             return db.SearchParkingSpaceDetails(parkingAreaID,parkingSpaceID);
         }
+       public uspLogin BLL_Login(string userid)
+        {
+            return db.Login(userid);
+        }
 
-    }
+}
 }
