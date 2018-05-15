@@ -81,7 +81,7 @@
             this.matTextUsername.Depth = 0;
             this.matTextUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matTextUsername.ForeColor = System.Drawing.Color.White;
-            this.matTextUsername.Hint = "Enter Username";
+            this.matTextUsername.Hint = "Enter User ID";
             this.matTextUsername.Location = new System.Drawing.Point(12, 214);
             this.matTextUsername.MaxLength = 30;
             this.matTextUsername.MouseState = MaterialSkin.MouseState.HOVER;
@@ -154,9 +154,9 @@
             this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(9, 198);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 18);
+            this.label1.Size = new System.Drawing.Size(65, 18);
             this.label1.TabIndex = 16;
-            this.label1.Text = "UserName";
+            this.label1.Text = "User ID";
             // 
             // label3
             // 

@@ -9,14 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using uniPark.Main.Forms.Loading;
+using TypeLib.ViewModels;
+using TypeLib.Interfaces;
+using uniPark_BLL;
+using TypeLib.Models;
 
 namespace uniPark.Main.Forms.Login
 {
     public partial class frmLogin : Form
     {
+       
+
         public frmLogin()
         {
             InitializeComponent();
+            
+        }
+        private void EnterPress(object sender,KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                matBtnLogin.PerformClick();
+            }
         }
 
         private void matTextUsername_Click(object sender, EventArgs e)
@@ -57,11 +71,53 @@ namespace uniPark.Main.Forms.Login
 
         private void matBtnLogin_Click(object sender, EventArgs e)
         {
-            /* Showing loading form, hiding login form */
+            //OLD CODE
+            /* Showing loading form, hiding login form 
             frmLoading loading = new frmLoading();
             frmLogin login = this;
             login.Hide();
-            loading.Show();
+            loading.Show();*/
+
+            //NEW CODE WITH VERIFICATION
+            IDBHandler handler = new DBHandler();
+
+            string username = matTextUsername.Text;
+            string password = "";
+
+            if (username != "")
+            {
+                try
+                {
+                    uspLogin log = handler.BLL_Login(matTextUsername.Text);
+                    password = log.PersonelPassword;
+                }
+                catch (Exception)
+                {
+
+                }
+                if (password == matTextPass.Text)
+                {
+                    frmLoading loading = new frmLoading();
+                    frmLogin login = this;
+                    login.Hide();
+                    loading.Show();
+                }
+                else
+                {
+                    lblIncorrect.Visible = true;
+                    matTextPass.Text = "";
+                }
+            }
+            else
+            {
+                lblIncorrect.Visible = true;
+            }
+
         }
+            
+
+
+
+        
     }
 }
