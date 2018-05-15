@@ -155,7 +155,7 @@ namespace uniPark.Main.Forms.Landing
 
             /*Connecting data to datagrid*/
 
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
 
             DataTable dt = new DataTable();
             dt = handler.BLL_GetParkingAreas();
@@ -177,7 +177,7 @@ namespace uniPark.Main.Forms.Landing
             PanelVisible("pnlSearchParkings");
 
             /*Connecting data to combobox*/
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
 
             DataTable dt = new DataTable();
             dt = handler.BLL_GetParkingAreas();
@@ -635,7 +635,7 @@ namespace uniPark.Main.Forms.Landing
             parkingAreaID = cmbParkingAreas.SelectedValue.ToString();
 
             /*Connecting data to ParkingSpace combobox*/
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
             DataTable dt = new DataTable();
             
             dt = handler.BLL_GetParkingSpaces(parkingAreaID);
@@ -658,7 +658,7 @@ namespace uniPark.Main.Forms.Landing
                 string parkindAreaID;
                 parkindAreaID = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
 
-                IDBHandeler handler = new DBHandler();
+                IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
                dt = handler.BLL_GetParkingSpaces(parkindAreaID);
              
@@ -679,7 +679,7 @@ namespace uniPark.Main.Forms.Landing
             string parkindAreaID = cmbParkingAreas.SelectedValue.ToString();
             string parkingSearchID = cmbParkingSpace.SelectedValue.ToString();
 
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
                 dt = handler.BLL_SearchParkingSpaceDetails(parkindAreaID,parkingSearchID);
 

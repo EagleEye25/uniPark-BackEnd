@@ -14,5 +14,6 @@ namespace TypeLib.Interfaces
         DataTable GetParkingAreas();
         DataTable GetParkingSpaces(string parkinngAreaID);
         DataTable SearchParkingSpaceDetails(string parkingAreaID, string parkingSpaceID);
+        uspLogin Login(string userID);
     }
 }

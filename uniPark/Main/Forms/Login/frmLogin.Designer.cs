@@ -94,7 +94,7 @@
             this.matTextUsername.TabIndex = 10;
             this.matTextUsername.TabStop = false;
             this.matTextUsername.UseSystemPasswordChar = false;
-            this.matTextUsername.Click += new System.EventHandler(this.matTextUsername_Click);
+            this.matTextUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matTextUsername_KeyDown);
             // 
             // pnlMenu
             // 
@@ -125,6 +125,7 @@
             this.matTextPass.TabIndex = 12;
             this.matTextPass.TabStop = false;
             this.matTextPass.UseSystemPasswordChar = false;
+            this.matTextPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matTextPass_KeyDown);
             // 
             // lblIncorrect
             // 

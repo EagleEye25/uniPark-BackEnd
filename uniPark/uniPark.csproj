@@ -68,14 +68,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TypeLib">
+    <Reference Include="TypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\TypeLib\bin\Debug\TypeLib.dll</HintPath>
     </Reference>
-    <Reference Include="uniPark-BLL">
+    <Reference Include="uniPark-BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\uniPark-BLL\bin\Debug\uniPark-BLL.dll</HintPath>
-    </Reference>
-    <Reference Include="uniPark-DAL">
-      <HintPath>..\uniPark-DAL\bin\Debug\uniPark-DAL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
