@@ -74,23 +74,24 @@ namespace uniPark.Main.Forms.Login
                 {
                     uspLogin log = handler.BLL_Login(matTextUsername.Text);
                     password = log.PersonelPassword;
+                    if (password == matTextPass.Text)
+                    {
+                        frmLoading loading = new frmLoading();
+                        frmLogin login = this;
+                        login.Hide();
+                        loading.Show();
+                    }
+                    else
+                    {
+                        lblIncorrect.Visible = true;
+                        matTextPass.Text = "";
+                    }
                 }
                 catch (Exception)
                 {
 
                 }
-                if (password == matTextPass.Text)
-                {
-                    frmLoading loading = new frmLoading();
-                    frmLogin login = this;
-                    login.Hide();
-                    loading.Show();
-                }
-                else
-                {
-                    lblIncorrect.Visible = true;
-                    matTextPass.Text = "";
-                }
+                
             }
             else
             {
