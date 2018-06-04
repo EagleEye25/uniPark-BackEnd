@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IDBAccess.cs" />
-    <Compile Include="Interfaces\IDBHandeler.cs" />
+    <Compile Include="Interfaces\IDBHandler.cs" />
     <Compile Include="Models\LicensePlatLog.cs" />
     <Compile Include="Models\MainGate.cs" />
     <Compile Include="Models\ParkingArea.cs" />
@@ -64,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\UspGetAllSpecificSpaces.cs" />
     <Compile Include="ViewModels\UspGetParkingAreas.cs" />
+    <Compile Include="ViewModels\uspLogin.cs" />
     <Compile Include="ViewModels\UspSearchParking.cs" />
     <Compile Include="ViewModels\UspSearchPersonel.cs" />
     <Compile Include="ViewModels\UspViewPersonel.cs" />

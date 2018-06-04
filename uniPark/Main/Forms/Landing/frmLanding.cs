@@ -155,7 +155,7 @@ namespace uniPark.Main.Forms.Landing
 
             /*Connecting data to datagrid*/
 
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
 
             DataTable dt = new DataTable();
             dt = handler.BLL_GetParkingAreas();
@@ -177,7 +177,7 @@ namespace uniPark.Main.Forms.Landing
             PanelVisible("pnlSearchParkings");
 
             /*Connecting data to combobox*/
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
 
             DataTable dt = new DataTable();
             dt = handler.BLL_GetParkingAreas();
@@ -315,7 +315,21 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlAddUsers");
-            
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt1 = handler.BLL_GetLevels();
+            cmbPersonelLevel.DataSource = dt1;
+            cmbPersonelLevel.DisplayMember = "PersonelLevelDesc";
+            cmbPersonelLevel.ValueMember = "PersonelLevelID";
+
+            IDBHandler handler2 = new DBHandler();
+            DataTable dt2 = handler2.BLL_GetTypes();
+            cmbPersonelType.DataSource = dt2;
+            cmbPersonelType.ValueMember = "PersonelTypeID";
+            cmbPersonelType.DisplayMember = "PersonelTypeDesc";
+        
+
+
         }
 
         private void matTextPersonelTagNo_Click(object sender, EventArgs e)
@@ -366,31 +380,31 @@ namespace uniPark.Main.Forms.Landing
         private void matTextPersonelType_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextPersonelType.Text = "";
+            //matTextPersonelType.Text = "";
         }
 
         private void matTextPersonelType_Leave(object sender, EventArgs e)
         {
-            /* will set text field back to message if user doesnt enter data */
+            /* will set text field back to message if user doesnt enter data 
             if (matTextPersonelType.Text != "")
                 matTextPersonelType.Text = matTextPersonelType.Text;
             else
-                matTextPersonelType.Text = "Personel Type";
+                matTextPersonelType.Text = "Personel Type";*/
         }
 
         private void matTextPersonelLevel_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextPersonelLevel.Text = "";
+           // matTextPersonelLevel.Text = "";
         }
 
         private void matTextPersonelLevel_Leave(object sender, EventArgs e)
         {
-            /* will set text field back to message if user doesnt enter data */
+            /* will set text field back to message if user doesnt enter data 
             if (matTextPersonelLevel.Text != "")
                 matTextPersonelLevel.Text = matTextPersonelLevel.Text;
             else
-                matTextPersonelLevel.Text = "Personel Level";
+                matTextPersonelLevel.Text = "Personel Level"; */
         }
 
         private void matBtnSearchUser_Click(object sender, EventArgs e)
@@ -635,7 +649,7 @@ namespace uniPark.Main.Forms.Landing
             parkingAreaID = cmbParkingAreas.SelectedValue.ToString();
 
             /*Connecting data to ParkingSpace combobox*/
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
             DataTable dt = new DataTable();
             
             dt = handler.BLL_GetParkingSpaces(parkingAreaID);
@@ -658,7 +672,7 @@ namespace uniPark.Main.Forms.Landing
                 string parkindAreaID;
                 parkindAreaID = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
 
-                IDBHandeler handler = new DBHandler();
+                IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
                dt = handler.BLL_GetParkingSpaces(parkindAreaID);
              
@@ -679,11 +693,104 @@ namespace uniPark.Main.Forms.Landing
             string parkindAreaID = cmbParkingAreas.SelectedValue.ToString();
             string parkingSearchID = cmbParkingSpace.SelectedValue.ToString();
 
-            IDBHandeler handler = new DBHandler();
+            IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
                 dt = handler.BLL_SearchParkingSpaceDetails(parkindAreaID,parkingSearchID);
 
                 dgvSearchParkings.DataSource = dt;
             }
+
+        private void matBtnAddUsers_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+            try
+            {
+                IDBHandler handler = new DBHandler();
+                success = handler.BLL_AddPersonel(matTextPersonelName.Text, matTextPersonelTagNo.Text, mattextPassword.Text, matTextPersonelSurname.Text, matTextPersonelName.Text, mattextPhoneNum.Text, mattextEmail.Text, (int)cmbPersonelLevel.SelectedValue, (int)cmbPersonelType.SelectedValue);
+            }
+            catch
+            {
+                MessageBox.Show("Failure");
+            }
+            if (success == true)
+            {
+                MessageBox.Show("Successfully added user");
+            }
+            else { MessageBox.Show("Failure to add user"); }
+
+        }
+
+        private void mattextUserID_Click(object sender, EventArgs e)
+        {
+            mattextUserID.Text = "";
+        }
+
+        private void mattextPassword_Click(object sender, EventArgs e)
+        {
+            mattextPassword.Text = "";
+            mattextPassword.PasswordChar = '*';
+        }
+
+        private void mattextUserID_Leave_1(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (mattextUserID.Text != "")
+                mattextUserID.Text = mattextUserID.Text;
+            else
+                mattextUserID.Text = "User ID";
+        }
+
+        private void mattextPassword_Leave(object sender, EventArgs e)
+        {
+            /* will set text field back to message if user doesnt enter data */
+            if (mattextPassword.Text != "")
+                mattextPassword.Text = mattextPassword.Text;
+            else
+            {
+                mattextPassword.Text = "Password";
+                mattextPassword.PasswordChar = '\0';
+            }
+
+        }
+
+        private void frmLanding_Load(object sender, EventArgs e)
+        {
+
+
+
+            
+            
+        }
+
+        private void mattextPhoneNum_Leave(object sender, EventArgs e)
+        {
+            if (mattextPhoneNum.Text != "")
+                mattextPhoneNum.Text = mattextPhoneNum.Text;
+            else
+            {
+                mattextPhoneNum.Text = "Personel Phone Number";
+            }
+        }
+
+        private void mattextEmail_Leave(object sender, EventArgs e)
+        {
+            if (mattextEmail.Text != "")
+                mattextEmail.Text = mattextEmail.Text;
+            else
+            {
+                mattextEmail.Text = "Personel Email";
+
+            }
+        }
+
+        private void mattextPhoneNum_Click(object sender, EventArgs e)
+        {
+            mattextPhoneNum.Text = "";
+        }
+
+        private void mattextEmail_Click(object sender, EventArgs e)
+        {
+            mattextEmail.Text = "";
+        }
     }
 }

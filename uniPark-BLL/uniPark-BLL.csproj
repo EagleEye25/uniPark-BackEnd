@@ -43,7 +43,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\TypeLib\bin\Debug\TypeLib.dll</HintPath>
     </Reference>
-    <Reference Include="uniPark-DAL">
+    <Reference Include="uniPark-BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\uniPark-BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="uniPark-DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\uniPark-DAL\bin\Debug\uniPark-DAL.dll</HintPath>
     </Reference>
   </ItemGroup>
