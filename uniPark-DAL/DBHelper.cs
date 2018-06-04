@@ -11,7 +11,11 @@ namespace uniPark_DAL
 {
     internal class DBHelper
     {
-        private static string connString = ConfigurationManager.ConnectionStrings["uniparkDBConn2"].ConnectionString;
+
+
+        private static string connString = ConfigurationManager.ConnectionStrings["uniparkDBConn1"].ConnectionString;
+        
+       
 
         #region ParamSelect()
         internal static DataTable ParamSelect(string commandName, CommandType cmdType,

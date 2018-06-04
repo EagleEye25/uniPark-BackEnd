@@ -121,6 +121,12 @@ namespace uniPark_DAL
             return dt;
 
         }
+        public DataTable GetPersonel()
+        {
+            DataTable dt = new DataTable();
+            dt = DBHelper.Select("uspDisplayPersonelInfoAll", CommandType.StoredProcedure);
+            return dt;
+        }
 
 
     }

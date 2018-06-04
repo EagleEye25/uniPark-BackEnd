@@ -305,6 +305,11 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlViewUsers");
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetPersonel();
+            dgvViewUsers.DataSource = dt;
             
         }
 
