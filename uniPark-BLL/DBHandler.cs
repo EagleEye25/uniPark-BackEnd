@@ -21,7 +21,19 @@ namespace uniPark_BLL
             db = new DBAccess();
 
         }
+        public DataTable BLL_GetLevels()
+        {
+            return db.GetLevels();
+        }
+        public DataTable BLL_GetTypes()
+        {
+            return db.GetTypes();
+        }
 
+        public bool BLL_AddPersonel(string PersonelID, string PersonelTagNumber, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID, int PersonelTypeID)
+        {
+            return db.AddPersonel(PersonelID, PersonelTagNumber, PersonelPassword, PersonelSurname, PersonelName, PersonelPhoneNumber, PersonelEmail, PersonelLevelID, PersonelTypeID);
+        }
 
         public DataTable BLL_GetParkingAreas()
         {

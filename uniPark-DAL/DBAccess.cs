@@ -85,6 +85,42 @@ namespace uniPark_DAL
             return l;
         }//EndLogin
 
+        public bool AddPersonel(string PersonelID,string PersonelTagNumber,string PersonelPassword,string PersonelSurname
+            ,string PersonelName,string PersonelPhoneNumber,string PersonelEmail,int PersonelLevelID,int PersonelTypeID)
+        {
+
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                new SqlParameter("@PersonelID", PersonelID),
+                    new SqlParameter("@PersonelTagNumber",PersonelTagNumber),
+                    new SqlParameter("@PersonelPassword",PersonelPassword),
+                    new SqlParameter("@PersonelSurname",PersonelSurname),
+                    new SqlParameter("@PersonelName",PersonelName),
+                    new SqlParameter("@PersonelPhoneNumber",PersonelPhoneNumber),
+                    new SqlParameter("@PersonelEmail",PersonelEmail),
+                    new SqlParameter("@PersonelLevelID",PersonelLevelID),
+                    new SqlParameter("@PersonelTypeID",PersonelTypeID)
+            };
+            return DBHelper.NonQuery("uspAddPersonel", CommandType.StoredProcedure, pars);
+   
+        }
+
+        public DataTable GetLevels()
+        {
+            DataTable dt = new DataTable();
+
+            dt = DBHelper.Select("uspGetlevels", CommandType.StoredProcedure);
+            return dt;
+
+        }
+        public DataTable GetTypes()
+        {
+            DataTable dt = new DataTable();
+
+            dt = DBHelper.Select("uspGetTypes", CommandType.StoredProcedure);
+            return dt;
+
+        }
 
 
     }

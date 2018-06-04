@@ -15,5 +15,8 @@ namespace TypeLib.Interfaces
         DataTable BLL_GetParkingSpaces(string parkinngAreaID);
         DataTable BLL_SearchParkingSpaceDetails(string parkingAreaID, string parkingSpaceID);
         uspLogin BLL_Login(string userID);
+        bool BLL_AddPersonel(string PersonelID, string PersonelTagNumber, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID, int PersonelTypeID);
+        DataTable BLL_GetLevels();
+        DataTable BLL_GetTypes();
     }
 }
