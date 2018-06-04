@@ -30,6 +30,11 @@ namespace uniPark_BLL
             return db.GetTypes();
         }
 
+        public DataTable BLL_GetPersonel()
+        {
+            return db.GetPersonel();
+        }
+
         public bool BLL_AddPersonel(string PersonelID, string PersonelTagNumber, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID, int PersonelTypeID)
         {
             return db.AddPersonel(PersonelID, PersonelTagNumber, PersonelPassword, PersonelSurname, PersonelName, PersonelPhoneNumber, PersonelEmail, PersonelLevelID, PersonelTypeID);
