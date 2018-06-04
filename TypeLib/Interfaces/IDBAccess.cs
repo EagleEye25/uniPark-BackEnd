@@ -15,5 +15,9 @@ namespace TypeLib.Interfaces
         DataTable GetParkingSpaces(string parkinngAreaID);
         DataTable SearchParkingSpaceDetails(string parkingAreaID, string parkingSpaceID);
         uspLogin Login(string userID);
+        bool AddPersonel(string PersonelID, string PersonelTagNumber, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID, int PersonelTypeID);
+        DataTable GetLevels();
+        DataTable GetTypes();
+    
     }
 }
