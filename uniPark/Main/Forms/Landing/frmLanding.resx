@@ -256,6 +256,16 @@
         CbBoIBEbFUCNGoQA2aVQIeqCUQsIglELhjJgYAAAdLy50Q91+eMAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnclose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQRJREFUSEvl
+        lTtrAkEURtc/okU6jUIsE7URmyipRTD/OrVBRA0+ikDqeL7NDgw7o7ni2Cgfp5i5yz3ecR9Z9ptVrkp0
+        MyXeYghLuDTqMYJAsIZUWUEgSJ07EXzCO3wXaz9fMIVtsS7HJOiBah34yXf+soEGqDbOd8KYBJrgAVR/
+        AU2iX+6aP8EOYjEJlDnUQNdoEte8BceaK2aBIombRLThVHPlLIEewkdw12qS2B/vxyzwm+vM3ST/SUwC
+        Na+D6jqWPfjH9QzHJCZBF1Rrgn/muruqoNok3wljEnzAAHTflzODPiyKdTkmwSW5QYFeAakS/eC8QYqv
+        mpq/QiC4DtHNZGSVA8rVnhx/jGJ+AAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

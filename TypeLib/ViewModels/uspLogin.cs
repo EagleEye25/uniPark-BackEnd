@@ -8,6 +8,6 @@ namespace TypeLib.ViewModels
 {
     public class uspLogin
     {
-        public string PersonelPassword { get; set; }
+        public string PersonnelPassword { get; set; }
     }
 }

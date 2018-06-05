@@ -139,6 +139,7 @@
             this.matTextGuestSurname = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextGuestName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextGuestVerifyNo = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.btnclose = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.pnlHeadings.SuspendLayout();
             this.pnlViewParkings.SuspendLayout();
@@ -181,7 +182,7 @@
             this.pnlMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(207, 687);
+            this.pnlMenu.Size = new System.Drawing.Size(207, 686);
             this.pnlMenu.TabIndex = 1;
             // 
             // matBtnVerifyGuest
@@ -264,9 +265,9 @@
             this.matBtnEditUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnEditUser.Name = "matBtnEditUser";
             this.matBtnEditUser.Primary = false;
-            this.matBtnEditUser.Size = new System.Drawing.Size(227, 36);
+            this.matBtnEditUser.Size = new System.Drawing.Size(239, 36);
             this.matBtnEditUser.TabIndex = 10;
-            this.matBtnEditUser.Text = "      Edit Personel      ";
+            this.matBtnEditUser.Text = "      Edit Personnel      ";
             this.matBtnEditUser.UseVisualStyleBackColor = true;
             this.matBtnEditUser.Click += new System.EventHandler(this.matBtnEditUser_Click);
             // 
@@ -298,9 +299,9 @@
             this.matBtnSearchUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSearchUser.Name = "matBtnSearchUser";
             this.matBtnSearchUser.Primary = false;
-            this.matBtnSearchUser.Size = new System.Drawing.Size(230, 36);
+            this.matBtnSearchUser.Size = new System.Drawing.Size(243, 36);
             this.matBtnSearchUser.TabIndex = 9;
-            this.matBtnSearchUser.Text = "      Search Personel";
+            this.matBtnSearchUser.Text = "      Search Personnel";
             this.matBtnSearchUser.UseVisualStyleBackColor = true;
             this.matBtnSearchUser.Click += new System.EventHandler(this.matBtnSearchUser_Click);
             // 
@@ -333,9 +334,9 @@
             this.matBtnAddUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddUser.Name = "matBtnAddUser";
             this.matBtnAddUser.Primary = false;
-            this.matBtnAddUser.Size = new System.Drawing.Size(229, 36);
+            this.matBtnAddUser.Size = new System.Drawing.Size(241, 36);
             this.matBtnAddUser.TabIndex = 8;
-            this.matBtnAddUser.Text = "      Add Personel       ";
+            this.matBtnAddUser.Text = "      Add Personnel       ";
             this.matBtnAddUser.UseVisualStyleBackColor = true;
             this.matBtnAddUser.Click += new System.EventHandler(this.matBtnAddUser_Click);
             // 
@@ -367,9 +368,9 @@
             this.matBtnViewUsers.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnViewUsers.Name = "matBtnViewUsers";
             this.matBtnViewUsers.Primary = false;
-            this.matBtnViewUsers.Size = new System.Drawing.Size(227, 36);
+            this.matBtnViewUsers.Size = new System.Drawing.Size(239, 36);
             this.matBtnViewUsers.TabIndex = 7;
-            this.matBtnViewUsers.Text = "      View Personel     ";
+            this.matBtnViewUsers.Text = "      View Personnel     ";
             this.matBtnViewUsers.UseVisualStyleBackColor = true;
             this.matBtnViewUsers.Click += new System.EventHandler(this.matBtnViewUsers_Click);
             // 
@@ -409,12 +410,13 @@
             // 
             // pnlHeadings
             // 
+            this.pnlHeadings.Controls.Add(this.btnclose);
             this.pnlHeadings.Controls.Add(this.lblHeadings);
             this.pnlHeadings.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeadings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlHeadings.Location = new System.Drawing.Point(207, 0);
             this.pnlHeadings.Name = "pnlHeadings";
-            this.pnlHeadings.Size = new System.Drawing.Size(1028, 30);
+            this.pnlHeadings.Size = new System.Drawing.Size(990, 30);
             this.pnlHeadings.TabIndex = 4;
             // 
             // lblHeadings
@@ -424,7 +426,7 @@
             this.lblHeadings.ForeColor = System.Drawing.Color.Black;
             this.lblHeadings.Location = new System.Drawing.Point(0, 0);
             this.lblHeadings.Name = "lblHeadings";
-            this.lblHeadings.Size = new System.Drawing.Size(1028, 30);
+            this.lblHeadings.Size = new System.Drawing.Size(990, 30);
             this.lblHeadings.TabIndex = 0;
             this.lblHeadings.Text = "Heading";
             this.lblHeadings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -863,7 +865,7 @@
             this.pnlAddUsers.Controls.Add(this.matTextPersonelSurname);
             this.pnlAddUsers.Controls.Add(this.matTextPersonelName);
             this.pnlAddUsers.Controls.Add(this.matTextPersonelTagNo);
-            this.pnlAddUsers.Location = new System.Drawing.Point(402, 279);
+            this.pnlAddUsers.Location = new System.Drawing.Point(416, 279);
             this.pnlAddUsers.Name = "pnlAddUsers";
             this.pnlAddUsers.Size = new System.Drawing.Size(942, 670);
             this.pnlAddUsers.TabIndex = 25;
@@ -883,7 +885,7 @@
             this.mattextEmail.Size = new System.Drawing.Size(204, 28);
             this.mattextEmail.TabIndex = 17;
             this.mattextEmail.TabStop = false;
-            this.mattextEmail.Text = "Personel Email Address";
+            this.mattextEmail.Text = "Personnel Email Address";
             this.mattextEmail.UseSystemPasswordChar = false;
             this.mattextEmail.Click += new System.EventHandler(this.mattextEmail_Click);
             this.mattextEmail.Leave += new System.EventHandler(this.mattextEmail_Leave);
@@ -903,7 +905,7 @@
             this.mattextPhoneNum.Size = new System.Drawing.Size(204, 28);
             this.mattextPhoneNum.TabIndex = 16;
             this.mattextPhoneNum.TabStop = false;
-            this.mattextPhoneNum.Text = "Personel Phone Number";
+            this.mattextPhoneNum.Text = "Personnel Phone Number";
             this.mattextPhoneNum.UseSystemPasswordChar = false;
             this.mattextPhoneNum.Click += new System.EventHandler(this.mattextPhoneNum_Click);
             this.mattextPhoneNum.Leave += new System.EventHandler(this.mattextPhoneNum_Leave);
@@ -959,9 +961,9 @@
             this.matlblPersonelLevel.Location = new System.Drawing.Point(377, 473);
             this.matlblPersonelLevel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblPersonelLevel.Name = "matlblPersonelLevel";
-            this.matlblPersonelLevel.Size = new System.Drawing.Size(138, 24);
+            this.matlblPersonelLevel.Size = new System.Drawing.Size(148, 24);
             this.matlblPersonelLevel.TabIndex = 13;
-            this.matlblPersonelLevel.Text = "Personel Level:";
+            this.matlblPersonelLevel.Text = "Personnel Level:";
             // 
             // matlblPersonelType
             // 
@@ -974,9 +976,9 @@
             this.matlblPersonelType.Location = new System.Drawing.Point(377, 410);
             this.matlblPersonelType.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblPersonelType.Name = "matlblPersonelType";
-            this.matlblPersonelType.Size = new System.Drawing.Size(135, 24);
+            this.matlblPersonelType.Size = new System.Drawing.Size(145, 24);
             this.matlblPersonelType.TabIndex = 12;
-            this.matlblPersonelType.Text = "Personel Type:";
+            this.matlblPersonelType.Text = "Personnel Type:";
             // 
             // cmbPersonelLevel
             // 
@@ -1030,7 +1032,7 @@
             this.matTextPersonelSurname.Size = new System.Drawing.Size(204, 28);
             this.matTextPersonelSurname.TabIndex = 3;
             this.matTextPersonelSurname.TabStop = false;
-            this.matTextPersonelSurname.Text = "Personel Surname";
+            this.matTextPersonelSurname.Text = "Personnel Surname";
             this.matTextPersonelSurname.UseSystemPasswordChar = false;
             this.matTextPersonelSurname.Click += new System.EventHandler(this.matTextPersonelSurname_Click);
             this.matTextPersonelSurname.Leave += new System.EventHandler(this.matTextPersonelSurname_Leave);
@@ -1050,7 +1052,7 @@
             this.matTextPersonelName.Size = new System.Drawing.Size(204, 28);
             this.matTextPersonelName.TabIndex = 2;
             this.matTextPersonelName.TabStop = false;
-            this.matTextPersonelName.Text = "Personel Name";
+            this.matTextPersonelName.Text = "Personnel Name";
             this.matTextPersonelName.UseSystemPasswordChar = false;
             this.matTextPersonelName.Click += new System.EventHandler(this.matTextPersonelName_Click);
             this.matTextPersonelName.Leave += new System.EventHandler(this.matTextPersonelName_Leave);
@@ -1070,7 +1072,7 @@
             this.matTextPersonelTagNo.Size = new System.Drawing.Size(204, 28);
             this.matTextPersonelTagNo.TabIndex = 1;
             this.matTextPersonelTagNo.TabStop = false;
-            this.matTextPersonelTagNo.Text = "Personel Tag Number";
+            this.matTextPersonelTagNo.Text = "Personnel Tag Number";
             this.matTextPersonelTagNo.UseSystemPasswordChar = false;
             this.matTextPersonelTagNo.Click += new System.EventHandler(this.matTextPersonelTagNo_Click);
             this.matTextPersonelTagNo.Leave += new System.EventHandler(this.matTextPersonelTagNo_Leave);
@@ -1173,7 +1175,7 @@
             this.matTextSearchUsers.Size = new System.Drawing.Size(177, 28);
             this.matTextSearchUsers.TabIndex = 0;
             this.matTextSearchUsers.TabStop = false;
-            this.matTextSearchUsers.Text = "Enter Personel Number";
+            this.matTextSearchUsers.Text = "Enter Personnel Number";
             this.matTextSearchUsers.UseSystemPasswordChar = false;
             this.matTextSearchUsers.Click += new System.EventHandler(this.matTextSearchUsers_Click);
             this.matTextSearchUsers.Leave += new System.EventHandler(this.matTextSearchUsers_Leave);
@@ -1596,12 +1598,29 @@
             this.matTextGuestVerifyNo.Click += new System.EventHandler(this.matTextGuestVerifyNo_Click);
             this.matTextGuestVerifyNo.Leave += new System.EventHandler(this.matTextGuestVerifyNo_Leave);
             // 
+            // btnclose
+            // 
+            this.btnclose.FlatAppearance.BorderSize = 0;
+            this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclose.ForeColor = System.Drawing.Color.White;
+            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
+            this.btnclose.Location = new System.Drawing.Point(955, 3);
+            this.btnclose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(31, 27);
+            this.btnclose.TabIndex = 9;
+            this.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnclose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnclose.UseVisualStyleBackColor = true;
+            // 
             // frmLanding
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(1235, 687);
+            this.ClientSize = new System.Drawing.Size(1197, 686);
             this.Controls.Add(this.pnlSearchParkings);
+            this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlAddParkings);
             this.Controls.Add(this.pnlEditUser);
             this.Controls.Add(this.pnlSearchUsers);
@@ -1611,7 +1630,6 @@
             this.Controls.Add(this.pnlViewParkings);
             this.Controls.Add(this.pnlHeadings);
             this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlVerifyGuest);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1755,6 +1773,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField mattextEmail;
 
         private System.Windows.Forms.DataGridView dataGridView1;
-
+        private System.Windows.Forms.Button btnclose;
     }
 }

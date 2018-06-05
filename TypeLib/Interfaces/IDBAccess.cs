@@ -18,7 +18,6 @@ namespace TypeLib.Interfaces
         DataTable GetPersonel();
         bool AddPersonel(string PersonelID, string PersonelTagNumber, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID, int PersonelTypeID);
         DataTable GetLevels();
-        DataTable GetTypes();
-    
+        DataTable GetTypes();  
     }
 }

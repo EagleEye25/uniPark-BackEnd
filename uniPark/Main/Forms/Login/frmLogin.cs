@@ -56,12 +56,6 @@ namespace uniPark.Main.Forms.Login
 
         private void matBtnLogin_Click(object sender, EventArgs e)
         {
-            /* Showing loading form, hiding login form 
-            frmLoading loading = new frmLoading();
-            frmLogin login = this;
-            login.Hide();
-            loading.Show();*/
-
             //NEW CODE WITH VERIFICATION
             IDBHandler handler = new DBHandler();
 
@@ -72,12 +66,14 @@ namespace uniPark.Main.Forms.Login
             {
                 try
                 {
-                    uspLogin log = handler.BLL_Login(matTextUsername.Text);
-                    password = log.PersonelPassword;
+                    uspLogin log = new uspLogin();
+                    log = handler.BLL_Login(matTextUsername.Text);
+                    password = log.PersonnelPassword;
                     if (password == matTextPass.Text)
                     {
                         frmLoading loading = new frmLoading();
                         frmLogin login = this;
+                        lblIncorrect.Visible = false;
                         login.Hide();
                         loading.Show();
                     }
