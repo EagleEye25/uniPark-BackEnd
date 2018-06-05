@@ -324,14 +324,14 @@ namespace uniPark.Main.Forms.Landing
             IDBHandler handler = new DBHandler();
             DataTable dt1 = handler.BLL_GetLevels();
             cmbPersonelLevel.DataSource = dt1;
-            cmbPersonelLevel.DisplayMember = "PersonelLevelDesc";
-            cmbPersonelLevel.ValueMember = "PersonelLevelID";
+            cmbPersonelLevel.DisplayMember = "PersonnelLevelDesc";
+            cmbPersonelLevel.ValueMember = "PersonnelLevelID";
 
             IDBHandler handler2 = new DBHandler();
             DataTable dt2 = handler2.BLL_GetTypes();
             cmbPersonelType.DataSource = dt2;
-            cmbPersonelType.ValueMember = "PersonelTypeID";
-            cmbPersonelType.DisplayMember = "PersonelTypeDesc";
+            cmbPersonelType.ValueMember = "PersonnelTypeID";
+            cmbPersonelType.DisplayMember = "PersonnelTypeDesc";
         
 
 

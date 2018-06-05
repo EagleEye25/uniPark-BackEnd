@@ -61,8 +61,8 @@ namespace uniPark_DAL
 
             return dt;
         }
-                public uspLogin Login(string userID)
-        {
+            public uspLogin Login(string userID)
+            {
             uspLogin l = null;
             SqlParameter[] pars = new SqlParameter[]
                 {
@@ -77,7 +77,7 @@ namespace uniPark_DAL
                     DataRow row = table.Rows[0];
                     l = new uspLogin
                     {
-                        PersonelPassword = Convert.ToString(row["PersonelPassword"])
+                        PersonnelPassword = Convert.ToString(row["PersonnelPassword"])
                     };
 
                 }
