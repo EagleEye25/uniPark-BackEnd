@@ -55,6 +55,7 @@
             this.matbtnUpdateParking = new MaterialSkin.Controls.MaterialFlatButton();
             this.matbtnAssignParking = new MaterialSkin.Controls.MaterialFlatButton();
             this.pnlHeadings = new System.Windows.Forms.Panel();
+            this.btnclose = new System.Windows.Forms.Button();
             this.lblHeadings = new System.Windows.Forms.Label();
             this.pnlViewParkings = new System.Windows.Forms.Panel();
             this.dgvParkings = new System.Windows.Forms.DataGridView();
@@ -139,7 +140,6 @@
             this.matTextGuestSurname = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextGuestName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextGuestVerifyNo = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.btnclose = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.pnlHeadings.SuspendLayout();
             this.pnlViewParkings.SuspendLayout();
@@ -418,6 +418,23 @@
             this.pnlHeadings.Name = "pnlHeadings";
             this.pnlHeadings.Size = new System.Drawing.Size(990, 30);
             this.pnlHeadings.TabIndex = 4;
+            // 
+            // btnclose
+            // 
+            this.btnclose.FlatAppearance.BorderSize = 0;
+            this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnclose.ForeColor = System.Drawing.Color.White;
+            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
+            this.btnclose.Location = new System.Drawing.Point(955, 0);
+            this.btnclose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnclose.Name = "btnclose";
+            this.btnclose.Size = new System.Drawing.Size(35, 30);
+            this.btnclose.TabIndex = 9;
+            this.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnclose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnclose.UseVisualStyleBackColor = true;
+            this.btnclose.Click += new System.EventHandler(this.btnclose_Click);
             // 
             // lblHeadings
             // 
@@ -1597,22 +1614,6 @@
             this.matTextGuestVerifyNo.UseSystemPasswordChar = false;
             this.matTextGuestVerifyNo.Click += new System.EventHandler(this.matTextGuestVerifyNo_Click);
             this.matTextGuestVerifyNo.Leave += new System.EventHandler(this.matTextGuestVerifyNo_Leave);
-            // 
-            // btnclose
-            // 
-            this.btnclose.FlatAppearance.BorderSize = 0;
-            this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnclose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnclose.ForeColor = System.Drawing.Color.White;
-            this.btnclose.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.Image")));
-            this.btnclose.Location = new System.Drawing.Point(955, 3);
-            this.btnclose.Margin = new System.Windows.Forms.Padding(4);
-            this.btnclose.Name = "btnclose";
-            this.btnclose.Size = new System.Drawing.Size(31, 27);
-            this.btnclose.TabIndex = 9;
-            this.btnclose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnclose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnclose.UseVisualStyleBackColor = true;
             // 
             // frmLanding
             // 
