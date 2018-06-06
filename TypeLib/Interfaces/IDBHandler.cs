@@ -21,5 +21,6 @@ namespace TypeLib.Interfaces
         DataTable BLL_GetTypes();
         uspGetAllInfo BLL_getallinfo(string userid);
         bool BLL_EditPersonel(string name, string id, string surname, string email, int level, int type);
+        DataTable BLL_GetAllInfo(string id);
     }
 }

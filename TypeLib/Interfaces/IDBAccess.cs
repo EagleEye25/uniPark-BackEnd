@@ -21,5 +21,6 @@ namespace TypeLib.Interfaces
         DataTable GetTypes();
         uspGetAllInfo getallinfo(string userid);
         bool EditPersonel(string name,string id,string surname,string email,int level,int type);
+        DataTable GetAllInfo(string id);
     }
 }
