@@ -19,5 +19,7 @@ namespace TypeLib.Interfaces
         bool BLL_AddPersonel(string PersonelID, string PersonelTagNumber, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID, int PersonelTypeID);
         DataTable BLL_GetLevels();
         DataTable BLL_GetTypes();
+        uspGetAllInfo BLL_getallinfo(string userid);
+        bool BLL_EditPersonel(string name, string id, string surname, string email, int level, int type);
     }
 }

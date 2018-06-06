@@ -128,6 +128,48 @@ namespace uniPark_DAL
             return dt;
         }
 
+        public uspGetAllInfo getallinfo(string userid)
+        {
+            uspGetAllInfo i = null;
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@personelid", userid)};
+
+            using (DataTable table = DBHelper.ParamSelect("uspGetAllInfo",
+            CommandType.StoredProcedure, pars))
+            {
+                if (table.Rows.Count == 1)
+                {
+                    DataRow row = table.Rows[0];
+                    i = new uspGetAllInfo
+                    {        
+                        PersonnelID = Convert.ToString(row["PersonnelID"]),
+                        PersonnelTagNumber = Convert.ToString(row["PersonnelTagNumber"]),
+                        PersonnelPassword = Convert.ToString(row["PersonnelPassword"]),
+                        PersonnelSurname = Convert.ToString(row["PersonnelSurname"]),
+                        PersonnelName = Convert.ToString(row["PersonnelName"]),
+                        PersonnelPhoneNumber = Convert.ToString(row["PersonnelPhoneNumber"]),
+                        PersonnelEmail = Convert.ToString(row["PersonnelEmail"]),
+                        PersonnelLevelID = Convert.ToInt32(row["PersonnelLevelID"]),
+                        PersonnelTypeID = Convert.ToInt32(row["PersonnelTypeID"]),
+                    };
+
+                }
+            }
+            return i;
+        }
+        public bool EditPersonel(string name, string id, string surname, string email, int level, int type)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+                {
+                    new SqlParameter("@name", name),
+                    new SqlParameter("@id",id),
+                    new SqlParameter("@surname",surname),
+                    new SqlParameter("@email",email),
+                    new SqlParameter("@level",level),
+                    new SqlParameter("@type",type)
+                };
+            return DBHelper.NonQuery("uspUpdatePersonnel", CommandType.StoredProcedure, pars);
+        }
+
 
     }
 }

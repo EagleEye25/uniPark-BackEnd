@@ -56,6 +56,7 @@
     <Compile Include="Models\PersonelLog.cs" />
     <Compile Include="Models\PersonelType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\uspGetAllInfo.cs" />
     <Compile Include="ViewModels\UspGetAllSpecificSpaces.cs" />
     <Compile Include="ViewModels\UspGetParkingAreas.cs" />
     <Compile Include="ViewModels\uspLogin.cs" />

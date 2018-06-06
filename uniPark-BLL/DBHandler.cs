@@ -57,5 +57,15 @@ namespace uniPark_BLL
             return db.Login(userid);
         }
 
-}
+        public uspGetAllInfo BLL_getallinfo(string userid)
+        {
+            return db.getallinfo(userid);
+        }
+
+        public bool BLL_EditPersonel(string name, string id, string surname, string email, int level, int type)
+        {
+            return db.EditPersonel(name, id, surname, email, level, type);
+        }
+
+    }
 }
