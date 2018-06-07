@@ -576,7 +576,9 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlVerifyGuest");
-           
+
+            matBtnVerifyGuests.Enabled = false;
+
         }
 
         private void matTextGuestVerifyNo_Click(object sender, EventArgs e)
@@ -627,31 +629,25 @@ namespace uniPark.Main.Forms.Landing
         private void matTextGuestType_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextGuestType.Text = "";
+
         }
 
         private void matTextGuestType_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextGuestType.Text != "")
-                matTextGuestType.Text = matTextGuestType.Text;
-            else
-                matTextGuestType.Text = "Guest Type";
+
         }
 
         private void matTextGuestLevel_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextGuestLevel.Text = "";
+
         }
 
         private void matTextGuestLevel_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextGuestLevel.Text != "")
-                matTextGuestLevel.Text = matTextGuestLevel.Text;
-            else
-                matTextGuestLevel.Text = "Guest Access Level";
+
         }
 
         private void cmbParkingAreas_SelectedIndexChanged(object sender, EventArgs e)
@@ -871,11 +867,88 @@ namespace uniPark.Main.Forms.Landing
 
             DataTable dt = handler.BLL_GetPersonel();
             dgvEditPersonel.DataSource = dt;
+        }
 
+        private void matBtnGenGuestNo_Click(object sender, EventArgs e)
+        {
+            bool b = false;
+            while (b == false)
+            {
+                string random = RandomDigits(4);
 
+                matTextGuestVerifyNo.Text = random;
 
+                IDBHandler handler = new DBHandler();
+                if (handler.BLL_checkguest(matTextGuestVerifyNo.Text) == null)
+                {
+                    MessageBox.Show("guest verification id valid");
+                    matBtnVerifyGuests.Enabled = true;
+                    b = true;
+                }
+                else
+                {
+                    MessageBox.Show("guest verification id already taken");
+                    matTextGuestVerifyNo.Text = "";
+                    matBtnVerifyGuests.Enabled = false;
+                }
+            }
 
+        }
 
+        private void pnlVerifyGuest_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        public string RandomDigits(int length)
+        {
+            var random = new Random();
+            string s = string.Empty;
+            for (int i = 0; i < length; i++)
+                s = String.Concat(s, random.Next(10).ToString());
+            return s;
+        }
+
+        private void matBtnVerifyGuests_Click(object sender, EventArgs e)
+        {
+            string password = "guest" + matTextGuestVerifyNo.Text;
+            try
+            {
+                IDBHandler handler = new DBHandler();
+                bool b = handler.BLL_addguest(matTextGuestVerifyNo.Text, password, matTextGuestSurname.Text, matTextGuestName.Text, matTextPhoneGuest.Text, matTextEmailGuest.Text, 1);
+                if (b == true)
+                {
+                    MessageBox.Show("guest added successfully");
+                }
+                else { MessageBox.Show("guest not added"); }
+            }
+          catch { MessageBox.Show("guest not added"); }
+
+        }
+
+        private void matTextPhoneGuest_Leave(object sender, EventArgs e)
+        {
+            if (matTextPhoneGuest.Text != "")
+                matTextPhoneGuest.Text = matTextPhoneGuest.Text;
+            else
+                matTextPhoneGuest.Text = "Guest Phone Number";
+        }
+
+        private void matTextEmailGuest_Leave(object sender, EventArgs e)
+        {
+            if (matTextEmailGuest.Text != "")
+                matTextEmailGuest.Text = matTextEmailGuest.Text;
+            else
+                matTextEmailGuest.Text = "Guest Email";
+        }
+
+        private void matTextPhoneGuest_Click(object sender, EventArgs e)
+        {
+            matTextPhoneGuest.Text = "";
+        }
+
+        private void matTextEmailGuest_Click(object sender, EventArgs e)
+        {
+            matTextEmailGuest.Text = "";
         }
     }
 }
