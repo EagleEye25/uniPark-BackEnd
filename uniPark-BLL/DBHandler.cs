@@ -66,6 +66,14 @@ namespace uniPark_BLL
         {
             return db.EditPersonel(name, id, surname, email, level, type);
         }
+        public List<uspCheckGuest> BLL_checkguest(string guest)
+        {
+            return db.checkguest(guest);
+        }
+        public bool BLL_addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID)
+        {
+            return db.addguest(PersonelID, PersonelPassword, PersonelSurname, PersonelName, PersonelPhoneNumber, PersonelEmail, PersonelLevelID);
+        }
 
         public DataTable BLL_GetAllInfo(string id)
         {

@@ -177,7 +177,52 @@ namespace uniPark_DAL
             return DBHelper.NonQuery("uspUpdatePersonnel", CommandType.StoredProcedure, pars);
         }
 
+        public List<uspCheckGuest> checkguest(string guest)
+        {
+            List<uspCheckGuest> list = new List<uspCheckGuest>();
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                new SqlParameter("@guest", guest)
+            };
+
+            using (DataTable dt = DBHelper.ParamSelect("uspCheckGuest", CommandType.StoredProcedure, pars))
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        uspCheckGuest g = new uspCheckGuest
+                        {
+                            PersonnelID = Convert.ToString(row["PersonnelID"])
+                        };
+                        list.Add(g);
+                    }
+
+                }
+                else { list = null; }
+            }
+            return list;
+        }
+
+        public bool addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+                {
+                    new SqlParameter("@PersonelID", PersonelID),
+                    new SqlParameter("@PersonelPassword",PersonelPassword),
+                    new SqlParameter("@PersonelSurname",PersonelSurname),
+                    new SqlParameter("@PersonelName",PersonelName),
+                    new SqlParameter("@PersonelPhoneNumber",PersonelPhoneNumber),
+                    new SqlParameter("@PersonelEmail",PersonelEmail),
+                    new SqlParameter("@PersonelLevelID",PersonelLevelID)
+                    
+                };
+            return DBHelper.NonQuery("uspAddGuest", CommandType.StoredProcedure, pars);
+
+        }
 
     }
+
 }
+
 
