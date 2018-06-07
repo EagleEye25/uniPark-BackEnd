@@ -67,5 +67,10 @@ namespace uniPark_BLL
             return db.EditPersonel(name, id, surname, email, level, type);
         }
 
+        public DataTable BLL_GetAllInfo(string id)
+        {
+            return db.GetAllInfo(id);
+        }
+
     }
 }

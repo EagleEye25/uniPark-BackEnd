@@ -127,6 +127,13 @@ namespace uniPark_DAL
             dt = DBHelper.Select("uspDisplayPersonelInfoAll", CommandType.StoredProcedure);
             return dt;
         }
+        public DataTable GetAllInfo(string id)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@personelid", id) };
+            dt = DBHelper.ParamSelect("uspGetAllInfo", CommandType.StoredProcedure,pars);
+            return dt;
+        }
 
         public uspGetAllInfo getallinfo(string userid)
         {

@@ -269,9 +269,6 @@
   <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="dataGridViewTextBoxColumn13.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -326,45 +323,6 @@
         CbBoIBEbFUCNGoQA2aVQIeqCUQsIglELhjJgYAAAdLy50Q91+eMAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="matBtnAddUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANdJREFUSEvF
-        0jsOwjAQBFCnpOACHAC4IoeAi/ARNTRwGFrEp0BUMCNsBN4xVhKjaPQka5LNihDnHq76K1mWJMuSZFmS
-        LH8bwQpOHs9DUPfWXjCGI8Rhx2t2RpZpa0iFv8TOiDIk7ukCqZzBzogyJO7pCqlwuZ0RZUjcE19DKkuw
-        M/6QSxho/Cfn8jkUPlO+Lqr9maqHNifKzhYMYAJbOMDN43kDvMZ7vudMYfVgBnfIhfdMgTOv+fdB68Me
-        6mYHnM0uWEDTzCG7oG26X9CeLEuSZUmyLMZVT55v20YBjI13AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="dataGridViewTextBoxColumn31.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn32.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn33.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn34.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn35.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dataGridViewTextBoxColumn36.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="matBtnSearchUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAYZJREFUSEvd
-        U7lOw0AQNQUSPxDFXhwugUQFHlvu+Ryo+QvgKyi4AxQgjq9ANIgGUXAUkIiAiI+NZGbWE7CcJUKOG/Kk
-        J+2s37wZz9jGcEME3oQloW7F8KIonUM7dGf58WBQ5jE0kUmOTdH2aywrDu48b55Swj7LisOKnXetOVLE
-        8May4kCjj7xxhi2WFQeO4VhjnLKMEYnIm0cz3ZIbpSyZ8POZqn208HxQmvn/RiXxTVPCqhXBOY7mDkm7
-        IG4aiTFCoxOxs4vxPZHOfxtd4o2KyF3HpAiZX660Q2euzx/ef/lTydIYdnymSezyknRmDDsUYyMn1WBh
-        uhr6M5h3ypotZaZDN/E34t+7oXQSHlWc6dYKYFLpJDzwVS+yZjpix2tKF8EzxXZ7cVwlIqhYqoEnvupF
-        1kzLyL0gHb7pNsU0IipCpLPSdKCuzAYBd9v4LpwhjvHGTKDC0uJQn6l099D0lSg67hGaX3Gh29onCJaW
-        B+oci1xTERzjCl+XCyqCBZY5HAoYxhcz52smj9+LHgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="matbtnEditPersonnel.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAX1JREFUSEvd
@@ -375,6 +333,27 @@
         LqhenuJbZvxG82xVk9VxCg5AMoxF7NKccqdWQbtp+lt+JOZYzNecFwFbPOoDvjOTYo/yBMGc29T4tYa5
         lAq6Lfk+Zae6wQLaj/YYvYx2pGEu2WGXUfQdytHvGu3fwX8qDVfi6U/gJADvbTj8MB3V5s3w8LLh+Bbu
         Clt5XzZ8dP9JgyqVPgEB633RDfs4lQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="matBtnAddUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANdJREFUSEvF
+        0jsOwjAQBFCnpOACHAC4IoeAi/ARNTRwGFrEp0BUMCNsBN4xVhKjaPQka5LNihDnHq76K1mWJMuSZFmS
+        LH8bwQpOHs9DUPfWXjCGI8Rhx2t2RpZpa0iFv8TOiDIk7ukCqZzBzogyJO7pCqlwuZ0RZUjcE19DKkuw
+        M/6QSxho/Cfn8jkUPlO+Lqr9maqHNifKzhYMYAJbOMDN43kDvMZ7vudMYfVgBnfIhfdMgTOv+fdB68Me
+        6mYHnM0uWEDTzCG7oG26X9CeLEuSZUmyLMZVT55v20YBjI13AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="matBtnSearchUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAYZJREFUSEvd
+        U7lOw0AQNQUSPxDFXhwugUQFHlvu+Ryo+QvgKyi4AxQgjq9ANIgGUXAUkIiAiI+NZGbWE7CcJUKOG/Kk
+        J+2s37wZz9jGcEME3oQloW7F8KIonUM7dGf58WBQ5jE0kUmOTdH2aywrDu48b55Swj7LisOKnXetOVLE
+        8May4kCjj7xxhi2WFQeO4VhjnLKMEYnIm0cz3ZIbpSyZ8POZqn208HxQmvn/RiXxTVPCqhXBOY7mDkm7
+        IG4aiTFCoxOxs4vxPZHOfxtd4o2KyF3HpAiZX660Q2euzx/ef/lTydIYdnymSezyknRmDDsUYyMn1WBh
+        uhr6M5h3ypotZaZDN/E34t+7oXQSHlWc6dYKYFLpJDzwVS+yZjpix2tKF8EzxXZ7cVwlIqhYqoEnvupF
+        1kzLyL0gHb7pNsU0IipCpLPSdKCuzAYBd9v4LpwhjvHGTKDC0uJQn6l099D0lSg67hGaX3Gh29onCJaW
+        B+oci1xTERzjCl+XCyqCBZY5HAoYxhcz52smj9+LHgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="matBtnAddParkingAreas.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
