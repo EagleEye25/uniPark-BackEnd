@@ -75,5 +75,10 @@ namespace uniPark_BLL
             return db.addguest(PersonelID, PersonelPassword, PersonelSurname, PersonelName, PersonelPhoneNumber, PersonelEmail, PersonelLevelID);
         }
 
+        public DataTable BLL_GetAllInfo(string id)
+        {
+            return db.GetAllInfo(id);
+        }
+
     }
 }

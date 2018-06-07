@@ -950,5 +950,17 @@ namespace uniPark.Main.Forms.Landing
         {
             matTextEmailGuest.Text = "";
         }
+
+        private void matBtnSearchUsers_Click(object sender, EventArgs e)
+        {
+            //Search user
+            string id = "";
+            id = matTextSearchUsers.Text;
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = handler.BLL_GetAllInfo(id);
+            
+            dgvSearchUsers.DataSource = dt;
+        }
     }
 }
