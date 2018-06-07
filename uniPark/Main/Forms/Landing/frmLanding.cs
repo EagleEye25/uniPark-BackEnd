@@ -629,25 +629,31 @@ namespace uniPark.Main.Forms.Landing
         private void matTextGuestType_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-
+            matTextGuestType.Text = "";
         }
 
         private void matTextGuestType_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-
+            if (matTextGuestType.Text != "")
+                matTextGuestType.Text = matTextGuestType.Text;
+            else
+                matTextGuestType.Text = "Guest Type";
         }
 
         private void matTextGuestLevel_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-
+            matTextGuestLevel.Text = "";
         }
 
         private void matTextGuestLevel_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-
+            if (matTextGuestLevel.Text != "")
+                matTextGuestLevel.Text = matTextGuestLevel.Text;
+            else
+                matTextGuestLevel.Text = "Guest Access Level";
         }
 
         private void cmbParkingAreas_SelectedIndexChanged(object sender, EventArgs e)
@@ -951,7 +957,8 @@ namespace uniPark.Main.Forms.Landing
             matTextEmailGuest.Text = "";
         }
 
-        private void matBtnSearchUsers_Click(object sender, EventArgs e)
+		private void matBtnSearchUsers_Click(object sender, EventArgs e)
+
         {
             //Search user
             string id = "";
