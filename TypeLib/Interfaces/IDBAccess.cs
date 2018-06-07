@@ -23,6 +23,8 @@ namespace TypeLib.Interfaces
         bool EditPersonel(string name,string id,string surname,string email,int level,int type);
         List<uspCheckGuest> checkguest(string guest);
         bool addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID);
+
 		DataTable GetAllInfo(string id);
+
     }
 }

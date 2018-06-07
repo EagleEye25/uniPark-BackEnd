@@ -79,5 +79,10 @@ namespace uniPark_BLL
             return db.GetAllInfo(id);
         }
 
+        public DataTable BLL_GetAllInfo(string id)
+        {
+            return db.GetAllInfo(id);
+        }
+
     }
 }

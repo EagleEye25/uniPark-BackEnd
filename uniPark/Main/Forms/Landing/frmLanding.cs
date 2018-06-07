@@ -956,7 +956,9 @@ namespace uniPark.Main.Forms.Landing
         {
             matTextEmailGuest.Text = "";
         }
+
 		private void matBtnSearchUsers_Click(object sender, EventArgs e)
+
         {
             //Search user
             string id = "";
