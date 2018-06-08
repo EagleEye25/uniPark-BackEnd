@@ -220,6 +220,15 @@ namespace uniPark_DAL
             return DBHelper.NonQuery("uspAddGuest", CommandType.StoredProcedure, pars);
 
         }
+        public bool deleteuser(string userid)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                    new SqlParameter("@id", userid),
+
+            };
+            return DBHelper.NonQuery("uspDeletePersonel", CommandType.StoredProcedure, pars);
+        }
 
     }
 

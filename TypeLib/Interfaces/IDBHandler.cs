@@ -22,9 +22,9 @@ namespace TypeLib.Interfaces
         uspGetAllInfo BLL_getallinfo(string userid);
         bool BLL_EditPersonel(string name, string id, string surname, string email, int level, int type);
         List<uspCheckGuest> BLL_checkguest(string guest);
-        bool BLL_addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID);
-    	
-      DataTable BLL_GetAllInfo(string id);	
-	}
+        bool BLL_addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID);   	
+        DataTable BLL_GetAllInfo(string id);
+        bool BLL_deleteuser(string userid);
+    }
 
 }
