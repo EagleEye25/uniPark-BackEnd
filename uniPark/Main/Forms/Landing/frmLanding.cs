@@ -969,5 +969,30 @@ namespace uniPark.Main.Forms.Landing
             
             dgvSearchUsers.DataSource = dt;
         }
+
+        private void matbtnDeleteUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IDBHandler handler = new DBHandler();
+                DialogResult dialogResult = MessageBox.Show("Delete Personel Member: " + matTextPersonelTagNoED.Text, "Delete Member", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    bool b = handler.BLL_deleteuser(matTextPersonelTagNoED.Text);
+                    MessageBox.Show("Deletion Successfull");
+                    DataTable dt3 = handler.BLL_GetPersonel();
+                    dgvEditPersonel.DataSource = dt3;  
+
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    MessageBox.Show("Deletion Cancelled");
+                    DataTable dt3 = handler.BLL_GetPersonel();
+                    dgvEditPersonel.DataSource = dt3;
+                }           
+            }
+            catch
+            { }
+        }
     }
 }

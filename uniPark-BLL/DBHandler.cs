@@ -79,9 +79,9 @@ namespace uniPark_BLL
             return db.GetAllInfo(id);
         }
 
-        public DataTable BLL_GetAllInfo(string id)
+        public bool BLL_deleteuser(string id)
         {
-            return db.GetAllInfo(id);
+            return db.deleteuser(id);
         }
 
     }
