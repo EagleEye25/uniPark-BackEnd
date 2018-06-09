@@ -26,5 +26,10 @@ namespace TypeLib.Interfaces
 		DataTable GetAllInfo(string id);
         bool deleteuser(string userid);
 
+        bool AddParkingArea(ParkingArea PA);
+        bool AddPakingSpace(string ParkingType, string ParkingAreaID);
+
+
+
     }
 }

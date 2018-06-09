@@ -25,6 +25,10 @@ namespace TypeLib.Interfaces
         bool BLL_addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID);   	
         DataTable BLL_GetAllInfo(string id);
         bool BLL_deleteuser(string userid);
+
+        bool BLL_AddParkingArea(ParkingArea PA);
+        bool BLL_AddPakingSpace(string ParkingType, string ParkingAreaID);
+
     }
 
 }

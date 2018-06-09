@@ -19,7 +19,9 @@ namespace uniPark.Main.Forms.Landing
     public partial class frmLanding : Form
     {
         bool hidden;
-
+        bool selectSpaces = false;
+        bool selectedSpace = false;
+        bool UpadteParkingArea = false;
 
     private void DGVload(DataGridView dgvName)
         {
@@ -55,7 +57,13 @@ namespace uniPark.Main.Forms.Landing
 
             /*the datagridview loaded on initial startup*/
             DGVload(dgvParkings);
-
+            DGVload(dgvAddParkings);
+            DGVload(dgvAssignParkings);
+            DGVload(dgvViewUsers);
+            DGVload(dgvSearchParkings);
+            DGVload(dgvSearchUsers);
+            DGVload(dgvEditPersonel);
+            DGVload(dgvUpdateParkings);
             /* Sets defualt headding */
             lblHeadings.Text = "Please select an option...";
 
@@ -205,16 +213,16 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextParkingAreaID_Click(object sender, EventArgs e)
         {
-            matTextParkingAreaID.Text = "";
+            matTextParkingAreaINameUpadate.Text = "";
         }
 
         private void matTextParkingAreaID_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextParkingAreaID.Text != "")
-                matTextParkingAreaID.Text = matTextParkingAreaID.Text;
+            if (matTextParkingAreaINameUpadate.Text != "")
+                matTextParkingAreaINameUpadate.Text = matTextParkingAreaINameUpadate.Text;
             else
-                matTextParkingAreaID.Text = "Parking Area ID";
+                matTextParkingAreaINameUpadate.Text = "Parking Area ID";
         }
 
         private void matbtnUpdateParking_Click(object sender, EventArgs e)
@@ -224,6 +232,13 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlUpdateParkings");
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+            dgvUpdateParkings.DataSource = dt;
+        
+
             
 
         }
@@ -231,31 +246,31 @@ namespace uniPark.Main.Forms.Landing
         private void matTextParkingAreaName_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextParkingAreaName.Text = "";
+            matTextParkingAreaLocationUpdate.Text = "";
         }
 
         private void matTextParkingAreaName_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextParkingAreaName.Text != "")
-                matTextParkingAreaName.Text = matTextParkingAreaName.Text;
+            if (matTextParkingAreaLocationUpdate.Text != "")
+                matTextParkingAreaLocationUpdate.Text = matTextParkingAreaLocationUpdate.Text;
             else
-                matTextParkingAreaName.Text = "Parking Area Name";
+                matTextParkingAreaLocationUpdate.Text = "Parking Area Name";
         }
 
         private void matTextParkingAreaAL_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextParkingAreaAL.Text = "";
+            matTextParkingAreaALUpdate.Text = "";
         }
 
         private void matTextParkingAreaAL_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextParkingAreaAL.Text != "")
-                matTextParkingAreaAL.Text = matTextParkingAreaAL.Text;
+            if (matTextParkingAreaALUpdate.Text != "")
+                matTextParkingAreaALUpdate.Text = matTextParkingAreaALUpdate.Text;
             else
-                matTextParkingAreaAL.Text = "Parking Area Access Level";
+                matTextParkingAreaALUpdate.Text = "Parking Area Access Level";
         }
 
         private void matTextParkingNameAS_Click(object sender, EventArgs e)
@@ -566,6 +581,14 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlAddParkings");
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+
+            dgvAddParkings.DataSource = dt;
+
+            
             
         }
 
@@ -993,6 +1016,135 @@ namespace uniPark.Main.Forms.Landing
             }
             catch
             { }
+        }
+
+        private void matBtnAddParkingAreas_Click(object sender, EventArgs e)
+        {
+
+            IDBHandler handler = new DBHandler();
+            ParkingArea PA = new ParkingArea();
+
+            PA.ParkingAreaID = matTextAddParkinAreaID.Text;
+            PA.ParkingAreaName = matTextParkingAreaNameAD.Text;
+            PA.ParkingAreaLocation = matTextAddParkingLocation.Text;
+            PA.ParkingAreaAccessLevel = Convert.ToInt32(spinParkingAl.Value);
+
+            handler.BLL_AddParkingArea(PA);
+
+            
+
+            for (int c = 0; c <= Convert.ToInt32(spinCoveredParking.Value); c++)
+            {
+                handler.BLL_AddPakingSpace("Covered",matTextAddParkinAreaID.Text);
+            }
+            for (int u = 0; u <= Convert.ToInt32(spinUncoveredParking.Value); u++)
+            {
+                handler.BLL_AddPakingSpace("UnCovered", matTextAddParkinAreaID.Text);
+            }
+
+            matTextAddParkinAreaID.Clear();
+            matTextAddParkinAreaID.Text = "Parking Area ID";
+            matTextAddParkingLocation.Clear();
+            matTextAddParkingLocation.Text = "Parking Area Location";
+            matTextParkingAreaNameAD.Clear();
+            matTextParkingAreaNameAD.Text = "Parking Area Name";
+
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+            dgvAddParkings.DataSource = dt;
+        }
+
+        private void matTextAddParkinAreaID_Click(object sender, EventArgs e)
+        {
+            //Clear text
+            matTextAddParkinAreaID.Text = "";
+        }
+
+        private void matTextAddParkingLocation_Click(object sender, EventArgs e)
+        {
+            //Clear text
+            matTextAddParkingLocation.Text = "";
+        }
+
+        private void dgvUpdateParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (UpadteParkingArea == true)
+            {
+                if (dgvUpdateParkings.SelectedRows.Count > 0)
+                {
+                    string parkingAreaLocation, parkingAreaName, ParkingAL;
+                    parkingAreaName = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaName"].Value.ToString();
+                    parkingAreaLocation = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaLocation"].Value.ToString();
+                    ParkingAL = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaAccessLevel"].Value.ToString();
+
+                    matTextParkingAreaINameUpadate.Text = parkingAreaName;
+                    matTextParkingAreaLocationUpdate.Text = parkingAreaLocation;
+                    matTextParkingAreaALUpdate.Text = ParkingAL;
+                    
+                }
+            }
+
+            if (selectSpaces == true)
+            {
+                if (dgvUpdateParkings.SelectedRows.Count > 0)
+                {
+                    string parkingAreaID;
+                    parkingAreaID = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
+
+                    IDBHandler handler = new DBHandler();
+                    DataTable dt = new DataTable();
+                    dt = handler.BLL_GetParkingSpaces(parkingAreaID);
+
+                    dgvUpdateParkings.DataSource = dt;
+
+                    selectedSpace = true;
+                    MessageBox.Show("Please double click parking space row header");
+                    selectSpaces = false;
+                }
+            }
+
+             
+        }
+
+        private void matmatBtnEditArea_Click(object sender, EventArgs e)
+        {
+            pnlUpdateSpace.Visible = false;
+            pnlUpdateArea.Visible = true;
+            UpadteParkingArea = true;
+            selectSpaces = false;
+            IDBHandler handler = new DBHandler();
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+            dgvUpdateParkings.DataSource = dt;
+        }
+
+        private void matBtnEditParkingSpace_Click(object sender, EventArgs e)
+        {
+            pnlUpdateSpace.Visible = true;
+            pnlUpdateArea.Visible = false;
+            UpadteParkingArea = false;
+            selectSpaces = true;
+            IDBHandler handler = new DBHandler();
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+            dgvUpdateParkings.DataSource = dt;
+            MessageBox.Show("Please select area where parking space is located");
+        }
+
+        private void dgvUpdateParkings_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+
+         {
+            if (selectedSpace == true)
+            {
+                string available = dgvUpdateParkings.SelectedRows[0].Cells["Available"].Value.ToString();
+
+                if (available == "UnAvailable")
+                {
+                    cmbAvailibality.SelectedIndex = 2;
+                }
+                else cmbAvailibality.SelectedIndex = 1;
+            }
         }
     }
 }

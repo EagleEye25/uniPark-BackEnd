@@ -84,5 +84,16 @@ namespace uniPark_BLL
             return db.deleteuser(id);
         }
 
+
+        public bool BLL_AddParkingArea(ParkingArea PA)
+        {
+            return db.AddParkingArea(PA);
+        }
+
+        public bool BLL_AddPakingSpace(string ParkingType, string ParkingAreaID)
+        {
+           return db.AddPakingSpace(ParkingType, ParkingAreaID);
+        }
+
     }
 }
