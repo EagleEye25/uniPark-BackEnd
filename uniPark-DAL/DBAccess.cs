@@ -229,6 +229,31 @@ namespace uniPark_DAL
             };
             return DBHelper.NonQuery("uspDeletePersonel", CommandType.StoredProcedure, pars);
         }
+        public bool AddParkingArea(ParkingArea PA)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            foreach (var prop in PA.GetType().GetProperties())
+            {
+                if (prop.GetValue(PA) != null)
+                {
+                    parameters.Add(new SqlParameter("@" + prop.Name.ToString(), prop.GetValue(PA)));
+                }
+            }
+            return DBHelper.NonQuery("uspAddParkingArea", CommandType.StoredProcedure,
+                parameters.ToArray());
+        }
+        public bool AddPakingSpace(string ParkingType,string ParkingAreaID)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+           {
+                    new SqlParameter("@ParkingType", ParkingType),
+                    new SqlParameter("@ParkingAreaID",ParkingAreaID),
+                   
+                   
+           };
+            return DBHelper.NonQuery("uspAddSpace", CommandType.StoredProcedure, pars);
+
+        }
 
     }
 
