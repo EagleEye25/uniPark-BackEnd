@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using uniPark.Main.Forms.Landing;
+using uniPark.Main.Forms.Login;
 
 namespace uniPark
 {
@@ -16,7 +18,7 @@ namespace uniPark
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            Application.Run(new frmLogin());
         }
     }
 }
