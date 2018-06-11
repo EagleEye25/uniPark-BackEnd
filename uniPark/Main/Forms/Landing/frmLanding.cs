@@ -740,7 +740,7 @@ namespace uniPark.Main.Forms.Landing
             try
             {
                 IDBHandler handler = new DBHandler();
-                success = handler.BLL_AddPersonel(matTextPersonelName.Text, matTextPersonelTagNo.Text, mattextPassword.Text, matTextPersonelSurname.Text, matTextPersonelName.Text, mattextPhoneNum.Text, mattextEmail.Text, (int)cmbPersonelLevel.SelectedValue, (int)cmbPersonelType.SelectedValue);
+                success = handler.BLL_AddPersonel(mattextUserID.Text, matTextPersonelTagNo.Text, mattextPassword.Text, matTextPersonelSurname.Text, matTextPersonelName.Text, mattextPhoneNum.Text, mattextEmail.Text, (int)cmbPersonelLevel.SelectedValue, (int)cmbPersonelType.SelectedValue);
             }
             catch
             {

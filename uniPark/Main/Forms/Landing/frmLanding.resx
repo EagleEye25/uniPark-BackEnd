@@ -269,9 +269,22 @@
   <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+//<<<<<<< UpdateUserInterface
+  <data name="matBtnUpdateParkingSpace.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
+        lU0KwjAUhLvxDLY9RdNuxYVLT+XGn0sKxR9EbxAj1KadRBPzng260Q8GkjczSUEhyf+QXUWDpbP+GtwF
+        ej9QdSbFKmmqEao9gWAn2DEX9JLlEtWeYKgV7MGMVTnrukrsMerxDzaCHUWwm0qxeT5YS89gEx9QbNNb
+        MUfEYnxsH+SyXBhTrzHuMPOAakQsxsPWhTJD85isJaYUk7W8KwW0Q8RiPGxdKNPMHSlxiPqRNZTJljzY
+        LGWyJQ82S5lsyYPNUiZb8mCzlMmWPNhszEEU/AVSnLSZq2qCURTtX3eq+6kSR4xc2gvW5gs+kv8eWNqX
+        CJdcXkrDdA6+aD9MktwBXNyw/Nn2XdAAAAAASUVORK5CYII=
+</value>
+  </data>
+//=======
+ // <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+ //   <value>True</value>
+ // </metadata>
+//>>>>>>> master
   <data name="matBtnUpdateParkingA.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
