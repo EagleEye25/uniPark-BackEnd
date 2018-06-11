@@ -30,6 +30,11 @@ namespace uniPark
                 Primary.Green500,
                 Accent.Green200,
                 TextShade.BLACK);
+
+            frmLanding landing = new frmLanding();
+            landing.Show();
+            Form2 test = this;
+            test.Hide();
         }
 
         private void Form2_Load(object sender, EventArgs e)
