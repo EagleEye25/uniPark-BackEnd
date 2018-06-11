@@ -269,6 +269,7 @@
   <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+//<<<<<<< UpdateUserInterface
   <data name="matBtnUpdateParkingSpace.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
@@ -279,6 +280,11 @@
         CJdcXkrDdA6+aD9MktwBXNyw/Nn2XdAAAAAASUVORK5CYII=
 </value>
   </data>
+//=======
+ // <metadata name="dgvParkings.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+ //   <value>True</value>
+ // </metadata>
+//>>>>>>> master
   <data name="matBtnUpdateParkingA.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
@@ -405,6 +411,16 @@
         OV+KPXrsI28sC6zxEn6Ocwz3Un4DWpcl/FAbDCZtAGd0huOiqi1A/RPlNFk7WtYGg0kbIMaGI0o1UM4M
         vPFFEIdrpOhtwT8d1uJ9WYo31mlpELkb2yOT/JQsDvzZTrQO3iAWq6XDEfhH0zc2E25omnwHijutS/4G
         4yPOsY7F9ZoOqgpX1ech9EE3mXa4QaA2ZyH8Gvjit/kKyTk4zhdNMpJzaKt1EgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="matBtnUpdateParkingSpace.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
+        lU0KwjAUhLvxDLY9RdNuxYVLT+XGn0sKxR9EbxAj1KadRBPzng260Q8GkjczSUEhyf+QXUWDpbP+GtwF
+        ej9QdSbFKmmqEao9gWAn2DEX9JLlEtWeYKgV7MGMVTnrukrsMerxDzaCHUWwm0qxeT5YS89gEx9QbNNb
+        MUfEYnxsH+SyXBhTrzHuMPOAakQsxsPWhTJD85isJaYUk7W8KwW0Q8RiPGxdKNPMHSlxiPqRNZTJljzY
+        LGWyJQ82S5lsyYPNUiZb8mCzlMmWPNhszEEU/AVSnLSZq2qCURTtX3eq+6kSR4xc2gvW5gs+kv8eWNqX
+        CJdcXkrDdA6+aD9MktwBXNyw/Nn2XdAAAAAASUVORK5CYII=
 </value>
   </data>
 </root>
