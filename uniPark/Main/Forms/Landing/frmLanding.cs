@@ -736,21 +736,26 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnAddUsers_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            try
+            if (mattextUserID.Text != "" && matTextPersonelTagNo.Text != ""&& mattextPassword.Text != ""&& matTextPersonelSurname.Text != "" && matTextPersonelName.Text != "" && mattextPhoneNum.Text != ""&& mattextEmail.Text != ""
+                && mattextUserID.Text != "User ID" && matTextPersonelTagNo.Text != "Personel Tag Number" && mattextPassword.Text != "Password" && matTextPersonelSurname.Text != "Personnel Surname" && matTextPersonelName.Text != "Personel Name" && mattextPhoneNum.Text != "Personnel Phone Number" && mattextEmail.Text != "Personnel Email")
             {
-                IDBHandler handler = new DBHandler();
-                success = handler.BLL_AddPersonel(mattextUserID.Text, matTextPersonelTagNo.Text, mattextPassword.Text, matTextPersonelSurname.Text, matTextPersonelName.Text, mattextPhoneNum.Text, mattextEmail.Text, (int)cmbPersonelLevel.SelectedValue, (int)cmbPersonelType.SelectedValue);
+                bool success = false;
+                try
+                {
+                    IDBHandler handler = new DBHandler();
+                    success = handler.BLL_AddPersonel(mattextUserID.Text, matTextPersonelTagNo.Text, mattextPassword.Text, matTextPersonelSurname.Text, matTextPersonelName.Text, mattextPhoneNum.Text, mattextEmail.Text, (int)cmbPersonelLevel.SelectedValue, (int)cmbPersonelType.SelectedValue);
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to add user");
+                }
+                if (success == true)
+                {
+                    MessageBox.Show("Successfully added user");
+                }
+                else { MessageBox.Show("Failed to add user"); }
             }
-            catch
-            {
-                MessageBox.Show("Failure");
-            }
-            if (success == true)
-            {
-                MessageBox.Show("Successfully added user");
-            }
-            else { MessageBox.Show("Failure to add user"); }
+            else { MessageBox.Show("Failed to add user"); }
 
         }
 
@@ -883,17 +888,27 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnEditPersonnel_Click(object sender, EventArgs e)
         {
+            if (matTextPersonelNameED.Text != "Personnel Name" && matTextPersonelTagNoED.Text != "Personnel Tag Number" && matTextPersonelSurED.Text != "Personnel Surname" && matbtnEmailedit.Text != "Personnel Email Address" &&
+                matTextPersonelNameED.Text != "" && matTextPersonelTagNoED.Text != "" && matTextPersonelSurED.Text != "" && matbtnEmailedit.Text != "")
+            { 
             IDBHandler handler = new DBHandler();
             bool b = handler.BLL_EditPersonel(matTextPersonelNameED.Text, matTextPersonelTagNoED.Text, matTextPersonelSurED.Text, matbtnEmailedit.Text, Convert.ToInt32(cmbPersonnelLevelEdit.SelectedValue), Convert.ToInt32(cmbPersonnelTypeEdit.SelectedValue));
             if (b == true)
             {
-                MessageBox.Show("Success");
+                MessageBox.Show("Personel Successfully Edited");
             }
-            else { MessageBox.Show("Unsuccessfull"); }
+            else { MessageBox.Show("Personel Unsuccessfully Edited"); }
 
             DataTable dt = handler.BLL_GetPersonel();
             dgvEditPersonel.DataSource = dt;
-        }
+
+                matTextPersonelNameED.Text = "Personnel Name";
+                matTextPersonelTagNoED.Text = "Personnel Tag Number";
+                matTextPersonelSurED.Text = "Personnel Surname";
+                matbtnEmailedit.Text = "Personnel Email Address";
+            }
+            else { MessageBox.Show("Personel Unsuccessfully Edited"); }
+    }
 
         private void matBtnGenGuestNo_Click(object sender, EventArgs e)
         {
@@ -937,24 +952,41 @@ namespace uniPark.Main.Forms.Landing
         private void matBtnVerifyGuests_Click(object sender, EventArgs e)
         {
             string password = "guest" + matTextGuestVerifyNo.Text;
-            try
+
+
+
+            if (matTextGuestSurname.Text != "Guest Surname" && matTextGuestName.Text != "Guest Name" && matTextPhoneGuest.Text != "Guest Phone" && matTextEmailGuest.Text != "Guest Email Address" &&
+            matTextGuestVerifyNo.Text != "Guest Verification Number" && matTextGuestSurname.Text != "" && matTextGuestName.Text != "" && matTextPhoneGuest.Text != "" && matTextEmailGuest.Text != "" &&
+            matTextGuestVerifyNo.Text != "")
             {
-                IDBHandler handler = new DBHandler();
-                bool b = handler.BLL_addguest(matTextGuestVerifyNo.Text, password, matTextGuestSurname.Text, matTextGuestName.Text, matTextPhoneGuest.Text, matTextEmailGuest.Text, 1);
-                if (b == true)
+                try
                 {
-                    MessageBox.Show("guest added successfully");
+                    IDBHandler handler = new DBHandler();
+                    bool b = handler.BLL_addguest(matTextGuestVerifyNo.Text, password, matTextGuestSurname.Text, matTextGuestName.Text, matTextPhoneGuest.Text, matTextEmailGuest.Text, 1);
+                    if (b == true)
+                    {
+                        MessageBox.Show("guest added successfully");
+                    }
+                    else { MessageBox.Show("guest was not added successfully"); }
                 }
-                else { MessageBox.Show("guest not added"); }
+                catch { MessageBox.Show("guest was not added successfully"); }
+
+                matTextGuestSurname.Text = "Guest Surname";
+                matTextGuestName.Text = "Guest Name";
+                matTextPhoneGuest.Text = "Guest Phone";
+                matTextEmailGuest.Text = "Guest Email Address";
+                matTextGuestVerifyNo.Text = "Verify Number";
             }
-          catch { MessageBox.Show("guest not added"); }
+            else
+            {
+                matTextGuestSurname.Text = "Guest Surname";
+                matTextGuestName.Text = "Guest Name";
+                matTextPhoneGuest.Text = "Guest Phone";
+                matTextEmailGuest.Text = "Guest Email Address";
+                matTextGuestVerifyNo.Text = "Guest Verification Number";
+                MessageBox.Show("guest was not added successfully");
 
-            matTextGuestSurname.Text = "Guest Surname";
-            matTextGuestName.Text = "Guest Name";
-            matTextPhoneGuest.Text = "Guest Phone";
-            matTextEmailGuest.Text = "Guest Email";
-            matTextGuestVerifyNo.Text = "Verify Number";
-
+            }
 
 
         }
@@ -1012,7 +1044,7 @@ namespace uniPark.Main.Forms.Landing
                     dgvEditPersonel.DataSource = dt3;  
 
                 }
-                else if (dialogResult == DialogResult.No)
+                else if (dialogResult == DialogResult.No || matTextPersonelTagNoED.Text == "")
                 {
                     MessageBox.Show("Deletion Cancelled");
                     DataTable dt3 = handler.BLL_GetPersonel();
@@ -1020,7 +1052,7 @@ namespace uniPark.Main.Forms.Landing
                 }           
             }
             catch
-            { }
+            { MessageBox.Show("Deletion could not take place"); }
         }
 
         private void matBtnAddParkingAreas_Click(object sender, EventArgs e)
@@ -1157,6 +1189,15 @@ namespace uniPark.Main.Forms.Landing
         private void matBtnUpdateParkingSpace_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void matbtnHelpEd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("Editing or deleting a Personnel Member.pdf");
+            }
+            catch { }
         }
     }
 }
