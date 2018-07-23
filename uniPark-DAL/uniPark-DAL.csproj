@@ -40,8 +40,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="TypeLib">
       <HintPath>..\TypeLib\bin\Debug\TypeLib.dll</HintPath>
     </Reference>
   </ItemGroup>

@@ -12,6 +12,8 @@ using TypeLib.Models;
 using TypeLib.ViewModels;
 using TypeLib.Interfaces;
 using uniPark_BLL;
+using uniPark.Main;
+
 
 
 namespace uniPark.Main.Forms.Landing
@@ -813,7 +815,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void mattextEmail_Leave(object sender, EventArgs e)
         {
-            if (mattextEmail.Text != "")
+            if (IsEmail2(mattextEmail.Text) == true)
                 mattextEmail.Text = mattextEmail.Text;
             else
             {
@@ -850,7 +852,7 @@ namespace uniPark.Main.Forms.Landing
         private void matbtnEmailedit_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matbtnEmailedit.Text != "")
+            if (IsEmail2(matbtnEmailedit.Text)==true)
                 matbtnEmailedit.Text = matbtnEmailedit.Text;
             else
                 matbtnEmailedit.Text = "Personnel Email";
@@ -1001,8 +1003,11 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEmailGuest_Leave(object sender, EventArgs e)
         {
-            if (matTextEmailGuest.Text != "")
+            if (IsEmail2(matTextEmailGuest.Text) == true )
+            {
                 matTextEmailGuest.Text = matTextEmailGuest.Text;
+
+            }
             else
                 matTextEmailGuest.Text = "Guest Email";
         }
@@ -1198,6 +1203,18 @@ namespace uniPark.Main.Forms.Landing
                 System.Diagnostics.Process.Start("Editing or deleting a Personnel Member.pdf");
             }
             catch { }
+        }
+
+        private bool IsEmail2(string email)
+        {
+            bool b = TestEmail.IsEmail(email);
+
+            if (b == true)
+            { MessageBox.Show("Valid email entered"); }
+            else { MessageBox.Show("Invalid email entered"); }
+
+
+            return b;  
         }
     }
 }

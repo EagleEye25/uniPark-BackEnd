@@ -71,12 +71,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="TypeLib">
       <HintPath>..\TypeLib\bin\Debug\TypeLib.dll</HintPath>
     </Reference>
-    <Reference Include="uniPark-BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="uniPark-BLL">
       <HintPath>..\uniPark-BLL\bin\Debug\uniPark-BLL.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -111,6 +109,7 @@
     <Compile Include="Main\Forms\IconsPage\IconsPage.Designer.cs">
       <DependentUpon>IconsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\TestEmail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main\Forms\Landing\frmLanding.resx">

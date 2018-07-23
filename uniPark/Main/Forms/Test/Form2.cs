@@ -28,8 +28,9 @@ namespace uniPark
                 Primary.Green800,
                 Primary.Green900,
                 Primary.Green500,
-                Accent.Green200,
-                TextShade.BLACK);
+                Accent.Green200,         
+                TextShade.WHITE);
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
