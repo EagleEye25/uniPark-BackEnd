@@ -12,6 +12,7 @@ using MaterialSkin.Controls;
 using MaterialSkin.Animations;
 using uniPark.Main.Forms.Login;
 using uniPark.Main.Forms.Landing;
+using uniPark.Main;
 
 namespace uniPark
 {
@@ -21,15 +22,8 @@ namespace uniPark
         {
             InitializeComponent();
 
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Green800,
-                Primary.Green900,
-                Primary.Green500,
-                Accent.Green200,         
-                TextShade.WHITE);
+            MaterialClass.material(this);
+            
 
         }
 
