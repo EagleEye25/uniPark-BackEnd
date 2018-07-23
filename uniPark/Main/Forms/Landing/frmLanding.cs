@@ -175,10 +175,13 @@ namespace uniPark.Main.Forms.Landing
             dt = handler.BLL_GetParkingAreas();
             
             dgvParkings.DataSource = dt;
-          // cmbParkingAreas.DataSource = dt;
-          // cmbParkingAreas.DisplayMember = "ParkingAreaName";
-          // cmbParkingAreas.ValueMember = "ParkingAreaID";
+
+            dgvParkings.Dock = DockStyle.Fill;
             
+            // cmbParkingAreas.DataSource = dt;
+            // cmbParkingAreas.DisplayMember = "ParkingAreaName";
+            // cmbParkingAreas.ValueMember = "ParkingAreaID";
+
 
         }
 
@@ -707,6 +710,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void dgvParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            
             if (dgvParkings.SelectedRows.Count > 0)
             {
                 string parkindAreaID;
@@ -717,9 +721,13 @@ namespace uniPark.Main.Forms.Landing
                dt = handler.BLL_GetParkingSpaces(parkindAreaID);
              
                 dgvParkings.DataSource = dt;
-                
-                
+
+                dgvParkings.Dock = DockStyle.None;
+                matBtnBackToParkingAreas.Visible = true;
+
             }
+            
+            
         }
 
         private void dgvSearchParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -1219,6 +1227,18 @@ namespace uniPark.Main.Forms.Landing
 
 
             return b;  
+        }
+
+        private void matBtnBackToParkingAreas_Click(object sender, EventArgs e)
+        {
+            matBtnBackToParkingAreas.Visible = false;
+            IDBHandler handler = new DBHandler();
+
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+
+            dgvParkings.DataSource = dt;
+            dgvParkings.Dock = DockStyle.Fill;
         }
     }
 }

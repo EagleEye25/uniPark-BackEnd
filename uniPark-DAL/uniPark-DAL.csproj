@@ -43,6 +43,9 @@
     <Reference Include="TypeLib">
       <HintPath>..\TypeLib\bin\Debug\TypeLib.dll</HintPath>
     </Reference>
+    <Reference Include="uniPark-BLL">
+      <HintPath>..\uniPark-BLL\bin\Debug\uniPark-BLL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBAccess.cs" />
