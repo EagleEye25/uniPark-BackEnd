@@ -13,19 +13,22 @@ using TypeLib.ViewModels;
 using TypeLib.Interfaces;
 using uniPark_BLL;
 using uniPark.Main;
+using MaterialSkin;
+using MaterialSkin.Controls;
 
 
 
 namespace uniPark.Main.Forms.Landing
 {
-    public partial class frmLanding : Form
+    public partial class frmLanding : MaterialForm
     {
         bool hidden;
         bool selectSpaces = false;
         bool selectedSpace = false;
         bool UpadteParkingArea = false;
 
-    private void DGVload(DataGridView dgvName)
+
+        private void DGVload(DataGridView dgvName)
         {
             /* ==================================
             * Designing of material DataGridView
@@ -82,7 +85,8 @@ namespace uniPark.Main.Forms.Landing
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
             pnlVerifyGuest.Hide();
-         /* ======================== */
+            /* ======================== */
+            MaterialClass.material(this);
         }
 
         //Method for hide all panels, but one.

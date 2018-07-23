@@ -109,6 +109,7 @@
     <Compile Include="Main\Forms\IconsPage\IconsPage.Designer.cs">
       <DependentUpon>IconsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\MaterialClass.cs" />
     <Compile Include="Main\TestEmail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
