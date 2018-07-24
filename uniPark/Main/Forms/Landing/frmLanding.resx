@@ -362,6 +362,26 @@
         91Jt9aJNKLeIX8fP/xxQNh0WbPs+dU3TYNt4+JGmKb84IMveALDSh4MWbuYhAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="matbtnDeleteUser.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAJ1JREFUSEtj
+        GBlA8pfhfxiGClEXDA0LkA0hB0v8MsiCGoUdYNNEIv4n8cswDmocJsCigWQs9cvwl9RvfTeokagAmwby
+        sMEnqV/6hlBjEQC7YvIwMKiOQY1FAGwKycSvZH4YqUCNRQAsCsnBX8V/GZtDjUQFWBSTiv9I/TD0gxqH
+        CbBoIBEbFUCNGoQA2aVQIeqCUQsIglELhjJgYAAAdLy50Q91+eMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="matbtnEditPersonnel.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAX1JREFUSEvd
+        lD9LAzEYxrsI7qLepVUrOjjVpEed/TAuDk7i4iAiDoJfRPAPbjoIfgyhShV1Ew+r0Gsuw/m8aYrpkRO9
+        niB94IFL8uR3Sd7clUZbLApmfSVO/Vi8aCt+VunWF83wcNLwWIRwknLIOo0ZE8svs/I0vGcljk0sv/yY
+        vzvhMIvFm4nlF0AfabDltonlF47h3AHuuYgjYjJYAsxV5NdCikz6uqa6Hm08nxQG/3fyIl7FLpueFAem
+        K1uTScPzlNj0pbjEpBZMtQhxRM9eLK5wTTfKycqEiWuhfx0ZXafslyTBGJP1Q4RkP5xpxbdpSqWzXMZC
+        LqhenuJbZvxG82xVk9VxCg5AMoxF7NKccqdWQbtp+lt+JOZYzNecFwFbPOoDvjOTYo/yBMGc29T4tYa5
+        lAq6Lfk+Zae6wQLaj/YYvYx2pGEu2WGXUfQdytHvGu3fwX8qDVfi6U/gJADvbTj8MB3V5s3w8LLh+Bbu
+        Clt5XzZ8dP9JgyqVPgEB633RDfs4lQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="matBtnGenGuestNo.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAPtJREFUSEvt
@@ -382,26 +402,6 @@
         OV+KPXrsI28sC6zxEn6Ocwz3Un4DWpcl/FAbDCZtAGd0huOiqi1A/RPlNFk7WtYGg0kbIMaGI0o1UM4M
         vPFFEIdrpOhtwT8d1uJ9WYo31mlpELkb2yOT/JQsDvzZTrQO3iAWq6XDEfhH0zc2E25omnwHijutS/4G
         4yPOsY7F9ZoOqgpX1ech9EE3mXa4QaA2ZyH8Gvjit/kKyTk4zhdNMpJzaKt1EgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="matbtnEditPersonnel.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAX1JREFUSEvd
-        lD9LAzEYxrsI7qLepVUrOjjVpEed/TAuDk7i4iAiDoJfRPAPbjoIfgyhShV1Ew+r0Gsuw/m8aYrpkRO9
-        niB94IFL8uR3Sd7clUZbLApmfSVO/Vi8aCt+VunWF83wcNLwWIRwknLIOo0ZE8svs/I0vGcljk0sv/yY
-        vzvhMIvFm4nlF0AfabDltonlF47h3AHuuYgjYjJYAsxV5NdCikz6uqa6Hm08nxQG/3fyIl7FLpueFAem
-        K1uTScPzlNj0pbjEpBZMtQhxRM9eLK5wTTfKycqEiWuhfx0ZXafslyTBGJP1Q4RkP5xpxbdpSqWzXMZC
-        LqhenuJbZvxG82xVk9VxCg5AMoxF7NKccqdWQbtp+lt+JOZYzNecFwFbPOoDvjOTYo/yBMGc29T4tYa5
-        lAq6Lfk+Zae6wQLaj/YYvYx2pGEu2WGXUfQdytHvGu3fwX8qDVfi6U/gJADvbTj8MB3V5s3w8LLh+Bbu
-        Clt5XzZ8dP9JgyqVPgEB633RDfs4lQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="matbtnDeleteUser.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAJ1JREFUSEtj
-        GBlA8pfhfxiGClEXDA0LkA0hB0v8MsiCGoUdYNNEIv4n8cswDmocJsCigWQs9cvwl9RvfTeokagAmwby
-        sMEnqV/6hlBjEQC7YvIwMKiOQY1FAGwKycSvZH4YqUCNRQAsCsnBX8V/GZtDjUQFWBSTiv9I/TD0gxqH
-        CbBoIBEbFUCNGoQA2aVQIeqCUQsIglELhjJgYAAAdLy50Q91+eMAAAAASUVORK5CYII=
 </value>
   </data>
 </root>
