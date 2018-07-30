@@ -26,7 +26,9 @@ namespace uniPark.Main.Forms.Landing
         bool selectSpaces = false;
         bool selectedSpace = false;
         bool UpadteParkingArea = false;
-        
+
+        string UpParkingAreaID; // global var for update
+        int UpSpaceID; // global var for update
 
 
         private void DGVload(DataGridView dgvName)
@@ -223,16 +225,16 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextParkingAreaID_Click(object sender, EventArgs e)
         {
-            matTextParkingAreaINameUpadate.Text = "";
+            matTextParkingAreaNameUpadate.Text = "";
         }
 
         private void matTextParkingAreaID_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextParkingAreaINameUpadate.Text != "")
-                matTextParkingAreaINameUpadate.Text = matTextParkingAreaINameUpadate.Text;
+            if (matTextParkingAreaNameUpadate.Text != "")
+                matTextParkingAreaNameUpadate.Text = matTextParkingAreaNameUpadate.Text;
             else
-                matTextParkingAreaINameUpadate.Text = "Parking Area ID";
+                matTextParkingAreaNameUpadate.Text = "Parking Area Name";
         }
 
         private void matbtnUpdateParking_Click(object sender, EventArgs e)
@@ -265,22 +267,22 @@ namespace uniPark.Main.Forms.Landing
             if (matTextParkingAreaLocationUpdate.Text != "")
                 matTextParkingAreaLocationUpdate.Text = matTextParkingAreaLocationUpdate.Text;
             else
-                matTextParkingAreaLocationUpdate.Text = "Parking Area Name";
+                matTextParkingAreaLocationUpdate.Text = "Parking Area Location";
         }
 
         private void matTextParkingAreaAL_Click(object sender, EventArgs e)
         {
             /* Sets text to nothing */
-            matTextParkingAreaALUpdate.Text = "";
+           // matTextParkingAreaALUpdate.Text = "";
         }
 
         private void matTextParkingAreaAL_Leave(object sender, EventArgs e)
         {
             /* will set text field back to message if user doesnt enter data */
-            if (matTextParkingAreaALUpdate.Text != "")
-                matTextParkingAreaALUpdate.Text = matTextParkingAreaALUpdate.Text;
-            else
-                matTextParkingAreaALUpdate.Text = "Parking Area Access Level";
+            //if (matTextParkingAreaALUpdate.Text != "")
+             //   matTextParkingAreaALUpdate.Text = matTextParkingAreaALUpdate.Text;
+            //else
+              //  matTextParkingAreaALUpdate.Text = "Parking Area Access Level";
         }
 
         private void matTextParkingNameAS_Click(object sender, EventArgs e)
@@ -1084,7 +1086,7 @@ namespace uniPark.Main.Forms.Landing
                 PA.ParkingAreaName = matTextParkingAreaNameAD.Text;
                 PA.ParkingAreaLocation = matTextAddParkingLocation.Text;
                 PA.ParkingAreaAccessLevel = Convert.ToInt32(spinParkingAl.Value);
-
+                PA.Status = true;
                 handler.BLL_AddParkingArea(PA);
 
 
@@ -1207,7 +1209,27 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnUpdateParkingSpace_Click(object sender, EventArgs e)
         {
+            bool status = true, Available;
+            string type;
 
+            if (cbDeleteSpace.Checked == true)
+                status = false;
+           else status = true;
+
+            if (cmbAvailibality.SelectedIndex == 0)
+            {
+                Available = true;
+            }
+            else Available = false;
+
+            if (cmbEditType.SelectedIndex == 0)
+            {
+                type = "Covered";
+            }
+            else type = "UnCovered";
+
+            IDBHandler handler = new DBHandler();
+            handler.BLL_UpdateParkingSpace(UpParkingAreaID,type,UpSpaceID,Available,status);
         }
 
         private void matbtnHelpEd_Click(object sender, EventArgs e)
@@ -1267,15 +1289,18 @@ namespace uniPark.Main.Forms.Landing
                 if (dgvUpdateParkings.SelectedRows.Count > 0)
                 {
                     pnlUpdateArea.Visible = true;
-                    string parkingAreaLocation, parkingAreaName, ParkingAL;
+                    string parkingAreaLocation, parkingAreaName;
+                    int parkingAL;
+                    //Global AreaID
+                    UpParkingAreaID = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
+                    //Giving values from grid
                     parkingAreaName = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaName"].Value.ToString();
                     parkingAreaLocation = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaLocation"].Value.ToString();
-                    ParkingAL = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaAccessLevel"].Value.ToString();
-
-                    matTextParkingAreaINameUpadate.Text = parkingAreaName;
+                    parkingAL = int.Parse(dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaAccessLevel"].Value.ToString());
+                    //Assigning values to edits
+                    matTextParkingAreaNameUpadate.Text = parkingAreaName;
                     matTextParkingAreaLocationUpdate.Text = parkingAreaLocation;
-                    matTextParkingAreaALUpdate.Text = ParkingAL;
-
+                    numUpParkingAL.Value = parkingAL;
                 }
             }
 
@@ -1297,11 +1322,48 @@ namespace uniPark.Main.Forms.Landing
                     cmbEditType.SelectedIndex = 1;
                 }
                 else cmbEditType.SelectedIndex = 0;
+
+                UpSpaceID = Convert.ToInt32(dgvUpdateParkings.SelectedRows[0].Cells["ParkingSpaceID"].Value.ToString());
             }
         }
 
         private void matBtnUpdateParkingA_Click(object sender, EventArgs e)
         {
+            IDBHandler handler = new DBHandler();
+            ParkingArea PA = new ParkingArea();
+
+            PA.ParkingAreaID = UpParkingAreaID;
+            PA.ParkingAreaName = matTextParkingAreaNameUpadate.Text;
+            PA.ParkingAreaLocation = matTextParkingAreaLocationUpdate.Text;
+            PA.ParkingAreaAccessLevel = Convert.ToInt32(numUpParkingAL.Value);
+            if (cbDelecteParkingArea.Checked == true)
+            {
+                PA.Status = false;
+            }
+            else PA.Status = true;
+            handler.BLL_UpdateParkingArea(PA);
+
+
+            /*
+           for (int c = 0; c <= Convert.ToInt32(spinCoveredParking.Value); c++)
+           {
+               handler.BLL_AddPakingSpace("Covered", matTextAddParkinAreaID.Text);
+           }
+           for (int u = 0; u <= Convert.ToInt32(spinUncoveredParking.Value); u++)
+           {
+               handler.BLL_AddPakingSpace("UnCovered", matTextAddParkinAreaID.Text);
+           }
+
+           matTextAddParkinAreaID.Clear();
+           matTextAddParkinAreaID.Text = "Parking Area ID";
+           matTextAddParkingLocation.Clear();
+           matTextAddParkingLocation.Text = "Parking Area Location";
+           matTextParkingAreaNameAD.Clear();
+           matTextParkingAreaNameAD.Text = "Parking Area Name";
+           */
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingAreas();
+            dgvUpdateParkings.DataSource = dt;
 
         }
 
@@ -1316,6 +1378,7 @@ namespace uniPark.Main.Forms.Landing
             dt = handler.BLL_GetParkingSpaces(cmbSelectArea.SelectedValue.ToString());
 
             dgvUpdateParkings.DataSource = dt;
+            UpParkingAreaID = cmbSelectArea.SelectedValue.ToString();
         }
     }
 }

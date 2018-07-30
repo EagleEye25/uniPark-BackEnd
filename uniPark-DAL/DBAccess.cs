@@ -255,6 +255,34 @@ namespace uniPark_DAL
 
         }
 
+        public bool UpdateParkingArea(ParkingArea PA)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            foreach (var prop in PA.GetType().GetProperties())
+            {
+                if (prop.GetValue(PA) != null)
+                {
+                    parameters.Add(new SqlParameter("@" + prop.Name.ToString(), prop.GetValue(PA)));
+                }
+            }
+            return DBHelper.NonQuery("uspUpdateParkingArea", CommandType.StoredProcedure,
+                parameters.ToArray());
+        }
+
+        public bool UpdateParkingSpace(string parkingAreaID,string parkingSpaceType,int spaceID,bool available, bool status)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+              {
+                    new SqlParameter("@parkingType",parkingSpaceType),
+                    new SqlParameter("@parkingAreaID",parkingAreaID),
+                    new SqlParameter("@parkingSpaceID",spaceID),
+                    new SqlParameter("@available",available),
+                    new SqlParameter("@status",status),
+
+
+              };
+            return DBHelper.NonQuery("uspUpdateParkingSpace", CommandType.StoredProcedure, pars);
+        }
     }
 
 }

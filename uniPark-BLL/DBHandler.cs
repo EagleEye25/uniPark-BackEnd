@@ -94,6 +94,14 @@ namespace uniPark_BLL
         {
            return db.AddPakingSpace(ParkingType, ParkingAreaID);
         }
+        public bool BLL_UpdateParkingArea(ParkingArea PA)
+        {
+            return db.UpdateParkingArea(PA);
+        }
 
+        public bool BLL_UpdateParkingSpace(string parkingAreaID, string parkingSpaceType, int spaceID, bool available, bool status)
+        {
+           return db.UpdateParkingSpace(parkingAreaID,parkingSpaceType,spaceID,available,status);
+        }
     }
 }
