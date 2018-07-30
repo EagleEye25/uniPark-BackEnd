@@ -12,5 +12,7 @@ namespace TypeLib.Models
         public string ParkingAreaName { get; set; }
         public string ParkingAreaLocation { get; set; }
         public int? ParkingAreaAccessLevel { get; set; }
+        public bool Status { get; set; }
+    
     }
 }
