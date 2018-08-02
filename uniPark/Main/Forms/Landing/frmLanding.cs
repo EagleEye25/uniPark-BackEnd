@@ -245,6 +245,18 @@ namespace uniPark.Main.Forms.Landing
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlUpdateParkings");
 
+            dgvUpdateParkings.Visible = false;
+            matlblUpdateSpace.Visible = false;
+            cmbSelectArea.Visible = false;
+            pnlUpdateArea.Visible = false;
+            pnlUpdateSpace.Visible = false;
+            matlblEditArea.Visible = false;
+            selectedSpace = false;
+            UpadteParkingArea = false;
+            matlblSelectSpace.Visible = false;
+
+            matBtnBackToUpdate.Visible = false;
+
             IDBHandler handler = new DBHandler();
             DataTable dt = new DataTable();
             dt = handler.BLL_GetParkingAreas();
@@ -753,8 +765,11 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnAddUsers_Click(object sender, EventArgs e)
         {
+            string error = "Personnel not added Successfully";
             if (mattextUserID.Text != "" && matTextPersonelTagNo.Text != ""&& mattextPassword.Text != ""&& matTextPersonelSurname.Text != "" && matTextPersonelName.Text != "" && mattextPhoneNum.Text != ""&& mattextEmail.Text != ""
-                && mattextUserID.Text != "User ID" && matTextPersonelTagNo.Text != "Personel Tag Number" && mattextPassword.Text != "Password" && matTextPersonelSurname.Text != "Personnel Surname" && matTextPersonelName.Text != "Personel Name" && mattextPhoneNum.Text != "Personnel Phone Number" && mattextEmail.Text != "Personnel Email")
+                && mattextUserID.Text != "User ID" && matTextPersonelTagNo.Text != "Personnel Tag Number" && mattextPassword.Text != "Password" && matTextPersonelSurname.Text != "Personnel Surname" && 
+                matTextPersonelName.Text != "Personnel Name" && mattextPhoneNum.Text != "Personnel Phone Number" && mattextEmail.Text != "Personnel Email"
+                 && IsDigitsOnly(mattextPhoneNum.Text) == true && IsEmail2(mattextEmail.Text) == true)
             {
                 bool success = false;
                 try
@@ -772,7 +787,31 @@ namespace uniPark.Main.Forms.Landing
                 }
                 else { MessageBox.Show("Failed to add user"); }
             }
-            else { MessageBox.Show("Failed to add user"); }
+            else
+            {
+                if (IsDigitsOnly(mattextPhoneNum.Text) == false)
+                { error = error + ", telephone not all numbers"; }
+
+                if (IsEmail2(mattextEmail.Text) == false)
+                { error = error + ", email not correct format"; }
+
+                if (matTextPersonelName.Text == "Personnel Name" || matTextPersonelName.Text == "")
+                { error = error + ", name incorrect"; }
+
+                if (matTextPersonelSurname.Text == "Personnel Surname"|| matTextPersonelSurname.Text == "")
+                { error = error + ", surnname incorrect"; }
+
+                if (mattextUserID.Text == ""||mattextUserID.Text=="User ID")
+                { error = error + ", User ID is Incorrect"; }
+
+                if (matTextPersonelTagNo.Text == "" || matTextPersonelTagNo.Text == "Personnel Tag Number")
+                { error = error + ", User ID is Incorrect"; }
+
+                if (mattextPassword.Text =="" || mattextPassword.Text == "Password")
+                { error = error + ",Password not entered or invalid"; }
+
+                MessageBox.Show(error);
+            }
 
         }
 
@@ -970,11 +1009,12 @@ namespace uniPark.Main.Forms.Landing
         {
             string password = "guest" + matTextGuestVerifyNo.Text;
 
+            string error = "guest not added successfully";
 
 
             if (matTextGuestSurname.Text != "Guest Surname" && matTextGuestName.Text != "Guest Name" && matTextPhoneGuest.Text != "Guest Phone" && matTextEmailGuest.Text != "Guest Email Address" &&
             matTextGuestVerifyNo.Text != "Guest Verification Number" && matTextGuestSurname.Text != "" && matTextGuestName.Text != "" && matTextPhoneGuest.Text != "" && matTextEmailGuest.Text != "" &&
-            matTextGuestVerifyNo.Text != "")
+            matTextGuestVerifyNo.Text != "" && IsDigitsOnly(matTextPhoneGuest.Text) == true && IsEmail2(matTextEmailGuest.Text) == true)
             {
                 try
                 {
@@ -994,17 +1034,31 @@ namespace uniPark.Main.Forms.Landing
                 matTextEmailGuest.Text = "Guest Email Address";
                 matTextGuestVerifyNo.Text = "Verify Number";
             }
+
+
             else
             {
+                if (IsDigitsOnly(matTextPhoneGuest.Text) == false)
+                { error = error + ", telephone not all numbers"; }
+
+                if (IsEmail2(matTextEmailGuest.Text) == false)
+                { error = error + ", email not correct format"; }
+
+                if( matTextGuestName.Text == "Guest Name")
+                { error = error + ", guest name incorrect"; }
+
+                if (matTextGuestSurname.Text == "Guest Surname")
+                { error = error + ", guest surnname incorrect"; }
+
                 matTextGuestSurname.Text = "Guest Surname";
                 matTextGuestName.Text = "Guest Name";
                 matTextPhoneGuest.Text = "Guest Phone";
                 matTextEmailGuest.Text = "Guest Email Address";
                 matTextGuestVerifyNo.Text = "Guest Verification Number";
-                MessageBox.Show("guest was not added successfully");
+                MessageBox.Show(error);
 
             }
-
+            matBtnVerifyGuests.Enabled = false;
 
         }
 
@@ -1018,7 +1072,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEmailGuest_Leave(object sender, EventArgs e)
         {
-            if (IsEmail2(matTextEmailGuest.Text) == true )
+            if (IsEmail1(matTextEmailGuest.Text) == true)
             {
                 matTextEmailGuest.Text = matTextEmailGuest.Text;
 
@@ -1241,16 +1295,22 @@ namespace uniPark.Main.Forms.Landing
             catch { }
         }
 
-        private bool IsEmail2(string email)
+        private bool IsEmail1(string email)
         {
             bool b = TestEmail.IsEmail(email);
 
             if (b == true)
             { MessageBox.Show("Valid email entered"); }
-            else { MessageBox.Show("Invalid email entered"); }
+           else { MessageBox.Show("Invalid email entered"); }
 
 
             return b;  
+        }
+        private bool IsEmail2(string email)
+        {
+            bool b = TestEmail.IsEmail(email);
+
+            return b;
         }
 
         private void matBtnBackToParkingAreas_Click(object sender, EventArgs e)
@@ -1379,6 +1439,22 @@ namespace uniPark.Main.Forms.Landing
 
             dgvUpdateParkings.DataSource = dt;
             UpParkingAreaID = cmbSelectArea.SelectedValue.ToString();
+        }
+
+        private bool IsDigitsOnly(string str)
+        {
+            if (str.Length != 10)
+            { return false; }
+            else
+            {
+                foreach (char c in str)
+                {
+                    if (c < '0' || c > '9')
+                        return false;
+                }
+            }
+
+            return true;
         }
     }
 }
