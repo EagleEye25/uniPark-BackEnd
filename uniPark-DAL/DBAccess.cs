@@ -32,6 +32,35 @@ namespace uniPark_DAL
            } */
             return dt;
         }
+
+        // Get All Parking Details in Model
+        public List<ParkingArea> GetAllParkingAreaDetails()
+        {
+            List<ParkingArea> list = new List<ParkingArea>();
+            
+
+            using (DataTable dt = DBHelper.Select("uspGetParkingAreas", CommandType.StoredProcedure))
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ParkingArea PA = new ParkingArea
+                        {
+                            ParkingAreaID = Convert.ToString(row["ParkingAreaID"]),
+                            ParkingAreaAccessLevel = Convert.ToInt32(row["ParkingAreaAccessLevel"]),
+                            ParkingAreaLocation = Convert.ToString(row["ParkingAreaLocation"]),
+                            ParkingAreaName = Convert.ToString(row["ParkingAreaName"])
+                            
+                        };
+                        list.Add(PA);
+                    }
+
+                }
+                else { list = null; }
+            }
+            return list;
+        }
         // Get All ParkingSpaces accociated with parkingArea
         public DataTable GetParkingSpaces(string parkingAreaID)
         {

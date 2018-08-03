@@ -30,6 +30,7 @@ namespace TypeLib.Interfaces
         bool BLL_AddPakingSpace(string ParkingType, string ParkingAreaID);
         bool BLL_UpdateParkingArea(ParkingArea PA);
         bool BLL_UpdateParkingSpace(string parkingAreaID, string parkingSpaceType, int spaceID, bool available, bool status);
+        List<ParkingArea> BLL_GetAllParkingAreaDetails();
     }
 
 }

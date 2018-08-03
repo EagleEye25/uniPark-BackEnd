@@ -103,5 +103,10 @@ namespace uniPark_BLL
         {
            return db.UpdateParkingSpace(parkingAreaID,parkingSpaceType,spaceID,available,status);
         }
+
+        public List<ParkingArea> BLL_GetAllParkingAreaDetails()
+        {
+            return db.GetAllParkingAreaDetails();
+        }
     }
 }

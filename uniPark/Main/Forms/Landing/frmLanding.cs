@@ -15,8 +15,12 @@ using uniPark_BLL;
 using uniPark.Main;
 using MaterialSkin;
 using MaterialSkin.Controls;
-
-
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.CacheProviders;
+using GMap.NET.ObjectModel;
+using GMap.NET.WindowsForms.Markers;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -27,6 +31,7 @@ namespace uniPark.Main.Forms.Landing
         bool selectedSpace = false;
         bool UpadteParkingArea = false;
 
+        string parkingAreaIDMap; //global var for single area of map
         string UpParkingAreaID; // global var for update
         int UpSpaceID; // global var for update
 
@@ -88,6 +93,7 @@ namespace uniPark.Main.Forms.Landing
             pnlEditUser.Hide();
             pnlAddParkings.Hide();
             pnlVerifyGuest.Hide();
+            pnlMap.Hide();
             /* ======================== */
             MaterialClass.material(this);
         }
@@ -106,6 +112,7 @@ namespace uniPark.Main.Forms.Landing
             landingPanels.Add(pnlEditUser);
             landingPanels.Add(pnlAddParkings);
             landingPanels.Add(pnlVerifyGuest);
+            landingPanels.Add(pnlMap);
             
             foreach (Panel p in landingPanels)
             {
@@ -728,18 +735,19 @@ namespace uniPark.Main.Forms.Landing
             
             if (dgvParkings.SelectedRows.Count > 0)
             {
-                string parkindAreaID;
-                parkindAreaID = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
+                
+                parkingAreaIDMap = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
 
                 IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
-               dt = handler.BLL_GetParkingSpaces(parkindAreaID);
+               dt = handler.BLL_GetParkingSpaces(parkingAreaIDMap);
              
                 dgvParkings.DataSource = dt;
 
                 dgvParkings.Dock = DockStyle.None;
                 matBtnBackToParkingAreas.Visible = true;
-
+                matbtnViewSingleAreaMap.Visible = true;
+                
             }
             
             
@@ -1455,6 +1463,76 @@ namespace uniPark.Main.Forms.Landing
             }
 
             return true;
+        }
+
+        private void matViewSingleAreaMap_Click(object sender, EventArgs e)
+        {
+            string[] locations;
+            string location = "", areaName = "", accessLvl = "";
+            double dlat = 0,dlong = 0;
+
+            matbtnViewSingleAreaMap.Visible = false;
+            PanelVisible("pnlMap");
+
+            IDBHandler handler = new DBHandler();
+
+
+            List<ParkingArea> list = new List<ParkingArea>();
+
+            list = handler.BLL_GetAllParkingAreaDetails();
+            
+
+            foreach (ParkingArea PA in list)
+            {
+                if (parkingAreaIDMap == PA.ParkingAreaID)
+                {
+                    location = PA.ParkingAreaLocation;
+                    areaName = PA.ParkingAreaName;
+                    accessLvl = Convert.ToString(PA.ParkingAreaAccessLevel);
+                }
+            }
+
+
+            locations = location.Split(',');
+            
+
+            dlat = Convert.ToDouble(locations[0]);
+            dlong = Convert.ToDouble(locations[1]);
+
+            map.MapProvider = GMapProviders.GoogleMap;
+
+            map.Position = new PointLatLng(dlat,dlong);
+
+            PointLatLng point = new PointLatLng(dlat, dlong);
+            GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot );
+
+            marker.ToolTipText = areaName + " Access Level - " + accessLvl;
+            marker.ToolTip.Fill = Brushes.Black;
+            marker.ToolTip.Foreground = Brushes.White;
+            marker.ToolTip.Stroke = Pens.Black;
+            marker.ToolTip.TextPadding = new Size(20, 20);
+
+            GMapOverlay markers = new GMapOverlay("markers");
+            markers.Markers.Add(marker);
+            map.Overlays.Add(markers);
+
+        }
+
+        private void map_Load(object sender, EventArgs e)
+        {
+            map.ShowCenter = false;
+            map.DragButton = MouseButtons.Left;
+            
+            map.MinZoom = 5; 
+            map.MaxZoom = 100;
+            map.Zoom = 15;
+
+            
+        }
+
+        private void map_Leave(object sender, EventArgs e)
+        {
+            map.Overlays.Clear();
         }
     }
 }
