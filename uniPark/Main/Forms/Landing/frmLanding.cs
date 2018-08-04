@@ -36,6 +36,9 @@ namespace uniPark.Main.Forms.Landing
         int UpSpaceID; // global var for update
 
 
+
+        
+
         private void DGVload(DataGridView dgvName)
         {
             /* ==================================
@@ -96,11 +99,15 @@ namespace uniPark.Main.Forms.Landing
             pnlMap.Hide();
             /* ======================== */
             MaterialClass.material(this);
+
+            //Load Main Map 
+            mapMain.Dock = DockStyle.Fill;
         }
 
         //Method for hide all panels, but one.
         private void PanelVisible(string panelName)
         {
+            
             List<Panel> landingPanels = new List<Panel>();
             landingPanels.Add(pnlViewParkings);
             landingPanels.Add(pnlSearchParkings);
@@ -170,6 +177,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnViewParking_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "View Parkings";
 
@@ -197,6 +205,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnSearchParking_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Search Parkings";
 
@@ -246,6 +255,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnUpdateParking_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Update Parkings";
 
@@ -321,6 +331,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnAssignParking_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Assign Parkings";
 
@@ -346,6 +357,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnViewUsers_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "View Personnel";
 
@@ -361,6 +373,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnAddUser_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Add Personnel";
 
@@ -460,6 +473,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnSearchUser_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Search Personnel";
 
@@ -550,6 +564,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnEditUser_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Edit Personel";
 
@@ -604,6 +619,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnAddParking_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Add Parkings";
 
@@ -622,6 +638,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnVerifyGuest_Click(object sender, EventArgs e)
         {
+            mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Verify Guest";
 
@@ -1533,6 +1550,109 @@ namespace uniPark.Main.Forms.Landing
         private void map_Leave(object sender, EventArgs e)
         {
             map.Overlays.Clear();
+        }
+
+        private void mapMain_Load(object sender, EventArgs e)
+        {
+            
+            string location = "";
+            double dlat = -34.002328, dlong = 25.669922;
+
+            mapMain.ShowCenter = false;
+            mapMain.DragButton = MouseButtons.Left;
+
+            mapMain.MinZoom = 5;
+            mapMain.MaxZoom = 100;
+            mapMain.Zoom = 15;
+
+            mapMain.MapProvider = GMapProviders.GoogleMap;
+            map.Position = new PointLatLng(dlat, dlong);
+
+
+
+
+            IDBHandler handler = new DBHandler();
+
+            List<ParkingArea> list = new List<ParkingArea>();
+
+            list = handler.BLL_GetAllParkingAreaDetails();
+
+
+            foreach (ParkingArea PA in list)
+            {
+                string[] arraypoints ;
+                if (PA.ParkingAreaLocation != "")
+                {
+                    location = PA.ParkingAreaLocation;
+                    arraypoints = location.Split(',');
+                    dlat = Convert.ToDouble(arraypoints[0]);
+                    dlong = Convert.ToDouble(arraypoints[1]);
+
+                    mapMain.MapProvider = GMapProviders.GoogleMap;
+
+                    mapMain.Position = new PointLatLng(dlat, dlong);
+                    PointLatLng point = new PointLatLng(dlat, dlong);
+                    GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                    
+                    marker.ToolTipText = PA.ParkingAreaName + " Access Level - " + Convert.ToString(PA.ParkingAreaAccessLevel);
+                    marker.ToolTip.Fill = Brushes.Black;
+                    marker.ToolTip.Foreground = Brushes.White;
+                    marker.ToolTip.Stroke = Pens.Black;
+                    marker.ToolTip.TextPadding = new Size(20, 20);
+
+                    GMapOverlay markers = new GMapOverlay("markers");
+                    markers.Markers.Add(marker);
+                    mapMain.Overlays.Add(markers);
+
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int i = 2; i < arraypoints.Length-1; i+=2)
+                      {
+                          dlat = Convert.ToDouble(arraypoints[i]);
+                           dlong = Convert.ToDouble(arraypoints[i+1]);
+                            points.Add(new PointLatLng(dlat, dlong));
+                        
+                      }
+                    GMapOverlay polyOverlay = new GMapOverlay("polygons");
+                    var polygon = new GMapPolygon(points, PA.ParkingAreaName);
+                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polyOverlay.Polygons.Add(polygon);
+                    mapMain.Overlays.Add(polyOverlay);
+
+
+
+
+
+                    //;
+                    //areaName = PA.ParkingAreaName;
+                    //accessLvl = Convert.ToString(PA.ParkingAreaAccessLevel);
+
+                    // polygon.ToolTipText = areaName + " Access Level - " + accessLvl;
+                    //marker.ToolTip.Fill = Brushes.Black;
+                    //marker.ToolTip.Foreground = Brushes.White;
+                    //marker.ToolTip.Stroke = Pens.Black;
+                    //marker.ToolTip.TextPadding = new Size(20, 20);
+                }
+
+                
+            }
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 }
