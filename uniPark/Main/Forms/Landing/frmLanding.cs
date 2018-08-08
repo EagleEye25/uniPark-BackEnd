@@ -21,6 +21,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.CacheProviders;
 using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.Markers;
+using System.Globalization;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -1507,7 +1508,7 @@ namespace uniPark.Main.Forms.Landing
             {
                 if (parkingAreaIDMap == PA.ParkingAreaID)
                 {
-                    location = PA.ParkingAreaLocation;
+                    location = PA.ParkingAreaCoordinates;
                     areaName = PA.ParkingAreaName;
                     accessLvl = Convert.ToString(PA.ParkingAreaAccessLevel);
                 }
@@ -1616,9 +1617,9 @@ namespace uniPark.Main.Forms.Landing
             foreach (ParkingArea PA in list)
             {
                 string[] arraypoints ;
-                if (PA.ParkingAreaLocation != "")
+                if (PA.ParkingAreaCoordinates != "")
                 {
-                    location = PA.ParkingAreaLocation;
+                    location = PA.ParkingAreaCoordinates;
                     arraypoints = location.Split(',');
                     dlat = Convert.ToDouble(arraypoints[0]);
                     dlong = Convert.ToDouble(arraypoints[1]);
