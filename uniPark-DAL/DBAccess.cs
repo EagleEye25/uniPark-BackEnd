@@ -17,19 +17,7 @@ namespace uniPark_DAL
 
 
             DataTable dt = DBHelper.Select("uspGetParkingAreas", CommandType.StoredProcedure);
-            /* {
-                 if(dt.Rows.Count > 0)
-                 {
-                     foreach (DataRow row  in dt.Rows)
-                     {
-                         uspGetParkingAreas pa = new uspGetParkingAreas();
-                         pa = new uspGetParkingAreas();
-                         pa.ParkingAreaAccessLevel = Convert.ToInt32(row["ParkingAreaAccessLevel"]);
-                         pa.ParkingAreaName = Convert.ToString(row["ParkingAreaName"]);
-                         pa.ParkingAreaLocation = Convert.ToString(row["ParkingAreaLocation"]);
-                     }
-                 }
-           } */
+           
             return dt;
         }
 
@@ -50,7 +38,8 @@ namespace uniPark_DAL
                             ParkingAreaID = Convert.ToString(row["ParkingAreaID"]),
                             ParkingAreaAccessLevel = Convert.ToInt32(row["ParkingAreaAccessLevel"]),
                             ParkingAreaLocation = Convert.ToString(row["ParkingAreaLocation"]),
-                            ParkingAreaName = Convert.ToString(row["ParkingAreaName"])
+                            ParkingAreaName = Convert.ToString(row["ParkingAreaName"]),
+                            ParkingAreaCoordinates = Convert.ToString(row["ParkingAreaCoordinates"])
                             
                         };
                         list.Add(PA);

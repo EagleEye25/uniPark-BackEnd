@@ -21,6 +21,7 @@ using GMap.NET.WindowsForms;
 using GMap.NET.CacheProviders;
 using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.Markers;
+using System.Globalization;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -1486,10 +1487,14 @@ namespace uniPark.Main.Forms.Landing
         {
             string[] locations;
             string location = "", areaName = "", accessLvl = "";
-            double dlat = 0,dlong = 0;
+            double dlat = -34.002328, dlong = 25.669922;
 
             matbtnViewSingleAreaMap.Visible = false;
             PanelVisible("pnlMap");
+
+            map.MapProvider = GMapProviders.GoogleMap;
+
+            map.Position = new PointLatLng(dlat, dlong);
 
             IDBHandler handler = new DBHandler();
 
@@ -1503,35 +1508,66 @@ namespace uniPark.Main.Forms.Landing
             {
                 if (parkingAreaIDMap == PA.ParkingAreaID)
                 {
-                    location = PA.ParkingAreaLocation;
+                    location = PA.ParkingAreaCoordinates;
                     areaName = PA.ParkingAreaName;
                     accessLvl = Convert.ToString(PA.ParkingAreaAccessLevel);
                 }
             }
 
+            if (location != "")
+            {
+                locations = location.Split(',');
 
-            locations = location.Split(',');
+
+
+                dlat = Convert.ToDouble(locations[0]);
+                dlong = Convert.ToDouble(locations[1]);
+
+
+
+
+                
+
+
+
+                PointLatLng point = new PointLatLng(dlat, dlong);
+                GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                marker.ToolTipText = areaName + " Access Level - " + accessLvl;
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+
+                GMapOverlay markers = new GMapOverlay("markers");
+                markers.Markers.Add(marker);
+                map.Overlays.Add(markers);
+
+
+                List<PointLatLng> points = new List<PointLatLng>();
+                for (int i = 2; i < locations.Length - 1; i += 2)
+                {
+                    dlat = Convert.ToDouble(locations[i]);
+                    dlong = Convert.ToDouble(locations[i + 1]);
+                    points.Add(new PointLatLng(dlat, dlong));
+
+                }
+                GMapOverlay polyOverlay = new GMapOverlay("polygons");
+                var polygon = new GMapPolygon(points, areaName);
+                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+                polygon.Stroke = new Pen(Color.Red, 1);
+                polyOverlay.Polygons.Add(polygon);
+                map.Overlays.Add(polyOverlay);
+            }
+            else
+            {
+                MessageBox.Show("There is no location assigned to this parking area");
+            }
+
             
 
-            dlat = Convert.ToDouble(locations[0]);
-            dlong = Convert.ToDouble(locations[1]);
+           
 
-            map.MapProvider = GMapProviders.GoogleMap;
-
-            map.Position = new PointLatLng(dlat,dlong);
-
-            PointLatLng point = new PointLatLng(dlat, dlong);
-            GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot );
-
-            marker.ToolTipText = areaName + " Access Level - " + accessLvl;
-            marker.ToolTip.Fill = Brushes.Black;
-            marker.ToolTip.Foreground = Brushes.White;
-            marker.ToolTip.Stroke = Pens.Black;
-            marker.ToolTip.TextPadding = new Size(20, 20);
-
-            GMapOverlay markers = new GMapOverlay("markers");
-            markers.Markers.Add(marker);
-            map.Overlays.Add(markers);
 
         }
 
@@ -1581,9 +1617,9 @@ namespace uniPark.Main.Forms.Landing
             foreach (ParkingArea PA in list)
             {
                 string[] arraypoints ;
-                if (PA.ParkingAreaLocation != "")
+                if (PA.ParkingAreaCoordinates != "")
                 {
-                    location = PA.ParkingAreaLocation;
+                    location = PA.ParkingAreaCoordinates;
                     arraypoints = location.Split(',');
                     dlat = Convert.ToDouble(arraypoints[0]);
                     dlong = Convert.ToDouble(arraypoints[1]);
