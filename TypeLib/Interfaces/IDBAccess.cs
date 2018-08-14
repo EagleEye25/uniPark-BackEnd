@@ -33,6 +33,7 @@ namespace TypeLib.Interfaces
         bool UpdateParkingSpace(string parkingAreaID, string parkingSpaceType, int spaceID, bool available, bool status);
 
         List<ParkingArea> GetAllParkingAreaDetails();
+        DataTable SearchPersonnel(string name);
 
     }
 }
