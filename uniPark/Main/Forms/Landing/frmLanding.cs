@@ -1728,18 +1728,6 @@ namespace uniPark.Main.Forms.Landing
 
 
 
-           
-
-
-
-
-
-
-
-
-
-
-
 
         }
 
@@ -1751,12 +1739,6 @@ namespace uniPark.Main.Forms.Landing
         private void matTextSearchUsers_KeyDown(object sender, KeyEventArgs e)
         {
 
-            string id = matTextSearchUsers.Text;
-
-            IDBHandler handler = new DBHandler();
-            DataTable dt = handler.BLL_SearchPersonnel(id);
-
-            dgvSearchUsers.DataSource = dt;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -1779,6 +1761,23 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEditPersonelSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+        }
+
+        private void matTextEditPersonelSearch_Leave(object sender, EventArgs e)
+        {
+            if (matTextEditPersonelSearch.Text == "") { matTextEditPersonelSearch.Text = "Personnel Number or Name"; }
+
+            
+        }
+
+        private void matTextEditPersonelSearch_Click(object sender, EventArgs e)
+        {
+            matTextEditPersonelSearch.Text = "";
+        }
+
+        private void matTextEditPersonelSearch_TextChanged(object sender, EventArgs e)
+        {
             string id = matTextEditPersonelSearch.Text;
             if (id != "" || id != "Personnel Number or Name")
             {
@@ -1793,18 +1792,6 @@ namespace uniPark.Main.Forms.Landing
                 DataTable dt3 = handler3.BLL_GetPersonel();
                 dgvEditPersonel.DataSource = dt3;
             }
-        }
-
-        private void matTextEditPersonelSearch_Leave(object sender, EventArgs e)
-        {
-            if (matTextEditPersonelSearch.Text == "") { matTextEditPersonelSearch.Text = "Personnel Number or Name"; }
-
-            
-        }
-
-        private void matTextEditPersonelSearch_Click(object sender, EventArgs e)
-        {
-            matTextEditPersonelSearch.Text = "";
         }
     }
 }
