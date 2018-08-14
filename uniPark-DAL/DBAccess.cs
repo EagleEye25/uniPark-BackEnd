@@ -301,6 +301,32 @@ namespace uniPark_DAL
               };
             return DBHelper.NonQuery("uspUpdateParkingSpace", CommandType.StoredProcedure, pars);
         }
+
+
+
+        /*
+
+            DataTable dt = new DataTable();
+            dt = DBHelper.Select("uspDisplayPersonelInfoAll", CommandType.StoredProcedure);
+            return dt;
+    */
+
+
+
+
+
+        public DataTable SearchPersonnel(string name)
+        {
+            
+            SqlParameter[] pars = new SqlParameter[]
+                {
+                new SqlParameter("@Name",name)
+                };
+            DataTable dt = DBHelper.ParamSelect("uspSearchPersonel", CommandType.StoredProcedure, pars);
+            return dt;
+
+
+        }
     }
 
 }

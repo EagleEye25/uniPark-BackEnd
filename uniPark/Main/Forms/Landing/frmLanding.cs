@@ -23,6 +23,7 @@ using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.Markers;
 using System.Globalization;
 
+
 namespace uniPark.Main.Forms.Landing
 {
     public partial class frmLanding : MaterialForm
@@ -381,7 +382,16 @@ namespace uniPark.Main.Forms.Landing
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlAddUsers");
 
-            IDBHandler handler = new DBHandler();
+            mattextUserID.Text = "User ID";
+            matTextPersonelTagNo.Text = "Personnel Tag Number";
+            mattextPassword.Text = "Password";
+            matTextPersonelSurname.Text = "Personnel Surname";
+            matTextPersonelName.Text = "Personnel Name";
+            mattextPhoneNum.Text = "Personnel Phone Number";
+            mattextEmail.Text = "Personnel Email";
+
+
+                IDBHandler handler = new DBHandler();
             DataTable dt1 = handler.BLL_GetLevels();
             cmbPersonelLevel.DataSource = dt1;
             cmbPersonelLevel.DisplayMember = "PersonnelLevelDesc";
@@ -495,7 +505,7 @@ namespace uniPark.Main.Forms.Landing
             if (matTextSearchUsers.Text != "")
                 matTextSearchUsers.Text = matTextSearchUsers.Text;
             else
-                matTextSearchUsers.Text = "Enter Personnel Number";
+                matTextSearchUsers.Text = "Personnel Number, Personnel Name";
         }
 
         private void matTextPersonelTagNoED_Click(object sender, EventArgs e)
@@ -572,6 +582,13 @@ namespace uniPark.Main.Forms.Landing
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlEditUser");
 
+            matTextPersonelNameED.Text = "Personnel Name";
+            matTextPersonelTagNoED.Text = "Personnel Tag Number";
+            matTextPersonelSurED.Text = "Personnel Surname";
+            matbtnEmailedit.Text = "Personnel Email Address";
+
+                
+
             IDBHandler handler = new DBHandler();
             DataTable dt1 = handler.BLL_GetLevels();
             cmbPersonnelLevelEdit.DataSource = dt1;
@@ -647,6 +664,12 @@ namespace uniPark.Main.Forms.Landing
             PanelVisible("pnlVerifyGuest");
 
             matBtnVerifyGuests.Enabled = false;
+
+            matTextGuestSurname.Text = "Guest Surname";
+            matTextGuestName.Text = "Guest Name";
+            matTextPhoneGuest.Text = "Guest Phone";
+            matTextEmailGuest.Text = "Guest Email Address";
+            matTextGuestVerifyNo.Text = "Guest Verification Number";
 
         }
 
@@ -952,26 +975,35 @@ namespace uniPark.Main.Forms.Landing
         {
             string ID = dgvEditPersonel[0, dgvEditPersonel.CurrentRow.Index].Value.ToString();
             matTextPersonelTagNoED.Text = ID;
+            try
+            {
+                //
+                IDBHandler handler = new DBHandler();
+                uspGetAllInfo get = new uspGetAllInfo();
 
-            //
-            IDBHandler handler = new DBHandler();
-            uspGetAllInfo get = new uspGetAllInfo();
+                get = handler.BLL_getallinfo(ID);
 
-            get = handler.BLL_getallinfo(ID);
+                //load data into controlls
+                if (get.PersonnelName != "")
+                { matTextPersonelNameED.Text = get.PersonnelName; }
+                if (get.PersonnelSurname != "")
+                { matTextPersonelSurED.Text = get.PersonnelSurname; }
+                if (get.PersonnelEmail != "")
+                { matbtnEmailedit.Text = get.PersonnelEmail; }
 
-            //load data into controlls
-            matTextPersonelNameED.Text = get.PersonnelName;
-            matTextPersonelSurED.Text = get.PersonnelSurname;
-            matbtnEmailedit.Text = get.PersonnelEmail;
 
-            cmbPersonnelLevelEdit.SelectedValue = get.PersonnelLevelID;
-            cmbPersonnelTypeEdit.SelectedValue = get.PersonnelTypeID;
+                cmbPersonnelLevelEdit.SelectedValue = get.PersonnelLevelID;
+                cmbPersonnelTypeEdit.SelectedValue = get.PersonnelTypeID;
+            }
+            catch { }
         }
 
         private void matbtnEditPersonnel_Click(object sender, EventArgs e)
         {
+            string error = "Personnel not successfully edited";
+            
             if (matTextPersonelNameED.Text != "Personnel Name" && matTextPersonelTagNoED.Text != "Personnel Tag Number" && matTextPersonelSurED.Text != "Personnel Surname" && matbtnEmailedit.Text != "Personnel Email Address" &&
-                matTextPersonelNameED.Text != "" && matTextPersonelTagNoED.Text != "" && matTextPersonelSurED.Text != "" && matbtnEmailedit.Text != "")
+                matTextPersonelNameED.Text != "" && matTextPersonelTagNoED.Text != "" && matTextPersonelSurED.Text != "" && matbtnEmailedit.Text != "" && IsEmail2(matbtnEmailedit.Text) == true)
             { 
             IDBHandler handler = new DBHandler();
             bool b = handler.BLL_EditPersonel(matTextPersonelNameED.Text, matTextPersonelTagNoED.Text, matTextPersonelSurED.Text, matbtnEmailedit.Text, Convert.ToInt32(cmbPersonnelLevelEdit.SelectedValue), Convert.ToInt32(cmbPersonnelTypeEdit.SelectedValue));
@@ -989,7 +1021,24 @@ namespace uniPark.Main.Forms.Landing
                 matTextPersonelSurED.Text = "Personnel Surname";
                 matbtnEmailedit.Text = "Personnel Email Address";
             }
-            else { MessageBox.Show("Personel Unsuccessfully Edited"); }
+            else
+            {
+                if (matTextPersonelTagNoED.Text == "Personnel Tag Number")
+                { error = error + ", Personnel not selected"; }
+                else
+                { 
+                if (IsEmail2(matbtnEmailedit.Text) == false)
+                { error = error + ", email not correct format"; }
+                if (matTextPersonelNameED.Text == "Personnel Name")
+                { error = error + ", name not correct"; }
+                if (matTextPersonelSurED.Text == "Personnel Surname")
+                { error = error + ", surname not correct"; }
+                }
+                MessageBox.Show(error);
+            }
+
+
+
     }
 
         private void matBtnGenGuestNo_Click(object sender, EventArgs e)
@@ -1036,7 +1085,7 @@ namespace uniPark.Main.Forms.Landing
             string password = "guest" + matTextGuestVerifyNo.Text;
 
             string error = "guest not added successfully";
-
+//
 
             if (matTextGuestSurname.Text != "Guest Surname" && matTextGuestName.Text != "Guest Name" && matTextPhoneGuest.Text != "Guest Phone" && matTextEmailGuest.Text != "Guest Email Address" &&
             matTextGuestVerifyNo.Text != "Guest Verification Number" && matTextGuestSurname.Text != "" && matTextGuestName.Text != "" && matTextPhoneGuest.Text != "" && matTextEmailGuest.Text != "" &&
@@ -1125,7 +1174,7 @@ namespace uniPark.Main.Forms.Landing
             id = matTextSearchUsers.Text;
 
             IDBHandler handler = new DBHandler();
-            DataTable dt = handler.BLL_GetAllInfo(id);
+            DataTable dt = handler.BLL_SearchPersonnel(id);
             
             dgvSearchUsers.DataSource = dt;
         }
@@ -1621,8 +1670,11 @@ namespace uniPark.Main.Forms.Landing
                 {
                     location = PA.ParkingAreaCoordinates;
                     arraypoints = location.Split(',');
-                    dlat = Convert.ToDouble(arraypoints[0]);
-                    dlong = Convert.ToDouble(arraypoints[1]);
+
+                    string lat = arraypoints[0];
+                   dlat = Convert.ToDouble(lat,CultureInfo.InvariantCulture);
+                    string lng = arraypoints[1]; 
+                    dlong = Convert.ToDouble(arraypoints[1],CultureInfo.InvariantCulture);
 
                     mapMain.MapProvider = GMapProviders.GoogleMap;
 
@@ -1644,8 +1696,8 @@ namespace uniPark.Main.Forms.Landing
                     List<PointLatLng> points = new List<PointLatLng>();
                     for (int i = 2; i < arraypoints.Length-1; i+=2)
                       {
-                          dlat = Convert.ToDouble(arraypoints[i]);
-                           dlong = Convert.ToDouble(arraypoints[i+1]);
+                          dlat = Convert.ToDouble(arraypoints[i], CultureInfo.InvariantCulture);
+                           dlong = Convert.ToDouble(arraypoints[i+1],CultureInfo.InvariantCulture);
                             points.Add(new PointLatLng(dlat, dlong));
                         
                       }
@@ -1689,6 +1741,70 @@ namespace uniPark.Main.Forms.Landing
 
 
 
+        }
+
+        private void matTextSearchUsers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void matTextSearchUsers_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            string id = matTextSearchUsers.Text;
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = handler.BLL_SearchPersonnel(id);
+
+            dgvSearchUsers.DataSource = dt;
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            string id = matTextEditPersonelSearch.Text;
+            if (id != "" || id != "Personnel Number or Name")
+            {
+                IDBHandler handler = new DBHandler();
+                DataTable dt = handler.BLL_SearchPersonnel(id);
+
+                dgvEditPersonel.DataSource = dt;
+            }
+            else
+            {
+                IDBHandler handler3 = new DBHandler();
+                DataTable dt3 = handler3.BLL_GetPersonel();
+                dgvEditPersonel.DataSource = dt3;
+            }
+        }
+
+        private void matTextEditPersonelSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string id = matTextEditPersonelSearch.Text;
+            if (id != "" || id != "Personnel Number or Name")
+            {
+                IDBHandler handler = new DBHandler();
+                DataTable dt = handler.BLL_SearchPersonnel(id);
+
+                dgvEditPersonel.DataSource = dt;
+            }
+            else
+            {
+                IDBHandler handler3 = new DBHandler();
+                DataTable dt3 = handler3.BLL_GetPersonel();
+                dgvEditPersonel.DataSource = dt3;
+            }
+        }
+
+        private void matTextEditPersonelSearch_Leave(object sender, EventArgs e)
+        {
+            if (matTextEditPersonelSearch.Text == "") { matTextEditPersonelSearch.Text = "Personnel Number or Name"; }
+
+            
+        }
+
+        private void matTextEditPersonelSearch_Click(object sender, EventArgs e)
+        {
+            matTextEditPersonelSearch.Text = "";
         }
     }
 }

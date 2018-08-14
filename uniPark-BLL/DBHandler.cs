@@ -108,5 +108,9 @@ namespace uniPark_BLL
         {
             return db.GetAllParkingAreaDetails();
         }
+        public DataTable BLL_SearchPersonnel(string name)
+        {
+            return db.SearchPersonnel(name);
+        }
     }
 }
