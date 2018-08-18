@@ -207,7 +207,10 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnSearchParking_Click(object sender, EventArgs e)
         {
+            mapSearch.Overlays.Clear();
             mapMain.Hide();
+            mapSearch.Visible = true;
+            dgvAddParkings.Visible = false;
             /* will change heading title */
             lblHeadings.Text = "Search Parkings";
 
@@ -219,10 +222,82 @@ namespace uniPark.Main.Forms.Landing
 
             DataTable dt = new DataTable();
             dt = handler.BLL_GetParkingAreas();
-    
-             cmbParkingAreas.DataSource = dt;
-             cmbParkingAreas.DisplayMember = "ParkingAreaName";
-             cmbParkingAreas.ValueMember = "ParkingAreaID";
+
+            cmbParkingAreas.DataSource = dt;
+            cmbParkingAreas.DisplayMember = "ParkingAreaName";
+            cmbParkingAreas.ValueMember = "ParkingAreaID";
+
+            //..... Map Implementation.....
+
+            string location = "";
+            double dlat = -34.002328, dlong = 25.669922;
+
+            mapSearch.ShowCenter = false;
+            mapSearch.DragButton = MouseButtons.Left;
+
+            mapSearch.MinZoom = 5;
+            mapSearch.MaxZoom = 100;
+            mapSearch.Zoom = 15;
+
+            mapSearch.MapProvider = GMapProviders.GoogleMap;
+            mapSearch.Position = new PointLatLng(dlat, dlong);
+
+
+
+
+            
+
+            List<ParkingArea> list = new List<ParkingArea>();
+
+            list = handler.BLL_GetAllParkingAreaDetails();
+
+
+            foreach (ParkingArea PA in list)
+            {
+                string[] arraypoints;
+                if (PA.ParkingAreaCoordinates != "")
+                {
+                    location = PA.ParkingAreaCoordinates;
+                    arraypoints = location.Split(',');
+
+                    string lat = arraypoints[0];
+                    dlat = Convert.ToDouble(lat, CultureInfo.InvariantCulture);
+                    string lng = arraypoints[1];
+                    dlong = Convert.ToDouble(arraypoints[1], CultureInfo.InvariantCulture);
+
+                    mapSearch.MapProvider = GMapProviders.GoogleMap;
+
+                    mapSearch.Position = new PointLatLng(dlat, dlong);
+                    PointLatLng point = new PointLatLng(dlat, dlong);
+                    GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+
+                    marker.ToolTipText = PA.ParkingAreaName + " Access Level - " + Convert.ToString(PA.ParkingAreaAccessLevel);
+                    marker.ToolTip.Fill = Brushes.Black;
+                    marker.ToolTip.Foreground = Brushes.White;
+                    marker.ToolTip.Stroke = Pens.Black;
+                    marker.ToolTip.TextPadding = new Size(20, 20);
+
+                    GMapOverlay markers = new GMapOverlay("markers");
+                    markers.Markers.Add(marker);
+                    mapSearch.Overlays.Add(markers);
+
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int i = 2; i < arraypoints.Length - 1; i += 2)
+                    {
+                        dlat = Convert.ToDouble(arraypoints[i], CultureInfo.InvariantCulture);
+                        dlong = Convert.ToDouble(arraypoints[i + 1], CultureInfo.InvariantCulture);
+                        points.Add(new PointLatLng(dlat, dlong));
+
+                    }
+                    GMapOverlay polyOverlay = new GMapOverlay("polygons");
+                    var polygon = new GMapPolygon(points, PA.ParkingAreaName);
+                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polyOverlay.Polygons.Add(polygon);
+                    mapSearch.Overlays.Add(polyOverlay);
+                }
+            }
         }
 
         private void lblHeadings_Click(object sender, EventArgs e)
@@ -751,7 +826,7 @@ namespace uniPark.Main.Forms.Landing
         private void cmbParkingAreas_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*Getting paramaters from ParkingAreas combobox*/
-            string parkingAreaID;
+            string parkingAreaID = "";
             parkingAreaID = cmbParkingAreas.SelectedValue.ToString();
 
             /*Connecting data to ParkingSpace combobox*/
@@ -763,6 +838,95 @@ namespace uniPark.Main.Forms.Landing
             cmbParkingSpace.DataSource = dt;
             cmbParkingSpace.DisplayMember = "ParkingSpaceID";
             cmbParkingSpace.ValueMember = "ParkingSpaceID";
+
+            // show on map 
+            /*
+            if (parkingAreaID != "" )
+            {
+                mapSearch.Overlays.Clear();
+                string[] locations;
+                string location = "", areaName = "", accessLvl = "";
+                double dlat = -34.002328, dlong = 25.669922;
+
+                matbtnViewSingleAreaMap.Visible = false;
+                PanelVisible("pnlMap");
+
+                mapSearch.MapProvider = GMapProviders.GoogleMap;
+
+                mapSearch.Position = new PointLatLng(dlat, dlong);
+
+
+
+
+                List<ParkingArea> list = new List<ParkingArea>();
+
+                list = handler.BLL_GetAllParkingAreaDetails();
+
+
+                foreach (ParkingArea PA in list)
+                {
+                    if (parkingAreaIDMap == PA.ParkingAreaID)
+                    {
+                        location = PA.ParkingAreaCoordinates;
+                        areaName = PA.ParkingAreaName;
+                        accessLvl = Convert.ToString(PA.ParkingAreaAccessLevel);
+                    }
+                }
+
+                if (location != "")
+                {
+                    locations = location.Split(',');
+
+
+
+                    dlat = Convert.ToDouble(locations[0]);
+                    dlong = Convert.ToDouble(locations[1]);
+
+
+
+
+
+
+
+
+                    PointLatLng point = new PointLatLng(dlat, dlong);
+                    GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                    marker.ToolTipText = areaName + " Access Level - " + accessLvl;
+                    marker.ToolTip.Fill = Brushes.Black;
+                    marker.ToolTip.Foreground = Brushes.White;
+                    marker.ToolTip.Stroke = Pens.Black;
+                    marker.ToolTip.TextPadding = new Size(20, 20);
+
+                    GMapOverlay markers = new GMapOverlay("markers");
+                    markers.Markers.Add(marker);
+                    mapSearch.Overlays.Add(markers);
+
+
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int i = 2; i < locations.Length - 1; i += 2)
+                    {
+                        dlat = Convert.ToDouble(locations[i]);
+                        dlong = Convert.ToDouble(locations[i + 1]);
+                        points.Add(new PointLatLng(dlat, dlong));
+
+                    }
+                    GMapOverlay polyOverlay = new GMapOverlay("polygons");
+                    var polygon = new GMapPolygon(points, areaName);
+                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polyOverlay.Polygons.Add(polygon);
+                    mapSearch.Overlays.Add(polyOverlay);
+                }
+                else
+                {
+                    MessageBox.Show("There is no location assigned to this parking area");
+                }
+                
+
+            }
+            */
+
 
         }
 
@@ -802,14 +966,20 @@ namespace uniPark.Main.Forms.Landing
         private void cmbParkingSpace_SelectionChangeCommitted(object sender, EventArgs e)
         {
             /*Get Parameter for ParkingSpace details*/
-            string parkindAreaID = cmbParkingAreas.SelectedValue.ToString();
-            string parkingSearchID = cmbParkingSpace.SelectedValue.ToString();
+            
 
-            IDBHandler handler = new DBHandler();
+
+                string parkindAreaID = cmbParkingAreas.SelectedValue.ToString();
+                string parkingSearchID = cmbParkingSpace.SelectedValue.ToString();
+
+                IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
-                dt = handler.BLL_SearchParkingSpaceDetails(parkindAreaID,parkingSearchID);
+                dt = handler.BLL_SearchParkingSpaceDetails(parkindAreaID, parkingSearchID);
 
                 dgvSearchParkings.DataSource = dt;
+                dgvSearchParkings.Visible = true;
+                mapSearch.Visible = false;
+           
             }
 
         private void matBtnAddUsers_Click(object sender, EventArgs e)
@@ -1651,7 +1821,7 @@ namespace uniPark.Main.Forms.Landing
             mapMain.Zoom = 15;
 
             mapMain.MapProvider = GMapProviders.GoogleMap;
-            map.Position = new PointLatLng(dlat, dlong);
+            mapMain.Position = new PointLatLng(dlat, dlong);
 
 
 
@@ -1805,6 +1975,110 @@ namespace uniPark.Main.Forms.Landing
         private void matTextEditPersonelSearch_Click(object sender, EventArgs e)
         {
             matTextEditPersonelSearch.Text = "";
+        }
+
+        private void mapSearch_Leave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void mapMain_Leave(object sender, EventArgs e)
+        {
+            mapMain.Overlays.Clear();
+        }
+
+        private void cmbParkingAreas_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // show on map 
+
+
+            
+                mapSearch.Overlays.Clear();
+                string[] locations;
+                string location = "", areaName = "", accessLvl = "";
+                double dlat = -34.002328, dlong = 25.669922;
+
+                
+                
+
+                
+
+
+                IDBHandler handler = new DBHandler();
+
+                List<ParkingArea> list = new List<ParkingArea>();
+
+                list = handler.BLL_GetAllParkingAreaDetails();
+
+
+                foreach (ParkingArea PA in list)
+                {
+                    if (cmbParkingAreas.SelectedValue.ToString() == PA.ParkingAreaID)
+                    {
+                        location = PA.ParkingAreaCoordinates;
+                        areaName = PA.ParkingAreaName;
+                        accessLvl = Convert.ToString(PA.ParkingAreaAccessLevel);
+                    }
+                }
+
+                if (location != "")
+                {
+                    locations = location.Split(',');
+
+
+
+                    dlat = Convert.ToDouble(locations[0]);
+                    dlong = Convert.ToDouble(locations[1]);
+
+
+
+
+
+
+
+
+                    PointLatLng point = new PointLatLng(dlat, dlong);
+                    GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                    marker.ToolTipText = areaName + " Access Level - " + accessLvl;
+                    marker.ToolTip.Fill = Brushes.Black;
+                    marker.ToolTip.Foreground = Brushes.White;
+                    marker.ToolTip.Stroke = Pens.Black;
+                    marker.ToolTip.TextPadding = new Size(20, 20);
+
+                    GMapOverlay markers = new GMapOverlay("markers");
+                    markers.Markers.Add(marker);
+                    mapSearch.Overlays.Add(markers);
+
+
+                    List<PointLatLng> points = new List<PointLatLng>();
+                    for (int i = 2; i < locations.Length - 1; i += 2)
+                    {
+                        dlat = Convert.ToDouble(locations[i]);
+                        dlong = Convert.ToDouble(locations[i + 1]);
+                        points.Add(new PointLatLng(dlat, dlong));
+
+                    }
+                    GMapOverlay polyOverlay = new GMapOverlay("polygons");
+                    var polygon = new GMapPolygon(points, areaName);
+                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polyOverlay.Polygons.Add(polygon);
+                    mapSearch.Overlays.Add(polyOverlay);
+                }
+                else
+                {
+                    MessageBox.Show("There is no location assigned to this parking area");
+                }
+
+
+
+            }
+
+        private void matbtnBackToSearchMap_Click(object sender, EventArgs e)
+        {
+            dgvSearchParkings.Visible = false;
+            mapSearch.Visible = true;
         }
     }
 }
