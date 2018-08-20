@@ -36,10 +36,12 @@ namespace uniPark.Main.Forms.Landing
         string parkingAreaIDMap; //global var for single area of map
         string UpParkingAreaID; // global var for update
         int UpSpaceID; // global var for update
+        string NewCoordinates = "" , TempCoordinates = ""; // used for adding and editing parking areas
+        int PolyCount = 0; // used for adding and editing parking areas
 
 
 
-        
+
 
         private void DGVload(DataGridView dgvName)
         {
@@ -122,6 +124,8 @@ namespace uniPark.Main.Forms.Landing
             landingPanels.Add(pnlAddParkings);
             landingPanels.Add(pnlVerifyGuest);
             landingPanels.Add(pnlMap);
+            landingPanels.Add(pnlAdd_EditMap);
+
             
             foreach (Panel p in landingPanels)
             {
@@ -2079,6 +2083,204 @@ namespace uniPark.Main.Forms.Landing
         {
             dgvSearchParkings.Visible = false;
             mapSearch.Visible = true;
+        }
+
+        private void matBtnAddCoordinates_Click(object sender, EventArgs e)
+        {
+            PanelVisible("pnlAdd_EditMap");
+        }
+
+        private void mapAdd_Edit_Coord_Load(object sender, EventArgs e)
+        {
+            
+            double dlat = -34.002328, dlong = 25.669922;
+
+            mapAdd_Edit_Coord.ShowCenter = false;
+            mapAdd_Edit_Coord.DragButton = MouseButtons.Left;
+
+            mapAdd_Edit_Coord.MinZoom = 5;
+            mapAdd_Edit_Coord.MaxZoom = 100;
+            mapAdd_Edit_Coord.Zoom = 15;
+
+            mapAdd_Edit_Coord.MapProvider = GMapProviders.GoogleMap;
+            mapAdd_Edit_Coord.Position = new PointLatLng(dlat, dlong);
+
+            lblLongCoord.Text = "";
+            lblLatCoord.Text = "";
+        }
+
+        private void mapAdd_Edit_Coord_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                var point = mapAdd_Edit_Coord.FromLocalToLatLng(e.X, e.Y);
+                double lat = point.Lat;
+                double lng = point.Lng;
+
+                lblLatCoord.Text = lat.ToString();
+                lblLongCoord.Text = lng.ToString();
+
+            }
+        }
+
+        private void matLoadMarker_Click(object sender, EventArgs e)
+        {
+            if (lblLatCoord.Text != "" && lblLongCoord.Text != "")
+            {
+                NewCoordinates = lblLatCoord.Text + ", " + lblLongCoord.Text;
+
+                PointLatLng point = new PointLatLng(Convert.ToDouble(lblLatCoord.Text), Convert.ToDouble(lblLongCoord.Text));
+                GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                marker.ToolTipText = "Selected Center of Parking Area";
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+
+                GMapOverlay markers = new GMapOverlay("markers");
+                markers.Markers.Add(marker);
+                mapAdd_Edit_Coord.Overlays.Add(markers);
+
+                lblLatCoord.Text = "";
+                lblLongCoord.Text = "";
+
+                matbtnLoadMarker.Visible = false;
+                matbtnAddPolyPoint.Visible = true;
+                matbtnSaveTotalArea.Visible = true;
+
+                mapAdd_Edit_Coord.Refresh();
+
+               
+
+            }
+            else MessageBox.Show("Please select Parking Area center point");
+          
+
+        }
+
+        private void matbtnAddPolyPoint_Click(object sender, EventArgs e)
+        {
+            string Coordinates = "";
+            string[] Coord;
+            double dlat, dlng;
+
+            
+
+
+            if (lblLatCoord.Text != "" && lblLongCoord.Text != "")
+            {
+                PolyCount++;
+                TempCoordinates += ", " + lblLatCoord.Text + ", " + lblLongCoord.Text;
+
+                Coordinates = NewCoordinates + TempCoordinates;
+                Coord = Coordinates.Split(',');
+
+                mapAdd_Edit_Coord.Overlays.Clear();
+
+                PointLatLng point = new PointLatLng(Convert.ToDouble(Coord[0]), Convert.ToDouble(Coord[1]));
+                GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
+
+                marker.ToolTipText = "Selected Center of Parking Area";
+                marker.ToolTip.Fill = Brushes.Black;
+                marker.ToolTip.Foreground = Brushes.White;
+                marker.ToolTip.Stroke = Pens.Black;
+                marker.ToolTip.TextPadding = new Size(20, 20);
+
+                GMapOverlay markers = new GMapOverlay("markers");
+                markers.Markers.Add(marker);
+                mapAdd_Edit_Coord.Overlays.Add(markers);
+
+                List<PointLatLng> points = new List<PointLatLng>();
+                for (int i = 2; i < Coord.Length - 1; i += 2)
+                {
+                    dlat = Convert.ToDouble(Coord[i]);
+                    dlng = Convert.ToDouble(Coord[i + 1]);
+                    points.Add(new PointLatLng(dlat, dlng));
+
+                }
+                GMapOverlay polyOverlay = new GMapOverlay("polygons");
+                var polygon = new GMapPolygon(points, "New Area");
+                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
+                polygon.Stroke = new Pen(Color.Red, 1);
+                polyOverlay.Polygons.Add(polygon);
+                mapAdd_Edit_Coord.Overlays.Add(polyOverlay);
+                mapAdd_Edit_Coord.Refresh();
+
+                lblLatCoord.Text = "";
+                lblLongCoord.Text = "";
+
+            }
+            else MessageBox.Show("Please Select Area Point");
+
+        }
+
+        private void matbtnSaveTotalArea_Click(object sender, EventArgs e)
+        {
+            if (PolyCount > 3 && TempCoordinates != "")
+            {
+                NewCoordinates += TempCoordinates;
+
+                
+                mapAdd_Edit_Coord.Overlays.Clear();
+                NewCoordinates = "";
+                TempCoordinates = "";
+                lblLatCoord.Text = "";
+                lblLongCoord.Text = "";
+
+
+                lblCaption.Text = "Please select center point of Parking Area";
+                matbtnAddPolyPoint.Visible = false;
+                matbtnSaveTotalArea.Visible = false;
+                matbtnLoadMarker.Visible = true;
+
+                mapAdd_Edit_Coord.Refresh();
+
+                MessageBox.Show("Parking Area Coordinates Successfully Added");
+                PanelVisible("pnlAddParkings");
+            }
+
+            else
+            {
+                MessageBox.Show("Unsuccessful attemp please try again");
+
+                mapAdd_Edit_Coord.Overlays.Clear();
+                NewCoordinates = "";
+                TempCoordinates = "";
+                lblLatCoord.Text = "";
+                lblLongCoord.Text = "";
+
+
+                lblCaption.Text = "Please select center point of Parking Area";
+                matbtnAddPolyPoint.Visible = false;
+                matbtnSaveTotalArea.Visible = false;
+                matbtnLoadMarker.Visible = true;
+
+                mapAdd_Edit_Coord.Refresh();
+            }
+
+        }
+
+        private void pnlAdd_EditMap_Leave(object sender, EventArgs e)
+        {
+            PanelVisible("pnlAddParkings");
+        }
+
+        private void matbtnRedo_Click(object sender, EventArgs e)
+        {
+            mapAdd_Edit_Coord.Overlays.Clear();
+            NewCoordinates = "";
+            TempCoordinates = "";
+            lblLatCoord.Text = "";
+            lblLongCoord.Text = "";
+            
+
+            lblCaption.Text = "Please select center point of Parking Area";
+            matbtnAddPolyPoint.Visible = false;
+            matbtnSaveTotalArea.Visible = false;
+            matbtnLoadMarker.Visible = true;
+
+            mapAdd_Edit_Coord.Refresh();
         }
     }
 }
