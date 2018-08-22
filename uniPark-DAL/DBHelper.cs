@@ -13,7 +13,7 @@ namespace uniPark_DAL
     {
 
 
-        private static string connString = ConfigurationManager.ConnectionStrings["uniparkDBConn2"].ConnectionString;
+        private static string connString = ConfigurationManager.ConnectionStrings["uniparkDBConn3"].ConnectionString;
         
        
 

@@ -38,6 +38,7 @@ namespace uniPark.Main.Forms.Landing
         int UpSpaceID; // global var for update
         string NewCoordinates = "" , TempCoordinates = ""; // used for adding and editing parking areas
         int PolyCount = 0; // used for adding and editing parking areas
+        bool On_Add = true;
 
 
 
@@ -1953,20 +1954,6 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEditPersonelSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string id = matTextEditPersonelSearch.Text;
-            if (id != "" || id != "Personnel Number or Name")
-            {
-                IDBHandler handler = new DBHandler();
-                DataTable dt = handler.BLL_SearchPersonnel(id);
-
-                dgvEditPersonel.DataSource = dt;
-            }
-            else
-            {
-                IDBHandler handler3 = new DBHandler();
-                DataTable dt3 = handler3.BLL_GetPersonel();
-                dgvEditPersonel.DataSource = dt3;
-            }
         }
 
         private void matTextEditPersonelSearch_Leave(object sender, EventArgs e)
@@ -2087,6 +2074,9 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnAddCoordinates_Click(object sender, EventArgs e)
         {
+            On_Add = true;
+            NewCoordinates = "";
+         
             PanelVisible("pnlAdd_EditMap");
         }
 
@@ -2150,8 +2140,11 @@ namespace uniPark.Main.Forms.Landing
                 matbtnSaveTotalArea.Visible = true;
 
                 mapAdd_Edit_Coord.Refresh();
+                mapAdd_Edit_Coord.Zoom += 1;
+                mapAdd_Edit_Coord.Zoom -= 1;
 
-               
+                lblCaption.Text = "Please select multiple points to draw area";
+
 
             }
             else MessageBox.Show("Please select Parking Area center point");
@@ -2205,7 +2198,10 @@ namespace uniPark.Main.Forms.Landing
                 polygon.Stroke = new Pen(Color.Red, 1);
                 polyOverlay.Polygons.Add(polygon);
                 mapAdd_Edit_Coord.Overlays.Add(polyOverlay);
+
                 mapAdd_Edit_Coord.Refresh();
+                mapAdd_Edit_Coord.Zoom += 1;
+                mapAdd_Edit_Coord.Zoom -= 1;
 
                 lblLatCoord.Text = "";
                 lblLongCoord.Text = "";
@@ -2263,7 +2259,36 @@ namespace uniPark.Main.Forms.Landing
 
         private void pnlAdd_EditMap_Leave(object sender, EventArgs e)
         {
-            PanelVisible("pnlAddParkings");
+            if (On_Add == true)
+            {
+                PanelVisible("pnlAddParkings");
+            }
+            else PanelVisible("pnlUpdateArea");
+            
+
+        }
+
+        private void matTextEditPersonelSearch_TextChanged(object sender, EventArgs e)
+        {
+            string id = matTextEditPersonelSearch.Text;
+            if (id != "" || id != "Personnel Number or Name")
+            {
+                IDBHandler handler = new DBHandler();
+                DataTable dt = handler.BLL_SearchPersonnel(id);
+
+                dgvEditPersonel.DataSource = dt;
+            }
+            else
+            {
+                IDBHandler handler3 = new DBHandler();
+                DataTable dt3 = handler3.BLL_GetPersonel();
+                dgvEditPersonel.DataSource = dt3;
+            }
+        }
+
+        private void matbtnGetCoords_Click(object sender, EventArgs e)
+        {
+            PanelVisible("pnlAdd_EditMap");
         }
 
         private void matbtnRedo_Click(object sender, EventArgs e)
