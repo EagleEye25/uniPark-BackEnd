@@ -151,7 +151,6 @@
       <DependentUpon>IconsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\MaterialClass.cs" />
-    <Compile Include="Main\TestEmail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main\Forms\Landing\frmLanding.resx">

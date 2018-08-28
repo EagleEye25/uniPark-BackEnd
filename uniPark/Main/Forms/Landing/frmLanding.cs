@@ -22,7 +22,7 @@ using GMap.NET.CacheProviders;
 using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.Markers;
 using System.Globalization;
-
+using System.Text.RegularExpressions;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -36,14 +36,10 @@ namespace uniPark.Main.Forms.Landing
         string parkingAreaIDMap; //global var for single area of map
         string UpParkingAreaID; // global var for update
         int UpSpaceID; // global var for update
-        string NewCoordinates = "" , TempCoordinates = ""; // used for adding and editing parking areas
+        string NewCoordinates = "", TempCoordinates = ""; // used for adding and editing parking areas
         int PolyCount = 0; // used for adding and editing parking areas
         bool On_Add = true;
-
-
-
-
-
+       
         private void DGVload(DataGridView dgvName)
         {
             /* ==================================
@@ -82,7 +78,6 @@ namespace uniPark.Main.Forms.Landing
             DGVload(dgvAssignParkings);
             DGVload(dgvViewUsers);
             DGVload(dgvSearchParkings);
-            DGVload(dgvSearchUsers);
             DGVload(dgvEditPersonel);
             DGVload(dgvUpdateParkings);
             /* Sets defualt headding */
@@ -151,6 +146,7 @@ namespace uniPark.Main.Forms.Landing
                     System.Threading.Thread.Sleep(1);
                     pnlMenu.Refresh();
                     hidden = false;
+                    btnclose.Location = new Point(1039, 0);
                 }
             }
             else
@@ -158,6 +154,7 @@ namespace uniPark.Main.Forms.Landing
                 while (pnlMenu.Width != 54)
                 {
                     pnlMenu.Width -= 1;
+                    btnclose.Location = new Point(1039 + 153, 0);
                     System.Threading.Thread.Sleep(1);
                     pnlMenu.Refresh();
                     hidden = true;
@@ -566,7 +563,7 @@ namespace uniPark.Main.Forms.Landing
         {
             mapMain.Hide();
             /* will change heading title */
-            lblHeadings.Text = "Search Personnel";
+            lblHeadings.Text = "Reports";
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlSearchUsers");
@@ -575,17 +572,12 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextSearchUsers_Click(object sender, EventArgs e)
         {
-            /* Sets text to nothing */
-            matTextSearchUsers.Text = "";
+
         }
 
         private void matTextSearchUsers_Leave(object sender, EventArgs e)
         {
-            /* will set text field back to message if user doesnt enter data */
-            if (matTextSearchUsers.Text != "")
-                matTextSearchUsers.Text = matTextSearchUsers.Text;
-            else
-                matTextSearchUsers.Text = "Personnel Number, Personnel Name";
+
         }
 
         private void matTextPersonelTagNoED_Click(object sender, EventArgs e)
@@ -993,7 +985,7 @@ namespace uniPark.Main.Forms.Landing
             if (mattextUserID.Text != "" && matTextPersonelTagNo.Text != ""&& mattextPassword.Text != ""&& matTextPersonelSurname.Text != "" && matTextPersonelName.Text != "" && mattextPhoneNum.Text != ""&& mattextEmail.Text != ""
                 && mattextUserID.Text != "User ID" && matTextPersonelTagNo.Text != "Personnel Tag Number" && mattextPassword.Text != "Password" && matTextPersonelSurname.Text != "Personnel Surname" && 
                 matTextPersonelName.Text != "Personnel Name" && mattextPhoneNum.Text != "Personnel Phone Number" && mattextEmail.Text != "Personnel Email"
-                 && IsDigitsOnly(mattextPhoneNum.Text) == true && IsEmail2(mattextEmail.Text) == true)
+                 && IsDigitsOnly(mattextPhoneNum.Text) == true && IsEmail2(mattextEmail.Text) == true && isAllString(matTextPersonelName.Text) == true && isAllString(matTextPersonelSurname.Text) == true)
             {
                 bool success = false;
                 try
@@ -1178,7 +1170,7 @@ namespace uniPark.Main.Forms.Landing
             string error = "Personnel not successfully edited";
             
             if (matTextPersonelNameED.Text != "Personnel Name" && matTextPersonelTagNoED.Text != "Personnel Tag Number" && matTextPersonelSurED.Text != "Personnel Surname" && matbtnEmailedit.Text != "Personnel Email Address" &&
-                matTextPersonelNameED.Text != "" && matTextPersonelTagNoED.Text != "" && matTextPersonelSurED.Text != "" && matbtnEmailedit.Text != "" && IsEmail2(matbtnEmailedit.Text) == true)
+                matTextPersonelNameED.Text != "" && matTextPersonelTagNoED.Text != "" && matTextPersonelSurED.Text != "" && matbtnEmailedit.Text != "" && IsEmail2(matbtnEmailedit.Text) == true && isAllString(matTextPersonelSurED.Text) == true && isAllString(matTextPersonelNameED.Text) == true)
             { 
             IDBHandler handler = new DBHandler();
             bool b = handler.BLL_EditPersonel(matTextPersonelNameED.Text, matTextPersonelTagNoED.Text, matTextPersonelSurED.Text, matbtnEmailedit.Text, Convert.ToInt32(cmbPersonnelLevelEdit.SelectedValue), Convert.ToInt32(cmbPersonnelTypeEdit.SelectedValue));
@@ -1204,9 +1196,9 @@ namespace uniPark.Main.Forms.Landing
                 { 
                 if (IsEmail2(matbtnEmailedit.Text) == false)
                 { error = error + ", email not correct format"; }
-                if (matTextPersonelNameED.Text == "Personnel Name")
+                if (matTextPersonelNameED.Text == "Personnel Name" || isAllString(matTextPersonelNameED.Text) == false)
                 { error = error + ", name not correct"; }
-                if (matTextPersonelSurED.Text == "Personnel Surname")
+                if (matTextPersonelSurED.Text == "Personnel Surname" || isAllString(matTextPersonelSurED.Text) == false)
                 { error = error + ", surname not correct"; }
                 }
                 MessageBox.Show(error);
@@ -1257,14 +1249,14 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnVerifyGuests_Click(object sender, EventArgs e)
         {
-            string password = "guest" + matTextGuestVerifyNo.Text;
+            string password = matTextGuestVerifyNo.Text;
 
             string error = "guest not added successfully";
 //
 
             if (matTextGuestSurname.Text != "Guest Surname" && matTextGuestName.Text != "Guest Name" && matTextPhoneGuest.Text != "Guest Phone" && matTextEmailGuest.Text != "Guest Email Address" &&
             matTextGuestVerifyNo.Text != "Guest Verification Number" && matTextGuestSurname.Text != "" && matTextGuestName.Text != "" && matTextPhoneGuest.Text != "" && matTextEmailGuest.Text != "" &&
-            matTextGuestVerifyNo.Text != "" && IsDigitsOnly(matTextPhoneGuest.Text) == true && IsEmail2(matTextEmailGuest.Text) == true)
+            matTextGuestVerifyNo.Text != "" && IsDigitsOnly(matTextPhoneGuest.Text) == true && IsEmail2(matTextEmailGuest.Text) == true && isAllString(matTextGuestSurname.Text) == true && isAllString(matTextGuestName.Text) == true)
             {
                 try
                 {
@@ -1294,10 +1286,10 @@ namespace uniPark.Main.Forms.Landing
                 if (IsEmail2(matTextEmailGuest.Text) == false)
                 { error = error + ", email not correct format"; }
 
-                if( matTextGuestName.Text == "Guest Name")
+                if( matTextGuestName.Text == "Guest Name" || isAllString(matTextGuestName.Text) == false)
                 { error = error + ", guest name incorrect"; }
 
-                if (matTextGuestSurname.Text == "Guest Surname")
+                if (matTextGuestSurname.Text == "Guest Surname" || isAllString(matTextGuestSurname.Text) == false)
                 { error = error + ", guest surnname incorrect"; }
 
                 matTextGuestSurname.Text = "Guest Surname";
@@ -1322,13 +1314,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEmailGuest_Leave(object sender, EventArgs e)
         {
-            if (IsEmail1(matTextEmailGuest.Text) == true)
-            {
-                matTextEmailGuest.Text = matTextEmailGuest.Text;
 
-            }
-            else
-                matTextEmailGuest.Text = "Guest Email";
         }
 
         private void matTextPhoneGuest_Click(object sender, EventArgs e)
@@ -1344,14 +1330,7 @@ namespace uniPark.Main.Forms.Landing
 		private void matBtnSearchUsers_Click(object sender, EventArgs e)
 
         {
-            //Search user
-            string id = "";
-            id = matTextSearchUsers.Text;
 
-            IDBHandler handler = new DBHandler();
-            DataTable dt = handler.BLL_SearchPersonnel(id);
-            
-            dgvSearchUsers.DataSource = dt;
         }
 
         private void matbtnDeleteUser_Click(object sender, EventArgs e)
@@ -1545,23 +1524,7 @@ namespace uniPark.Main.Forms.Landing
             catch { }
         }
 
-        private bool IsEmail1(string email)
-        {
-            bool b = TestEmail.IsEmail(email);
 
-            if (b == true)
-            { MessageBox.Show("Valid email entered"); }
-           else { MessageBox.Show("Invalid email entered"); }
-
-
-            return b;  
-        }
-        private bool IsEmail2(string email)
-        {
-            bool b = TestEmail.IsEmail(email);
-
-            return b;
-        }
 
         private void matBtnBackToParkingAreas_Click(object sender, EventArgs e)
         {
@@ -1926,12 +1889,7 @@ namespace uniPark.Main.Forms.Landing
         private void matTextSearchUsers_KeyDown(object sender, KeyEventArgs e)
         {
 
-            string id = matTextSearchUsers.Text;
 
-            IDBHandler handler = new DBHandler();
-            DataTable dt = handler.BLL_SearchPersonnel(id);
-
-            dgvSearchUsers.DataSource = dt;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -2307,5 +2265,29 @@ namespace uniPark.Main.Forms.Landing
 
             mapAdd_Edit_Coord.Refresh();
         }
+        private bool isAllString(string text)
+        {
+            string letterpattern = @"^[a-zA-Z]+$";
+            Regex regex = new Regex(letterpattern);
+
+            return regex.IsMatch(text);
+        }
+        private bool IsEmail2(string email)
+        {
+            string MatchEmailPattern =
+          @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
+        + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
+        + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+        + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
+
+           return Regex.IsMatch(email, MatchEmailPattern);
+
+        
+    } 
+
+
+
     }
 }

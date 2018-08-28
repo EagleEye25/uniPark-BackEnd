@@ -13,14 +13,17 @@ using TypeLib.ViewModels;
 using TypeLib.Interfaces;
 using uniPark_BLL;
 using TypeLib.Models;
+using MaterialSkin.Controls;
 
 namespace uniPark.Main.Forms.Login
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : MaterialForm
     {
         public frmLogin()
         {
             InitializeComponent();
+            MaterialClass.material(this);
+            matTextPass.PasswordChar = '*';
         }
 
         private void btnclose_Click(object sender, EventArgs e)
@@ -85,7 +88,7 @@ namespace uniPark.Main.Forms.Login
                 }
                 catch (Exception)
                 {
-
+                    lblIncorrect.Visible = true;
                 }
                 
             }
@@ -109,6 +112,16 @@ namespace uniPark.Main.Forms.Login
             {
                 matTextPass.Focus();
             }
+        }
+
+        private void matBtnShowPassword_MouseHover(object sender, EventArgs e)
+        {
+            matTextPass.PasswordChar = Char.MinValue;
+        }
+
+        private void matBtnShowPassword_MouseLeave(object sender, EventArgs e)
+        {
+            matTextPass.PasswordChar = '*';
         }
 
         /* private void frmLogin_Key(object sender, KeyEventArgs e)

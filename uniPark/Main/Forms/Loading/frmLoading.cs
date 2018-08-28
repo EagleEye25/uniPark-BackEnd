@@ -23,7 +23,7 @@ namespace uniPark.Main.Forms.Loading
             /* Checks to see if the loading value is not 10
              * if it is timer stops */
             bool bFlag = false;
-            if (matpgbLoading.Value != 10)
+            if (matpgbLoading.Value != 2)
             {
                 matpgbLoading.Value++;
             }
@@ -49,7 +49,7 @@ namespace uniPark.Main.Forms.Loading
             tmrLoading.Enabled = true;
             tmrLoading.Start();
             tmrLoading.Interval = 1000;
-            matpgbLoading.Maximum = 10;
+            matpgbLoading.Maximum = 2;
         }
     }
 }
