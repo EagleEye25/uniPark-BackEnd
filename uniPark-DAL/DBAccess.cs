@@ -327,6 +327,16 @@ namespace uniPark_DAL
 
 
         }
+        public DataTable getInfringements(string PersonnelID)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+                {
+                    new SqlParameter("PersonnelID", PersonnelID)
+                };
+            DataTable dt = DBHelper.ParamSelect("uspGetPersonnelReports", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+
     }
 
 }

@@ -112,5 +112,10 @@ namespace uniPark_BLL
         {
             return db.SearchPersonnel(name);
         }
+
+        public DataTable BLL_getInfringements(string PersonnelID)
+        {
+            return db.getInfringements(PersonnelID);
+        }
     }
 }

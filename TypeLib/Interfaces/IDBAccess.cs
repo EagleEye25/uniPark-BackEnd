@@ -34,6 +34,7 @@ namespace TypeLib.Interfaces
 
         List<ParkingArea> GetAllParkingAreaDetails();
         DataTable SearchPersonnel(string name);
+        DataTable getInfringements(string PersonnelID);
 
     }
 }

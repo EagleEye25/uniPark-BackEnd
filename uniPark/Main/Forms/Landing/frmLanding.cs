@@ -438,15 +438,11 @@ namespace uniPark.Main.Forms.Landing
         {
             mapMain.Hide();
             /* will change heading title */
-            lblHeadings.Text = "View Personnel";
+            lblHeadings.Text = "View Infringements";
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlViewUsers");
 
-            IDBHandler handler = new DBHandler();
-            DataTable dt = new DataTable();
-            dt = handler.BLL_GetPersonel();
-            dgvViewUsers.DataSource = dt;
             
         }
 
@@ -2272,6 +2268,16 @@ namespace uniPark.Main.Forms.Landing
 
             return regex.IsMatch(text);
         }
+
+        private void materialFlatButton4_Click(object sender, EventArgs e)
+        {
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = handler.BLL_getInfringements(mattextboxInfringements.Text);
+
+            dgvViewUsers.DataSource = dt;
+        }
+
         private bool IsEmail2(string email)
         {
             string MatchEmailPattern =
