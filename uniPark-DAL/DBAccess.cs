@@ -87,7 +87,7 @@ namespace uniPark_DAL
                     new SqlParameter("@Username", userID),
                 };
 
-            using (DataTable table = DBHelper.ParamSelect("uspLogin",
+            using (DataTable table = DBHelper.ParamSelect("uspLoginB",
             CommandType.StoredProcedure, pars))
             {
                 if (table.Rows.Count == 1)
