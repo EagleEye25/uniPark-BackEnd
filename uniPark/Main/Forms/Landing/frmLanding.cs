@@ -90,7 +90,7 @@ namespace uniPark.Main.Forms.Landing
             pnlSearchParkings.Hide();
             pnlUpdateParkings.Hide();
             pnlAssignParkings.Hide();
-            pnlViewUsers.Hide();
+            pnlViewInfringements.Hide();
             pnlAddUsers.Hide();
             pnlSearchUsers.Hide();
             pnlEditUser.Hide();
@@ -113,7 +113,7 @@ namespace uniPark.Main.Forms.Landing
             landingPanels.Add(pnlSearchParkings);
             landingPanels.Add(pnlUpdateParkings);
             landingPanels.Add(pnlAssignParkings);
-            landingPanels.Add(pnlViewUsers);
+            landingPanels.Add(pnlViewInfringements);
             landingPanels.Add(pnlAddUsers);
             landingPanels.Add(pnlSearchUsers);
             landingPanels.Add(pnlEditUser);
@@ -441,7 +441,7 @@ namespace uniPark.Main.Forms.Landing
             lblHeadings.Text = "View Infringements";
 
             /* Hides other panels, shows View Parkings */
-            PanelVisible("pnlViewUsers");
+            PanelVisible("pnlViewInfringements");
 
             
         }
@@ -2276,6 +2276,16 @@ namespace uniPark.Main.Forms.Landing
             DataTable dt = handler.BLL_getInfringements(mattextboxInfringements.Text);
 
             dgvViewUsers.DataSource = dt;
+        }
+
+        private void mattextboxInfringements_Click(object sender, EventArgs e)
+        {
+            mattextboxInfringements.Text = "";
+        }
+
+        private void mattextboxInfringements_Leave(object sender, EventArgs e)
+        {
+            mattextboxInfringements.Text = "Personnel ID Number";
         }
 
         private bool IsEmail2(string email)

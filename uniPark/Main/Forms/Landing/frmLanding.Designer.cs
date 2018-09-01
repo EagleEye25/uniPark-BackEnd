@@ -116,7 +116,10 @@
             this.matBtnAssignParkings = new MaterialSkin.Controls.MaterialFlatButton();
             this.matTextFacilityNoAS = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextParkingNameAS = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pnlViewUsers = new System.Windows.Forms.Panel();
+            this.pnlViewInfringements = new System.Windows.Forms.Panel();
+            this.materialFlatButton5 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.mattextboxInfringements = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dgvViewUsers = new System.Windows.Forms.DataGridView();
@@ -202,7 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateParkings)).BeginInit();
             this.pnlAssignParkings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignParkings)).BeginInit();
-            this.pnlViewUsers.SuspendLayout();
+            this.pnlViewInfringements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewUsers)).BeginInit();
             this.pnlAddUsers.SuspendLayout();
             this.pnlAddParkings.SuspendLayout();
@@ -497,7 +500,7 @@
             // 
             this.lblHeadings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(65)))));
             this.lblHeadings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblHeadings.ForeColor = System.Drawing.Color.Lime;
+            this.lblHeadings.ForeColor = System.Drawing.Color.White;
             this.lblHeadings.Location = new System.Drawing.Point(0, 0);
             this.lblHeadings.Name = "lblHeadings";
             this.lblHeadings.Size = new System.Drawing.Size(1073, 30);
@@ -1293,15 +1296,71 @@
             this.matTextParkingNameAS.Click += new System.EventHandler(this.matTextParkingNameAS_Click);
             this.matTextParkingNameAS.Leave += new System.EventHandler(this.matTextParkingNameAS_Leave);
             // 
-            // pnlViewUsers
+            // pnlViewInfringements
             // 
-            this.pnlViewUsers.Controls.Add(this.materialFlatButton4);
-            this.pnlViewUsers.Controls.Add(this.mattextboxInfringements);
-            this.pnlViewUsers.Controls.Add(this.dgvViewUsers);
-            this.pnlViewUsers.Location = new System.Drawing.Point(211, 36);
-            this.pnlViewUsers.Name = "pnlViewUsers";
-            this.pnlViewUsers.Size = new System.Drawing.Size(385, 201);
-            this.pnlViewUsers.TabIndex = 24;
+            this.pnlViewInfringements.Controls.Add(this.materialFlatButton5);
+            this.pnlViewInfringements.Controls.Add(this.materialSingleLineTextField1);
+            this.pnlViewInfringements.Controls.Add(this.materialSingleLineTextField2);
+            this.pnlViewInfringements.Controls.Add(this.materialFlatButton4);
+            this.pnlViewInfringements.Controls.Add(this.mattextboxInfringements);
+            this.pnlViewInfringements.Controls.Add(this.dgvViewUsers);
+            this.pnlViewInfringements.Location = new System.Drawing.Point(232, 65);
+            this.pnlViewInfringements.Name = "pnlViewInfringements";
+            this.pnlViewInfringements.Size = new System.Drawing.Size(222, 113);
+            this.pnlViewInfringements.TabIndex = 24;
+            // 
+            // materialFlatButton5
+            // 
+            this.materialFlatButton5.AutoSize = true;
+            this.materialFlatButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton5.Depth = 0;
+            this.materialFlatButton5.Icon = ((System.Drawing.Image)(resources.GetObject("materialFlatButton5.Icon")));
+            this.materialFlatButton5.Location = new System.Drawing.Point(774, 475);
+            this.materialFlatButton5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton5.Name = "materialFlatButton5";
+            this.materialFlatButton5.Primary = false;
+            this.materialFlatButton5.Size = new System.Drawing.Size(237, 36);
+            this.materialFlatButton5.TabIndex = 42;
+            this.materialFlatButton5.Text = "      Mark Fine As Paid ";
+            this.materialFlatButton5.UseVisualStyleBackColor = true;
+            // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(9, 480);
+            this.materialSingleLineTextField1.MaxLength = 32767;
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(204, 28);
+            this.materialSingleLineTextField1.TabIndex = 41;
+            this.materialSingleLineTextField1.TabStop = false;
+            this.materialSingleLineTextField1.Text = "Personnel Name";
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            // 
+            // materialSingleLineTextField2
+            // 
+            this.materialSingleLineTextField2.Depth = 0;
+            this.materialSingleLineTextField2.Enabled = false;
+            this.materialSingleLineTextField2.Hint = "";
+            this.materialSingleLineTextField2.Location = new System.Drawing.Point(9, 515);
+            this.materialSingleLineTextField2.MaxLength = 32767;
+            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
+            this.materialSingleLineTextField2.PasswordChar = '\0';
+            this.materialSingleLineTextField2.SelectedText = "";
+            this.materialSingleLineTextField2.SelectionLength = 0;
+            this.materialSingleLineTextField2.SelectionStart = 0;
+            this.materialSingleLineTextField2.Size = new System.Drawing.Size(204, 28);
+            this.materialSingleLineTextField2.TabIndex = 40;
+            this.materialSingleLineTextField2.TabStop = false;
+            this.materialSingleLineTextField2.Text = "Personnel Tag Number";
+            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
             // 
             // materialFlatButton4
             // 
@@ -1334,8 +1393,10 @@
             this.mattextboxInfringements.Size = new System.Drawing.Size(305, 28);
             this.mattextboxInfringements.TabIndex = 38;
             this.mattextboxInfringements.TabStop = false;
-            this.mattextboxInfringements.Text = "Personnel Number or Name";
+            this.mattextboxInfringements.Text = "Personnel ID Number";
             this.mattextboxInfringements.UseSystemPasswordChar = false;
+            this.mattextboxInfringements.Click += new System.EventHandler(this.mattextboxInfringements_Click);
+            this.mattextboxInfringements.Leave += new System.EventHandler(this.mattextboxInfringements_Leave);
             // 
             // dgvViewUsers
             // 
@@ -2273,7 +2334,7 @@
             this.matTextPersonelTagNoED.Size = new System.Drawing.Size(204, 28);
             this.matTextPersonelTagNoED.TabIndex = 23;
             this.matTextPersonelTagNoED.TabStop = false;
-            this.matTextPersonelTagNoED.Text = "Personnel Tag Number";
+            this.matTextPersonelTagNoED.Text = "Personnel ID Number";
             this.matTextPersonelTagNoED.UseSystemPasswordChar = false;
             this.matTextPersonelTagNoED.Click += new System.EventHandler(this.matTextPersonelTagNoED_Click);
             this.matTextPersonelTagNoED.Leave += new System.EventHandler(this.matTextPersonelTagNoED_Leave);
@@ -2556,9 +2617,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1280, 713);
-            this.Controls.Add(this.pnlViewUsers);
-            this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlEditUser);
+            this.Controls.Add(this.pnlViewInfringements);
+            this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlVerifyGuest);
             this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.pnlUpdateParkings);
@@ -2597,8 +2658,8 @@
             this.pnlAssignParkings.ResumeLayout(false);
             this.pnlAssignParkings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignParkings)).EndInit();
-            this.pnlViewUsers.ResumeLayout(false);
-            this.pnlViewUsers.PerformLayout();
+            this.pnlViewInfringements.ResumeLayout(false);
+            this.pnlViewInfringements.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvViewUsers)).EndInit();
             this.pnlAddUsers.ResumeLayout(false);
             this.pnlAddUsers.PerformLayout();
@@ -2662,7 +2723,7 @@
         private MaterialSkin.Controls.MaterialFlatButton matBtnAssignParkings;
         private MaterialSkin.Controls.MaterialSingleLineTextField matTextFacilityNoAS;
         private MaterialSkin.Controls.MaterialSingleLineTextField matTextParkingNameAS;
-        private System.Windows.Forms.Panel pnlViewUsers;
+        private System.Windows.Forms.Panel pnlViewInfringements;
         private System.Windows.Forms.DataGridView dgvViewUsers;
         private System.Windows.Forms.Panel pnlAddUsers;
         private MaterialSkin.Controls.MaterialFlatButton matBtnAddUsers;
@@ -2770,5 +2831,8 @@
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
         private MaterialSkin.Controls.MaterialSingleLineTextField mattextboxInfringements;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton3;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton5;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
     }
 }

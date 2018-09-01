@@ -33,13 +33,13 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.matTextUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.matBtnShowPassword = new MaterialSkin.Controls.MaterialFlatButton();
             this.matTextPass = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblIncorrect = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.matBtnLogin = new MaterialSkin.Controls.MaterialFlatButton();
-            this.matBtnShowPassword = new MaterialSkin.Controls.MaterialFlatButton();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
@@ -105,12 +105,33 @@
             this.pnlMenu.Controls.Add(this.matBtnShowPassword);
             this.pnlMenu.Controls.Add(this.btnclose);
             this.pnlMenu.Controls.Add(this.btnMinimize);
+            this.pnlMenu.Controls.Add(this.label1);
+            this.pnlMenu.Controls.Add(this.lblIncorrect);
+            this.pnlMenu.Controls.Add(this.matTextPass);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(415, 462);
             this.pnlMenu.TabIndex = 11;
+            // 
+            // matBtnShowPassword
+            // 
+            this.matBtnShowPassword.AutoSize = true;
+            this.matBtnShowPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnShowPassword.Depth = 0;
+            this.matBtnShowPassword.ForeColor = System.Drawing.Color.White;
+            this.matBtnShowPassword.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnShowPassword.Icon")));
+            this.matBtnShowPassword.Location = new System.Drawing.Point(367, 307);
+            this.matBtnShowPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnShowPassword.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnShowPassword.Name = "matBtnShowPassword";
+            this.matBtnShowPassword.Primary = false;
+            this.matBtnShowPassword.Size = new System.Drawing.Size(44, 36);
+            this.matBtnShowPassword.TabIndex = 10;
+            this.matBtnShowPassword.UseVisualStyleBackColor = true;
+            this.matBtnShowPassword.MouseLeave += new System.EventHandler(this.matBtnShowPassword_MouseLeave);
+            this.matBtnShowPassword.MouseHover += new System.EventHandler(this.matBtnShowPassword_MouseHover);
             // 
             // matTextPass
             // 
@@ -119,7 +140,7 @@
             this.matTextPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.matTextPass.ForeColor = System.Drawing.Color.White;
             this.matTextPass.Hint = "Enter Password";
-            this.matTextPass.Location = new System.Drawing.Point(16, 315);
+            this.matTextPass.Location = new System.Drawing.Point(13, 323);
             this.matTextPass.Margin = new System.Windows.Forms.Padding(4);
             this.matTextPass.MaxLength = 30;
             this.matTextPass.MouseState = MaterialSkin.MouseState.HOVER;
@@ -138,7 +159,7 @@
             // 
             this.lblIncorrect.AutoSize = true;
             this.lblIncorrect.ForeColor = System.Drawing.Color.Red;
-            this.lblIncorrect.Location = new System.Drawing.Point(79, 350);
+            this.lblIncorrect.Location = new System.Drawing.Point(73, 361);
             this.lblIncorrect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIncorrect.Name = "lblIncorrect";
             this.lblIncorrect.Size = new System.Drawing.Size(244, 17);
@@ -161,8 +182,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Lime;
-            this.label1.Location = new System.Drawing.Point(12, 244);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 235);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 24);
@@ -172,12 +193,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Lime;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 295);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
+            this.label3.Size = new System.Drawing.Size(100, 24);
             this.label3.TabIndex = 17;
             this.label3.Text = "Password";
             // 
@@ -199,24 +220,6 @@
             this.matBtnLogin.UseVisualStyleBackColor = true;
             this.matBtnLogin.Click += new System.EventHandler(this.matBtnLogin_Click);
             // 
-            // matBtnShowPassword
-            // 
-            this.matBtnShowPassword.AutoSize = true;
-            this.matBtnShowPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnShowPassword.Depth = 0;
-            this.matBtnShowPassword.ForeColor = System.Drawing.Color.White;
-            this.matBtnShowPassword.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnShowPassword.Icon")));
-            this.matBtnShowPassword.Location = new System.Drawing.Point(367, 307);
-            this.matBtnShowPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matBtnShowPassword.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnShowPassword.Name = "matBtnShowPassword";
-            this.matBtnShowPassword.Primary = false;
-            this.matBtnShowPassword.Size = new System.Drawing.Size(44, 36);
-            this.matBtnShowPassword.TabIndex = 10;
-            this.matBtnShowPassword.UseVisualStyleBackColor = true;
-            this.matBtnShowPassword.MouseLeave += new System.EventHandler(this.matBtnShowPassword_MouseLeave);
-            this.matBtnShowPassword.MouseHover += new System.EventHandler(this.matBtnShowPassword_MouseHover);
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -226,10 +229,7 @@
             this.Controls.Add(this.matTextUsername);
             this.Controls.Add(this.matBtnLogin);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pbLogo);
-            this.Controls.Add(this.lblIncorrect);
-            this.Controls.Add(this.matTextPass);
             this.Controls.Add(this.pnlMenu);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.Margin = new System.Windows.Forms.Padding(4);
