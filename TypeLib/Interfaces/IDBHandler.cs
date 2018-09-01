@@ -32,6 +32,7 @@ namespace TypeLib.Interfaces
         bool BLL_UpdateParkingSpace(string parkingAreaID, string parkingSpaceType, int spaceID, bool available, bool status);
         List<ParkingArea> BLL_GetAllParkingAreaDetails();
         DataTable BLL_SearchPersonnel(string name);
+        DataTable BLL_getInfringements(string PersonnelID);
     }
 
 }

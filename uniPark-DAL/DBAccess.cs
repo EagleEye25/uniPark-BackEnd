@@ -87,7 +87,7 @@ namespace uniPark_DAL
                     new SqlParameter("@Username", userID),
                 };
 
-            using (DataTable table = DBHelper.ParamSelect("uspLogin",
+            using (DataTable table = DBHelper.ParamSelect("uspLoginB",
             CommandType.StoredProcedure, pars))
             {
                 if (table.Rows.Count == 1)
@@ -327,6 +327,16 @@ namespace uniPark_DAL
 
 
         }
+        public DataTable getInfringements(string PersonnelID)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+                {
+                    new SqlParameter("PersonnelID", PersonnelID)
+                };
+            DataTable dt = DBHelper.ParamSelect("uspGetPersonnelReports", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+
     }
 
 }

@@ -39,9 +39,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(717, 335);
+            this.pictureBox1.Size = new System.Drawing.Size(956, 417);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -54,21 +55,23 @@
             // 
             this.matpgbLoading.Depth = 0;
             this.matpgbLoading.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.matpgbLoading.Location = new System.Drawing.Point(0, 337);
+            this.matpgbLoading.Location = new System.Drawing.Point(0, 416);
+            this.matpgbLoading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.matpgbLoading.MouseState = MaterialSkin.MouseState.HOVER;
             this.matpgbLoading.Name = "matpgbLoading";
-            this.matpgbLoading.Size = new System.Drawing.Size(717, 5);
+            this.matpgbLoading.Size = new System.Drawing.Size(956, 5);
             this.matpgbLoading.TabIndex = 1;
             // 
             // frmLoading
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
-            this.ClientSize = new System.Drawing.Size(717, 342);
+            this.ClientSize = new System.Drawing.Size(956, 421);
             this.Controls.Add(this.matpgbLoading);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLoading";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLoading";
