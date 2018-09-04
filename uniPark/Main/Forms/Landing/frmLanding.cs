@@ -2252,8 +2252,7 @@ namespace uniPark.Main.Forms.Landing
                 NewCoordinates += TempCoordinates;
 
                 
-                mapAdd_Edit_Coord.Overlays.Clear();
-                NewCoordinates = "";
+                mapAdd_Edit_Coord.Overlays.Clear();  
                 TempCoordinates = "";
                 lblLatCoord.Text = "";
                 lblLongCoord.Text = "";
