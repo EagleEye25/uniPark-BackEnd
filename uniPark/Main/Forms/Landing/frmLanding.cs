@@ -39,7 +39,8 @@ namespace uniPark.Main.Forms.Landing
         string NewCoordinates = "", TempCoordinates = ""; // used for adding and editing parking areas
         int PolyCount = 0; // used for adding and editing parking areas
         bool On_Add = true;
-       
+        GMapOverlay Tmarkers = new GMapOverlay("markers");
+
         private void DGVload(DataGridView dgvName)
         {
             /* ==================================
@@ -142,7 +143,7 @@ namespace uniPark.Main.Forms.Landing
             {
                 while (pnlMenu.Width != 207)
                 {
-                    pnlMenu.Width += 1;
+                    pnlMenu.Width += 5;
                     System.Threading.Thread.Sleep(1);
                     pnlMenu.Refresh();
                     hidden = false;
@@ -151,9 +152,9 @@ namespace uniPark.Main.Forms.Landing
             }
             else
             {
-                while (pnlMenu.Width != 54)
+                while (pnlMenu.Width != 57)
                 {
-                    pnlMenu.Width -= 1;
+                    pnlMenu.Width -= 5;
                     btnclose.Location = new Point(1039 + 153, 0);
                     System.Threading.Thread.Sleep(1);
                     pnlMenu.Refresh();
@@ -300,6 +301,9 @@ namespace uniPark.Main.Forms.Landing
                     mapSearch.Overlays.Add(polyOverlay);
                 }
             }
+            mapSearch.Refresh();
+            mapSearch.Zoom += 1;
+            mapSearch.Zoom -= 1;
         }
 
         private void lblHeadings_Click(object sender, EventArgs e)
@@ -717,6 +721,7 @@ namespace uniPark.Main.Forms.Landing
             dt = handler.BLL_GetParkingAreas();
 
             dgvAddParkings.DataSource = dt;
+            dgvAddParkings.Visible = true;
 
             
             
@@ -1357,38 +1362,106 @@ namespace uniPark.Main.Forms.Landing
         private void matBtnAddParkingAreas_Click(object sender, EventArgs e)
         
             {
+            string error = "Parking area not successfully added ";       
 
-                IDBHandler handler = new DBHandler();
-                ParkingArea PA = new ParkingArea();
-
-                PA.ParkingAreaID = matTextAddParkinAreaID.Text;
-                PA.ParkingAreaName = matTextParkingAreaNameAD.Text;
-                PA.ParkingAreaLocation = matTextAddParkingLocation.Text;
-                PA.ParkingAreaAccessLevel = Convert.ToInt32(spinParkingAl.Value);
-                PA.Status = true;
-                handler.BLL_AddParkingArea(PA);
-
-
-
-                for (int c = 0; c <= Convert.ToInt32(spinCoveredParking.Value); c++)
+            if (matTextAddParkinAreaID.Text != "Parking Area ID" && matTextParkingAreaNameAD.Text != "Parking Area Name" 
+                && matTextAddParkingLocation.Text != "Parking Area Location" && (spinCoveredParking.Value + spinUncoveredParking.Value) != 0 
+                && NewCoordinates != "")
+            {
+                try
                 {
-                    handler.BLL_AddPakingSpace("Covered", matTextAddParkinAreaID.Text);
+                    IDBHandler handler = new DBHandler();
+                    ParkingArea PA = new ParkingArea();
+
+                    PA.ParkingAreaID = matTextAddParkinAreaID.Text;
+                    PA.ParkingAreaName = matTextParkingAreaNameAD.Text;
+                    PA.ParkingAreaLocation = matTextAddParkingLocation.Text;
+                    PA.ParkingAreaAccessLevel = Convert.ToInt32(spinParkingAl.Value);
+                    PA.Status = true;
+                    PA.ParkingAreaCoordinates = NewCoordinates;
+                    bool b = handler.BLL_AddParkingArea(PA);
+
+
+
+                    for (int c = 1; c <= Convert.ToInt32(spinCoveredParking.Value); c++)
+                    {
+                        handler.BLL_AddPakingSpace("Covered", matTextAddParkinAreaID.Text);
+                    }
+                    for (int u = 1; u <= Convert.ToInt32(spinUncoveredParking.Value); u++)
+                    {
+                        handler.BLL_AddPakingSpace("UnCovered", matTextAddParkinAreaID.Text);
+                    }
+
+                    if (b == true)
+                    {
+                        MessageBox.Show("Parking Area successfully Added.");
+                        DataTable dt = new DataTable();
+                        dt = handler.BLL_GetParkingAreas();
+                        dgvAddParkings.DataSource = dt;
+                        matTextAddParkinAreaID.Text = "Parking Area ID";
+
+                        matTextAddParkingLocation.Text = "Parking Area Location";
+
+                        matTextParkingAreaNameAD.Text = "Parking Area Name";
+                    }
+                    else MessageBox.Show("Parking Area not Added Successfully.");
+
+
                 }
-                for (int u = 0; u <= Convert.ToInt32(spinUncoveredParking.Value); u++)
+                catch { MessageBox.Show("Parking Area not Added Successfully."); }
+                
+                    
+                    matTextAddParkinAreaID.Text = "Parking Area ID";
+                    
+                    matTextAddParkingLocation.Text = "Parking Area Location";
+                   
+                    matTextParkingAreaNameAD.Text = "Parking Area Name";
+                    spinCoveredParking.Value = 0;
+                    spinUncoveredParking.Value = 0;
+
+
+            }
+            else
+            {
+                if (matTextAddParkinAreaID.Text == "Parking Area ID")
                 {
-                    handler.BLL_AddPakingSpace("UnCovered", matTextAddParkinAreaID.Text);
+                    error += ", Parking Area ID is Incorrect ";
                 }
 
-                matTextAddParkinAreaID.Clear();
+                if (matTextAddParkingLocation.Text == "Parking Area Location")
+                {
+                    error += ", Parking Area Location is Incorrect ";
+                }
+
+                if (matTextParkingAreaNameAD.Text == "Parking Area Name")
+                {
+                    error += ", Parking Area Name is Incorrect ";
+                }
+
+                if ((spinCoveredParking.Value + spinUncoveredParking.Value) == 0)
+                {
+                    error += ", Parking Spaces can not be 0 ";
+                }
+
+                if (NewCoordinates == "")
+                {
+                    error += ", Parking Area Map Coordinates was not Included ";
+                }
+
                 matTextAddParkinAreaID.Text = "Parking Area ID";
-                matTextAddParkingLocation.Clear();
+
                 matTextAddParkingLocation.Text = "Parking Area Location";
-                matTextParkingAreaNameAD.Clear();
+
                 matTextParkingAreaNameAD.Text = "Parking Area Name";
 
-                DataTable dt = new DataTable();
-                dt = handler.BLL_GetParkingAreas();
-                dgvAddParkings.DataSource = dt;
+                spinCoveredParking.Value = 0;
+                spinUncoveredParking.Value = 0;
+
+                MessageBox.Show(error);
+
+            }
+
+               
             }
 
 
@@ -1566,10 +1639,19 @@ namespace uniPark.Main.Forms.Landing
                     parkingAreaName = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaName"].Value.ToString();
                     parkingAreaLocation = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaLocation"].Value.ToString();
                     parkingAL = int.Parse(dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaAccessLevel"].Value.ToString());
+                    NewCoordinates = dgvUpdateParkings.SelectedRows[0].Cells["ParkingAreaCoordinates"].Value.ToString();
                     //Assigning values to edits
                     matTextParkingAreaNameUpadate.Text = parkingAreaName;
                     matTextParkingAreaLocationUpdate.Text = parkingAreaLocation;
                     numUpParkingAL.Value = parkingAL;
+                    if (matTextParkingAreaNameUpadate.Text == "")
+                    {
+                        matTextParkingAreaNameUpadate.Text = "Parking Area Name";
+                    }
+                    if (matTextParkingAreaLocationUpdate.Text == "")
+                    {
+                        matTextParkingAreaLocationUpdate.Text = "Parking Area Location";
+                    }
                 }
             }
 
@@ -1598,42 +1680,86 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnUpdateParkingA_Click(object sender, EventArgs e)
         {
-            IDBHandler handler = new DBHandler();
-            ParkingArea PA = new ParkingArea();
+            string error = "Parking Area Update Unsuccessfull due to : ";
+            
 
-            PA.ParkingAreaID = UpParkingAreaID;
-            PA.ParkingAreaName = matTextParkingAreaNameUpadate.Text;
-            PA.ParkingAreaLocation = matTextParkingAreaLocationUpdate.Text;
-            PA.ParkingAreaAccessLevel = Convert.ToInt32(numUpParkingAL.Value);
-            if (cbDelecteParkingArea.Checked == true)
+            if (matTextParkingAreaNameUpadate.Text != "Parking Area Name" && matTextParkingAreaLocationUpdate.Text != "Parking Area Location" && NewCoordinates != "")
             {
-                PA.Status = false;
+                try
+                {
+
+
+
+                    IDBHandler handler = new DBHandler();
+                    ParkingArea PA = new ParkingArea();
+
+                    PA.ParkingAreaID = UpParkingAreaID;
+                    PA.ParkingAreaName = matTextParkingAreaNameUpadate.Text;
+                    PA.ParkingAreaLocation = matTextParkingAreaLocationUpdate.Text;
+                    PA.ParkingAreaAccessLevel = Convert.ToInt32(numUpParkingAL.Value);
+                    PA.ParkingAreaCoordinates = NewCoordinates;
+                    if (cbDelecteParkingArea.Checked == true)
+                    {
+                        PA.Status = false;
+                    }
+                    else PA.Status = true;
+                    handler.BLL_UpdateParkingArea(PA);
+                    if (cbAddMoreSpaces.Checked == true)
+                    {
+                        if (nupCovered.Value != 0)
+                        {
+                            for (int c = 1; c <= Convert.ToInt32(nupCovered.Value); c++)
+                            {
+                                handler.BLL_AddPakingSpace("Covered", UpParkingAreaID);
+                            }
+                           
+                        }
+                        if (nupUncovered.Value != 0)
+                        {
+                            for (int u = 1; u <= Convert.ToInt32(nupUncovered.Value); u++)
+                            {
+                                handler.BLL_AddPakingSpace("UnCovered", UpParkingAreaID);
+                            }
+                        }
+                    }
+
+                   
+                    DataTable dt = new DataTable();
+                    dt = handler.BLL_GetParkingAreas();
+                    dgvUpdateParkings.DataSource = dt;
+
+                    lblMoreCovered.Visible = false;
+                    lblMoreUncovered.Visible = false;
+                    nupCovered.Visible = false;
+                    nupUncovered.Visible = false;
+
+                    nupUncovered.Value = 0;
+                    nupCovered.Value = 0;
+                    cbDelecteParkingArea.Checked = false;
+                    cbAddMoreSpaces.Checked = false;
+
+
+                    MessageBox.Show("Parking Area Successfully Updated.");
+                }
+                catch { MessageBox.Show(error); }
             }
-            else PA.Status = true;
-            handler.BLL_UpdateParkingArea(PA);
+            else
+            {
+                if (matTextParkingAreaNameUpadate.Text == "Parking Area Name")
+                {
+                    error += "Parking Area Name is empty";
+                }
+                if (matTextParkingAreaLocationUpdate.Text == " Parking Area Location. ")
+                {
+                    error += " Parking Area Location is empty. ";
+                }
+                if (NewCoordinates == "")
+                {
+                    error += " Parking Area Coordinates are emptry ";
+                }
 
-
-            /*
-           for (int c = 0; c <= Convert.ToInt32(spinCoveredParking.Value); c++)
-           {
-               handler.BLL_AddPakingSpace("Covered", matTextAddParkinAreaID.Text);
-           }
-           for (int u = 0; u <= Convert.ToInt32(spinUncoveredParking.Value); u++)
-           {
-               handler.BLL_AddPakingSpace("UnCovered", matTextAddParkinAreaID.Text);
-           }
-
-           matTextAddParkinAreaID.Clear();
-           matTextAddParkinAreaID.Text = "Parking Area ID";
-           matTextAddParkingLocation.Clear();
-           matTextAddParkingLocation.Text = "Parking Area Location";
-           matTextParkingAreaNameAD.Clear();
-           matTextParkingAreaNameAD.Text = "Parking Area Name";
-           */
-            DataTable dt = new DataTable();
-            dt = handler.BLL_GetParkingAreas();
-            dgvUpdateParkings.DataSource = dt;
-
+                MessageBox.Show(error);
+            }
         }
 
         private void cmbSelectArea_SelectedIndexChanged(object sender, EventArgs e)
@@ -1741,6 +1867,9 @@ namespace uniPark.Main.Forms.Landing
                 polygon.Stroke = new Pen(Color.Red, 1);
                 polyOverlay.Polygons.Add(polygon);
                 map.Overlays.Add(polyOverlay);
+                map.Refresh();
+                map.Zoom += 1;
+                map.Zoom -= 1;
             }
             else
             {
@@ -1842,7 +1971,9 @@ namespace uniPark.Main.Forms.Landing
                     polyOverlay.Polygons.Add(polygon);
                     mapMain.Overlays.Add(polyOverlay);
 
-
+                    map.Refresh();
+                    map.Zoom += 1;
+                    map.Zoom -= 1;
 
 
 
@@ -1936,7 +2067,7 @@ namespace uniPark.Main.Forms.Landing
         {
             // show on map 
 
-
+            mapSearch.Visible = true;
             
                 mapSearch.Overlays.Clear();
                 string[] locations;
@@ -2010,7 +2141,10 @@ namespace uniPark.Main.Forms.Landing
                     polygon.Stroke = new Pen(Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapSearch.Overlays.Add(polyOverlay);
-                }
+                    mapSearch.Refresh();
+                    mapSearch.Zoom += 1;
+                    mapSearch.Zoom -= 1; 
+            }
                 else
                 {
                     MessageBox.Show("There is no location assigned to this parking area");
@@ -2057,12 +2191,24 @@ namespace uniPark.Main.Forms.Landing
         {
             if (e.Button == MouseButtons.Left)
             {
+                mapAdd_Edit_Coord.Overlays.Remove(Tmarkers);
+                Tmarkers.Clear();
                 var point = mapAdd_Edit_Coord.FromLocalToLatLng(e.X, e.Y);
                 double lat = point.Lat;
                 double lng = point.Lng;
 
                 lblLatCoord.Text = lat.ToString();
                 lblLongCoord.Text = lng.ToString();
+
+                PointLatLng points = new PointLatLng(lat, lng);
+                GMapMarker Tempmarker = new GMarkerGoogle(point, GMarkerGoogleType.red_dot);
+
+                
+
+                
+                Tmarkers.Markers.Add(Tempmarker);
+                mapAdd_Edit_Coord.Overlays.Add(Tmarkers);
+
 
             }
         }
@@ -2072,6 +2218,8 @@ namespace uniPark.Main.Forms.Landing
             if (lblLatCoord.Text != "" && lblLongCoord.Text != "")
             {
                 NewCoordinates = lblLatCoord.Text + ", " + lblLongCoord.Text;
+                mapAdd_Edit_Coord.Overlays.Remove(Tmarkers);
+                Tmarkers.Clear();
 
                 PointLatLng point = new PointLatLng(Convert.ToDouble(lblLatCoord.Text), Convert.ToDouble(lblLongCoord.Text));
                 GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
@@ -2112,7 +2260,8 @@ namespace uniPark.Main.Forms.Landing
             string[] Coord;
             double dlat, dlng;
 
-            
+            mapAdd_Edit_Coord.Overlays.Remove(Tmarkers);
+            Tmarkers.Clear();
 
 
             if (lblLatCoord.Text != "" && lblLongCoord.Text != "")
@@ -2167,13 +2316,15 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnSaveTotalArea_Click(object sender, EventArgs e)
         {
+            mapAdd_Edit_Coord.Overlays.Remove(Tmarkers);
+            Tmarkers.Clear();
+
             if (PolyCount > 3 && TempCoordinates != "")
             {
                 NewCoordinates += TempCoordinates;
 
                 
-                mapAdd_Edit_Coord.Overlays.Clear();
-                NewCoordinates = "";
+                mapAdd_Edit_Coord.Overlays.Clear();  
                 TempCoordinates = "";
                 lblLatCoord.Text = "";
                 lblLongCoord.Text = "";
@@ -2187,7 +2338,12 @@ namespace uniPark.Main.Forms.Landing
                 mapAdd_Edit_Coord.Refresh();
 
                 MessageBox.Show("Parking Area Coordinates Successfully Added");
-                PanelVisible("pnlAddParkings");
+                if (On_Add == true)
+                {
+                    PanelVisible("pnlAddParkings");
+                }
+                else PanelVisible("pnlUpdateParkings");
+
             }
 
             else
@@ -2205,6 +2361,8 @@ namespace uniPark.Main.Forms.Landing
                 matbtnAddPolyPoint.Visible = false;
                 matbtnSaveTotalArea.Visible = false;
                 matbtnLoadMarker.Visible = true;
+                mapAdd_Edit_Coord.Overlays.Remove(Tmarkers);
+                Tmarkers.Clear();
 
                 mapAdd_Edit_Coord.Refresh();
             }
@@ -2213,11 +2371,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void pnlAdd_EditMap_Leave(object sender, EventArgs e)
         {
-            if (On_Add == true)
-            {
-                PanelVisible("pnlAddParkings");
-            }
-            else PanelVisible("pnlUpdateArea");
+            
             
 
         }
@@ -2243,6 +2397,9 @@ namespace uniPark.Main.Forms.Landing
         private void matbtnGetCoords_Click(object sender, EventArgs e)
         {
             PanelVisible("pnlAdd_EditMap");
+            On_Add = false;
+            NewCoordinates = "";
+            
         }
 
         private void matbtnRedo_Click(object sender, EventArgs e)
@@ -2258,6 +2415,8 @@ namespace uniPark.Main.Forms.Landing
             matbtnAddPolyPoint.Visible = false;
             matbtnSaveTotalArea.Visible = false;
             matbtnLoadMarker.Visible = true;
+            mapAdd_Edit_Coord.Overlays.Remove(Tmarkers);
+            Tmarkers.Clear();
 
             mapAdd_Edit_Coord.Refresh();
         }
@@ -2281,11 +2440,59 @@ namespace uniPark.Main.Forms.Landing
         private void mattextboxInfringements_Click(object sender, EventArgs e)
         {
             mattextboxInfringements.Text = "";
+
         }
 
         private void mattextboxInfringements_Leave(object sender, EventArgs e)
         {
-            mattextboxInfringements.Text = "Personnel ID Number";
+            if (mattextboxInfringements.Text != "")
+            {
+                mattextboxInfringements.Text = mattextboxInfringements.Text;
+            }
+            else
+            {
+                mattextboxInfringements.Text = "Personnel ID Number";
+            }
+        }
+
+        private void matTextAddParkinAreaID_Leave(object sender, EventArgs e)
+        {
+            if (matTextAddParkinAreaID.Text != "")
+                matTextAddParkinAreaID.Text = matTextAddParkinAreaID.Text;
+            else
+                matTextAddParkinAreaID.Text = "Parking Area ID";
+        }
+
+        private void matTextAddParkingLocation_Leave(object sender, EventArgs e)
+        {
+            if (matTextAddParkingLocation.Text != "")
+                matTextAddParkingLocation.Text = matTextAddParkingLocation.Text;
+            else
+                matTextAddParkingLocation.Text = "Parking Area Location";
+        }
+
+        private void cbAddMoreSpaces_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAddMoreSpaces.Checked == true)
+            {
+                lblMoreCovered.Visible = true;
+                lblMoreUncovered.Visible = true;
+                nupCovered.Visible = true;
+                nupUncovered.Visible = true;
+            }
+            else
+            {
+                lblMoreCovered.Visible = false;
+                lblMoreUncovered.Visible = false;
+                nupCovered.Visible = false;
+                nupUncovered.Visible = false;
+            }
+        }
+
+        private void mapAdd_Edit_Coord_Leave(object sender, EventArgs e)
+        {
+            
+            
         }
 
         private bool IsEmail2(string email)
