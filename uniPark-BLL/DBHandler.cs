@@ -117,5 +117,10 @@ namespace uniPark_BLL
         {
             return db.getInfringements(PersonnelID);
         }
+
+        public DataTable BLL_GetParkingRequests()
+        {
+            return db.GetParkingRequests();
+        }
     }
 }

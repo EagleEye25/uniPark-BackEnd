@@ -420,7 +420,11 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlAssignParkings");
-           
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = handler.BLL_GetParkingRequests();
+            dgvAssignParkings.DataSource = dt;
+
         }
 
         private void matTextFacilityNoAS_Click(object sender, EventArgs e)

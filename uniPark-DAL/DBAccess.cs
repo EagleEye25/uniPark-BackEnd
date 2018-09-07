@@ -304,6 +304,7 @@ namespace uniPark_DAL
 
 
 
+
         /*
 
             DataTable dt = new DataTable();
@@ -335,6 +336,17 @@ namespace uniPark_DAL
                 };
             DataTable dt = DBHelper.ParamSelect("uspGetPersonnelReports", CommandType.StoredProcedure, pars);
             return dt;
+        }
+
+
+
+        public DataTable GetParkingRequests()
+        {
+            DataTable dt = new DataTable();
+
+            dt = DBHelper.Select("uspGetParkingRequests", CommandType.StoredProcedure);
+            return dt;
+
         }
 
     }
