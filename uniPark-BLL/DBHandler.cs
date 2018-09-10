@@ -122,5 +122,9 @@ namespace uniPark_BLL
         {
             return db.GetParkingRequests();
         }
+        public uspGetReportDetailsBE BLL_getreportdetails(int reportid)
+        {
+            return db.getreportdetails(reportid);
+        }
     }
 }

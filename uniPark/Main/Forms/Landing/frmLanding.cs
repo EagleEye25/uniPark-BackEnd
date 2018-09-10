@@ -2495,6 +2495,21 @@ namespace uniPark.Main.Forms.Landing
             
         }
 
+        private void dgvViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string ID = dgvViewUsers[0, dgvViewUsers.CurrentRow.Index].Value.ToString();
+            try
+            {
+                //
+                IDBHandler handler = new DBHandler();
+                uspGetReportDetailsBE get = handler.BLL_getreportdetails(int.Parse(ID));
+                mattextReportID.Text = get.ReportID.ToString();
+            }
+            catch { }
+
+
+        }
+
         private bool IsEmail2(string email)
         {
             string MatchEmailPattern =

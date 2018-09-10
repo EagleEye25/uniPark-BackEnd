@@ -36,6 +36,7 @@ namespace TypeLib.Interfaces
         DataTable SearchPersonnel(string name);
         DataTable getInfringements(string PersonnelID);
         DataTable GetParkingRequests();
+        uspGetReportDetailsBE getreportdetails(int reportid);
 
     }
 }

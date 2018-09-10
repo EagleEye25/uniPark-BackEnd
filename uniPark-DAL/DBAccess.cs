@@ -181,6 +181,31 @@ namespace uniPark_DAL
             }
             return i;
         }
+        public uspGetReportDetailsBE getreportdetails(int reportid)
+        {
+            uspGetReportDetailsBE i = null;
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@reportid", reportid) };
+
+            using (DataTable table = DBHelper.ParamSelect("uspGetReportDetailsBE", CommandType.StoredProcedure, pars))
+            {
+                if (table.Rows.Count == 1)
+                {
+                    DataRow row = table.Rows[0];
+                    i = new uspGetReportDetailsBE
+                    {
+                        PersonnelID = Convert.ToString(row["PersonnelID"]),
+                        LicensePlate = Convert.ToString(row["LicensePlate"]),
+                        ReportDate = Convert.ToDateTime(row["ReportDate"]),
+                        ReportCreator = Convert.ToString(row["ReportCreator"]),
+                        ReportDesc = Convert.ToString(row["ReportDesc"]),
+                        ReportID = Convert.ToInt32(row["ReportID"]),
+                        ReportTypeID = Convert.ToInt32(row["ReportTypeID"]),
+                        Processed = Convert.ToBoolean(row["Processed"]),
+                    };
+                }
+            }
+            return i;
+        }
         public bool EditPersonel(string name, string id, string surname, string email, int level, int type)
         {
             SqlParameter[] pars = new SqlParameter[]

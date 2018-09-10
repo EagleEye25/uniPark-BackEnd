@@ -99,6 +99,7 @@
     <Compile Include="ViewModels\uspGetAllInfo.cs" />
     <Compile Include="ViewModels\UspGetAllSpecificSpaces.cs" />
     <Compile Include="ViewModels\UspGetParkingAreas.cs" />
+    <Compile Include="ViewModels\uspGetReportDetailsBE.cs" />
     <Compile Include="ViewModels\uspLogin.cs" />
     <Compile Include="ViewModels\UspSearchParking.cs" />
     <Compile Include="ViewModels\UspSearchPersonel.cs" />
