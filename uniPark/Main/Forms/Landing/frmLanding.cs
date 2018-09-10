@@ -1590,11 +1590,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnHelpEd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("Editing or deleting a Personnel Member.pdf");
-            }
-            catch { }
+            MessageBox.Show("1. First enter the Personnel number or name/surname in the above edit." + "\n" + "2. Then Select any member in the grid to edit." +"\n"+"3. Then adjust the edits below as required" + "\n" + "4. Then click the Apply Changes button to the right of the edited infromation.");
         }
 
 
