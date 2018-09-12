@@ -23,6 +23,10 @@ using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.Markers;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -48,25 +52,25 @@ namespace uniPark.Main.Forms.Landing
             * ================================== */
             /* changes table visuals */
             dgvName.BorderStyle = BorderStyle.None;
-            dgvName.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(236, 252, 232);
+            dgvName.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(236, 252, 232);
             dgvName.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvName.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
-            dgvName.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvName.BackgroundColor = Color.FromArgb(247, 255, 245);
+            dgvName.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dgvName.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dgvName.BackgroundColor = System.Drawing.Color.FromArgb(247, 255, 245);
 
             /* Changes column heading visualas */
             dgvName.EnableHeadersVisualStyles = false;
             dgvName.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvName.ColumnHeadersDefaultCellStyle.BackColor = Color.PaleGreen;
-            dgvName.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgvName.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.PaleGreen;
+            dgvName.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Black;
 
             
         }
         private void DGVBoldHeadings(DataGridView dgvName)
         {
             /* Changes column headings to bold */
-            dgvName.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
-            dgvName.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            dgvName.Columns[0].HeaderCell.Style.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            dgvName.Columns[1].HeaderCell.Style.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
         }
         public frmLanding()
         {
@@ -295,8 +299,8 @@ namespace uniPark.Main.Forms.Landing
                     }
                     GMapOverlay polyOverlay = new GMapOverlay("polygons");
                     var polygon = new GMapPolygon(points, PA.ParkingAreaName);
-                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                    polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapSearch.Overlays.Add(polyOverlay);
                 }
@@ -1863,8 +1867,8 @@ namespace uniPark.Main.Forms.Landing
                 }
                 GMapOverlay polyOverlay = new GMapOverlay("polygons");
                 var polygon = new GMapPolygon(points, areaName);
-                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                polygon.Stroke = new Pen(Color.Red, 1);
+                polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                 polyOverlay.Polygons.Add(polygon);
                 map.Overlays.Add(polyOverlay);
                 map.Refresh();
@@ -1966,8 +1970,8 @@ namespace uniPark.Main.Forms.Landing
                       }
                     GMapOverlay polyOverlay = new GMapOverlay("polygons");
                     var polygon = new GMapPolygon(points, PA.ParkingAreaName);
-                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                    polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapMain.Overlays.Add(polyOverlay);
 
@@ -2143,8 +2147,8 @@ namespace uniPark.Main.Forms.Landing
                     }
                     GMapOverlay polyOverlay = new GMapOverlay("polygons");
                     var polygon = new GMapPolygon(points, areaName);
-                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                    polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapSearch.Overlays.Add(polyOverlay);
                     mapSearch.Refresh();
@@ -2303,8 +2307,8 @@ namespace uniPark.Main.Forms.Landing
                 }
                 GMapOverlay polyOverlay = new GMapOverlay("polygons");
                 var polygon = new GMapPolygon(points, "New Area");
-                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                polygon.Stroke = new Pen(Color.Red, 1);
+                polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                 polyOverlay.Polygons.Add(polygon);
                 mapAdd_Edit_Coord.Overlays.Add(polyOverlay);
 
@@ -2532,6 +2536,18 @@ namespace uniPark.Main.Forms.Landing
             }
         }
 
+        private void materialFlatButton7_Click(object sender, EventArgs e)
+        {
+            IDBHandler handler3 = new DBHandler();
+            DataTable dt = handler3.BLL_GetPersonel();
+
+            string[] splitString = { "bin" };
+            // Path of blank document.
+            //CreateWordDocument(AppDomain.CurrentDomain.BaseDirectory.Split(splitString, StringSplitOptions.None)[0] + "Files\\test.doc", dt);
+            CreateWordDocument(@"..\Invoice.docx", dt);
+
+        }
+
         private bool IsEmail2(string email)
         {
             string MatchEmailPattern =
@@ -2545,7 +2561,37 @@ namespace uniPark.Main.Forms.Landing
            return Regex.IsMatch(email, MatchEmailPattern);
 
         
-    } 
+        }
+        public void CreateWordDocument(string filePath, DataTable data)
+        {
+            WordprocessingDocument doc = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document);
+            MainDocumentPart mainDocPart = doc.AddMainDocumentPart();
+            mainDocPart.Document = new Document();
+            Body body = new Body();
+            mainDocPart.Document.Append(body);
+
+            Paragraph para = body.AppendChild(new Paragraph());
+            Run run = para.AppendChild(new Run());
+            run.AppendChild(new Text("UniPark Report: Daniel Maree s216448816"));
+
+            DocumentFormat.OpenXml.Wordprocessing.Table table = new DocumentFormat.OpenXml.Wordprocessing.Table();
+            for (int i = 0; i < data.Rows.Count; ++i)
+            {
+                TableRow row = new TableRow();
+                for (int j = 0; j < data.Columns.Count; j++)
+                {
+                    TableCell cell = new TableCell();
+                    cell.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(data.Rows[i][j].ToString()))));
+                    cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                    row.Append(cell);
+                }
+                table.Append(row);
+            }
+            body.Append(table);
+            doc.MainDocumentPart.Document.Save();
+            doc.Dispose();
+            Process.Start("WINWORD.exe", filePath);
+        }
 
 
 

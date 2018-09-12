@@ -138,6 +138,18 @@
             this.matTextPersonelName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextPersonelTagNo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
+            this.materialFlatButton8 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialFlatButton7 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialCheckBox3 = new MaterialSkin.Controls.MaterialCheckBox();
+            this.matcheckboxEntranceLog = new MaterialSkin.Controls.MaterialCheckBox();
+            this.matcheckboxInfringements = new MaterialSkin.Controls.MaterialCheckBox();
+            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.datepickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.datepickerBegin = new System.Windows.Forms.DateTimePicker();
             this.pnlAddParkings = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.matBtnAddCoordinates = new MaterialSkin.Controls.MaterialFlatButton();
@@ -193,18 +205,6 @@
             this.mapAdd_Edit_Coord = new GMap.NET.WindowsForms.GMapControl();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lblCaption = new System.Windows.Forms.Label();
-            this.datepickerBegin = new System.Windows.Forms.DateTimePicker();
-            this.datepickerEnd = new System.Windows.Forms.DateTimePicker();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.matcheckboxInfringements = new MaterialSkin.Controls.MaterialCheckBox();
-            this.matcheckboxEntranceLog = new MaterialSkin.Controls.MaterialCheckBox();
-            this.materialCheckBox3 = new MaterialSkin.Controls.MaterialCheckBox();
-            this.materialFlatButton7 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialFlatButton8 = new MaterialSkin.Controls.MaterialFlatButton();
             this.pnlMenu.SuspendLayout();
             this.pnlHeadings.SuspendLayout();
             this.pnlViewParkings.SuspendLayout();
@@ -1727,6 +1727,186 @@
             this.pnlSearchUsers.Size = new System.Drawing.Size(1073, 683);
             this.pnlSearchUsers.TabIndex = 8;
             // 
+            // materialFlatButton8
+            // 
+            this.materialFlatButton8.AutoSize = true;
+            this.materialFlatButton8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton8.Depth = 0;
+            this.materialFlatButton8.Icon = global::uniPark.Properties.Resources.rightTick;
+            this.materialFlatButton8.Location = new System.Drawing.Point(568, 30);
+            this.materialFlatButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton8.Name = "materialFlatButton8";
+            this.materialFlatButton8.Primary = false;
+            this.materialFlatButton8.Size = new System.Drawing.Size(168, 36);
+            this.materialFlatButton8.TabIndex = 46;
+            this.materialFlatButton8.Text = "      SYSTEM      ";
+            this.materialFlatButton8.UseVisualStyleBackColor = true;
+            // 
+            // materialFlatButton7
+            // 
+            this.materialFlatButton7.AutoSize = true;
+            this.materialFlatButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton7.Depth = 0;
+            this.materialFlatButton7.Icon = global::uniPark.Properties.Resources.rightTick;
+            this.materialFlatButton7.Location = new System.Drawing.Point(364, 379);
+            this.materialFlatButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton7.Name = "materialFlatButton7";
+            this.materialFlatButton7.Primary = false;
+            this.materialFlatButton7.Size = new System.Drawing.Size(256, 36);
+            this.materialFlatButton7.TabIndex = 45;
+            this.materialFlatButton7.Text = "      Generate Report      ";
+            this.materialFlatButton7.UseVisualStyleBackColor = true;
+            this.materialFlatButton7.Click += new System.EventHandler(this.materialFlatButton7_Click);
+            // 
+            // materialCheckBox3
+            // 
+            this.materialCheckBox3.AutoSize = true;
+            this.materialCheckBox3.Depth = 0;
+            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox3.Location = new System.Drawing.Point(380, 329);
+            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckBox3.Name = "materialCheckBox3";
+            this.materialCheckBox3.Ripple = true;
+            this.materialCheckBox3.Size = new System.Drawing.Size(145, 30);
+            this.materialCheckBox3.TabIndex = 44;
+            this.materialCheckBox3.Text = "Parking Report";
+            this.materialCheckBox3.UseVisualStyleBackColor = true;
+            // 
+            // matcheckboxEntranceLog
+            // 
+            this.matcheckboxEntranceLog.AutoSize = true;
+            this.matcheckboxEntranceLog.Depth = 0;
+            this.matcheckboxEntranceLog.Font = new System.Drawing.Font("Roboto", 10F);
+            this.matcheckboxEntranceLog.Location = new System.Drawing.Point(380, 290);
+            this.matcheckboxEntranceLog.Margin = new System.Windows.Forms.Padding(0);
+            this.matcheckboxEntranceLog.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matcheckboxEntranceLog.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matcheckboxEntranceLog.Name = "matcheckboxEntranceLog";
+            this.matcheckboxEntranceLog.Ripple = true;
+            this.matcheckboxEntranceLog.Size = new System.Drawing.Size(188, 30);
+            this.matcheckboxEntranceLog.TabIndex = 43;
+            this.matcheckboxEntranceLog.Text = "Entrance Log Report";
+            this.matcheckboxEntranceLog.UseVisualStyleBackColor = true;
+            // 
+            // matcheckboxInfringements
+            // 
+            this.matcheckboxInfringements.AutoSize = true;
+            this.matcheckboxInfringements.Depth = 0;
+            this.matcheckboxInfringements.Font = new System.Drawing.Font("Roboto", 10F);
+            this.matcheckboxInfringements.Location = new System.Drawing.Point(380, 252);
+            this.matcheckboxInfringements.Margin = new System.Windows.Forms.Padding(0);
+            this.matcheckboxInfringements.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matcheckboxInfringements.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matcheckboxInfringements.Name = "matcheckboxInfringements";
+            this.matcheckboxInfringements.Ripple = true;
+            this.matcheckboxInfringements.Size = new System.Drawing.Size(185, 30);
+            this.matcheckboxInfringements.TabIndex = 42;
+            this.matcheckboxInfringements.Text = "Infringement Report";
+            this.matcheckboxInfringements.UseVisualStyleBackColor = true;
+            // 
+            // materialSingleLineTextField2
+            // 
+            this.materialSingleLineTextField2.Depth = 0;
+            this.materialSingleLineTextField2.Hint = "";
+            this.materialSingleLineTextField2.Location = new System.Drawing.Point(134, 101);
+            this.materialSingleLineTextField2.MaxLength = 32767;
+            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
+            this.materialSingleLineTextField2.PasswordChar = '\0';
+            this.materialSingleLineTextField2.SelectedText = "";
+            this.materialSingleLineTextField2.SelectionLength = 0;
+            this.materialSingleLineTextField2.SelectionStart = 0;
+            this.materialSingleLineTextField2.Size = new System.Drawing.Size(673, 28);
+            this.materialSingleLineTextField2.TabIndex = 41;
+            this.materialSingleLineTextField2.TabStop = false;
+            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            // 
+            // materialFlatButton6
+            // 
+            this.materialFlatButton6.AutoSize = true;
+            this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton6.Depth = 0;
+            this.materialFlatButton6.Icon = ((System.Drawing.Image)(resources.GetObject("materialFlatButton6.Icon")));
+            this.materialFlatButton6.Location = new System.Drawing.Point(441, 24);
+            this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton6.Name = "materialFlatButton6";
+            this.materialFlatButton6.Primary = false;
+            this.materialFlatButton6.Size = new System.Drawing.Size(44, 36);
+            this.materialFlatButton6.TabIndex = 40;
+            this.materialFlatButton6.UseVisualStyleBackColor = true;
+            // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(141, 38);
+            this.materialSingleLineTextField1.MaxLength = 32767;
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(305, 28);
+            this.materialSingleLineTextField1.TabIndex = 39;
+            this.materialSingleLineTextField1.TabStop = false;
+            this.materialSingleLineTextField1.Text = "Personnel Number or Name";
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Enabled = false;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(492, 169);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(90, 24);
+            this.materialLabel5.TabIndex = 34;
+            this.materialLabel5.Text = "End Date:";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Enabled = false;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(132, 169);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(97, 24);
+            this.materialLabel6.TabIndex = 33;
+            this.materialLabel6.Text = "Start Date:";
+            // 
+            // datepickerEnd
+            // 
+            this.datepickerEnd.Location = new System.Drawing.Point(500, 194);
+            this.datepickerEnd.Name = "datepickerEnd";
+            this.datepickerEnd.Size = new System.Drawing.Size(286, 26);
+            this.datepickerEnd.TabIndex = 1;
+            // 
+            // datepickerBegin
+            // 
+            this.datepickerBegin.CalendarForeColor = System.Drawing.Color.White;
+            this.datepickerBegin.CalendarMonthBackground = System.Drawing.Color.DimGray;
+            this.datepickerBegin.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.datepickerBegin.CalendarTitleForeColor = System.Drawing.Color.White;
+            this.datepickerBegin.CalendarTrailingForeColor = System.Drawing.Color.White;
+            this.datepickerBegin.Location = new System.Drawing.Point(136, 194);
+            this.datepickerBegin.Name = "datepickerBegin";
+            this.datepickerBegin.Size = new System.Drawing.Size(286, 26);
+            this.datepickerBegin.TabIndex = 0;
+            // 
             // pnlAddParkings
             // 
             this.pnlAddParkings.Controls.Add(this.label6);
@@ -2683,185 +2863,6 @@
             this.lblCaption.Size = new System.Drawing.Size(323, 20);
             this.lblCaption.TabIndex = 2;
             this.lblCaption.Text = "Please select center point of Parking Area";
-            // 
-            // datepickerBegin
-            // 
-            this.datepickerBegin.CalendarForeColor = System.Drawing.Color.White;
-            this.datepickerBegin.CalendarMonthBackground = System.Drawing.Color.DimGray;
-            this.datepickerBegin.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.datepickerBegin.CalendarTitleForeColor = System.Drawing.Color.White;
-            this.datepickerBegin.CalendarTrailingForeColor = System.Drawing.Color.White;
-            this.datepickerBegin.Location = new System.Drawing.Point(136, 194);
-            this.datepickerBegin.Name = "datepickerBegin";
-            this.datepickerBegin.Size = new System.Drawing.Size(286, 26);
-            this.datepickerBegin.TabIndex = 0;
-            // 
-            // datepickerEnd
-            // 
-            this.datepickerEnd.Location = new System.Drawing.Point(500, 194);
-            this.datepickerEnd.Name = "datepickerEnd";
-            this.datepickerEnd.Size = new System.Drawing.Size(286, 26);
-            this.datepickerEnd.TabIndex = 1;
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Enabled = false;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(492, 169);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(90, 24);
-            this.materialLabel5.TabIndex = 34;
-            this.materialLabel5.Text = "End Date:";
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Enabled = false;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(132, 169);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(97, 24);
-            this.materialLabel6.TabIndex = 33;
-            this.materialLabel6.Text = "Start Date:";
-            // 
-            // materialFlatButton6
-            // 
-            this.materialFlatButton6.AutoSize = true;
-            this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton6.Depth = 0;
-            this.materialFlatButton6.Icon = ((System.Drawing.Image)(resources.GetObject("materialFlatButton6.Icon")));
-            this.materialFlatButton6.Location = new System.Drawing.Point(441, 24);
-            this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton6.Name = "materialFlatButton6";
-            this.materialFlatButton6.Primary = false;
-            this.materialFlatButton6.Size = new System.Drawing.Size(44, 36);
-            this.materialFlatButton6.TabIndex = 40;
-            this.materialFlatButton6.UseVisualStyleBackColor = true;
-            // 
-            // materialSingleLineTextField1
-            // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(141, 38);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(305, 28);
-            this.materialSingleLineTextField1.TabIndex = 39;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.Text = "Personnel Number or Name";
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            // 
-            // materialSingleLineTextField2
-            // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(134, 101);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(673, 28);
-            this.materialSingleLineTextField2.TabIndex = 41;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
-            // 
-            // matcheckboxInfringements
-            // 
-            this.matcheckboxInfringements.AutoSize = true;
-            this.matcheckboxInfringements.Depth = 0;
-            this.matcheckboxInfringements.Font = new System.Drawing.Font("Roboto", 10F);
-            this.matcheckboxInfringements.Location = new System.Drawing.Point(380, 252);
-            this.matcheckboxInfringements.Margin = new System.Windows.Forms.Padding(0);
-            this.matcheckboxInfringements.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.matcheckboxInfringements.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matcheckboxInfringements.Name = "matcheckboxInfringements";
-            this.matcheckboxInfringements.Ripple = true;
-            this.matcheckboxInfringements.Size = new System.Drawing.Size(185, 30);
-            this.matcheckboxInfringements.TabIndex = 42;
-            this.matcheckboxInfringements.Text = "Infringement Report";
-            this.matcheckboxInfringements.UseVisualStyleBackColor = true;
-            // 
-            // matcheckboxEntranceLog
-            // 
-            this.matcheckboxEntranceLog.AutoSize = true;
-            this.matcheckboxEntranceLog.Depth = 0;
-            this.matcheckboxEntranceLog.Font = new System.Drawing.Font("Roboto", 10F);
-            this.matcheckboxEntranceLog.Location = new System.Drawing.Point(380, 290);
-            this.matcheckboxEntranceLog.Margin = new System.Windows.Forms.Padding(0);
-            this.matcheckboxEntranceLog.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.matcheckboxEntranceLog.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matcheckboxEntranceLog.Name = "matcheckboxEntranceLog";
-            this.matcheckboxEntranceLog.Ripple = true;
-            this.matcheckboxEntranceLog.Size = new System.Drawing.Size(188, 30);
-            this.matcheckboxEntranceLog.TabIndex = 43;
-            this.matcheckboxEntranceLog.Text = "Entrance Log Report";
-            this.matcheckboxEntranceLog.UseVisualStyleBackColor = true;
-            // 
-            // materialCheckBox3
-            // 
-            this.materialCheckBox3.AutoSize = true;
-            this.materialCheckBox3.Depth = 0;
-            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox3.Location = new System.Drawing.Point(380, 329);
-            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckBox3.Name = "materialCheckBox3";
-            this.materialCheckBox3.Ripple = true;
-            this.materialCheckBox3.Size = new System.Drawing.Size(145, 30);
-            this.materialCheckBox3.TabIndex = 44;
-            this.materialCheckBox3.Text = "Parking Report";
-            this.materialCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // materialFlatButton7
-            // 
-            this.materialFlatButton7.AutoSize = true;
-            this.materialFlatButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton7.Depth = 0;
-            this.materialFlatButton7.Icon = global::uniPark.Properties.Resources.rightTick;
-            this.materialFlatButton7.Location = new System.Drawing.Point(364, 379);
-            this.materialFlatButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton7.Name = "materialFlatButton7";
-            this.materialFlatButton7.Primary = false;
-            this.materialFlatButton7.Size = new System.Drawing.Size(256, 36);
-            this.materialFlatButton7.TabIndex = 45;
-            this.materialFlatButton7.Text = "      Generate Report      ";
-            this.materialFlatButton7.UseVisualStyleBackColor = true;
-            // 
-            // materialFlatButton8
-            // 
-            this.materialFlatButton8.AutoSize = true;
-            this.materialFlatButton8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton8.Depth = 0;
-            this.materialFlatButton8.Icon = global::uniPark.Properties.Resources.rightTick;
-            this.materialFlatButton8.Location = new System.Drawing.Point(568, 30);
-            this.materialFlatButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton8.Name = "materialFlatButton8";
-            this.materialFlatButton8.Primary = false;
-            this.materialFlatButton8.Size = new System.Drawing.Size(168, 36);
-            this.materialFlatButton8.TabIndex = 46;
-            this.materialFlatButton8.Text = "      SYSTEM      ";
-            this.materialFlatButton8.UseVisualStyleBackColor = true;
             // 
             // frmLanding
             // 
