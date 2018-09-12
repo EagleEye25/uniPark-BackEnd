@@ -124,6 +124,11 @@ namespace uniPark.Main.Forms.Login
             matTextPass.PasswordChar = '*';
         }
 
+        private void matBtnShowPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /* private void frmLogin_Key(object sender, KeyEventArgs e)
          {
              if (e.KeyCode == Keys.Enter)

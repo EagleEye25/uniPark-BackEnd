@@ -2043,7 +2043,13 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEditPersonelSearch_Leave(object sender, EventArgs e)
         {
-            if (matTextEditPersonelSearch.Text == "") { matTextEditPersonelSearch.Text = "Personnel Number or Name"; }
+            if (matTextEditPersonelSearch.Text == "")
+            {
+                matTextEditPersonelSearch.Text = "Personnel Number or Name";
+                IDBHandler handler3 = new DBHandler();
+                DataTable dt3 = handler3.BLL_GetPersonel();
+                dgvEditPersonel.DataSource = dt3;
+            }
 
             
         }
@@ -2422,7 +2428,7 @@ namespace uniPark.Main.Forms.Landing
         }
         private bool isAllString(string text)
         {
-            string letterpattern = @"^[a-zA-Z]+$";
+            string letterpattern = @"^[a-zA-Z\x20]+$";
             Regex regex = new Regex(letterpattern);
 
             return regex.IsMatch(text);
@@ -2508,6 +2514,22 @@ namespace uniPark.Main.Forms.Landing
             catch { }
 
 
+        }
+
+        private void matBtnShowPassword_MouseHover(object sender, EventArgs e)
+        {
+            mattextPassword.PasswordChar = Char.MinValue;
+        }
+
+        private void matBtnShowPassword_MouseLeave(object sender, EventArgs e)
+        {
+            if (mattextPassword.Text == "Password")
+            { mattextPassword.PasswordChar = Char.MinValue; }
+            else
+            {
+                mattextPassword.PasswordChar = '*';
+
+            }
         }
 
         private bool IsEmail2(string email)

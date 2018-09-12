@@ -320,6 +320,18 @@
         B+oci1xTERzjCl+XCyqCBZY5HAoYxhcz52smj9+LHgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="matBtnShowPassword.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAXtJREFUSEvt
+        lL1Lw0AYxrM4KLpIa3NnwUGkSKXeJYOIooPgIv4z4ieCf5LgKiK4uTr6UQNBEHGom8mdej5vem1RKyZR
+        7NIfPCT3vm+fh9wddfqkhmt/kSl5BZnfiCt542q5bG07UKPbD3IqtLYdEKC6DOaWY/wBa93k3wK+NDLy
+        rU/PAspmfpBpueEqeYF+g+a4EueuFltFUx22Y20yBZTi2gxqIfTKtNgrmMoIiWlvH7U3KGCxN23HE1IH
+        8KhWwfqRarjXB1zPrpIhvuR6XMsVruUO9aCHciSmEhOQOgCmR9bAuEYW8aQvad2SW278QnutxWFiAtIH
+        KHnSMiib6iiL5X1rjTO5+xCg5HFiAlIHjEX+JGpPVKMD5ZG3jveA5L6INWzRLvWgRq4tIkrKn2NK1FGP
+        EbLJnuUEiWtvuzkv6lz5nh1PyBRA0FUkc668U/QvbeAZXV1s05Ada5M5ICs9DfjLv+vA2nbgWixQ49Ng
+        HoU4nyVr2+cnHOcd+VI2BHL2S0kAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="matBtnAddUsers.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAANdJREFUSEvF
@@ -327,6 +339,18 @@
         LH8bwQpOHs9DUPfWXjCGI8Rhx2t2RpZpa0iFv8TOiDIk7ukCqZzBzogyJO7pCqlwuZ0RZUjcE19DKkuw
         M/6QSxho/Cfn8jkUPlO+Lqr9maqHNifKzhYMYAJbOMDN43kDvMZ7vudMYfVgBnfIhfdMgTOv+fdB68Me
         6mYHnM0uWEDTzCG7oG26X9CeLEuSZUmyLMZVT55v20YBjI13AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="materialFlatButton6.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAYZJREFUSEvd
+        U7lOw0AQNQUSPxDFXhwugUQFHlvu+Ryo+QvgKyi4AxQgjq9ANIgGUXAUkIiAiI+NZGbWE7CcJUKOG/Kk
+        J+2s37wZz9jGcEME3oQloW7F8KIonUM7dGf58WBQ5jE0kUmOTdH2aywrDu48b55Swj7LisOKnXetOVLE
+        8May4kCjj7xxhi2WFQeO4VhjnLKMEYnIm0cz3ZIbpSyZ8POZqn208HxQmvn/RiXxTVPCqhXBOY7mDkm7
+        IG4aiTFCoxOxs4vxPZHOfxtd4o2KyF3HpAiZX660Q2euzx/ef/lTydIYdnymSezyknRmDDsUYyMn1WBh
+        uhr6M5h3ypotZaZDN/E34t+7oXQSHlWc6dYKYFLpJDzwVS+yZjpix2tKF8EzxXZ7cVwlIqhYqoEnvupF
+        1kzLyL0gHb7pNsU0IipCpLPSdKCuzAYBd9v4LpwhjvHGTKDC0uJQn6l099D0lSg67hGaX3Gh29onCJaW
+        B+oci1xTERzjCl+XCyqCBZY5HAoYxhcz52smj9+LHgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="matBtnAddParkingAreas.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
