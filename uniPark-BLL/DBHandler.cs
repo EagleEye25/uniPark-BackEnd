@@ -126,5 +126,9 @@ namespace uniPark_BLL
         {
             return db.getreportdetails(reportid);
         }
+        public DataTable BLL_GetInfringementsI(string id, DateTime start, DateTime end)
+        {
+            return db.GetInfringementsI(id,start,end);
+        }
     }
 }

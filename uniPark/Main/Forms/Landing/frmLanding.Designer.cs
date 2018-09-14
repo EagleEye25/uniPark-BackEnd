@@ -138,14 +138,14 @@
             this.matTextPersonelName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextPersonelTagNo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pnlSearchUsers = new System.Windows.Forms.Panel();
+            this.matrdobtnLog = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matrdobtnParking = new MaterialSkin.Controls.MaterialRadioButton();
+            this.matrdobtnInfringements = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialFlatButton8 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton7 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialCheckBox3 = new MaterialSkin.Controls.MaterialCheckBox();
-            this.matcheckboxEntranceLog = new MaterialSkin.Controls.MaterialCheckBox();
-            this.matcheckboxInfringements = new MaterialSkin.Controls.MaterialCheckBox();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.mattextReportResult = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialFlatButton6 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.mattextboxReportSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.datepickerEnd = new System.Windows.Forms.DateTimePicker();
@@ -1709,14 +1709,14 @@
             // 
             // pnlSearchUsers
             // 
+            this.pnlSearchUsers.Controls.Add(this.matrdobtnLog);
+            this.pnlSearchUsers.Controls.Add(this.matrdobtnParking);
+            this.pnlSearchUsers.Controls.Add(this.matrdobtnInfringements);
             this.pnlSearchUsers.Controls.Add(this.materialFlatButton8);
             this.pnlSearchUsers.Controls.Add(this.materialFlatButton7);
-            this.pnlSearchUsers.Controls.Add(this.materialCheckBox3);
-            this.pnlSearchUsers.Controls.Add(this.matcheckboxEntranceLog);
-            this.pnlSearchUsers.Controls.Add(this.matcheckboxInfringements);
-            this.pnlSearchUsers.Controls.Add(this.materialSingleLineTextField2);
+            this.pnlSearchUsers.Controls.Add(this.mattextReportResult);
             this.pnlSearchUsers.Controls.Add(this.materialFlatButton6);
-            this.pnlSearchUsers.Controls.Add(this.materialSingleLineTextField1);
+            this.pnlSearchUsers.Controls.Add(this.mattextboxReportSearch);
             this.pnlSearchUsers.Controls.Add(this.materialLabel5);
             this.pnlSearchUsers.Controls.Add(this.materialLabel6);
             this.pnlSearchUsers.Controls.Add(this.datepickerEnd);
@@ -1726,6 +1726,57 @@
             this.pnlSearchUsers.Name = "pnlSearchUsers";
             this.pnlSearchUsers.Size = new System.Drawing.Size(1073, 683);
             this.pnlSearchUsers.TabIndex = 8;
+            // 
+            // matrdobtnLog
+            // 
+            this.matrdobtnLog.AutoSize = true;
+            this.matrdobtnLog.Depth = 0;
+            this.matrdobtnLog.Font = new System.Drawing.Font("Roboto", 10F);
+            this.matrdobtnLog.Location = new System.Drawing.Point(384, 328);
+            this.matrdobtnLog.Margin = new System.Windows.Forms.Padding(0);
+            this.matrdobtnLog.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matrdobtnLog.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matrdobtnLog.Name = "matrdobtnLog";
+            this.matrdobtnLog.Ripple = true;
+            this.matrdobtnLog.Size = new System.Drawing.Size(131, 30);
+            this.matrdobtnLog.TabIndex = 49;
+            this.matrdobtnLog.TabStop = true;
+            this.matrdobtnLog.Text = "Entrance Log";
+            this.matrdobtnLog.UseVisualStyleBackColor = true;
+            // 
+            // matrdobtnParking
+            // 
+            this.matrdobtnParking.AutoSize = true;
+            this.matrdobtnParking.Depth = 0;
+            this.matrdobtnParking.Font = new System.Drawing.Font("Roboto", 10F);
+            this.matrdobtnParking.Location = new System.Drawing.Point(384, 290);
+            this.matrdobtnParking.Margin = new System.Windows.Forms.Padding(0);
+            this.matrdobtnParking.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matrdobtnParking.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matrdobtnParking.Name = "matrdobtnParking";
+            this.matrdobtnParking.Ripple = true;
+            this.matrdobtnParking.Size = new System.Drawing.Size(144, 30);
+            this.matrdobtnParking.TabIndex = 48;
+            this.matrdobtnParking.TabStop = true;
+            this.matrdobtnParking.Text = "Parking Report";
+            this.matrdobtnParking.UseVisualStyleBackColor = true;
+            // 
+            // matrdobtnInfringements
+            // 
+            this.matrdobtnInfringements.AutoSize = true;
+            this.matrdobtnInfringements.Depth = 0;
+            this.matrdobtnInfringements.Font = new System.Drawing.Font("Roboto", 10F);
+            this.matrdobtnInfringements.Location = new System.Drawing.Point(384, 254);
+            this.matrdobtnInfringements.Margin = new System.Windows.Forms.Padding(0);
+            this.matrdobtnInfringements.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.matrdobtnInfringements.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matrdobtnInfringements.Name = "matrdobtnInfringements";
+            this.matrdobtnInfringements.Ripple = true;
+            this.matrdobtnInfringements.Size = new System.Drawing.Size(184, 30);
+            this.matrdobtnInfringements.TabIndex = 47;
+            this.matrdobtnInfringements.TabStop = true;
+            this.matrdobtnInfringements.Text = "Infringement Report";
+            this.matrdobtnInfringements.UseVisualStyleBackColor = true;
             // 
             // materialFlatButton8
             // 
@@ -1748,6 +1799,7 @@
             this.materialFlatButton7.AutoSize = true;
             this.materialFlatButton7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton7.Depth = 0;
+            this.materialFlatButton7.Enabled = false;
             this.materialFlatButton7.Icon = global::uniPark.Properties.Resources.rightTick;
             this.materialFlatButton7.Location = new System.Drawing.Point(364, 379);
             this.materialFlatButton7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -1760,70 +1812,23 @@
             this.materialFlatButton7.UseVisualStyleBackColor = true;
             this.materialFlatButton7.Click += new System.EventHandler(this.materialFlatButton7_Click);
             // 
-            // materialCheckBox3
+            // mattextReportResult
             // 
-            this.materialCheckBox3.AutoSize = true;
-            this.materialCheckBox3.Depth = 0;
-            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox3.Location = new System.Drawing.Point(380, 329);
-            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckBox3.Name = "materialCheckBox3";
-            this.materialCheckBox3.Ripple = true;
-            this.materialCheckBox3.Size = new System.Drawing.Size(145, 30);
-            this.materialCheckBox3.TabIndex = 44;
-            this.materialCheckBox3.Text = "Parking Report";
-            this.materialCheckBox3.UseVisualStyleBackColor = true;
-            // 
-            // matcheckboxEntranceLog
-            // 
-            this.matcheckboxEntranceLog.AutoSize = true;
-            this.matcheckboxEntranceLog.Depth = 0;
-            this.matcheckboxEntranceLog.Font = new System.Drawing.Font("Roboto", 10F);
-            this.matcheckboxEntranceLog.Location = new System.Drawing.Point(380, 290);
-            this.matcheckboxEntranceLog.Margin = new System.Windows.Forms.Padding(0);
-            this.matcheckboxEntranceLog.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.matcheckboxEntranceLog.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matcheckboxEntranceLog.Name = "matcheckboxEntranceLog";
-            this.matcheckboxEntranceLog.Ripple = true;
-            this.matcheckboxEntranceLog.Size = new System.Drawing.Size(188, 30);
-            this.matcheckboxEntranceLog.TabIndex = 43;
-            this.matcheckboxEntranceLog.Text = "Entrance Log Report";
-            this.matcheckboxEntranceLog.UseVisualStyleBackColor = true;
-            // 
-            // matcheckboxInfringements
-            // 
-            this.matcheckboxInfringements.AutoSize = true;
-            this.matcheckboxInfringements.Depth = 0;
-            this.matcheckboxInfringements.Font = new System.Drawing.Font("Roboto", 10F);
-            this.matcheckboxInfringements.Location = new System.Drawing.Point(380, 252);
-            this.matcheckboxInfringements.Margin = new System.Windows.Forms.Padding(0);
-            this.matcheckboxInfringements.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.matcheckboxInfringements.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matcheckboxInfringements.Name = "matcheckboxInfringements";
-            this.matcheckboxInfringements.Ripple = true;
-            this.matcheckboxInfringements.Size = new System.Drawing.Size(185, 30);
-            this.matcheckboxInfringements.TabIndex = 42;
-            this.matcheckboxInfringements.Text = "Infringement Report";
-            this.matcheckboxInfringements.UseVisualStyleBackColor = true;
-            // 
-            // materialSingleLineTextField2
-            // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(134, 101);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(673, 28);
-            this.materialSingleLineTextField2.TabIndex = 41;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.mattextReportResult.Depth = 0;
+            this.mattextReportResult.Enabled = false;
+            this.mattextReportResult.Hint = "";
+            this.mattextReportResult.Location = new System.Drawing.Point(134, 101);
+            this.mattextReportResult.MaxLength = 32767;
+            this.mattextReportResult.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mattextReportResult.Name = "mattextReportResult";
+            this.mattextReportResult.PasswordChar = '\0';
+            this.mattextReportResult.SelectedText = "";
+            this.mattextReportResult.SelectionLength = 0;
+            this.mattextReportResult.SelectionStart = 0;
+            this.mattextReportResult.Size = new System.Drawing.Size(673, 28);
+            this.mattextReportResult.TabIndex = 41;
+            this.mattextReportResult.TabStop = false;
+            this.mattextReportResult.UseSystemPasswordChar = false;
             // 
             // materialFlatButton6
             // 
@@ -1839,24 +1844,25 @@
             this.materialFlatButton6.Size = new System.Drawing.Size(44, 36);
             this.materialFlatButton6.TabIndex = 40;
             this.materialFlatButton6.UseVisualStyleBackColor = true;
+            this.materialFlatButton6.Click += new System.EventHandler(this.materialFlatButton6_Click);
             // 
-            // materialSingleLineTextField1
+            // mattextboxReportSearch
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(141, 38);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(305, 28);
-            this.materialSingleLineTextField1.TabIndex = 39;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.Text = "Personnel Number or Name";
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.mattextboxReportSearch.Depth = 0;
+            this.mattextboxReportSearch.Hint = "";
+            this.mattextboxReportSearch.Location = new System.Drawing.Point(141, 38);
+            this.mattextboxReportSearch.MaxLength = 32767;
+            this.mattextboxReportSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mattextboxReportSearch.Name = "mattextboxReportSearch";
+            this.mattextboxReportSearch.PasswordChar = '\0';
+            this.mattextboxReportSearch.SelectedText = "";
+            this.mattextboxReportSearch.SelectionLength = 0;
+            this.mattextboxReportSearch.SelectionStart = 0;
+            this.mattextboxReportSearch.Size = new System.Drawing.Size(305, 28);
+            this.mattextboxReportSearch.TabIndex = 39;
+            this.mattextboxReportSearch.TabStop = false;
+            this.mattextboxReportSearch.Text = "Personnel Number or Name";
+            this.mattextboxReportSearch.UseSystemPasswordChar = false;
             // 
             // materialLabel5
             // 
@@ -1894,6 +1900,7 @@
             this.datepickerEnd.Name = "datepickerEnd";
             this.datepickerEnd.Size = new System.Drawing.Size(286, 26);
             this.datepickerEnd.TabIndex = 1;
+            this.datepickerEnd.Value = new System.DateTime(2018, 9, 13, 0, 0, 0, 0);
             // 
             // datepickerBegin
             // 
@@ -1906,6 +1913,7 @@
             this.datepickerBegin.Name = "datepickerBegin";
             this.datepickerBegin.Size = new System.Drawing.Size(286, 26);
             this.datepickerBegin.TabIndex = 0;
+            this.datepickerBegin.Value = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             // 
             // pnlAddParkings
             // 
@@ -3093,15 +3101,15 @@
         private MaterialSkin.Controls.MaterialFlatButton matBtnShowPassword;
         private System.Windows.Forms.DateTimePicker datepickerBegin;
         private System.Windows.Forms.DateTimePicker datepickerEnd;
-        private MaterialSkin.Controls.MaterialCheckBox materialCheckBox3;
-        private MaterialSkin.Controls.MaterialCheckBox matcheckboxEntranceLog;
-        private MaterialSkin.Controls.MaterialCheckBox matcheckboxInfringements;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField mattextReportResult;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton6;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField mattextboxReportSearch;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton8;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton7;
+        private MaterialSkin.Controls.MaterialRadioButton matrdobtnLog;
+        private MaterialSkin.Controls.MaterialRadioButton matrdobtnParking;
+        private MaterialSkin.Controls.MaterialRadioButton matrdobtnInfringements;
     }
 }

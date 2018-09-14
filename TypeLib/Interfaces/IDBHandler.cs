@@ -35,6 +35,7 @@ namespace TypeLib.Interfaces
         DataTable BLL_getInfringements(string PersonnelID);
         DataTable BLL_GetParkingRequests();
         uspGetReportDetailsBE BLL_getreportdetails(int reportid);
+        DataTable BLL_GetInfringementsI(string id, DateTime start, DateTime end);
     }
 
 }

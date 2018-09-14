@@ -2538,13 +2538,39 @@ namespace uniPark.Main.Forms.Landing
 
         private void materialFlatButton7_Click(object sender, EventArgs e)
         {
-            IDBHandler handler3 = new DBHandler();
-            DataTable dt = handler3.BLL_GetPersonel();
 
-            string[] splitString = { "bin" };
-            // Path of blank document.
-            //CreateWordDocument(AppDomain.CurrentDomain.BaseDirectory.Split(splitString, StringSplitOptions.None)[0] + "Files\\test.doc", dt);
-            CreateWordDocument(@"..\Invoice.docx", dt);
+                var dateAndTime = datepickerBegin.Value;
+                var date = dateAndTime.Date;
+            DateTime begin = date;
+
+             dateAndTime = datepickerEnd.Value;
+             date = dateAndTime.Date;
+            DateTime end = date;
+
+
+            IDBHandler handler = new DBHandler();
+            uspGetAllInfo infos = handler.BLL_getallinfo(mattextReportResult.Text);
+
+            if (matrdobtnInfringements.Checked)
+            {
+                IDBHandler handler3 = new DBHandler();
+                DataTable dt = handler3.BLL_GetInfringementsI("s216448816", begin, end);
+
+                string text = "UniPark Individual Infringements Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+
+                CreateWordDocument(@"..\" + infos.PersonnelID + "_Infringment_Report.docx", dt, text);
+            }
+            else if (matrdobtnParking.Checked)
+            {
+
+            }
+            else if (matrdobtnLog.Checked)
+            {
+
+            }
+            else { MessageBox.Show("Please Select A Report Type."); }
+            
+            
 
         }
 
@@ -2558,11 +2584,31 @@ namespace uniPark.Main.Forms.Landing
 				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
         + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
 
-           return Regex.IsMatch(email, MatchEmailPattern);
-
-        
+           return Regex.IsMatch(email, MatchEmailPattern);       
         }
-        public void CreateWordDocument(string filePath, DataTable data)
+
+        private void materialFlatButton6_Click(object sender, EventArgs e)
+        {
+            IDBHandler handler = new DBHandler();
+           
+            uspLogin log = new uspLogin();
+            log = handler.BLL_Login(mattextboxReportSearch.Text);
+
+            if (log != null)
+            {
+                IDBHandler handler2 = new DBHandler();
+                uspGetAllInfo infos = handler2.BLL_getallinfo(mattextboxReportSearch.Text);
+
+                mattextReportResult.Text = infos.PersonnelID;
+                materialFlatButton7.Enabled = true;
+            }
+            else
+            { MessageBox.Show(mattextboxReportSearch.Text + " Not Found."); }
+
+
+        }
+
+        public void CreateWordDocument(string filePath, DataTable data, string text)
         {
             WordprocessingDocument doc = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document);
             MainDocumentPart mainDocPart = doc.AddMainDocumentPart();
@@ -2572,9 +2618,10 @@ namespace uniPark.Main.Forms.Landing
 
             Paragraph para = body.AppendChild(new Paragraph());
             Run run = para.AppendChild(new Run());
-            run.AppendChild(new Text("UniPark Report: Daniel Maree s216448816"));
+            run.AppendChild(new Text(text));
 
             DocumentFormat.OpenXml.Wordprocessing.Table table = new DocumentFormat.OpenXml.Wordprocessing.Table();
+
             for (int i = 0; i < data.Rows.Count; ++i)
             {
                 TableRow row = new TableRow();
@@ -2587,6 +2634,7 @@ namespace uniPark.Main.Forms.Landing
                 }
                 table.Append(row);
             }
+
             body.Append(table);
             doc.MainDocumentPart.Document.Save();
             doc.Dispose();

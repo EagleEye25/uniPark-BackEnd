@@ -373,7 +373,13 @@ namespace uniPark_DAL
             return dt;
 
         }
-
+        public DataTable GetInfringementsI(string id, DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] {  new SqlParameter("@begin",start), new SqlParameter("@end",end), new SqlParameter("@personelid", id) };
+            dt = DBHelper.ParamSelect("uspGenerateReportsInfringements", CommandType.StoredProcedure, pars);
+            return dt;
+        }
     }
 
 }
