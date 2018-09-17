@@ -1487,7 +1487,7 @@ namespace uniPark.Main.Forms.Landing
             matTextAddParkingLocation.Text = "";
         }
 
-        private void dgvUpdateParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+       /* private void dgvUpdateParkings_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
             if (UpadteParkingArea == true)
@@ -1511,7 +1511,7 @@ namespace uniPark.Main.Forms.Landing
             }
 
              
-        }
+        }*/
 
         private void matmatBtnEditArea_Click(object sender, EventArgs e)
         {
@@ -1563,11 +1563,7 @@ namespace uniPark.Main.Forms.Landing
            // MessageBox.Show("Please select area where parking space is located");
         }
 
-        private void dgvUpdateParkings_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-
-         {
-
-        }
+        
 
         private void matBtnUpdateParkingSpace_Click(object sender, EventArgs e)
         {
@@ -1592,6 +1588,12 @@ namespace uniPark.Main.Forms.Landing
 
             IDBHandler handler = new DBHandler();
             handler.BLL_UpdateParkingSpace(UpParkingAreaID,type,UpSpaceID,Available,status);
+
+            MessageBox.Show("Parking Space successfully Updated.");
+
+            DataTable dt = new DataTable();
+            dt = handler.BLL_GetParkingSpaces(UpParkingAreaID);
+            dgvUpdateParkings.DataSource = dt;
         }
 
         private void matbtnHelpEd_Click(object sender, EventArgs e)
@@ -2659,6 +2661,68 @@ namespace uniPark.Main.Forms.Landing
 
         }
 
+
+        private void matbtnAutoAssign_Click(object sender, EventArgs e)
+        {
+            IDBHandler handler = new DBHandler();
+            List<ParkingRequest> PRlist = new List<ParkingRequest>();
+            PRlist = handler.BLL_GetAllRequests();
+            List<ParkingSpacePersonnel> PSPlist = new List<ParkingSpacePersonnel>();
+            PSPlist = handler.BLL_GetAllParkingSpacePersonnel();
+
+            if (PRlist.Count != 0)
+            {
+
+
+
+                foreach (ParkingRequest PR in PRlist.ToList())
+                {
+                    int spaceID = PR.ParkingSpaceID;
+                    DateTime FirstDate = PR.ParkingRequestTime;
+
+                    foreach (ParkingRequest PR2 in PRlist.ToList())
+                    {
+                        if (spaceID == PR2.ParkingSpaceID && FirstDate > PR2.ParkingRequestTime)
+                        {
+                            FirstDate = PR2.ParkingRequestTime;
+                        }
+                    }
+
+                    foreach (ParkingRequest PR3 in PRlist.ToList())
+                    {
+
+
+                        if (spaceID == PR3.ParkingSpaceID && FirstDate == PR3.ParkingRequestTime)
+                        {
+                            foreach (ParkingSpacePersonnel PSP in PSPlist)
+                            {
+                                if (PR3.PersonnelID == PSP.PersonnelID)
+                                {
+                                    handler.BLL_UpdatePersonnelParkingSpace(PR3.PersonnelID);  // IF Personnel Allready has a parking
+                                    handler.BLL_ChangeSpaceAvailability(PSP.ParkingSpaceID,true); // Make Parkfing Space Available again
+                                }
+                            }
+
+                            handler.BLL_AssignParkingSpace(PR3.ParkingSpaceID, PR3.PersonnelID, PR3.ParkingRequestID);
+                            handler.BLL_ChangeSpaceAvailability(PR3.ParkingSpaceID,false);
+                            PRlist.Remove(PR3);
+                            //EMAIL to USER SPACE is ALLOCATED to them..........
+
+                        }
+                        else
+                        {
+                            handler.BLL_RequestParkingFail(PR3.ParkingRequestID);
+                            PRlist.Remove(PR3);
+                            // EMAIL to user that parking request wass un successfull
+                        }
+                    }
+
+                }
+            }
+            else MessageBox.Show("There are no Requests at this time to assign.");
+        }
+        public void CreateWordDocument(string filePath, DataTable data, string text)
+
         private void materialFlatButton8_Click(object sender, EventArgs e)
         {
             mattextReportResult.Text = "SYSTEM";
@@ -2684,6 +2748,7 @@ namespace uniPark.Main.Forms.Landing
         }
 
         public void CreateWordDocument(string filePath, DataTable data, string text, string[] heading)
+
         {
             WordprocessingDocument doc = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document);
             MainDocumentPart mainDocPart = doc.AddMainDocumentPart();

@@ -205,6 +205,7 @@
             this.mapAdd_Edit_Coord = new GMap.NET.WindowsForms.GMapControl();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lblCaption = new System.Windows.Forms.Label();
+            this.matbtnAutoAssign = new MaterialSkin.Controls.MaterialFlatButton();
             this.pnlMenu.SuspendLayout();
             this.pnlHeadings.SuspendLayout();
             this.pnlViewParkings.SuspendLayout();
@@ -271,7 +272,7 @@
             this.matBtnVerifyGuest.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnVerifyGuest.Name = "matBtnVerifyGuest";
             this.matBtnVerifyGuest.Primary = false;
-            this.matBtnVerifyGuest.Size = new System.Drawing.Size(232, 36);
+            this.matBtnVerifyGuest.Size = new System.Drawing.Size(195, 36);
             this.matBtnVerifyGuest.TabIndex = 22;
             this.matBtnVerifyGuest.Text = "      Verify Guest          ";
             this.matBtnVerifyGuest.UseVisualStyleBackColor = true;
@@ -288,7 +289,7 @@
             this.matBtnAddParking.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddParking.Name = "matBtnAddParking";
             this.matBtnAddParking.Primary = false;
-            this.matBtnAddParking.Size = new System.Drawing.Size(227, 36);
+            this.matBtnAddParking.Size = new System.Drawing.Size(190, 36);
             this.matBtnAddParking.TabIndex = 21;
             this.matBtnAddParking.Text = "      Add Parkings       ";
             this.matBtnAddParking.UseVisualStyleBackColor = true;
@@ -305,7 +306,7 @@
             this.matBtnMinimize.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnMinimize.Name = "matBtnMinimize";
             this.matBtnMinimize.Primary = false;
-            this.matBtnMinimize.Size = new System.Drawing.Size(225, 36);
+            this.matBtnMinimize.Size = new System.Drawing.Size(189, 36);
             this.matBtnMinimize.TabIndex = 1;
             this.matBtnMinimize.Text = "      Minimize                 ";
             this.matBtnMinimize.UseVisualStyleBackColor = true;
@@ -322,7 +323,7 @@
             this.matBtnLogout.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnLogout.Name = "matBtnLogout";
             this.matBtnLogout.Primary = false;
-            this.matBtnLogout.Size = new System.Drawing.Size(227, 36);
+            this.matBtnLogout.Size = new System.Drawing.Size(191, 36);
             this.matBtnLogout.TabIndex = 20;
             this.matBtnLogout.Text = "      Logout                    ";
             this.matBtnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -340,7 +341,7 @@
             this.matBtnEditUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnEditUser.Name = "matBtnEditUser";
             this.matBtnEditUser.Primary = false;
-            this.matBtnEditUser.Size = new System.Drawing.Size(234, 36);
+            this.matBtnEditUser.Size = new System.Drawing.Size(196, 36);
             this.matBtnEditUser.TabIndex = 10;
             this.matBtnEditUser.Text = "     Edit Personnel      ";
             this.matBtnEditUser.UseVisualStyleBackColor = true;
@@ -374,7 +375,7 @@
             this.matBtnSearchUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnSearchUser.Name = "matBtnSearchUser";
             this.matBtnSearchUser.Primary = false;
-            this.matBtnSearchUser.Size = new System.Drawing.Size(150, 36);
+            this.matBtnSearchUser.Size = new System.Drawing.Size(129, 36);
             this.matBtnSearchUser.TabIndex = 9;
             this.matBtnSearchUser.Text = "      Reports";
             this.matBtnSearchUser.UseVisualStyleBackColor = true;
@@ -392,7 +393,7 @@
             this.matBtnViewParking.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnViewParking.Name = "matBtnViewParking";
             this.matBtnViewParking.Primary = false;
-            this.matBtnViewParking.Size = new System.Drawing.Size(229, 36);
+            this.matBtnViewParking.Size = new System.Drawing.Size(192, 36);
             this.matBtnViewParking.TabIndex = 3;
             this.matBtnViewParking.Text = "      View Parkings      ";
             this.matBtnViewParking.UseVisualStyleBackColor = true;
@@ -409,7 +410,7 @@
             this.matBtnAddUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddUser.Name = "matBtnAddUser";
             this.matBtnAddUser.Primary = false;
-            this.matBtnAddUser.Size = new System.Drawing.Size(241, 36);
+            this.matBtnAddUser.Size = new System.Drawing.Size(201, 36);
             this.matBtnAddUser.TabIndex = 8;
             this.matBtnAddUser.Text = "      Add Personnel       ";
             this.matBtnAddUser.UseVisualStyleBackColor = true;
@@ -426,7 +427,7 @@
             this.matbtnSearchParking.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnSearchParking.Name = "matbtnSearchParking";
             this.matbtnSearchParking.Primary = false;
-            this.matbtnSearchParking.Size = new System.Drawing.Size(229, 36);
+            this.matbtnSearchParking.Size = new System.Drawing.Size(192, 36);
             this.matbtnSearchParking.TabIndex = 4;
             this.matbtnSearchParking.Text = "      Search Parkings";
             this.matbtnSearchParking.UseVisualStyleBackColor = true;
@@ -443,7 +444,7 @@
             this.matBtnViewUsers.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnViewUsers.Name = "matBtnViewUsers";
             this.matBtnViewUsers.Primary = false;
-            this.matBtnViewUsers.Size = new System.Drawing.Size(275, 36);
+            this.matBtnViewUsers.Size = new System.Drawing.Size(229, 36);
             this.matBtnViewUsers.TabIndex = 7;
             this.matBtnViewUsers.Text = "      View Infringements     ";
             this.matBtnViewUsers.UseVisualStyleBackColor = true;
@@ -460,7 +461,7 @@
             this.matbtnUpdateParking.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnUpdateParking.Name = "matbtnUpdateParking";
             this.matbtnUpdateParking.Primary = false;
-            this.matbtnUpdateParking.Size = new System.Drawing.Size(228, 36);
+            this.matbtnUpdateParking.Size = new System.Drawing.Size(191, 36);
             this.matbtnUpdateParking.TabIndex = 5;
             this.matbtnUpdateParking.Text = "      Update Parkings";
             this.matbtnUpdateParking.UseVisualStyleBackColor = true;
@@ -478,7 +479,7 @@
             this.matbtnAssignParking.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnAssignParking.Name = "matbtnAssignParking";
             this.matbtnAssignParking.Primary = false;
-            this.matbtnAssignParking.Size = new System.Drawing.Size(228, 36);
+            this.matbtnAssignParking.Size = new System.Drawing.Size(191, 36);
             this.matbtnAssignParking.TabIndex = 6;
             this.matbtnAssignParking.Text = "      Assign Parkings ";
             this.matbtnAssignParking.UseVisualStyleBackColor = true;
@@ -565,7 +566,7 @@
             this.matbtnViewSingleAreaMap.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnViewSingleAreaMap.Name = "matbtnViewSingleAreaMap";
             this.matbtnViewSingleAreaMap.Primary = false;
-            this.matbtnViewSingleAreaMap.Size = new System.Drawing.Size(250, 36);
+            this.matbtnViewSingleAreaMap.Size = new System.Drawing.Size(209, 36);
             this.matbtnViewSingleAreaMap.TabIndex = 8;
             this.matbtnViewSingleAreaMap.Text = "View This Area On Map";
             this.matbtnViewSingleAreaMap.UseVisualStyleBackColor = true;
@@ -583,7 +584,7 @@
             this.matBtnBackToParkingAreas.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnBackToParkingAreas.Name = "matBtnBackToParkingAreas";
             this.matBtnBackToParkingAreas.Primary = false;
-            this.matBtnBackToParkingAreas.Size = new System.Drawing.Size(94, 36);
+            this.matBtnBackToParkingAreas.Size = new System.Drawing.Size(84, 36);
             this.matBtnBackToParkingAreas.TabIndex = 7;
             this.matBtnBackToParkingAreas.Text = "Back";
             this.matBtnBackToParkingAreas.UseVisualStyleBackColor = true;
@@ -597,7 +598,7 @@
             this.cmbParkingAreas.FormattingEnabled = true;
             this.cmbParkingAreas.Location = new System.Drawing.Point(228, 4);
             this.cmbParkingAreas.Name = "cmbParkingAreas";
-            this.cmbParkingAreas.Size = new System.Drawing.Size(199, 28);
+            this.cmbParkingAreas.Size = new System.Drawing.Size(199, 24);
             this.cmbParkingAreas.TabIndex = 7;
             this.cmbParkingAreas.SelectedIndexChanged += new System.EventHandler(this.cmbParkingAreas_SelectedIndexChanged);
             this.cmbParkingAreas.SelectionChangeCommitted += new System.EventHandler(this.cmbParkingAreas_SelectionChangeCommitted);
@@ -665,7 +666,7 @@
             this.lblParkingSpace.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblParkingSpace.Location = new System.Drawing.Point(449, 7);
             this.lblParkingSpace.Name = "lblParkingSpace";
-            this.lblParkingSpace.Size = new System.Drawing.Size(179, 20);
+            this.lblParkingSpace.Size = new System.Drawing.Size(144, 16);
             this.lblParkingSpace.TabIndex = 10;
             this.lblParkingSpace.Text = "Select Parking Space :";
             // 
@@ -676,7 +677,7 @@
             this.cmbParkingSpace.FormattingEnabled = true;
             this.cmbParkingSpace.Location = new System.Drawing.Point(666, 4);
             this.cmbParkingSpace.Name = "cmbParkingSpace";
-            this.cmbParkingSpace.Size = new System.Drawing.Size(194, 28);
+            this.cmbParkingSpace.Size = new System.Drawing.Size(194, 24);
             this.cmbParkingSpace.TabIndex = 9;
             this.cmbParkingSpace.SelectionChangeCommitted += new System.EventHandler(this.cmbParkingSpace_SelectionChangeCommitted);
             // 
@@ -686,7 +687,7 @@
             this.lblParkingArea.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblParkingArea.Location = new System.Drawing.Point(26, 7);
             this.lblParkingArea.Name = "lblParkingArea";
-            this.lblParkingArea.Size = new System.Drawing.Size(167, 20);
+            this.lblParkingArea.Size = new System.Drawing.Size(133, 16);
             this.lblParkingArea.TabIndex = 8;
             this.lblParkingArea.Text = "Select Parking Area :";
             // 
@@ -787,7 +788,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(390, 18);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(171, 20);
+            this.label7.Size = new System.Drawing.Size(137, 16);
             this.label7.TabIndex = 33;
             this.label7.Text = "Change Coordinates :";
             // 
@@ -797,7 +798,7 @@
             this.lblMoreUncovered.ForeColor = System.Drawing.Color.White;
             this.lblMoreUncovered.Location = new System.Drawing.Point(642, 57);
             this.lblMoreUncovered.Name = "lblMoreUncovered";
-            this.lblMoreUncovered.Size = new System.Drawing.Size(160, 20);
+            this.lblMoreUncovered.Size = new System.Drawing.Size(130, 16);
             this.lblMoreUncovered.TabIndex = 32;
             this.lblMoreUncovered.Text = "Uncovered Parking :";
             this.lblMoreUncovered.Visible = false;
@@ -806,7 +807,7 @@
             // 
             this.nupUncovered.Location = new System.Drawing.Point(812, 54);
             this.nupUncovered.Name = "nupUncovered";
-            this.nupUncovered.Size = new System.Drawing.Size(120, 26);
+            this.nupUncovered.Size = new System.Drawing.Size(120, 22);
             this.nupUncovered.TabIndex = 31;
             this.nupUncovered.Visible = false;
             // 
@@ -814,7 +815,7 @@
             // 
             this.nupCovered.Location = new System.Drawing.Point(812, 16);
             this.nupCovered.Name = "nupCovered";
-            this.nupCovered.Size = new System.Drawing.Size(120, 26);
+            this.nupCovered.Size = new System.Drawing.Size(120, 22);
             this.nupCovered.TabIndex = 30;
             this.nupCovered.Visible = false;
             // 
@@ -824,7 +825,7 @@
             this.lblMoreCovered.ForeColor = System.Drawing.Color.White;
             this.lblMoreCovered.Location = new System.Drawing.Point(642, 18);
             this.lblMoreCovered.Name = "lblMoreCovered";
-            this.lblMoreCovered.Size = new System.Drawing.Size(142, 20);
+            this.lblMoreCovered.Size = new System.Drawing.Size(115, 16);
             this.lblMoreCovered.TabIndex = 29;
             this.lblMoreCovered.Text = "Covered Parking :";
             this.lblMoreCovered.Visible = false;
@@ -835,7 +836,7 @@
             this.cbAddMoreSpaces.ForeColor = System.Drawing.Color.White;
             this.cbAddMoreSpaces.Location = new System.Drawing.Point(381, 63);
             this.cbAddMoreSpaces.Name = "cbAddMoreSpaces";
-            this.cbAddMoreSpaces.Size = new System.Drawing.Size(225, 24);
+            this.cbAddMoreSpaces.Size = new System.Drawing.Size(185, 20);
             this.cbAddMoreSpaces.TabIndex = 27;
             this.cbAddMoreSpaces.Text = "Add More Parking Spaces";
             this.cbAddMoreSpaces.UseVisualStyleBackColor = true;
@@ -863,7 +864,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(14, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(221, 20);
+            this.label3.Size = new System.Drawing.Size(176, 16);
             this.label3.TabIndex = 25;
             this.label3.Text = "Parking Area Access Level :";
             // 
@@ -882,7 +883,7 @@
             0,
             0});
             this.numUpParkingAL.Name = "numUpParkingAL";
-            this.numUpParkingAL.Size = new System.Drawing.Size(50, 26);
+            this.numUpParkingAL.Size = new System.Drawing.Size(50, 22);
             this.numUpParkingAL.TabIndex = 24;
             this.numUpParkingAL.Value = new decimal(new int[] {
             1,
@@ -899,7 +900,7 @@
             this.materialLabel3.Location = new System.Drawing.Point(10, 5);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(283, 24);
+            this.materialLabel3.Size = new System.Drawing.Size(225, 19);
             this.materialLabel3.TabIndex = 23;
             this.materialLabel3.Text = "Edit Parking Area details below :";
             // 
@@ -909,7 +910,7 @@
             this.cbDelecteParkingArea.ForeColor = System.Drawing.Color.White;
             this.cbDelecteParkingArea.Location = new System.Drawing.Point(381, 101);
             this.cbDelecteParkingArea.Name = "cbDelecteParkingArea";
-            this.cbDelecteParkingArea.Size = new System.Drawing.Size(181, 24);
+            this.cbDelecteParkingArea.Size = new System.Drawing.Size(148, 20);
             this.cbDelecteParkingArea.TabIndex = 22;
             this.cbDelecteParkingArea.Text = "Delete Parking Area";
             this.cbDelecteParkingArea.UseVisualStyleBackColor = true;
@@ -926,7 +927,7 @@
             this.matTextParkingAreaLocationUpdate.SelectedText = "";
             this.matTextParkingAreaLocationUpdate.SelectionLength = 0;
             this.matTextParkingAreaLocationUpdate.SelectionStart = 0;
-            this.matTextParkingAreaLocationUpdate.Size = new System.Drawing.Size(186, 28);
+            this.matTextParkingAreaLocationUpdate.Size = new System.Drawing.Size(186, 23);
             this.matTextParkingAreaLocationUpdate.TabIndex = 1;
             this.matTextParkingAreaLocationUpdate.TabStop = false;
             this.matTextParkingAreaLocationUpdate.Text = "Parking Area Location";
@@ -946,7 +947,7 @@
             this.matTextParkingAreaNameUpadate.SelectedText = "";
             this.matTextParkingAreaNameUpadate.SelectionLength = 0;
             this.matTextParkingAreaNameUpadate.SelectionStart = 0;
-            this.matTextParkingAreaNameUpadate.Size = new System.Drawing.Size(186, 28);
+            this.matTextParkingAreaNameUpadate.Size = new System.Drawing.Size(186, 23);
             this.matTextParkingAreaNameUpadate.TabIndex = 0;
             this.matTextParkingAreaNameUpadate.TabStop = false;
             this.matTextParkingAreaNameUpadate.Text = "Parking Area Name";
@@ -965,7 +966,7 @@
             this.matBtnUpdateParkingA.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnUpdateParkingA.Name = "matBtnUpdateParkingA";
             this.matBtnUpdateParkingA.Primary = false;
-            this.matBtnUpdateParkingA.Size = new System.Drawing.Size(239, 36);
+            this.matBtnUpdateParkingA.Size = new System.Drawing.Size(200, 36);
             this.matBtnUpdateParkingA.TabIndex = 21;
             this.matBtnUpdateParkingA.Text = "Update Parking Area";
             this.matBtnUpdateParkingA.UseVisualStyleBackColor = true;
@@ -995,7 +996,7 @@
             this.materialLabel4.Location = new System.Drawing.Point(33, 7);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(296, 24);
+            this.materialLabel4.Size = new System.Drawing.Size(234, 19);
             this.materialLabel4.TabIndex = 24;
             this.materialLabel4.Text = "Edit Parking space details below :";
             // 
@@ -1010,7 +1011,7 @@
             this.matBtnUpdateParkingSpace.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnUpdateParkingSpace.Name = "matBtnUpdateParkingSpace";
             this.matBtnUpdateParkingSpace.Primary = false;
-            this.matBtnUpdateParkingSpace.Size = new System.Drawing.Size(239, 36);
+            this.matBtnUpdateParkingSpace.Size = new System.Drawing.Size(200, 36);
             this.matBtnUpdateParkingSpace.TabIndex = 23;
             this.matBtnUpdateParkingSpace.Text = "Update Parking Area";
             this.matBtnUpdateParkingSpace.UseVisualStyleBackColor = true;
@@ -1021,7 +1022,7 @@
             this.cbDeleteSpace.AutoSize = true;
             this.cbDeleteSpace.Location = new System.Drawing.Point(500, 104);
             this.cbDeleteSpace.Name = "cbDeleteSpace";
-            this.cbDeleteSpace.Size = new System.Drawing.Size(193, 24);
+            this.cbDeleteSpace.Size = new System.Drawing.Size(159, 20);
             this.cbDeleteSpace.TabIndex = 5;
             this.cbDeleteSpace.Text = "Delete Parking Space";
             this.cbDeleteSpace.UseVisualStyleBackColor = true;
@@ -1034,7 +1035,7 @@
             "UnCovered"});
             this.cmbEditType.Location = new System.Drawing.Point(215, 99);
             this.cmbEditType.Name = "cmbEditType";
-            this.cmbEditType.Size = new System.Drawing.Size(185, 28);
+            this.cmbEditType.Size = new System.Drawing.Size(185, 24);
             this.cmbEditType.TabIndex = 3;
             // 
             // label2
@@ -1042,7 +1043,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(77, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.Size = new System.Drawing.Size(96, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Change Type :";
             // 
@@ -1054,7 +1055,7 @@
             "UnAvailable"});
             this.cmbAvailibality.Location = new System.Drawing.Point(215, 58);
             this.cmbAvailibality.Name = "cmbAvailibality";
-            this.cmbAvailibality.Size = new System.Drawing.Size(185, 28);
+            this.cmbAvailibality.Size = new System.Drawing.Size(185, 24);
             this.cmbAvailibality.TabIndex = 1;
             // 
             // label1
@@ -1062,7 +1063,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(34, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 20);
+            this.label1.Size = new System.Drawing.Size(129, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Change Availability :";
             // 
@@ -1075,7 +1076,7 @@
             this.matlblSelectSpace.Location = new System.Drawing.Point(400, 109);
             this.matlblSelectSpace.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblSelectSpace.Name = "matlblSelectSpace";
-            this.matlblSelectSpace.Size = new System.Drawing.Size(277, 24);
+            this.matlblSelectSpace.Size = new System.Drawing.Size(220, 19);
             this.matlblSelectSpace.TabIndex = 34;
             this.matlblSelectSpace.Text = "Please select a parking space...";
             this.matlblSelectSpace.Visible = false;
@@ -1099,7 +1100,7 @@
             this.matlblEditArea.Location = new System.Drawing.Point(387, 38);
             this.matlblEditArea.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblEditArea.Name = "matlblEditArea";
-            this.matlblEditArea.Size = new System.Drawing.Size(317, 24);
+            this.matlblEditArea.Size = new System.Drawing.Size(252, 19);
             this.matlblEditArea.TabIndex = 33;
             this.matlblEditArea.Text = "Please select the Row to be edited...";
             this.matlblEditArea.Visible = false;
@@ -1113,7 +1114,7 @@
             this.matlblUpdateSpace.Location = new System.Drawing.Point(411, 57);
             this.matlblUpdateSpace.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblUpdateSpace.Name = "matlblUpdateSpace";
-            this.matlblUpdateSpace.Size = new System.Drawing.Size(252, 24);
+            this.matlblUpdateSpace.Size = new System.Drawing.Size(201, 19);
             this.matlblUpdateSpace.TabIndex = 32;
             this.matlblUpdateSpace.Text = "Pleas select a parking area...";
             this.matlblUpdateSpace.Visible = false;
@@ -1123,7 +1124,7 @@
             this.cmbSelectArea.FormattingEnabled = true;
             this.cmbSelectArea.Location = new System.Drawing.Point(445, 79);
             this.cmbSelectArea.Name = "cmbSelectArea";
-            this.cmbSelectArea.Size = new System.Drawing.Size(139, 28);
+            this.cmbSelectArea.Size = new System.Drawing.Size(139, 24);
             this.cmbSelectArea.TabIndex = 31;
             this.cmbSelectArea.Visible = false;
             this.cmbSelectArea.SelectedIndexChanged += new System.EventHandler(this.cmbSelectArea_SelectedIndexChanged);
@@ -1139,7 +1140,7 @@
             this.matBtnBackToUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnBackToUpdate.Name = "matBtnBackToUpdate";
             this.matBtnBackToUpdate.Primary = false;
-            this.matBtnBackToUpdate.Size = new System.Drawing.Size(94, 36);
+            this.matBtnBackToUpdate.Size = new System.Drawing.Size(84, 36);
             this.matBtnBackToUpdate.TabIndex = 30;
             this.matBtnBackToUpdate.Text = "Back";
             this.matBtnBackToUpdate.UseVisualStyleBackColor = true;
@@ -1157,7 +1158,7 @@
             this.matBtnEditParkingSpace.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnEditParkingSpace.Name = "matBtnEditParkingSpace";
             this.matBtnEditParkingSpace.Primary = false;
-            this.matBtnEditParkingSpace.Size = new System.Drawing.Size(221, 36);
+            this.matBtnEditParkingSpace.Size = new System.Drawing.Size(186, 36);
             this.matBtnEditParkingSpace.TabIndex = 24;
             this.matBtnEditParkingSpace.Text = "Edit Parking Space";
             this.matBtnEditParkingSpace.UseVisualStyleBackColor = true;
@@ -1174,7 +1175,7 @@
             this.matmatBtnEditArea.MouseState = MaterialSkin.MouseState.HOVER;
             this.matmatBtnEditArea.Name = "matmatBtnEditArea";
             this.matmatBtnEditArea.Primary = false;
-            this.matmatBtnEditArea.Size = new System.Drawing.Size(211, 36);
+            this.matmatBtnEditArea.Size = new System.Drawing.Size(177, 36);
             this.matmatBtnEditArea.TabIndex = 23;
             this.matmatBtnEditArea.Text = "Edit Parking Area";
             this.matmatBtnEditArea.UseVisualStyleBackColor = true;
@@ -1257,13 +1258,15 @@
             // 
             // pnlAssignParkings
             // 
+            this.pnlAssignParkings.Controls.Add(this.matbtnAutoAssign);
             this.pnlAssignParkings.Controls.Add(this.dgvAssignParkings);
             this.pnlAssignParkings.Controls.Add(this.matBtnAssignParkings);
             this.pnlAssignParkings.Controls.Add(this.matTextFacilityNoAS);
             this.pnlAssignParkings.Controls.Add(this.matTextParkingNameAS);
-            this.pnlAssignParkings.Location = new System.Drawing.Point(232, 480);
+            this.pnlAssignParkings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAssignParkings.Location = new System.Drawing.Point(207, 30);
             this.pnlAssignParkings.Name = "pnlAssignParkings";
-            this.pnlAssignParkings.Size = new System.Drawing.Size(164, 197);
+            this.pnlAssignParkings.Size = new System.Drawing.Size(1073, 683);
             this.pnlAssignParkings.TabIndex = 23;
             // 
             // dgvAssignParkings
@@ -1295,7 +1298,7 @@
             this.matBtnAssignParkings.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAssignParkings.Name = "matBtnAssignParkings";
             this.matBtnAssignParkings.Primary = false;
-            this.matBtnAssignParkings.Size = new System.Drawing.Size(235, 36);
+            this.matBtnAssignParkings.Size = new System.Drawing.Size(197, 36);
             this.matBtnAssignParkings.TabIndex = 21;
             this.matBtnAssignParkings.Text = "Assign Parking Area";
             this.matBtnAssignParkings.UseVisualStyleBackColor = true;
@@ -1312,7 +1315,7 @@
             this.matTextFacilityNoAS.SelectedText = "";
             this.matTextFacilityNoAS.SelectionLength = 0;
             this.matTextFacilityNoAS.SelectionStart = 0;
-            this.matTextFacilityNoAS.Size = new System.Drawing.Size(186, 28);
+            this.matTextFacilityNoAS.Size = new System.Drawing.Size(186, 23);
             this.matTextFacilityNoAS.TabIndex = 1;
             this.matTextFacilityNoAS.TabStop = false;
             this.matTextFacilityNoAS.Text = "User Facility Number";
@@ -1332,7 +1335,7 @@
             this.matTextParkingNameAS.SelectedText = "";
             this.matTextParkingNameAS.SelectionLength = 0;
             this.matTextParkingNameAS.SelectionStart = 0;
-            this.matTextParkingNameAS.Size = new System.Drawing.Size(186, 28);
+            this.matTextParkingNameAS.Size = new System.Drawing.Size(186, 23);
             this.matTextParkingNameAS.TabIndex = 0;
             this.matTextParkingNameAS.TabStop = false;
             this.matTextParkingNameAS.Text = "Parking Area Name";
@@ -1385,7 +1388,7 @@
             this.mattextReportID.SelectedText = "";
             this.mattextReportID.SelectionLength = 0;
             this.mattextReportID.SelectionStart = 0;
-            this.mattextReportID.Size = new System.Drawing.Size(180, 28);
+            this.mattextReportID.Size = new System.Drawing.Size(180, 23);
             this.mattextReportID.TabIndex = 43;
             this.mattextReportID.TabStop = false;
             this.mattextReportID.UseSystemPasswordChar = false;
@@ -1401,7 +1404,7 @@
             this.materialFlatButton5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton5.Name = "materialFlatButton5";
             this.materialFlatButton5.Primary = false;
-            this.materialFlatButton5.Size = new System.Drawing.Size(237, 36);
+            this.materialFlatButton5.Size = new System.Drawing.Size(199, 36);
             this.materialFlatButton5.TabIndex = 42;
             this.materialFlatButton5.Text = "      Mark Fine As Paid ";
             this.materialFlatButton5.UseVisualStyleBackColor = true;
@@ -1434,7 +1437,7 @@
             this.mattextboxInfringements.SelectedText = "";
             this.mattextboxInfringements.SelectionLength = 0;
             this.mattextboxInfringements.SelectionStart = 0;
-            this.mattextboxInfringements.Size = new System.Drawing.Size(305, 28);
+            this.mattextboxInfringements.Size = new System.Drawing.Size(305, 23);
             this.mattextboxInfringements.TabIndex = 38;
             this.mattextboxInfringements.TabStop = false;
             this.mattextboxInfringements.Text = "Personnel ID Number";
@@ -1493,7 +1496,7 @@
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
             this.materialFlatButton2.Primary = false;
-            this.materialFlatButton2.Size = new System.Drawing.Size(64, 36);
+            this.materialFlatButton2.Size = new System.Drawing.Size(55, 36);
             this.materialFlatButton2.TabIndex = 37;
             this.materialFlatButton2.Text = "Help";
             this.materialFlatButton2.UseVisualStyleBackColor = true;
@@ -1510,7 +1513,7 @@
             this.mattextEmail.SelectedText = "";
             this.mattextEmail.SelectionLength = 0;
             this.mattextEmail.SelectionStart = 0;
-            this.mattextEmail.Size = new System.Drawing.Size(204, 28);
+            this.mattextEmail.Size = new System.Drawing.Size(204, 23);
             this.mattextEmail.TabIndex = 17;
             this.mattextEmail.TabStop = false;
             this.mattextEmail.Text = "Personnel Email Address";
@@ -1530,7 +1533,7 @@
             this.mattextPhoneNum.SelectedText = "";
             this.mattextPhoneNum.SelectionLength = 0;
             this.mattextPhoneNum.SelectionStart = 0;
-            this.mattextPhoneNum.Size = new System.Drawing.Size(204, 28);
+            this.mattextPhoneNum.Size = new System.Drawing.Size(204, 23);
             this.mattextPhoneNum.TabIndex = 16;
             this.mattextPhoneNum.TabStop = false;
             this.mattextPhoneNum.Text = "Personnel Phone Number";
@@ -1550,7 +1553,7 @@
             this.mattextUserID.SelectedText = "";
             this.mattextUserID.SelectionLength = 0;
             this.mattextUserID.SelectionStart = 0;
-            this.mattextUserID.Size = new System.Drawing.Size(204, 28);
+            this.mattextUserID.Size = new System.Drawing.Size(204, 23);
             this.mattextUserID.TabIndex = 15;
             this.mattextUserID.TabStop = false;
             this.mattextUserID.Text = "User ID";
@@ -1570,7 +1573,7 @@
             this.mattextPassword.SelectedText = "";
             this.mattextPassword.SelectionLength = 0;
             this.mattextPassword.SelectionStart = 0;
-            this.mattextPassword.Size = new System.Drawing.Size(204, 28);
+            this.mattextPassword.Size = new System.Drawing.Size(204, 23);
             this.mattextPassword.TabIndex = 14;
             this.mattextPassword.TabStop = false;
             this.mattextPassword.Text = "Password";
@@ -1589,7 +1592,7 @@
             this.matlblPersonelLevel.Location = new System.Drawing.Point(58, 341);
             this.matlblPersonelLevel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblPersonelLevel.Name = "matlblPersonelLevel";
-            this.matlblPersonelLevel.Size = new System.Drawing.Size(148, 24);
+            this.matlblPersonelLevel.Size = new System.Drawing.Size(119, 19);
             this.matlblPersonelLevel.TabIndex = 13;
             this.matlblPersonelLevel.Text = "Personnel Level:";
             // 
@@ -1604,7 +1607,7 @@
             this.matlblPersonelType.Location = new System.Drawing.Point(58, 271);
             this.matlblPersonelType.MouseState = MaterialSkin.MouseState.HOVER;
             this.matlblPersonelType.Name = "matlblPersonelType";
-            this.matlblPersonelType.Size = new System.Drawing.Size(145, 24);
+            this.matlblPersonelType.Size = new System.Drawing.Size(116, 19);
             this.matlblPersonelType.TabIndex = 12;
             this.matlblPersonelType.Text = "Personnel Type:";
             // 
@@ -1616,7 +1619,7 @@
             this.cmbPersonelLevel.FormattingEnabled = true;
             this.cmbPersonelLevel.Location = new System.Drawing.Point(62, 376);
             this.cmbPersonelLevel.Name = "cmbPersonelLevel";
-            this.cmbPersonelLevel.Size = new System.Drawing.Size(199, 28);
+            this.cmbPersonelLevel.Size = new System.Drawing.Size(199, 24);
             this.cmbPersonelLevel.TabIndex = 11;
             // 
             // cmbPersonelType
@@ -1627,7 +1630,7 @@
             this.cmbPersonelType.FormattingEnabled = true;
             this.cmbPersonelType.Location = new System.Drawing.Point(62, 303);
             this.cmbPersonelType.Name = "cmbPersonelType";
-            this.cmbPersonelType.Size = new System.Drawing.Size(199, 28);
+            this.cmbPersonelType.Size = new System.Drawing.Size(199, 24);
             this.cmbPersonelType.TabIndex = 10;
             // 
             // matBtnAddUsers
@@ -1641,7 +1644,7 @@
             this.matBtnAddUsers.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddUsers.Name = "matBtnAddUsers";
             this.matBtnAddUsers.Primary = false;
-            this.matBtnAddUsers.Size = new System.Drawing.Size(230, 36);
+            this.matBtnAddUsers.Size = new System.Drawing.Size(193, 36);
             this.matBtnAddUsers.TabIndex = 9;
             this.matBtnAddUsers.Text = "      Add Users               ";
             this.matBtnAddUsers.UseVisualStyleBackColor = true;
@@ -1659,7 +1662,7 @@
             this.matTextPersonelSurname.SelectedText = "";
             this.matTextPersonelSurname.SelectionLength = 0;
             this.matTextPersonelSurname.SelectionStart = 0;
-            this.matTextPersonelSurname.Size = new System.Drawing.Size(204, 28);
+            this.matTextPersonelSurname.Size = new System.Drawing.Size(204, 23);
             this.matTextPersonelSurname.TabIndex = 3;
             this.matTextPersonelSurname.TabStop = false;
             this.matTextPersonelSurname.Text = "Personnel Surname";
@@ -1679,7 +1682,7 @@
             this.matTextPersonelName.SelectedText = "";
             this.matTextPersonelName.SelectionLength = 0;
             this.matTextPersonelName.SelectionStart = 0;
-            this.matTextPersonelName.Size = new System.Drawing.Size(204, 28);
+            this.matTextPersonelName.Size = new System.Drawing.Size(204, 23);
             this.matTextPersonelName.TabIndex = 2;
             this.matTextPersonelName.TabStop = false;
             this.matTextPersonelName.Text = "Personnel Name";
@@ -1699,7 +1702,7 @@
             this.matTextPersonelTagNo.SelectedText = "";
             this.matTextPersonelTagNo.SelectionLength = 0;
             this.matTextPersonelTagNo.SelectionStart = 0;
-            this.matTextPersonelTagNo.Size = new System.Drawing.Size(204, 28);
+            this.matTextPersonelTagNo.Size = new System.Drawing.Size(204, 23);
             this.matTextPersonelTagNo.TabIndex = 1;
             this.matTextPersonelTagNo.TabStop = false;
             this.matTextPersonelTagNo.Text = "Personnel Tag Number";
@@ -1721,10 +1724,9 @@
             this.pnlSearchUsers.Controls.Add(this.materialLabel6);
             this.pnlSearchUsers.Controls.Add(this.datepickerEnd);
             this.pnlSearchUsers.Controls.Add(this.datepickerBegin);
-            this.pnlSearchUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSearchUsers.Location = new System.Drawing.Point(207, 30);
+            this.pnlSearchUsers.Location = new System.Drawing.Point(369, 76);
             this.pnlSearchUsers.Name = "pnlSearchUsers";
-            this.pnlSearchUsers.Size = new System.Drawing.Size(1073, 683);
+            this.pnlSearchUsers.Size = new System.Drawing.Size(165, 146);
             this.pnlSearchUsers.TabIndex = 8;
             // 
             // matrdobtnLog
@@ -1738,7 +1740,7 @@
             this.matrdobtnLog.MouseState = MaterialSkin.MouseState.HOVER;
             this.matrdobtnLog.Name = "matrdobtnLog";
             this.matrdobtnLog.Ripple = true;
-            this.matrdobtnLog.Size = new System.Drawing.Size(131, 30);
+            this.matrdobtnLog.Size = new System.Drawing.Size(110, 30);
             this.matrdobtnLog.TabIndex = 49;
             this.matrdobtnLog.TabStop = true;
             this.matrdobtnLog.Text = "Entrance Log";
@@ -1755,7 +1757,7 @@
             this.matrdobtnParking.MouseState = MaterialSkin.MouseState.HOVER;
             this.matrdobtnParking.Name = "matrdobtnParking";
             this.matrdobtnParking.Ripple = true;
-            this.matrdobtnParking.Size = new System.Drawing.Size(144, 30);
+            this.matrdobtnParking.Size = new System.Drawing.Size(120, 30);
             this.matrdobtnParking.TabIndex = 48;
             this.matrdobtnParking.TabStop = true;
             this.matrdobtnParking.Text = "Parking Report";
@@ -1772,7 +1774,7 @@
             this.matrdobtnInfringements.MouseState = MaterialSkin.MouseState.HOVER;
             this.matrdobtnInfringements.Name = "matrdobtnInfringements";
             this.matrdobtnInfringements.Ripple = true;
-            this.matrdobtnInfringements.Size = new System.Drawing.Size(184, 30);
+            this.matrdobtnInfringements.Size = new System.Drawing.Size(152, 30);
             this.matrdobtnInfringements.TabIndex = 47;
             this.matrdobtnInfringements.TabStop = true;
             this.matrdobtnInfringements.Text = "Infringement Report";
@@ -1789,7 +1791,7 @@
             this.materialFlatButton8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton8.Name = "materialFlatButton8";
             this.materialFlatButton8.Primary = false;
-            this.materialFlatButton8.Size = new System.Drawing.Size(168, 36);
+            this.materialFlatButton8.Size = new System.Drawing.Size(143, 36);
             this.materialFlatButton8.TabIndex = 46;
             this.materialFlatButton8.Text = "      SYSTEM      ";
             this.materialFlatButton8.UseVisualStyleBackColor = true;
@@ -1807,7 +1809,7 @@
             this.materialFlatButton7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton7.Name = "materialFlatButton7";
             this.materialFlatButton7.Primary = false;
-            this.materialFlatButton7.Size = new System.Drawing.Size(256, 36);
+            this.materialFlatButton7.Size = new System.Drawing.Size(213, 36);
             this.materialFlatButton7.TabIndex = 45;
             this.materialFlatButton7.Text = "      Generate Report      ";
             this.materialFlatButton7.UseVisualStyleBackColor = true;
@@ -1826,7 +1828,7 @@
             this.mattextReportResult.SelectedText = "";
             this.mattextReportResult.SelectionLength = 0;
             this.mattextReportResult.SelectionStart = 0;
-            this.mattextReportResult.Size = new System.Drawing.Size(673, 28);
+            this.mattextReportResult.Size = new System.Drawing.Size(673, 23);
             this.mattextReportResult.TabIndex = 41;
             this.mattextReportResult.TabStop = false;
             this.mattextReportResult.UseSystemPasswordChar = false;
@@ -1859,7 +1861,7 @@
             this.mattextboxReportSearch.SelectedText = "";
             this.mattextboxReportSearch.SelectionLength = 0;
             this.mattextboxReportSearch.SelectionStart = 0;
-            this.mattextboxReportSearch.Size = new System.Drawing.Size(305, 28);
+            this.mattextboxReportSearch.Size = new System.Drawing.Size(305, 23);
             this.mattextboxReportSearch.TabIndex = 39;
             this.mattextboxReportSearch.TabStop = false;
             this.mattextboxReportSearch.Text = "Personnel Number";
@@ -1878,7 +1880,7 @@
             this.materialLabel5.Location = new System.Drawing.Point(492, 169);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(90, 24);
+            this.materialLabel5.Size = new System.Drawing.Size(73, 19);
             this.materialLabel5.TabIndex = 34;
             this.materialLabel5.Text = "End Date:";
             // 
@@ -1893,7 +1895,7 @@
             this.materialLabel6.Location = new System.Drawing.Point(132, 169);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(97, 24);
+            this.materialLabel6.Size = new System.Drawing.Size(80, 19);
             this.materialLabel6.TabIndex = 33;
             this.materialLabel6.Text = "Start Date:";
             // 
@@ -1901,7 +1903,7 @@
             // 
             this.datepickerEnd.Location = new System.Drawing.Point(500, 194);
             this.datepickerEnd.Name = "datepickerEnd";
-            this.datepickerEnd.Size = new System.Drawing.Size(286, 26);
+            this.datepickerEnd.Size = new System.Drawing.Size(286, 22);
             this.datepickerEnd.TabIndex = 1;
             this.datepickerEnd.Value = new System.DateTime(2018, 9, 13, 0, 0, 0, 0);
             // 
@@ -1914,7 +1916,7 @@
             this.datepickerBegin.CalendarTrailingForeColor = System.Drawing.Color.White;
             this.datepickerBegin.Location = new System.Drawing.Point(136, 194);
             this.datepickerBegin.Name = "datepickerBegin";
-            this.datepickerBegin.Size = new System.Drawing.Size(286, 26);
+            this.datepickerBegin.Size = new System.Drawing.Size(286, 22);
             this.datepickerBegin.TabIndex = 0;
             this.datepickerBegin.Value = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             // 
@@ -1945,7 +1947,7 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(765, 526);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 20);
+            this.label6.Size = new System.Drawing.Size(118, 16);
             this.label6.TabIndex = 19;
             this.label6.Text = "Add Coordinates : ";
             // 
@@ -2018,7 +2020,7 @@
             this.lblParkingAreaAccesslevel.ForeColor = System.Drawing.Color.White;
             this.lblParkingAreaAccesslevel.Location = new System.Drawing.Point(12, 622);
             this.lblParkingAreaAccesslevel.Name = "lblParkingAreaAccesslevel";
-            this.lblParkingAreaAccesslevel.Size = new System.Drawing.Size(221, 20);
+            this.lblParkingAreaAccesslevel.Size = new System.Drawing.Size(176, 16);
             this.lblParkingAreaAccesslevel.TabIndex = 16;
             this.lblParkingAreaAccesslevel.Text = "Parking Area Access Level :";
             // 
@@ -2028,7 +2030,7 @@
             this.lblUncovered.ForeColor = System.Drawing.Color.White;
             this.lblUncovered.Location = new System.Drawing.Point(345, 564);
             this.lblUncovered.Name = "lblUncovered";
-            this.lblUncovered.Size = new System.Drawing.Size(225, 20);
+            this.lblUncovered.Size = new System.Drawing.Size(180, 16);
             this.lblUncovered.TabIndex = 15;
             this.lblUncovered.Text = "Amount UnCovered Parking: ";
             // 
@@ -2038,7 +2040,7 @@
             this.lblCovered.ForeColor = System.Drawing.Color.White;
             this.lblCovered.Location = new System.Drawing.Point(366, 526);
             this.lblCovered.Name = "lblCovered";
-            this.lblCovered.Size = new System.Drawing.Size(204, 20);
+            this.lblCovered.Size = new System.Drawing.Size(163, 16);
             this.lblCovered.TabIndex = 14;
             this.lblCovered.Text = "Amount Covered Parking: ";
             // 
@@ -2057,7 +2059,7 @@
             0,
             0});
             this.spinParkingAl.Name = "spinParkingAl";
-            this.spinParkingAl.Size = new System.Drawing.Size(50, 26);
+            this.spinParkingAl.Size = new System.Drawing.Size(50, 22);
             this.spinParkingAl.TabIndex = 13;
             this.spinParkingAl.Value = new decimal(new int[] {
             1,
@@ -2075,7 +2077,7 @@
             0,
             0});
             this.spinUncoveredParking.Name = "spinUncoveredParking";
-            this.spinUncoveredParking.Size = new System.Drawing.Size(120, 26);
+            this.spinUncoveredParking.Size = new System.Drawing.Size(120, 22);
             this.spinUncoveredParking.TabIndex = 12;
             // 
             // spinCoveredParking
@@ -2089,7 +2091,7 @@
             0,
             0});
             this.spinCoveredParking.Name = "spinCoveredParking";
-            this.spinCoveredParking.Size = new System.Drawing.Size(120, 26);
+            this.spinCoveredParking.Size = new System.Drawing.Size(120, 22);
             this.spinCoveredParking.TabIndex = 11;
             // 
             // matTextAddParkinAreaID
@@ -2104,7 +2106,7 @@
             this.matTextAddParkinAreaID.SelectedText = "";
             this.matTextAddParkinAreaID.SelectionLength = 0;
             this.matTextAddParkinAreaID.SelectionStart = 0;
-            this.matTextAddParkinAreaID.Size = new System.Drawing.Size(204, 28);
+            this.matTextAddParkinAreaID.Size = new System.Drawing.Size(204, 23);
             this.matTextAddParkinAreaID.TabIndex = 1;
             this.matTextAddParkinAreaID.TabStop = false;
             this.matTextAddParkinAreaID.Text = "Parking Area ID";
@@ -2124,7 +2126,7 @@
             this.matTextAddParkingLocation.SelectedText = "";
             this.matTextAddParkingLocation.SelectionLength = 0;
             this.matTextAddParkingLocation.SelectionStart = 0;
-            this.matTextAddParkingLocation.Size = new System.Drawing.Size(204, 28);
+            this.matTextAddParkingLocation.Size = new System.Drawing.Size(204, 23);
             this.matTextAddParkingLocation.TabIndex = 3;
             this.matTextAddParkingLocation.TabStop = false;
             this.matTextAddParkingLocation.Text = "Parking Area Location";
@@ -2143,7 +2145,7 @@
             this.matBtnAddParkingAreas.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddParkingAreas.Name = "matBtnAddParkingAreas";
             this.matBtnAddParkingAreas.Primary = false;
-            this.matBtnAddParkingAreas.Size = new System.Drawing.Size(186, 36);
+            this.matBtnAddParkingAreas.Size = new System.Drawing.Size(158, 36);
             this.matBtnAddParkingAreas.TabIndex = 5;
             this.matBtnAddParkingAreas.Text = "      Add parking";
             this.matBtnAddParkingAreas.UseVisualStyleBackColor = true;
@@ -2161,7 +2163,7 @@
             this.matTextParkingAreaNameAD.SelectedText = "";
             this.matTextParkingAreaNameAD.SelectionLength = 0;
             this.matTextParkingAreaNameAD.SelectionStart = 0;
-            this.matTextParkingAreaNameAD.Size = new System.Drawing.Size(204, 28);
+            this.matTextParkingAreaNameAD.Size = new System.Drawing.Size(204, 23);
             this.matTextParkingAreaNameAD.TabIndex = 2;
             this.matTextParkingAreaNameAD.TabStop = false;
             this.matTextParkingAreaNameAD.Text = "Parking Area Name";
@@ -2196,7 +2198,7 @@
             this.materialFlatButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton3.Name = "materialFlatButton3";
             this.materialFlatButton3.Primary = false;
-            this.materialFlatButton3.Size = new System.Drawing.Size(64, 36);
+            this.materialFlatButton3.Size = new System.Drawing.Size(55, 36);
             this.materialFlatButton3.TabIndex = 38;
             this.materialFlatButton3.Text = "Help";
             this.materialFlatButton3.UseVisualStyleBackColor = true;
@@ -2213,7 +2215,7 @@
             this.matTextEmailGuest.SelectedText = "";
             this.matTextEmailGuest.SelectionLength = 0;
             this.matTextEmailGuest.SelectionStart = 0;
-            this.matTextEmailGuest.Size = new System.Drawing.Size(204, 28);
+            this.matTextEmailGuest.Size = new System.Drawing.Size(204, 23);
             this.matTextEmailGuest.TabIndex = 25;
             this.matTextEmailGuest.TabStop = false;
             this.matTextEmailGuest.Text = "Guest Email Address";
@@ -2233,7 +2235,7 @@
             this.matTextPhoneGuest.SelectedText = "";
             this.matTextPhoneGuest.SelectionLength = 0;
             this.matTextPhoneGuest.SelectionStart = 0;
-            this.matTextPhoneGuest.Size = new System.Drawing.Size(204, 28);
+            this.matTextPhoneGuest.Size = new System.Drawing.Size(204, 23);
             this.matTextPhoneGuest.TabIndex = 24;
             this.matTextPhoneGuest.TabStop = false;
             this.matTextPhoneGuest.Text = "Guest Phone Number";
@@ -2252,7 +2254,7 @@
             this.matBtnGenGuestNo.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnGenGuestNo.Name = "matBtnGenGuestNo";
             this.matBtnGenGuestNo.Primary = false;
-            this.matBtnGenGuestNo.Size = new System.Drawing.Size(326, 36);
+            this.matBtnGenGuestNo.Size = new System.Drawing.Size(270, 36);
             this.matBtnGenGuestNo.TabIndex = 23;
             this.matBtnGenGuestNo.Text = "Generate Verification Number";
             this.matBtnGenGuestNo.UseVisualStyleBackColor = true;
@@ -2269,7 +2271,7 @@
             this.matBtnVerifyGuests.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnVerifyGuests.Name = "matBtnVerifyGuests";
             this.matBtnVerifyGuests.Primary = false;
-            this.matBtnVerifyGuests.Size = new System.Drawing.Size(231, 36);
+            this.matBtnVerifyGuests.Size = new System.Drawing.Size(194, 36);
             this.matBtnVerifyGuests.TabIndex = 9;
             this.matBtnVerifyGuests.Text = "      Add Guest               ";
             this.matBtnVerifyGuests.UseVisualStyleBackColor = true;
@@ -2287,7 +2289,7 @@
             this.matTextGuestSurname.SelectedText = "";
             this.matTextGuestSurname.SelectionLength = 0;
             this.matTextGuestSurname.SelectionStart = 0;
-            this.matTextGuestSurname.Size = new System.Drawing.Size(204, 28);
+            this.matTextGuestSurname.Size = new System.Drawing.Size(204, 23);
             this.matTextGuestSurname.TabIndex = 3;
             this.matTextGuestSurname.TabStop = false;
             this.matTextGuestSurname.Text = "Guest Surname";
@@ -2307,7 +2309,7 @@
             this.matTextGuestName.SelectedText = "";
             this.matTextGuestName.SelectionLength = 0;
             this.matTextGuestName.SelectionStart = 0;
-            this.matTextGuestName.Size = new System.Drawing.Size(204, 28);
+            this.matTextGuestName.Size = new System.Drawing.Size(204, 23);
             this.matTextGuestName.TabIndex = 2;
             this.matTextGuestName.TabStop = false;
             this.matTextGuestName.Text = "Guest Name";
@@ -2328,7 +2330,7 @@
             this.matTextGuestVerifyNo.SelectedText = "";
             this.matTextGuestVerifyNo.SelectionLength = 0;
             this.matTextGuestVerifyNo.SelectionStart = 0;
-            this.matTextGuestVerifyNo.Size = new System.Drawing.Size(204, 28);
+            this.matTextGuestVerifyNo.Size = new System.Drawing.Size(204, 23);
             this.matTextGuestVerifyNo.TabIndex = 1;
             this.matTextGuestVerifyNo.TabStop = false;
             this.matTextGuestVerifyNo.Text = "Guest Verification Number";
@@ -2368,7 +2370,7 @@
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
             this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(116, 36);
+            this.materialFlatButton1.Size = new System.Drawing.Size(101, 36);
             this.materialFlatButton1.TabIndex = 38;
             this.materialFlatButton1.Text = "Search";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
@@ -2386,7 +2388,7 @@
             this.matTextEditPersonelSearch.SelectedText = "";
             this.matTextEditPersonelSearch.SelectionLength = 0;
             this.matTextEditPersonelSearch.SelectionStart = 0;
-            this.matTextEditPersonelSearch.Size = new System.Drawing.Size(305, 28);
+            this.matTextEditPersonelSearch.Size = new System.Drawing.Size(305, 23);
             this.matTextEditPersonelSearch.TabIndex = 37;
             this.matTextEditPersonelSearch.TabStop = false;
             this.matTextEditPersonelSearch.Text = "Personnel Number or Name";
@@ -2407,7 +2409,7 @@
             this.matbtnHelpEd.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnHelpEd.Name = "matbtnHelpEd";
             this.matbtnHelpEd.Primary = false;
-            this.matbtnHelpEd.Size = new System.Drawing.Size(64, 36);
+            this.matbtnHelpEd.Size = new System.Drawing.Size(55, 36);
             this.matbtnHelpEd.TabIndex = 36;
             this.matbtnHelpEd.Text = "Help";
             this.matbtnHelpEd.UseVisualStyleBackColor = true;
@@ -2424,7 +2426,7 @@
             this.matbtnDeleteUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnDeleteUser.Name = "matbtnDeleteUser";
             this.matbtnDeleteUser.Primary = false;
-            this.matbtnDeleteUser.Size = new System.Drawing.Size(267, 36);
+            this.matbtnDeleteUser.Size = new System.Drawing.Size(222, 36);
             this.matbtnDeleteUser.TabIndex = 35;
             this.matbtnDeleteUser.Text = "      Delete Current user ";
             this.matbtnDeleteUser.UseVisualStyleBackColor = true;
@@ -2441,7 +2443,7 @@
             this.matbtnEditPersonnel.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnEditPersonnel.Name = "matbtnEditPersonnel";
             this.matbtnEditPersonnel.Primary = false;
-            this.matbtnEditPersonnel.Size = new System.Drawing.Size(237, 36);
+            this.matbtnEditPersonnel.Size = new System.Drawing.Size(199, 36);
             this.matbtnEditPersonnel.TabIndex = 34;
             this.matbtnEditPersonnel.Text = "      Apply Changes      ";
             this.matbtnEditPersonnel.UseVisualStyleBackColor = true;
@@ -2459,7 +2461,7 @@
             this.matbtnEmailedit.SelectedText = "";
             this.matbtnEmailedit.SelectionLength = 0;
             this.matbtnEmailedit.SelectionStart = 0;
-            this.matbtnEmailedit.Size = new System.Drawing.Size(204, 28);
+            this.matbtnEmailedit.Size = new System.Drawing.Size(204, 23);
             this.matbtnEmailedit.TabIndex = 33;
             this.matbtnEmailedit.TabStop = false;
             this.matbtnEmailedit.Text = "Personnel Email";
@@ -2478,7 +2480,7 @@
             this.materialLabel1.Location = new System.Drawing.Point(284, 614);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(148, 24);
+            this.materialLabel1.Size = new System.Drawing.Size(119, 19);
             this.materialLabel1.TabIndex = 32;
             this.materialLabel1.Text = "Personnel Level:";
             // 
@@ -2493,7 +2495,7 @@
             this.materialLabel2.Location = new System.Drawing.Point(284, 551);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(145, 24);
+            this.materialLabel2.Size = new System.Drawing.Size(116, 19);
             this.materialLabel2.TabIndex = 31;
             this.materialLabel2.Text = "Personnel Type:";
             // 
@@ -2506,7 +2508,7 @@
             this.cmbPersonnelLevelEdit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmbPersonnelLevelEdit.Location = new System.Drawing.Point(288, 641);
             this.cmbPersonnelLevelEdit.Name = "cmbPersonnelLevelEdit";
-            this.cmbPersonnelLevelEdit.Size = new System.Drawing.Size(199, 28);
+            this.cmbPersonnelLevelEdit.Size = new System.Drawing.Size(199, 24);
             this.cmbPersonnelLevelEdit.TabIndex = 30;
             // 
             // cmbPersonnelTypeEdit
@@ -2517,7 +2519,7 @@
             this.cmbPersonnelTypeEdit.FormattingEnabled = true;
             this.cmbPersonnelTypeEdit.Location = new System.Drawing.Point(285, 578);
             this.cmbPersonnelTypeEdit.Name = "cmbPersonnelTypeEdit";
-            this.cmbPersonnelTypeEdit.Size = new System.Drawing.Size(199, 28);
+            this.cmbPersonnelTypeEdit.Size = new System.Drawing.Size(199, 24);
             this.cmbPersonnelTypeEdit.TabIndex = 29;
             // 
             // dgvEditPersonel
@@ -2552,7 +2554,7 @@
             this.matTextPersonelSurED.SelectedText = "";
             this.matTextPersonelSurED.SelectionLength = 0;
             this.matTextPersonelSurED.SelectionStart = 0;
-            this.matTextPersonelSurED.Size = new System.Drawing.Size(204, 28);
+            this.matTextPersonelSurED.Size = new System.Drawing.Size(204, 23);
             this.matTextPersonelSurED.TabIndex = 25;
             this.matTextPersonelSurED.TabStop = false;
             this.matTextPersonelSurED.Text = "Personnel Surname";
@@ -2572,7 +2574,7 @@
             this.matTextPersonelNameED.SelectedText = "";
             this.matTextPersonelNameED.SelectionLength = 0;
             this.matTextPersonelNameED.SelectionStart = 0;
-            this.matTextPersonelNameED.Size = new System.Drawing.Size(204, 28);
+            this.matTextPersonelNameED.Size = new System.Drawing.Size(204, 23);
             this.matTextPersonelNameED.TabIndex = 24;
             this.matTextPersonelNameED.TabStop = false;
             this.matTextPersonelNameED.Text = "Personnel Name";
@@ -2593,7 +2595,7 @@
             this.matTextPersonelTagNoED.SelectedText = "";
             this.matTextPersonelTagNoED.SelectionLength = 0;
             this.matTextPersonelTagNoED.SelectionStart = 0;
-            this.matTextPersonelTagNoED.Size = new System.Drawing.Size(204, 28);
+            this.matTextPersonelTagNoED.Size = new System.Drawing.Size(204, 23);
             this.matTextPersonelTagNoED.TabIndex = 23;
             this.matTextPersonelTagNoED.TabStop = false;
             this.matTextPersonelTagNoED.Text = "Personnel ID Number";
@@ -2731,7 +2733,7 @@
             this.matbtnRedo.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnRedo.Name = "matbtnRedo";
             this.matbtnRedo.Primary = false;
-            this.matbtnRedo.Size = new System.Drawing.Size(128, 36);
+            this.matbtnRedo.Size = new System.Drawing.Size(111, 36);
             this.matbtnRedo.TabIndex = 47;
             this.matbtnRedo.Text = "Redo All";
             this.matbtnRedo.UseVisualStyleBackColor = true;
@@ -2748,7 +2750,7 @@
             this.matbtnSaveTotalArea.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnSaveTotalArea.Name = "matbtnSaveTotalArea";
             this.matbtnSaveTotalArea.Primary = false;
-            this.matbtnSaveTotalArea.Size = new System.Drawing.Size(198, 36);
+            this.matbtnSaveTotalArea.Size = new System.Drawing.Size(167, 36);
             this.matbtnSaveTotalArea.TabIndex = 46;
             this.matbtnSaveTotalArea.Text = "Save Total Area";
             this.matbtnSaveTotalArea.UseVisualStyleBackColor = true;
@@ -2766,7 +2768,7 @@
             this.matbtnAddPolyPoint.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnAddPolyPoint.Name = "matbtnAddPolyPoint";
             this.matbtnAddPolyPoint.Primary = false;
-            this.matbtnAddPolyPoint.Size = new System.Drawing.Size(186, 36);
+            this.matbtnAddPolyPoint.Size = new System.Drawing.Size(158, 36);
             this.matbtnAddPolyPoint.TabIndex = 45;
             this.matbtnAddPolyPoint.Text = "Add Area Point";
             this.matbtnAddPolyPoint.UseVisualStyleBackColor = true;
@@ -2784,7 +2786,7 @@
             this.matbtnLoadMarker.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnLoadMarker.Name = "matbtnLoadMarker";
             this.matbtnLoadMarker.Primary = false;
-            this.matbtnLoadMarker.Size = new System.Drawing.Size(215, 36);
+            this.matbtnLoadMarker.Size = new System.Drawing.Size(181, 36);
             this.matbtnLoadMarker.TabIndex = 44;
             this.matbtnLoadMarker.Text = "Save Center Point";
             this.matbtnLoadMarker.UseVisualStyleBackColor = true;
@@ -2796,7 +2798,7 @@
             this.lblLongCoord.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblLongCoord.Location = new System.Drawing.Point(887, 108);
             this.lblLongCoord.Name = "lblLongCoord";
-            this.lblLongCoord.Size = new System.Drawing.Size(0, 20);
+            this.lblLongCoord.Size = new System.Drawing.Size(0, 16);
             this.lblLongCoord.TabIndex = 43;
             // 
             // lblLatCoord
@@ -2805,7 +2807,7 @@
             this.lblLatCoord.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblLatCoord.Location = new System.Drawing.Point(887, 72);
             this.lblLatCoord.Name = "lblLatCoord";
-            this.lblLatCoord.Size = new System.Drawing.Size(0, 20);
+            this.lblLatCoord.Size = new System.Drawing.Size(0, 16);
             this.lblLatCoord.TabIndex = 42;
             // 
             // label5
@@ -2814,7 +2816,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(795, 108);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 20);
+            this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 41;
             this.label5.Text = "Longtude :";
             // 
@@ -2824,7 +2826,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(795, 72);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 40;
             this.label4.Text = "Latitude :";
             // 
@@ -2871,20 +2873,37 @@
             this.lblCaption.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCaption.Location = new System.Drawing.Point(766, 35);
             this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(323, 20);
+            this.lblCaption.Size = new System.Drawing.Size(257, 16);
             this.lblCaption.TabIndex = 2;
             this.lblCaption.Text = "Please select center point of Parking Area";
+            // 
+            // matbtnAutoAssign
+            // 
+            this.matbtnAutoAssign.AutoSize = true;
+            this.matbtnAutoAssign.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matbtnAutoAssign.Depth = 0;
+            this.matbtnAutoAssign.Icon = ((System.Drawing.Image)(resources.GetObject("matbtnAutoAssign.Icon")));
+            this.matbtnAutoAssign.Location = new System.Drawing.Point(21, 470);
+            this.matbtnAutoAssign.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matbtnAutoAssign.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matbtnAutoAssign.Name = "matbtnAutoAssign";
+            this.matbtnAutoAssign.Primary = false;
+            this.matbtnAutoAssign.Size = new System.Drawing.Size(237, 36);
+            this.matbtnAutoAssign.TabIndex = 24;
+            this.matbtnAutoAssign.Text = "Auto Assign Parking Area";
+            this.matbtnAutoAssign.UseVisualStyleBackColor = true;
+            this.matbtnAutoAssign.Click += new System.EventHandler(this.matbtnAutoAssign_Click);
             // 
             // frmLanding
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1280, 713);
+            this.Controls.Add(this.pnlAssignParkings);
             this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.pnlEditUser);
             this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlViewInfringements);
-            this.Controls.Add(this.pnlAssignParkings);
             this.Controls.Add(this.pnlUpdateParkings);
             this.Controls.Add(this.pnlAddParkings);
             this.Controls.Add(this.pnlVerifyGuest);
@@ -3114,5 +3133,6 @@
         private MaterialSkin.Controls.MaterialRadioButton matrdobtnLog;
         private MaterialSkin.Controls.MaterialRadioButton matrdobtnParking;
         private MaterialSkin.Controls.MaterialRadioButton matrdobtnInfringements;
+        private MaterialSkin.Controls.MaterialFlatButton matbtnAutoAssign;
     }
 }

@@ -220,6 +220,71 @@ namespace uniPark_DAL
             return DBHelper.NonQuery("uspUpdatePersonnel", CommandType.StoredProcedure, pars);
         }
 
+        public List<ParkingRequest> GetAllRequests()
+        {
+            List<ParkingRequest> list = new List<ParkingRequest>();
+
+
+            using (DataTable dt = DBHelper.Select("uspGetAllParkingRequests", CommandType.StoredProcedure))
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ParkingRequest PR = new ParkingRequest
+                        {
+                          
+                            ParkingRequestID = Convert.ToInt32(row["ParkingRequestID"]),
+                            ParkingRequestTime = Convert.ToDateTime(row["ParkingRequestTime"]),
+                            PersonnelID = Convert.ToString(row["PersonnelID"]),
+                            ParkingSpaceID = Convert.ToInt32(row["ParkingSpaceID"]),
+                            Status = Convert.ToBoolean(row["Status"])
+
+
+
+
+                        };
+                        list.Add(PR);
+                    }
+
+                }
+                else { list = null; }
+            }
+            return list;
+        }
+
+        public List<ParkingSpacePersonnel> GetAllParkingSpacePersonnel()
+        {
+            List<ParkingSpacePersonnel> list = new List<ParkingSpacePersonnel>();
+
+
+            using (DataTable dt = DBHelper.Select("uspGetAllParkingSpacePersonnel", CommandType.StoredProcedure))
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ParkingSpacePersonnel PSP = new ParkingSpacePersonnel
+                        {
+
+                            
+                            PersonnelID = Convert.ToString(row["PersonnelID"]),
+                            ParkingSpaceID = Convert.ToInt32(row["ParkingSpaceID"]),
+                            Status = Convert.ToBoolean(row["Status"])
+
+
+
+
+                        };
+                        list.Add(PSP);
+                    }
+
+                }
+                else { list = null; }
+            }
+            return list;
+        }
+
         public List<uspCheckGuest> checkguest(string guest)
         {
             List<uspCheckGuest> list = new List<uspCheckGuest>();
@@ -247,6 +312,50 @@ namespace uniPark_DAL
             return list;
         }
 
+        public bool UpdatePersonnelParkingSpace(string userid)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                    new SqlParameter("@personnelID", userid),
+
+            };
+            return DBHelper.NonQuery("uspUpdateParkingSpacePersonnel", CommandType.StoredProcedure, pars);
+        }
+
+        public bool ChangeSpaceAvailability(int spaceID, bool available)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                    new SqlParameter("@parkingSpaceID", spaceID),
+                    new SqlParameter("@Available", available),
+
+            };
+            return DBHelper.NonQuery("uspChangeSpaceAvailability", CommandType.StoredProcedure, pars);
+        }
+
+        public bool AssignParkingSpace(int spaceID,string personnelID, int requestID)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                    new SqlParameter("@parkingspaceid", spaceID),
+                    new SqlParameter("@personnelid", personnelID),
+                    new SqlParameter("@parkingrequestid", requestID)
+
+
+            };
+            return DBHelper.NonQuery("uspAssignParking", CommandType.StoredProcedure, pars);
+        }
+        public bool RequestParkingFail(int requestID)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                    
+                    new SqlParameter("@RequestID", requestID)
+
+
+            };
+            return DBHelper.NonQuery("uspCancelRequest", CommandType.StoredProcedure, pars);
+        }
         public bool addguest(string PersonelID, string PersonelPassword, string PersonelSurname, string PersonelName, string PersonelPhoneNumber, string PersonelEmail, int PersonelLevelID)
         {
             SqlParameter[] pars = new SqlParameter[]

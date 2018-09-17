@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace TypeLib.Models
 {
-    public class ParkingRequest
+    public class ParkingSpacePersonnel
     {
-        public int ParkingRequestID { get; set; }
-        public DateTime ParkingRequestTime { get; set; }
-        public string PersonnelID { get; set; }
         public int ParkingSpaceID { get; set; }
+        public string PersonnelID { get; set; }
         public bool Status { get; set; }
     }
 }

@@ -38,6 +38,14 @@ namespace TypeLib.Interfaces
         DataTable GetParkingRequests();
         uspGetReportDetailsBE getreportdetails(int reportid);
         DataTable GetInfringementsI(string id, DateTime start, DateTime end);
+
+        List<ParkingRequest> GetAllRequests();
+        List<ParkingSpacePersonnel> GetAllParkingSpacePersonnel();
+        bool UpdatePersonnelParkingSpace(string userid);
+        bool ChangeSpaceAvailability(int spaceID,bool available);
+        bool AssignParkingSpace(int spaceID, string personnelID, int requestID);
+        bool RequestParkingFail(int requestID);
+
         DataTable GetInfringementsS(DateTime start, DateTime end);
 
         DataTable GetEntranceLogS(DateTime start, DateTime end);

@@ -130,6 +130,32 @@ namespace uniPark_BLL
         {
             return db.GetInfringementsI(id,start,end);
         }
+
+        public List<ParkingRequest> BLL_GetAllRequests()
+        {
+            return db.GetAllRequests();
+        }
+        public List<ParkingSpacePersonnel> BLL_GetAllParkingSpacePersonnel()
+        {
+            return db.GetAllParkingSpacePersonnel();
+        }
+        public bool BLL_UpdatePersonnelParkingSpace(string userid)
+        {
+            return db.UpdatePersonnelParkingSpace(userid);
+        }
+        public bool BLL_ChangeSpaceAvailability(int spaceID , bool available)
+        {
+            return db.ChangeSpaceAvailability(spaceID, available);
+        }
+        public bool BLL_AssignParkingSpace(int spaceID, string personnelID, int requestID)
+        {
+            return db.AssignParkingSpace(spaceID, personnelID, requestID);
+        }
+        public bool BLL_RequestParkingFail(int requestID)
+        {
+            return db.RequestParkingFail(requestID);
+        }
+
         public DataTable BLL_GetInfringementsS(DateTime start, DateTime end)
         {
             return db.GetInfringementsS(start, end);

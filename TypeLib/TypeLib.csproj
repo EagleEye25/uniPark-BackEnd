@@ -89,7 +89,7 @@
     <Compile Include="Models\ParkingFee.cs" />
     <Compile Include="Models\ParkingRequest.cs" />
     <Compile Include="Models\ParkingSpace.cs" />
-    <Compile Include="Models\ParkingSpacePersonel.cs" />
+    <Compile Include="Models\ParkingSpacePersonnel.cs" />
     <Compile Include="Models\Personel.cs" />
     <Compile Include="Models\PersonelLevel.cs" />
     <Compile Include="Models\PersonelLog.cs" />
