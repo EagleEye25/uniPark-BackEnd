@@ -1795,6 +1795,7 @@
             this.materialFlatButton8.TabIndex = 46;
             this.materialFlatButton8.Text = "      SYSTEM      ";
             this.materialFlatButton8.UseVisualStyleBackColor = true;
+            this.materialFlatButton8.Click += new System.EventHandler(this.materialFlatButton8_Click);
             // 
             // materialFlatButton7
             // 
@@ -1863,8 +1864,10 @@
             this.mattextboxReportSearch.Size = new System.Drawing.Size(305, 23);
             this.mattextboxReportSearch.TabIndex = 39;
             this.mattextboxReportSearch.TabStop = false;
-            this.mattextboxReportSearch.Text = "Personnel Number or Name";
+            this.mattextboxReportSearch.Text = "Personnel Number";
             this.mattextboxReportSearch.UseSystemPasswordChar = false;
+            this.mattextboxReportSearch.Click += new System.EventHandler(this.mattextboxReportSearch_Click);
+            this.mattextboxReportSearch.Leave += new System.EventHandler(this.mattextboxReportSearch_Leave);
             // 
             // materialLabel5
             // 

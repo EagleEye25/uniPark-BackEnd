@@ -482,11 +482,70 @@ namespace uniPark_DAL
             return dt;
 
         }
+
+
+
+
+
         public DataTable GetInfringementsI(string id, DateTime start, DateTime end)
         {
             DataTable dt = new DataTable();
             SqlParameter[] pars = new SqlParameter[] {  new SqlParameter("@begin",start), new SqlParameter("@end",end), new SqlParameter("@personelid", id) };
             dt = DBHelper.ParamSelect("uspGenerateReportsInfringements", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+        public DataTable GetInfringementsS(DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end)};
+            dt = DBHelper.ParamSelect("uspGenerateReportsInfringementsSystem", CommandType.StoredProcedure,pars);
+            return dt;
+        }
+
+
+
+
+
+
+
+        public DataTable GetEntranceLogS(DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end) };
+            dt = DBHelper.ParamSelect("uspGenerateReportsEntranceSystem", CommandType.StoredProcedure,pars);
+            return dt;
+        }
+        public DataTable GetEntranceLogI(string id, DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end), new SqlParameter("@personelid", id) };
+            dt = DBHelper.ParamSelect("uspGenerateReportsEntranceI", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+
+
+
+
+
+        public DataTable GetParkingReportS(DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end) };
+            dt = DBHelper.ParamSelect("uspGenerateReportsParkingS", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+        public DataTable GetParkingRequestReport(string id, DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end), new SqlParameter("@personelid", id) };
+            dt = DBHelper.ParamSelect("uspGenerateReportsRequestP", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+        public DataTable GetParkingReportI(string id, DateTime start, DateTime end)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end), new SqlParameter("@personelid", id) };
+            dt = DBHelper.ParamSelect("uspGenerateReportsParkingI", CommandType.StoredProcedure, pars);
             return dt;
         }
     }

@@ -36,12 +36,23 @@ namespace TypeLib.Interfaces
         DataTable BLL_GetParkingRequests();
         uspGetReportDetailsBE BLL_getreportdetails(int reportid);
         DataTable BLL_GetInfringementsI(string id, DateTime start, DateTime end);
+
         List<ParkingRequest> BLL_GetAllRequests();
         List<ParkingSpacePersonnel> BLL_GetAllParkingSpacePersonnel();
         bool BLL_UpdatePersonnelParkingSpace(string userid);
         bool BLL_ChangeSpaceAvailability(int spaceID, bool available);
         bool BLL_AssignParkingSpace(int spaceID, string personnelID, int requestID);
         bool BLL_RequestParkingFail(int requestID);
+
+        DataTable BLL_GetInfringementsS(DateTime start, DateTime end);
+        DataTable BLL_GetEntranceLogS(DateTime start, DateTime end);
+        DataTable BLL_GetEntranceLogI(string id, DateTime start, DateTime end);
+        DataTable BLL_GetParkingReportS(DateTime start, DateTime end);
+
+        DataTable BLL_GetParkingRequestReport(string id, DateTime start, DateTime end);
+
+        DataTable BLL_GetParkingReportI(string id, DateTime start, DateTime end);
+
 
     }
 

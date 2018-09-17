@@ -130,6 +130,7 @@ namespace uniPark_BLL
         {
             return db.GetInfringementsI(id,start,end);
         }
+
         public List<ParkingRequest> BLL_GetAllRequests()
         {
             return db.GetAllRequests();
@@ -154,5 +155,34 @@ namespace uniPark_BLL
         {
             return db.RequestParkingFail(requestID);
         }
+
+        public DataTable BLL_GetInfringementsS(DateTime start, DateTime end)
+        {
+            return db.GetInfringementsS(start, end);
+        }
+        public DataTable BLL_GetEntranceLogS(DateTime start, DateTime end)
+        {
+            return db.GetEntranceLogS(start,end);
+        }
+        public DataTable BLL_GetEntranceLogI(string id, DateTime start, DateTime end)
+        {
+            return db.GetEntranceLogI(id, start, end);
+        }
+        public DataTable BLL_GetParkingReportS(DateTime start, DateTime end)
+        {
+
+            return db.GetParkingReportS(start,end);
+        }
+        public DataTable BLL_GetParkingRequestReport(string id, DateTime start, DateTime end)
+        {
+
+            return db.GetParkingRequestReport(id,start,end);
+        }
+        public DataTable BLL_GetParkingReportI(string id, DateTime start, DateTime end)
+        {
+
+            return db.GetParkingReportI(id, start, end);
+        }
+
     }
 }
