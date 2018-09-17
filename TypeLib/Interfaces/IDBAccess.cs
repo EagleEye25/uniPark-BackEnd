@@ -47,7 +47,6 @@ namespace TypeLib.Interfaces
         bool RequestParkingFail(int requestID);
 
         DataTable GetInfringementsS(DateTime start, DateTime end);
-
         DataTable GetEntranceLogS(DateTime start, DateTime end);
         DataTable GetEntranceLogI(string id, DateTime start, DateTime end);
 
