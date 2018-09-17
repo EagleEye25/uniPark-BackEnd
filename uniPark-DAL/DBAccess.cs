@@ -236,7 +236,7 @@ namespace uniPark_DAL
                           
                             ParkingRequestID = Convert.ToInt32(row["ParkingRequestID"]),
                             ParkingRequestTime = Convert.ToDateTime(row["ParkingRequestTime"]),
-                            PersonelID = Convert.ToString(row["PersonelID"]),
+                            PersonnelID = Convert.ToString(row["PersonnelID"]),
                             ParkingSpaceID = Convert.ToInt32(row["ParkingSpaceID"]),
                             Status = Convert.ToBoolean(row["Status"])
 
@@ -253,22 +253,22 @@ namespace uniPark_DAL
             return list;
         }
 
-        public List<ParkingSpacePersonel> GetAllParkingSpacePersonnel()
+        public List<ParkingSpacePersonnel> GetAllParkingSpacePersonnel()
         {
-            List<ParkingSpacePersonel> list = new List<ParkingSpacePersonel>();
+            List<ParkingSpacePersonnel> list = new List<ParkingSpacePersonnel>();
 
 
-            using (DataTable dt = DBHelper.Select("uspGetAllParkingSpacePersonel", CommandType.StoredProcedure))
+            using (DataTable dt = DBHelper.Select("uspGetAllParkingSpacePersonnel", CommandType.StoredProcedure))
             {
                 if (dt.Rows.Count > 0)
                 {
                     foreach (DataRow row in dt.Rows)
                     {
-                        ParkingSpacePersonel PSP = new ParkingSpacePersonel
+                        ParkingSpacePersonnel PSP = new ParkingSpacePersonnel
                         {
 
                             
-                            PersonelID = Convert.ToString(row["PersonelID"]),
+                            PersonnelID = Convert.ToString(row["PersonnelID"]),
                             ParkingSpaceID = Convert.ToInt32(row["ParkingSpaceID"]),
                             Status = Convert.ToBoolean(row["Status"])
 

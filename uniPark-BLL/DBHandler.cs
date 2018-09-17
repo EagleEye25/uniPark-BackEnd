@@ -134,7 +134,7 @@ namespace uniPark_BLL
         {
             return db.GetAllRequests();
         }
-        public List<ParkingSpacePersonel> BLL_GetAllParkingSpacePersonnel()
+        public List<ParkingSpacePersonnel> BLL_GetAllParkingSpacePersonnel()
         {
             return db.GetAllParkingSpacePersonnel();
         }

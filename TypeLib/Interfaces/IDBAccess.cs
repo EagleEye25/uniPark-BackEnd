@@ -39,7 +39,7 @@ namespace TypeLib.Interfaces
         uspGetReportDetailsBE getreportdetails(int reportid);
         DataTable GetInfringementsI(string id, DateTime start, DateTime end);
         List<ParkingRequest> GetAllRequests();
-        List<ParkingSpacePersonel> GetAllParkingSpacePersonnel();
+        List<ParkingSpacePersonnel> GetAllParkingSpacePersonnel();
         bool UpdatePersonnelParkingSpace(string userid);
         bool ChangeSpaceAvailability(int spaceID);
         bool AssignParkingSpace(int spaceID, string personnelID, int requestID);

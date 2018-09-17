@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TypeLib.Models
 {
-    public class ParkingSpacePersonel
+    public class ParkingSpacePersonnel
     {
         public int ParkingSpaceID { get; set; }
-        public string PersonelID { get; set; }
+        public string PersonnelID { get; set; }
         public bool Status { get; set; }
     }
 }

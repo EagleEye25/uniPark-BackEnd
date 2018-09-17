@@ -37,7 +37,7 @@ namespace TypeLib.Interfaces
         uspGetReportDetailsBE BLL_getreportdetails(int reportid);
         DataTable BLL_GetInfringementsI(string id, DateTime start, DateTime end);
         List<ParkingRequest> BLL_GetAllRequests();
-        List<ParkingSpacePersonel> BLL_GetAllParkingSpacePersonnel();
+        List<ParkingSpacePersonnel> BLL_GetAllParkingSpacePersonnel();
         bool BLL_UpdatePersonnelParkingSpace(string userid);
         bool BLL_ChangeSpaceAvailability(int spaceID);
         bool BLL_AssignParkingSpace(int spaceID, string personnelID, int requestID);

@@ -2615,7 +2615,7 @@ namespace uniPark.Main.Forms.Landing
             IDBHandler handler = new DBHandler();
             List<ParkingRequest> PRlist = new List<ParkingRequest>();
             PRlist = handler.BLL_GetAllRequests();
-            List<ParkingSpacePersonel> PSPlist = new List<ParkingSpacePersonel>();
+            List<ParkingSpacePersonnel> PSPlist = new List<ParkingSpacePersonnel>();
             PSPlist = handler.BLL_GetAllParkingSpacePersonnel();
 
             foreach (ParkingRequest PR in PRlist)
@@ -2632,16 +2632,16 @@ namespace uniPark.Main.Forms.Landing
 
                     if (spaceID == PR2.ParkingSpaceID && FirstDate == PR.ParkingRequestTime)
                     {
-                        foreach (ParkingSpacePersonel PSP in PSPlist)    
+                        foreach (ParkingSpacePersonnel PSP in PSPlist)    
                         {
-                            if (PR2.PersonelID == PSP.PersonelID)
+                            if (PR2.PersonnelID == PSP.PersonnelID)
                             {
-                                handler.BLL_UpdatePersonnelParkingSpace(PR2.PersonelID);  // IF Personnel Allready has a parking
+                                handler.BLL_UpdatePersonnelParkingSpace(PR2.PersonnelID);  // IF Personnel Allready has a parking
                                 handler.BLL_ChangeSpaceAvailability(PSP.ParkingSpaceID); // Make Parkfing Space Available again
                             }
                         }
 
-                        handler.BLL_AssignParkingSpace(PR2.ParkingSpaceID, PR2.PersonelID, PR2.ParkingRequestID);
+                        handler.BLL_AssignParkingSpace(PR2.ParkingSpaceID, PR2.PersonnelID, PR2.ParkingRequestID);
 
                         //EMAIL to USER SPACE is ALLOCATED to them..........
 
