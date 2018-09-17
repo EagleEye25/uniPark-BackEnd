@@ -322,11 +322,12 @@ namespace uniPark_DAL
             return DBHelper.NonQuery("uspUpdateParkingSpacePersonnel", CommandType.StoredProcedure, pars);
         }
 
-        public bool ChangeSpaceAvailability(int spaceID)
+        public bool ChangeSpaceAvailability(int spaceID, bool available)
         {
             SqlParameter[] pars = new SqlParameter[]
             {
                     new SqlParameter("@parkingSpaceID", spaceID),
+                    new SqlParameter("@Available", available),
 
             };
             return DBHelper.NonQuery("uspChangeSpaceAvailability", CommandType.StoredProcedure, pars);

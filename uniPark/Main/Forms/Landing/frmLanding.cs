@@ -2618,42 +2618,56 @@ namespace uniPark.Main.Forms.Landing
             List<ParkingSpacePersonnel> PSPlist = new List<ParkingSpacePersonnel>();
             PSPlist = handler.BLL_GetAllParkingSpacePersonnel();
 
-            foreach (ParkingRequest PR in PRlist)
+            if (PRlist.Count != 0)
             {
-                int spaceID = PR.ParkingSpaceID;
-                DateTime FirstDate = PR.ParkingRequestTime;
 
-                foreach (ParkingRequest PR2 in PRlist)
+
+
+                foreach (ParkingRequest PR in PRlist.ToList())
                 {
-                    if (spaceID == PR2.ParkingSpaceID && FirstDate < PR.ParkingRequestTime )
-                    {
-                        FirstDate = PR2.ParkingRequestTime;
-                    }
+                    int spaceID = PR.ParkingSpaceID;
+                    DateTime FirstDate = PR.ParkingRequestTime;
 
-                    if (spaceID == PR2.ParkingSpaceID && FirstDate == PR.ParkingRequestTime)
+                    foreach (ParkingRequest PR2 in PRlist.ToList())
                     {
-                        foreach (ParkingSpacePersonnel PSP in PSPlist)    
+                        if (spaceID == PR2.ParkingSpaceID && FirstDate > PR2.ParkingRequestTime)
                         {
-                            if (PR2.PersonnelID == PSP.PersonnelID)
-                            {
-                                handler.BLL_UpdatePersonnelParkingSpace(PR2.PersonnelID);  // IF Personnel Allready has a parking
-                                handler.BLL_ChangeSpaceAvailability(PSP.ParkingSpaceID); // Make Parkfing Space Available again
-                            }
+                            FirstDate = PR2.ParkingRequestTime;
                         }
-
-                        handler.BLL_AssignParkingSpace(PR2.ParkingSpaceID, PR2.PersonnelID, PR2.ParkingRequestID);
-
-                        //EMAIL to USER SPACE is ALLOCATED to them..........
-
                     }
-                    else
+
+                    foreach (ParkingRequest PR3 in PRlist.ToList())
                     {
-                        handler.BLL_RequestParkingFail(PR2.ParkingRequestID);
-                        // EMAIL to user that parking request wass un successfull
-                    }
-                }
 
+
+                        if (spaceID == PR3.ParkingSpaceID && FirstDate == PR3.ParkingRequestTime)
+                        {
+                            foreach (ParkingSpacePersonnel PSP in PSPlist)
+                            {
+                                if (PR3.PersonnelID == PSP.PersonnelID)
+                                {
+                                    handler.BLL_UpdatePersonnelParkingSpace(PR3.PersonnelID);  // IF Personnel Allready has a parking
+                                    handler.BLL_ChangeSpaceAvailability(PSP.ParkingSpaceID,true); // Make Parkfing Space Available again
+                                }
+                            }
+
+                            handler.BLL_AssignParkingSpace(PR3.ParkingSpaceID, PR3.PersonnelID, PR3.ParkingRequestID);
+                            handler.BLL_ChangeSpaceAvailability(PR3.ParkingSpaceID,false);
+                            PRlist.Remove(PR3);
+                            //EMAIL to USER SPACE is ALLOCATED to them..........
+
+                        }
+                        else
+                        {
+                            handler.BLL_RequestParkingFail(PR3.ParkingRequestID);
+                            PRlist.Remove(PR3);
+                            // EMAIL to user that parking request wass un successfull
+                        }
+                    }
+
+                }
             }
+            else MessageBox.Show("There are no Requests at this time to assign.");
         }
         public void CreateWordDocument(string filePath, DataTable data, string text)
         {

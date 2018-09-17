@@ -39,7 +39,7 @@ namespace TypeLib.Interfaces
         List<ParkingRequest> BLL_GetAllRequests();
         List<ParkingSpacePersonnel> BLL_GetAllParkingSpacePersonnel();
         bool BLL_UpdatePersonnelParkingSpace(string userid);
-        bool BLL_ChangeSpaceAvailability(int spaceID);
+        bool BLL_ChangeSpaceAvailability(int spaceID, bool available);
         bool BLL_AssignParkingSpace(int spaceID, string personnelID, int requestID);
         bool BLL_RequestParkingFail(int requestID);
 

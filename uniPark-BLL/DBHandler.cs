@@ -142,9 +142,9 @@ namespace uniPark_BLL
         {
             return db.UpdatePersonnelParkingSpace(userid);
         }
-        public bool BLL_ChangeSpaceAvailability(int spaceID)
+        public bool BLL_ChangeSpaceAvailability(int spaceID , bool available)
         {
-            return db.ChangeSpaceAvailability(spaceID);
+            return db.ChangeSpaceAvailability(spaceID, available);
         }
         public bool BLL_AssignParkingSpace(int spaceID, string personnelID, int requestID)
         {

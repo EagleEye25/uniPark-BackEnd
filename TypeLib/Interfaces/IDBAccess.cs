@@ -41,7 +41,7 @@ namespace TypeLib.Interfaces
         List<ParkingRequest> GetAllRequests();
         List<ParkingSpacePersonnel> GetAllParkingSpacePersonnel();
         bool UpdatePersonnelParkingSpace(string userid);
-        bool ChangeSpaceAvailability(int spaceID);
+        bool ChangeSpaceAvailability(int spaceID,bool available);
         bool AssignParkingSpace(int spaceID, string personnelID, int requestID);
         bool RequestParkingFail(int requestID);
 
