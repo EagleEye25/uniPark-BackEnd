@@ -8,7 +8,8 @@ namespace TypeLib.Models
 {
     public class ParkingSpacePersonel
     {
-        public string ParkingSpaceID { get; set; }
+        public int ParkingSpaceID { get; set; }
         public string PersonelID { get; set; }
+        public bool Status { get; set; }
     }
 }

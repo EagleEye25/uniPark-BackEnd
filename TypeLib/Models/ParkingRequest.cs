@@ -9,8 +9,9 @@ namespace TypeLib.Models
     public class ParkingRequest
     {
         public int ParkingRequestID { get; set; }
-        public DateTime? ParkingRequestTime { get; set; }
+        public DateTime ParkingRequestTime { get; set; }
         public string PersonelID { get; set; }
-        public string ParkingSpaceID { get; set; }
+        public int ParkingSpaceID { get; set; }
+        public bool Status { get; set; }
     }
 }
