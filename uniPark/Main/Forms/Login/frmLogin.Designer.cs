@@ -34,10 +34,10 @@
             this.matTextUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.matBtnShowPassword = new MaterialSkin.Controls.MaterialFlatButton();
-            this.matTextPass = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.lblIncorrect = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblIncorrect = new System.Windows.Forms.Label();
+            this.matTextPass = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.matBtnLogin = new MaterialSkin.Controls.MaterialFlatButton();
             this.pnlMenu.SuspendLayout();
@@ -130,8 +130,33 @@
             this.matBtnShowPassword.Size = new System.Drawing.Size(44, 36);
             this.matBtnShowPassword.TabIndex = 10;
             this.matBtnShowPassword.UseVisualStyleBackColor = true;
+            this.matBtnShowPassword.Click += new System.EventHandler(this.matBtnShowPassword_Click);
             this.matBtnShowPassword.MouseLeave += new System.EventHandler(this.matBtnShowPassword_MouseLeave);
             this.matBtnShowPassword.MouseHover += new System.EventHandler(this.matBtnShowPassword_MouseHover);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 235);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 24);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "UserName";
+            // 
+            // lblIncorrect
+            // 
+            this.lblIncorrect.AutoSize = true;
+            this.lblIncorrect.ForeColor = System.Drawing.Color.Red;
+            this.lblIncorrect.Location = new System.Drawing.Point(73, 361);
+            this.lblIncorrect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIncorrect.Name = "lblIncorrect";
+            this.lblIncorrect.Size = new System.Drawing.Size(244, 17);
+            this.lblIncorrect.TabIndex = 14;
+            this.lblIncorrect.Text = "Username / Password is INCORRECT";
+            this.lblIncorrect.Visible = false;
             // 
             // matTextPass
             // 
@@ -155,18 +180,6 @@
             this.matTextPass.UseSystemPasswordChar = false;
             this.matTextPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matTextPass_KeyDown);
             // 
-            // lblIncorrect
-            // 
-            this.lblIncorrect.AutoSize = true;
-            this.lblIncorrect.ForeColor = System.Drawing.Color.Red;
-            this.lblIncorrect.Location = new System.Drawing.Point(73, 361);
-            this.lblIncorrect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIncorrect.Name = "lblIncorrect";
-            this.lblIncorrect.Size = new System.Drawing.Size(244, 17);
-            this.lblIncorrect.TabIndex = 14;
-            this.lblIncorrect.Text = "Username / Password is INCORRECT";
-            this.lblIncorrect.Visible = false;
-            // 
             // pbLogo
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
@@ -177,18 +190,6 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 15;
             this.pbLogo.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 235);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 24);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "UserName";
             // 
             // label3
             // 

@@ -23,6 +23,10 @@ using GMap.NET.ObjectModel;
 using GMap.NET.WindowsForms.Markers;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Wordprocessing;
+using DocumentFormat.OpenXml;
 
 namespace uniPark.Main.Forms.Landing
 {
@@ -41,6 +45,8 @@ namespace uniPark.Main.Forms.Landing
         bool On_Add = true;
         GMapOverlay Tmarkers = new GMapOverlay("markers");
 
+        uspGetAllInfo infos;
+
         private void DGVload(DataGridView dgvName)
         {
             /* ==================================
@@ -48,25 +54,25 @@ namespace uniPark.Main.Forms.Landing
             * ================================== */
             /* changes table visuals */
             dgvName.BorderStyle = BorderStyle.None;
-            dgvName.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(236, 252, 232);
+            dgvName.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(236, 252, 232);
             dgvName.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvName.DefaultCellStyle.SelectionBackColor = Color.SeaGreen;
-            dgvName.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvName.BackgroundColor = Color.FromArgb(247, 255, 245);
+            dgvName.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dgvName.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dgvName.BackgroundColor = System.Drawing.Color.FromArgb(247, 255, 245);
 
             /* Changes column heading visualas */
             dgvName.EnableHeadersVisualStyles = false;
             dgvName.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvName.ColumnHeadersDefaultCellStyle.BackColor = Color.PaleGreen;
-            dgvName.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            dgvName.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.PaleGreen;
+            dgvName.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.Black;
 
             
         }
         private void DGVBoldHeadings(DataGridView dgvName)
         {
             /* Changes column headings to bold */
-            dgvName.Columns[0].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
-            dgvName.Columns[1].HeaderCell.Style.Font = new Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            dgvName.Columns[0].HeaderCell.Style.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
+            dgvName.Columns[1].HeaderCell.Style.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, FontStyle.Bold);
         }
         public frmLanding()
         {
@@ -295,8 +301,8 @@ namespace uniPark.Main.Forms.Landing
                     }
                     GMapOverlay polyOverlay = new GMapOverlay("polygons");
                     var polygon = new GMapPolygon(points, PA.ParkingAreaName);
-                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                    polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapSearch.Overlays.Add(polyOverlay);
                 }
@@ -420,7 +426,11 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlAssignParkings");
-           
+
+            IDBHandler handler = new DBHandler();
+            DataTable dt = handler.BLL_GetParkingRequests();
+            dgvAssignParkings.DataSource = dt;
+
         }
 
         private void matTextFacilityNoAS_Click(object sender, EventArgs e)
@@ -1586,11 +1596,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnHelpEd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("Editing or deleting a Personnel Member.pdf");
-            }
-            catch { }
+            MessageBox.Show("1. First enter the Personnel number or name/surname in the above edit." + "\n" + "2. Then Select any member in the grid to edit." +"\n"+"3. Then adjust the edits below as required" + "\n" + "4. Then click the Apply Changes button to the right of the edited infromation.");
         }
 
 
@@ -1863,8 +1869,8 @@ namespace uniPark.Main.Forms.Landing
                 }
                 GMapOverlay polyOverlay = new GMapOverlay("polygons");
                 var polygon = new GMapPolygon(points, areaName);
-                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                polygon.Stroke = new Pen(Color.Red, 1);
+                polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                 polyOverlay.Polygons.Add(polygon);
                 map.Overlays.Add(polyOverlay);
                 map.Refresh();
@@ -1966,8 +1972,8 @@ namespace uniPark.Main.Forms.Landing
                       }
                     GMapOverlay polyOverlay = new GMapOverlay("polygons");
                     var polygon = new GMapPolygon(points, PA.ParkingAreaName);
-                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                    polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapMain.Overlays.Add(polyOverlay);
 
@@ -2043,7 +2049,13 @@ namespace uniPark.Main.Forms.Landing
 
         private void matTextEditPersonelSearch_Leave(object sender, EventArgs e)
         {
-            if (matTextEditPersonelSearch.Text == "") { matTextEditPersonelSearch.Text = "Personnel Number or Name"; }
+            if (matTextEditPersonelSearch.Text == "")
+            {
+                matTextEditPersonelSearch.Text = "Personnel Number or Name";
+                IDBHandler handler3 = new DBHandler();
+                DataTable dt3 = handler3.BLL_GetPersonel();
+                dgvEditPersonel.DataSource = dt3;
+            }
 
             
         }
@@ -2137,8 +2149,8 @@ namespace uniPark.Main.Forms.Landing
                     }
                     GMapOverlay polyOverlay = new GMapOverlay("polygons");
                     var polygon = new GMapPolygon(points, areaName);
-                    polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                    polygon.Stroke = new Pen(Color.Red, 1);
+                    polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                    polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                     polyOverlay.Polygons.Add(polygon);
                     mapSearch.Overlays.Add(polyOverlay);
                     mapSearch.Refresh();
@@ -2297,8 +2309,8 @@ namespace uniPark.Main.Forms.Landing
                 }
                 GMapOverlay polyOverlay = new GMapOverlay("polygons");
                 var polygon = new GMapPolygon(points, "New Area");
-                polygon.Fill = new SolidBrush(Color.FromArgb(50, Color.Red));
-                polygon.Stroke = new Pen(Color.Red, 1);
+                polygon.Fill = new SolidBrush(System.Drawing.Color.FromArgb(50, System.Drawing.Color.Red));
+                polygon.Stroke = new Pen(System.Drawing.Color.Red, 1);
                 polyOverlay.Polygons.Add(polygon);
                 mapAdd_Edit_Coord.Overlays.Add(polyOverlay);
 
@@ -2422,7 +2434,7 @@ namespace uniPark.Main.Forms.Landing
         }
         private bool isAllString(string text)
         {
-            string letterpattern = @"^[a-zA-Z]+$";
+            string letterpattern = @"^[a-zA-Z\x20]+$";
             Regex regex = new Regex(letterpattern);
 
             return regex.IsMatch(text);
@@ -2495,6 +2507,120 @@ namespace uniPark.Main.Forms.Landing
             
         }
 
+        private void dgvViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string ID = dgvViewUsers[0, dgvViewUsers.CurrentRow.Index].Value.ToString();
+            try
+            {
+                //
+                IDBHandler handler = new DBHandler();
+                uspGetReportDetailsBE get = handler.BLL_getreportdetails(int.Parse(ID));
+                mattextReportID.Text = get.ReportID.ToString();
+            }
+            catch { }
+
+
+        }
+
+        private void matBtnShowPassword_MouseHover(object sender, EventArgs e)
+        {
+            mattextPassword.PasswordChar = Char.MinValue;
+        }
+
+        private void matBtnShowPassword_MouseLeave(object sender, EventArgs e)
+        {
+            if (mattextPassword.Text == "Password")
+            { mattextPassword.PasswordChar = Char.MinValue; }
+            else
+            {
+                mattextPassword.PasswordChar = '*';
+
+            }
+        }
+
+        private void materialFlatButton7_Click(object sender, EventArgs e)
+        {
+
+                var dateAndTime = datepickerBegin.Value;
+                var date = dateAndTime.Date;
+            DateTime begin = date;
+
+             dateAndTime = datepickerEnd.Value;
+             date = dateAndTime.Date;
+            DateTime end = date;
+
+            string[] headingInfringements = new string[] { };
+            string[] headingParkings = new string[] { };
+            string[] headingLog = new string[] { };
+
+            if (mattextReportResult.Text == "SYSTEM")
+            {
+                infos = null;
+                if (matrdobtnInfringements.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetInfringementsS(begin, end);
+
+                    string text = "UniPark System Infringements Report";
+
+                    CreateWordDocument(@"..\SYSTEM_Infringment_Report.docx", dt, text, headingInfringements);
+                    materialFlatButton7.Enabled = false;
+                }
+                else if (matrdobtnParking.Checked)
+                {
+
+                }
+                else if (matrdobtnLog.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetEntranceLogS(begin, end);
+
+                    string text = "UniPark System Entrance Log Report";
+
+                    CreateWordDocument(@"..\SYSTEM_Entrance_Log_Report.docx", dt, text, headingLog);
+                    materialFlatButton7.Enabled = false;
+                }
+                else { MessageBox.Show("Please Select A Report Type."); }
+            }
+            else if(infos != null)
+            {
+
+                if (matrdobtnInfringements.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetInfringementsI(infos.PersonnelID.ToString(), begin, end);
+
+                    string text = "UniPark Individual Infringements Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+
+                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Infringment_Report.docx", dt, text, headingInfringements);
+
+                    materialFlatButton7.Enabled = false;
+                    mattextboxReportSearch.Text = "Personnel Number";
+                }
+                else if (matrdobtnParking.Checked)
+                {
+
+                }
+                else if (matrdobtnLog.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetEntranceLogI(infos.PersonnelID.ToString(), begin, end);
+
+                    string text = "UniPark Entrance Log Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+
+                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Entrance_Log_Report.docx", dt, text, headingLog);
+
+                    materialFlatButton7.Enabled = false;
+                    mattextboxReportSearch.Text = "Personnel Number";
+                }
+                else { MessageBox.Show("Please Select A Report Type."); }
+            }
+            infos = null;
+
+
+
+        }
+
         private bool IsEmail2(string email)
         {
             string MatchEmailPattern =
@@ -2505,10 +2631,109 @@ namespace uniPark.Main.Forms.Landing
 				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
         + @"([a-zA-Z0-9]+[\w-]+\.)+[a-zA-Z]{1}[a-zA-Z0-9-]{1,23})$";
 
-           return Regex.IsMatch(email, MatchEmailPattern);
+           return Regex.IsMatch(email, MatchEmailPattern);       
+        }
 
-        
-    } 
+        private void materialFlatButton6_Click(object sender, EventArgs e)
+        {
+            IDBHandler handler = new DBHandler();
+           
+            uspLogin log = new uspLogin();
+            log = handler.BLL_Login(mattextboxReportSearch.Text);
+
+            if (log != null)
+            {
+                IDBHandler handler2 = new DBHandler();
+                infos = handler2.BLL_getallinfo(mattextboxReportSearch.Text);
+
+                mattextReportResult.Text = infos.PersonnelID + " " + infos.PersonnelName + " " + infos.PersonnelSurname;
+                materialFlatButton7.Enabled = true;
+            }
+            else if (mattextboxReportSearch.Text == "Personnel Number")
+            {
+                MessageBox.Show("Please Enter A Value In The Search Bar");
+            }
+            else
+            { MessageBox.Show(mattextboxReportSearch.Text + " Not Found."); }
+
+
+        }
+
+        private void materialFlatButton8_Click(object sender, EventArgs e)
+        {
+            mattextReportResult.Text = "SYSTEM";
+            materialFlatButton7.Enabled = true;
+
+
+
+        }
+
+        private void mattextboxReportSearch_Click(object sender, EventArgs e)
+        {
+            mattextboxReportSearch.Text = "";
+            mattextReportResult.Text = "";
+            materialFlatButton7.Enabled = false;
+        }
+
+        private void mattextboxReportSearch_Leave(object sender, EventArgs e)
+        {
+            if (mattextboxReportSearch.Text == "")
+            {
+                mattextboxReportSearch.Text = "Personnel Number";
+            }
+        }
+
+        public void CreateWordDocument(string filePath, DataTable data, string text, string[] heading)
+        {
+            WordprocessingDocument doc = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document);
+            MainDocumentPart mainDocPart = doc.AddMainDocumentPart();
+            mainDocPart.Document = new Document();
+            Body body = new Body();
+            mainDocPart.Document.Append(body);
+
+            Paragraph para = body.AppendChild(new Paragraph());
+            Run run = para.AppendChild(new Run());
+            run.AppendChild(new Text(text));
+
+            DocumentFormat.OpenXml.Wordprocessing.Table table = new DocumentFormat.OpenXml.Wordprocessing.Table();
+
+            TableProperties tblProp = new TableProperties(
+                    new TableBorders(new TopBorder()
+                    { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new BottomBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },                      
+                        new RightBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new InsideHorizontalBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new InsideVerticalBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
+                );
+            table.Append(tblProp);
+
+
+
+
+
+
+            for (int i = 0; i < data.Rows.Count; ++i)
+            {
+                TableRow row = new TableRow();
+                for (int j = 0; j < data.Columns.Count; j++)
+                {
+                    TableCell cell = new TableCell();
+                    cell.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(data.Rows[i][j].ToString()))));
+                    cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                    row.Append(cell);
+                }
+                table.Append(row);
+            }
+            
+            body.Append(table);
+            doc.MainDocumentPart.Document.Save();
+            doc.Dispose();
+            Process.Start("WINWORD.exe", filePath);
+        }
 
 
 

@@ -100,18 +100,12 @@ namespace uniPark.Main.Forms.Login
 
         private void matTextPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                matBtnLogin.PerformClick();
-            }
+
         }
 
         private void matTextUsername_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                matTextPass.Focus();
-            }
+
         }
 
         private void matBtnShowPassword_MouseHover(object sender, EventArgs e)
@@ -122,6 +116,11 @@ namespace uniPark.Main.Forms.Login
         private void matBtnShowPassword_MouseLeave(object sender, EventArgs e)
         {
             matTextPass.PasswordChar = '*';
+        }
+
+        private void matBtnShowPassword_Click(object sender, EventArgs e)
+        {
+
         }
 
         /* private void frmLogin_Key(object sender, KeyEventArgs e)
