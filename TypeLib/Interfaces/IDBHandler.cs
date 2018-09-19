@@ -47,13 +47,15 @@ namespace TypeLib.Interfaces
         DataTable BLL_GetInfringementsS(DateTime start, DateTime end);
         DataTable BLL_GetEntranceLogS(DateTime start, DateTime end);
         DataTable BLL_GetEntranceLogI(string id, DateTime start, DateTime end);
-        DataTable BLL_GetParkingReportS(DateTime start, DateTime end);
 
-        DataTable BLL_GetParkingRequestReport(string id, DateTime start, DateTime end);
-
-        DataTable BLL_GetParkingReportI(string id, DateTime start, DateTime end);
+        DataTable BLL_GetParkingReportS();
 
 
+        DataTable BLL_GetParkingRequestReport(string id);
+
+        DataTable BLL_GetParkingReportI(string id);
+
+        bool BLL_UpdateInfringementPaid(string userid);
     }
 
 }

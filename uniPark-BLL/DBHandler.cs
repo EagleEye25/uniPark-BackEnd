@@ -168,21 +168,27 @@ namespace uniPark_BLL
         {
             return db.GetEntranceLogI(id, start, end);
         }
-        public DataTable BLL_GetParkingReportS(DateTime start, DateTime end)
+
+        public DataTable BLL_GetParkingReportS()
         {
 
-            return db.GetParkingReportS(start,end);
+            return db.GetParkingReportS();
         }
-        public DataTable BLL_GetParkingRequestReport(string id, DateTime start, DateTime end)
+
+        public DataTable BLL_GetParkingRequestReport(string id)
         {
 
-            return db.GetParkingRequestReport(id,start,end);
+            return db.GetParkingRequestReport(id);
         }
-        public DataTable BLL_GetParkingReportI(string id, DateTime start, DateTime end)
+
+        public DataTable BLL_GetParkingReportI(string id)
         {
 
-            return db.GetParkingReportI(id, start, end);
+            return db.GetParkingReportI(id);
         }
-
+        public bool BLL_UpdateInfringementPaid(string userid)
+        {
+            return db.UpdateInfringementPaid(userid);
+        }
     }
 }
