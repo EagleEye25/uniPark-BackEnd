@@ -50,10 +50,14 @@ namespace TypeLib.Interfaces
         DataTable GetEntranceLogS(DateTime start, DateTime end);
         DataTable GetEntranceLogI(string id, DateTime start, DateTime end);
 
-        DataTable GetParkingReportS(DateTime start, DateTime end);
-        DataTable GetParkingRequestReport(string id, DateTime start, DateTime end);
-        DataTable GetParkingReportI(string id, DateTime start, DateTime end);
+        DataTable GetParkingReportS();
 
+
+        DataTable GetParkingRequestReport(string id);
+
+        DataTable GetParkingReportI(string id);
+
+        bool UpdateInfringementPaid(string userid);
 
 
     }

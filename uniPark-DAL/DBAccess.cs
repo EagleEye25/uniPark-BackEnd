@@ -527,26 +527,36 @@ namespace uniPark_DAL
 
 
 
-        public DataTable GetParkingReportS(DateTime start, DateTime end)
+        public DataTable GetParkingReportS()
         {
             DataTable dt = new DataTable();
-            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end) };
-            dt = DBHelper.ParamSelect("uspGenerateReportsParkingS", CommandType.StoredProcedure, pars);
+            
+            dt = DBHelper.Select("uspGenerateReportsParkingS", CommandType.StoredProcedure);
             return dt;
         }
-        public DataTable GetParkingRequestReport(string id, DateTime start, DateTime end)
+
+        public DataTable GetParkingRequestReport(string id)
         {
             DataTable dt = new DataTable();
-            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end), new SqlParameter("@personelid", id) };
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@id", id) };
             dt = DBHelper.ParamSelect("uspGenerateReportsRequestP", CommandType.StoredProcedure, pars);
             return dt;
         }
-        public DataTable GetParkingReportI(string id, DateTime start, DateTime end)
+        public DataTable GetParkingReportI(string id)
         {
             DataTable dt = new DataTable();
-            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@begin", start), new SqlParameter("@end", end), new SqlParameter("@personelid", id) };
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@id", id) };
             dt = DBHelper.ParamSelect("uspGenerateReportsParkingI", CommandType.StoredProcedure, pars);
             return dt;
+        }
+
+        public bool UpdateInfringementPaid(string userid)
+        {
+            SqlParameter[] pars = new SqlParameter[]
+            {
+                    new SqlParameter("@reportid", userid),
+            };
+            return DBHelper.NonQuery("uspUpdateInfringementStatus", CommandType.StoredProcedure, pars);
         }
     }
 

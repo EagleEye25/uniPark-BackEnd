@@ -577,6 +577,8 @@ namespace uniPark.Main.Forms.Landing
 
             /* Hides other panels, shows View Parkings */
             PanelVisible("pnlSearchUsers");
+
+            panelReport.Visible = false;
             
         }
 
@@ -2512,15 +2514,7 @@ namespace uniPark.Main.Forms.Landing
         private void dgvViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string ID = dgvViewUsers[0, dgvViewUsers.CurrentRow.Index].Value.ToString();
-            try
-            {
-                //
-                IDBHandler handler = new DBHandler();
-                uspGetReportDetailsBE get = handler.BLL_getreportdetails(int.Parse(ID));
-                mattextReportID.Text = get.ReportID.ToString();
-            }
-            catch { }
-
+            label8.Text = ID;
 
         }
 
@@ -2540,88 +2534,7 @@ namespace uniPark.Main.Forms.Landing
             }
         }
 
-        private void materialFlatButton7_Click(object sender, EventArgs e)
-        {
 
-                var dateAndTime = datepickerBegin.Value;
-                var date = dateAndTime.Date;
-            DateTime begin = date;
-
-             dateAndTime = datepickerEnd.Value;
-             date = dateAndTime.Date;
-            DateTime end = date;
-
-            string[] headingInfringements = new string[] { };
-            string[] headingParkings = new string[] { };
-            string[] headingLog = new string[] { };
-
-            if (mattextReportResult.Text == "SYSTEM")
-            {
-                infos = null;
-                if (matrdobtnInfringements.Checked)
-                {
-                    IDBHandler handler3 = new DBHandler();
-                    DataTable dt = handler3.BLL_GetInfringementsS(begin, end);
-
-                    string text = "UniPark System Infringements Report";
-
-                    CreateWordDocument(@"..\SYSTEM_Infringment_Report.docx", dt, text, headingInfringements);
-                    materialFlatButton7.Enabled = false;
-                }
-                else if (matrdobtnParking.Checked)
-                {
-
-                }
-                else if (matrdobtnLog.Checked)
-                {
-                    IDBHandler handler3 = new DBHandler();
-                    DataTable dt = handler3.BLL_GetEntranceLogS(begin, end);
-
-                    string text = "UniPark System Entrance Log Report";
-
-                    CreateWordDocument(@"..\SYSTEM_Entrance_Log_Report.docx", dt, text, headingLog);
-                    materialFlatButton7.Enabled = false;
-                }
-                else { MessageBox.Show("Please Select A Report Type."); }
-            }
-            else if(infos != null)
-            {
-
-                if (matrdobtnInfringements.Checked)
-                {
-                    IDBHandler handler3 = new DBHandler();
-                    DataTable dt = handler3.BLL_GetInfringementsI(infos.PersonnelID.ToString(), begin, end);
-
-                    string text = "UniPark Individual Infringements Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
-
-                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Infringment_Report.docx", dt, text, headingInfringements);
-
-                    materialFlatButton7.Enabled = false;
-                    mattextboxReportSearch.Text = "Personnel Number";
-                }
-                else if (matrdobtnParking.Checked)
-                {
-
-                }
-                else if (matrdobtnLog.Checked)
-                {
-                    IDBHandler handler3 = new DBHandler();
-                    DataTable dt = handler3.BLL_GetEntranceLogI(infos.PersonnelID.ToString(), begin, end);
-
-                    string text = "UniPark Entrance Log Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
-
-                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Entrance_Log_Report.docx", dt, text, headingLog);
-
-                    materialFlatButton7.Enabled = false;
-                    mattextboxReportSearch.Text = "Personnel Number";
-                }
-                else { MessageBox.Show("Please Select A Report Type."); }
-            }
-            infos = null;
-
-
-
-        }
 
         private bool IsEmail2(string email)
         {
@@ -2636,30 +2549,7 @@ namespace uniPark.Main.Forms.Landing
            return Regex.IsMatch(email, MatchEmailPattern);       
         }
 
-        private void materialFlatButton6_Click(object sender, EventArgs e)
-        {
-            IDBHandler handler = new DBHandler();
-           
-            uspLogin log = new uspLogin();
-            log = handler.BLL_Login(mattextboxReportSearch.Text);
-
-            if (log != null)
-            {
-                IDBHandler handler2 = new DBHandler();
-                infos = handler2.BLL_getallinfo(mattextboxReportSearch.Text);
-
-                mattextReportResult.Text = infos.PersonnelID + " " + infos.PersonnelName + " " + infos.PersonnelSurname;
-                materialFlatButton7.Enabled = true;
-            }
-            else if (mattextboxReportSearch.Text == "Personnel Number")
-            {
-                MessageBox.Show("Please Enter A Value In The Search Bar");
-            }
-            else
-            { MessageBox.Show(mattextboxReportSearch.Text + " Not Found."); }
-
-
-        }
+       
 
 
         private void matbtnAutoAssign_Click(object sender, EventArgs e)
@@ -2726,6 +2616,7 @@ namespace uniPark.Main.Forms.Landing
         {
             mattextReportResult.Text = "SYSTEM";
             materialFlatButton7.Enabled = true;
+            panelReport.Visible = true;
 
 
 
@@ -2774,12 +2665,6 @@ namespace uniPark.Main.Forms.Landing
                         { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
                 );
             table.Append(tblProp);
-
-
-
-
-
-
             for (int i = 0; i < data.Rows.Count; ++i)
             {
                 TableRow row = new TableRow();
@@ -2794,6 +2679,241 @@ namespace uniPark.Main.Forms.Landing
             }
             
             body.Append(table);
+            doc.MainDocumentPart.Document.Save();
+            doc.Dispose();
+            Process.Start("WINWORD.exe", filePath);
+        }
+
+        private void materialFlatButton6_Click(object sender, EventArgs e)
+        {
+            IDBHandler handler2 = new DBHandler();
+            infos = handler2.BLL_getallinfo(mattextboxReportSearch.Text);
+            try {
+                if (infos.PersonnelID != "")
+                {
+
+
+                    mattextReportResult.Text = infos.PersonnelID + " " + infos.PersonnelName + " " + infos.PersonnelSurname;
+                    panelReport.Visible = true;
+                    materialFlatButton7.Enabled = true;
+
+                }
+                else if (mattextboxReportSearch.Text == "Personnel Number")
+                {
+                    MessageBox.Show("Please Enter A Value In The Search Bar");
+                }
+            }
+            catch {
+            
+             MessageBox.Show(mattextboxReportSearch.Text + " Not Found."); 
+            }
+
+        }
+        private void materialFlatButton7_Click(object sender, EventArgs e)
+        {
+
+            var dateAndTime = datepickerBegin.Value;
+            var date = dateAndTime.Date;
+            DateTime begin = date;
+
+            dateAndTime = datepickerEnd.Value;
+            date = dateAndTime.Date;
+            DateTime end = date;
+
+            string[] headingInfringements = new string[] { };
+            string[] headingParkings = new string[] { };
+            string[] headingLog = new string[] { };
+
+            if (mattextReportResult.Text == "SYSTEM")
+            {
+                infos = null;
+                if (matrdobtnInfringements.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetInfringementsS(begin, end);
+
+                    string text = "UniPark System Infringements Report";
+
+                    CreateWordDocument(@"..\SYSTEM_Infringment_Report.docx", dt, text, headingInfringements);
+                    materialFlatButton7.Enabled = false;
+                }
+                else if (matrdobtnParking.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetParkingReportS();
+                    string text = "UniPark System Parking Log Report";
+                    CreateWordDocument(@"..\SYSTEM_Parking_Log_Report.docx", dt, text, headingLog);
+                    materialFlatButton7.Enabled = false;
+
+                }
+                else if (matrdobtnLog.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetEntranceLogS(begin, end);
+
+                    string text = "UniPark System Entrance Log Report";
+
+                    CreateWordDocument(@"..\SYSTEM_Entrance_Log_Report.docx", dt, text, headingLog);
+                    materialFlatButton7.Enabled = false;
+                }
+                else { MessageBox.Show("Please Select A Report Type."); }
+            }
+            else if (infos != null)
+            {
+
+                if (matrdobtnInfringements.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetInfringementsI(infos.PersonnelID.ToString(), begin, end);
+
+                    string text = "UniPark Individual Infringements Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+
+                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Infringment_Report.docx", dt, text, headingInfringements);
+
+                    materialFlatButton7.Enabled = false;
+                    mattextboxReportSearch.Text = "Personnel Number";
+                }
+                else if (matrdobtnParking.Checked)
+                {
+                    IDBHandler handler3  = new DBHandler();
+                    DataTable dt1 = handler3.BLL_GetParkingRequestReport(infos.PersonnelID);
+                    DataTable dt2 = handler3.BLL_GetParkingReportI(infos.PersonnelID);
+                    string text1 = "UniPark Individual Parking Request Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+                    string text2 = "UniPark Individual Parking Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+
+                    CreateWordDocumentParking(@"..\" + infos.PersonnelID + "_Parking_Report.docx", dt1, dt2, text1, text2, headingParkings);
+
+                    materialFlatButton7.Enabled = false;
+                    mattextboxReportSearch.Text = "Personnel Number";
+
+
+                }
+                else if (matrdobtnLog.Checked)
+                {
+                    IDBHandler handler3 = new DBHandler();
+                    DataTable dt = handler3.BLL_GetEntranceLogI(infos.PersonnelID.ToString(), begin, end);
+
+                    string text = "UniPark Entrance Log Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
+
+                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Entrance_Log_Report.docx", dt, text, headingLog);
+
+                    materialFlatButton7.Enabled = false;
+                    mattextboxReportSearch.Text = "Personnel Number";
+                }
+                else { MessageBox.Show("Please Select A Report Type."); }
+            }
+            infos = null;
+            panelReport.Visible = false;
+
+
+        }
+
+        private void materialFlatButton9_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. First enter the Personnel number or name/surname in the Search Bar." + "\n" + "2. Then Select The Dates Between which The Report Must Be Generated" + "\n" + "3. Then Select The Type Of Report to be Generated" + "\n" + "4. Then click the Generate Report Button For a Document of the Generated Report.");
+        }
+
+        private void materialFlatButton5_Click(object sender, EventArgs e)
+        {
+            try {
+                IDBHandler handler = new DBHandler();
+                string id = label8.Text;
+                handler.BLL_UpdateInfringementPaid(id);
+            }
+            catch
+            {
+                MessageBox.Show("Fine Payment Unsuccessfull");
+            }
+            IDBHandler handler1 = new DBHandler();
+            DataTable dt = handler1.BLL_getInfringements(mattextboxInfringements.Text);
+
+            dgvViewUsers.DataSource = dt;
+        }
+
+        private void dgvViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void CreateWordDocumentParking(string filePath, DataTable data1, DataTable data2, string text, string text2, string[] heading)
+
+        {
+            WordprocessingDocument doc = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document);
+            MainDocumentPart mainDocPart = doc.AddMainDocumentPart();
+            mainDocPart.Document = new Document();
+            Body body = new Body();
+            mainDocPart.Document.Append(body);
+
+            Paragraph para = body.AppendChild(new Paragraph());
+            Run run = para.AppendChild(new Run());
+            run.AppendChild(new Text(text));
+//table1
+            DocumentFormat.OpenXml.Wordprocessing.Table table = new DocumentFormat.OpenXml.Wordprocessing.Table();
+            TableProperties tblProp = new TableProperties(
+                    new TableBorders(new TopBorder()
+                    { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new BottomBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        
+                        new InsideHorizontalBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new InsideVerticalBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
+                );
+            table.Append(tblProp);
+            for (int i = 0; i < data1.Rows.Count; ++i)
+            {
+                TableRow row = new TableRow();
+                for (int j = 0; j < data1.Columns.Count; j++)
+                {
+                    TableCell cell = new TableCell();
+                    cell.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(data1.Rows[i][j].ToString()))));
+                    cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                    row.Append(cell);
+                }
+                table.Append(row);
+            }
+            body.Append(table);
+            //table2
+
+            Paragraph para2 = body.AppendChild(new Paragraph());
+            Run run2 = para2.AppendChild(new Run());
+            run2.AppendChild(new Text(text2));
+
+            DocumentFormat.OpenXml.Wordprocessing.Table table2 = new DocumentFormat.OpenXml.Wordprocessing.Table();
+
+            TableProperties tblProp2 = new TableProperties(
+                    new TableBorders(new TopBorder()
+                    { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new BottomBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                       
+                        new InsideHorizontalBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        new InsideVerticalBorder()
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
+                );
+            table2.Append(tblProp2);
+           
+
+            for (int i = 0; i < data2.Rows.Count; ++i)
+            {
+                TableRow row = new TableRow();
+                for (int j = 0; j < data2.Columns.Count; j++)
+                {
+                    TableCell cell = new TableCell();
+                    cell.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(data2.Rows[i][j].ToString()))));
+                    cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                    row.Append(cell);
+                }
+                table2.Append(row);
+            }
+
+            body.Append(table2);
+
+
+
+
             doc.MainDocumentPart.Document.Save();
             doc.Dispose();
             Process.Start("WINWORD.exe", filePath);
