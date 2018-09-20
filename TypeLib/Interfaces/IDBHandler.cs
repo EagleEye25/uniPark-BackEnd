@@ -56,6 +56,8 @@ namespace TypeLib.Interfaces
         DataTable BLL_GetParkingReportI(string id);
 
         bool BLL_UpdateInfringementPaid(string userid);
+
+        DataTable BLL_GetLicensePlateLog(string numberplate);
     }
 
 }

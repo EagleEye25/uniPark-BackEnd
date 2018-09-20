@@ -190,5 +190,14 @@ namespace uniPark_BLL
         {
             return db.UpdateInfringementPaid(userid);
         }
+
+        public DataTable BLL_GetLicensePlateLog(string numberplate)
+        {
+        return db.GetLicensePlateLog(numberplate);
+        }
+
+
+
+
     }
 }

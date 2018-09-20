@@ -501,6 +501,12 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnViewUsers_Click(object sender, EventArgs e)
         {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.Info;
+            popup.TitleText = "UniPark";
+            popup.ContentText = "Enter A Facillity number to view fines against that user";
+            popup.Popup(); // show
+
             mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "View Infringements";
@@ -513,6 +519,11 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnAddUser_Click(object sender, EventArgs e)
         {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.Info;
+            popup.TitleText = "UniPark";
+            popup.ContentText = "Fill out the form to add a user to the system";
+            popup.Popup(); // show
             mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Add Personnel";
@@ -622,6 +633,12 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnSearchUser_Click(object sender, EventArgs e)
         {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.Info;
+            popup.TitleText = "UniPark";
+            popup.ContentText = "enter a facility number for whom you wish to generate the report, or select system.";
+            popup.Popup(); // show
+
             mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Reports";
@@ -710,6 +727,11 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnEditUser_Click(object sender, EventArgs e)
         {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.Info;
+            popup.TitleText = "UniPark";
+            popup.ContentText = "Enter A Facillity number, or name, or surname to search for users in the system, whom's details you wish to edit";
+            popup.Popup(); // show
             mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Edit Personel";
@@ -792,6 +814,12 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnVerifyGuest_Click(object sender, EventArgs e)
         {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.Info;
+            popup.TitleText = "UniPark";
+            popup.ContentText = "Generate a code for a guest to use and fill out form to add a guest";
+            popup.Popup(); // show
+
             mapMain.Hide();
             /* will change heading title */
             lblHeadings.Text = "Verify Guest";
@@ -977,7 +1005,11 @@ namespace uniPark.Main.Forms.Landing
                 }
                 catch
                 {
-                    MessageBox.Show("Failed to add user");
+                    PopupNotifier popup = new PopupNotifier();
+                    popup.Image = Properties.Resources.Error;
+                    popup.TitleText = "UniPark";
+                    popup.ContentText = "Failed to add user, userid exsists";
+                    popup.Popup();
                 }
                 if (success == true)
                 {
@@ -1004,22 +1036,26 @@ namespace uniPark.Main.Forms.Landing
                 if (IsEmail2(mattextEmail.Text) == false)
                 { error = error + ", email not correct format"; }
 
-                if (matTextPersonelName.Text == "Personnel Name" || matTextPersonelName.Text == "")
+                if (matTextPersonelName.Text == "Personnel Name" || matTextPersonelName.Text == "" || isAllString(matTextPersonelName.Text) ==false)
                 { error = error + ", name incorrect"; }
 
-                if (matTextPersonelSurname.Text == "Personnel Surname"|| matTextPersonelSurname.Text == "")
+                if (matTextPersonelSurname.Text == "Personnel Surname"|| matTextPersonelSurname.Text == ""  || isAllString(matTextPersonelSurname.Text) == false)
                 { error = error + ", surnname incorrect"; }
 
                 if (mattextUserID.Text == ""||mattextUserID.Text=="User ID")
                 { error = error + ", User ID is Incorrect"; }
 
                 if (matTextPersonelTagNo.Text == "" || matTextPersonelTagNo.Text == "Personnel Tag Number")
-                { error = error + ", User ID is Incorrect"; }
+                { error = error + ", User Tag Number is Incorrect"; }
 
                 if (mattextPassword.Text =="" || mattextPassword.Text == "Password")
                 { error = error + ",Password not entered or invalid"; }
 
-                MessageBox.Show(error);
+                PopupNotifier popup = new PopupNotifier();
+                popup.Image = Properties.Resources.Error;
+                popup.TitleText = "UniPark";
+                popup.ContentText = error;
+                popup.Popup();
             }
 
         }
@@ -1599,7 +1635,7 @@ namespace uniPark.Main.Forms.Landing
             PopupNotifier popup = new PopupNotifier();
             popup.Image = Properties.Resources.Info;
             popup.TitleText = "UniPark";
-            popup.ContentText = "Parking Area Successfully Updated.";
+            popup.ContentText = "Parking Space Successfully Updated.";
             popup.Popup(); // show
 
 
@@ -2701,7 +2737,7 @@ namespace uniPark.Main.Forms.Landing
         {
             if (mattextboxReportSearch.Text == "")
             {
-                mattextboxReportSearch.Text = "Personnel Number";
+                mattextboxReportSearch.Text = "Personnel Number / Numberplate";
             }
         }
 
@@ -2718,21 +2754,42 @@ namespace uniPark.Main.Forms.Landing
             Run run = para.AppendChild(new Run());
             run.AppendChild(new Text(text));
 
+
             DocumentFormat.OpenXml.Wordprocessing.Table table = new DocumentFormat.OpenXml.Wordprocessing.Table();
 
             TableProperties tblProp = new TableProperties(
                     new TableBorders(new TopBorder()
                     { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
                         new BottomBorder()
-                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },                      
-                        new RightBorder()
-                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
+                        { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },                                              
                         new InsideHorizontalBorder()
                         { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 },
                         new InsideVerticalBorder()
                         { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
                 );
             table.Append(tblProp);
+
+            TableRow row2 = new TableRow();
+
+            for (int k = 0; k < heading.Count();k++ )
+            {
+               
+
+                    TableCell cell2 = new TableCell();
+                    cell2.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(heading[k].ToString()))));
+
+                  
+
+                cell2.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                    row2.Append(cell2);
+                
+                
+            }
+            table.Append(row2);
+
+
+
+
             for (int i = 0; i < data.Rows.Count; ++i)
             {
                 TableRow row = new TableRow();
@@ -2798,9 +2855,14 @@ namespace uniPark.Main.Forms.Landing
             date = dateAndTime.Date;
             DateTime end = date;
 
-            string[] headingInfringements = new string[] { };
-            string[] headingParkings = new string[] { };
-            string[] headingLog = new string[] { };
+            string[] infringementheadingS = {"ReportID","Personnel ID","Name,Surname","Report Info","Date","Amount" };
+            string[] parkingS = { "Parking Space","Personnel ID","Name Surname","Location"};
+            string[] LogS = {"Log Number","Personnel ID","Name Surname","LisencePlate IN","LisencePlate OUT","ENTER Time","EXIT Time"};
+            string[] infringementheadingI = { "ReportID", "Personnel ID", "Name","Description","Date And Time" ,"Fine"};
+            string[] parkingI1 = {"Request ID","Parking Space","Campus","Location", "Request Date" };
+            string[] parkingI2 = {"Parking Space", "Personnel Number", "Name Surname", "Location"};
+            string[] LogI = { "Log Number", "Personnel ID", "Gate Name", "LisencePlate IN", "LisencePlate OUT", "ENTER Time", "EXIT Time" };
+
 
             if (mattextReportResult.Text == "SYSTEM")
             {
@@ -2812,7 +2874,7 @@ namespace uniPark.Main.Forms.Landing
 
                     string text = "UniPark System Infringements Report";
 
-                    CreateWordDocument(@"..\SYSTEM_Infringment_Report.docx", dt, text, headingInfringements);
+                    CreateWordDocument(@"..\SYSTEM_Infringment_Report.docx", dt, text, infringementheadingS);
                     materialFlatButton7.Enabled = false;
                 }
                 else if (matrdobtnParking.Checked)
@@ -2820,7 +2882,7 @@ namespace uniPark.Main.Forms.Landing
                     IDBHandler handler3 = new DBHandler();
                     DataTable dt = handler3.BLL_GetParkingReportS();
                     string text = "UniPark System Parking Log Report";
-                    CreateWordDocument(@"..\SYSTEM_Parking_Log_Report.docx", dt, text, headingLog);
+                    CreateWordDocument(@"..\SYSTEM_Parking_Log_Report.docx", dt, text, parkingS);
                     materialFlatButton7.Enabled = false;
 
                 }
@@ -2831,7 +2893,7 @@ namespace uniPark.Main.Forms.Landing
 
                     string text = "UniPark System Entrance Log Report";
 
-                    CreateWordDocument(@"..\SYSTEM_Entrance_Log_Report.docx", dt, text, headingLog);
+                    CreateWordDocument(@"..\SYSTEM_Entrance_Log_Report.docx", dt, text, LogS);
                     materialFlatButton7.Enabled = false;
                 }
                 else { //MessageBox.Show("Please Select A Report Type.");
@@ -2852,7 +2914,7 @@ namespace uniPark.Main.Forms.Landing
 
                     string text = "UniPark Individual Infringements Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
 
-                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Infringment_Report.docx", dt, text, headingInfringements);
+                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Infringment_Report.docx", dt, text, infringementheadingI);
 
                     materialFlatButton7.Enabled = false;
                     mattextboxReportSearch.Text = "Personnel Number";
@@ -2865,7 +2927,7 @@ namespace uniPark.Main.Forms.Landing
                     string text1 = "UniPark Individual Parking Request Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
                     string text2 = "UniPark Individual Parking Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
 
-                    CreateWordDocumentParking(@"..\" + infos.PersonnelID + "_Parking_Report.docx", dt1, dt2, text1, text2, headingParkings);
+                    CreateWordDocumentParking(@"..\" + infos.PersonnelID + "_Parking_Report.docx", dt1, dt2, text1, text2, parkingI1,parkingI2);
 
                     materialFlatButton7.Enabled = false;
                     mattextboxReportSearch.Text = "Personnel Number";
@@ -2879,7 +2941,7 @@ namespace uniPark.Main.Forms.Landing
 
                     string text = "UniPark Entrance Log Report: " + infos.PersonnelID.ToString() + " " + infos.PersonnelName.ToString() + " " + infos.PersonnelSurname.ToString();
 
-                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Entrance_Log_Report.docx", dt, text, headingLog);
+                    CreateWordDocument(@"..\" + infos.PersonnelID + "_Entrance_Log_Report.docx", dt, text, LogI);
 
                     materialFlatButton7.Enabled = false;
                     mattextboxReportSearch.Text = "Personnel Number";
@@ -2939,7 +3001,49 @@ namespace uniPark.Main.Forms.Landing
             
         }
 
-        public void CreateWordDocumentParking(string filePath, DataTable data1, DataTable data2, string text, string text2, string[] heading)
+        private void materialFlatButton10_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. Search for the user you received fine payment from. \n2. Select the fine and press mark fine as paid.");
+        }
+
+        private void materialFlatButton2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. Fill out relevant data into the fields to add a user to the system. \n2. Press enter to add the user to sytem.");
+        }
+
+        private void materialFlatButton11_Click(object sender, EventArgs e)
+        {
+            if (mattextboxReportSearch.Text =="" || mattextboxReportSearch.Text == "Personnel Number / Numberplate")
+            mattextReportResult.Text = mattextboxReportSearch.Text;
+            try
+            {
+                IDBHandler handler1 = new DBHandler();
+                DataTable dt = handler1.BLL_GetLicensePlateLog(mattextReportResult.Text);
+                if (dt.Rows.Count > 0)
+                {
+                    string text = "Lisence Plate report for: " + mattextReportResult.Text;
+                    string[] headingLisence = new string[] { };
+                    //CreateWordDocument(@"..\" + mattextReportResult.Text + "_Lisence_Plate_Report.docx", dt, text,"");
+                }
+                else
+                {
+                    PopupNotifier popup = new PopupNotifier();
+                    popup.Image = Properties.Resources.Error;
+                    popup.TitleText = "UniPark";
+                    popup.ContentText = "Lisence Plate Not Found.";
+                    popup.Popup();
+                }
+            }
+            catch {
+                PopupNotifier popup = new PopupNotifier();
+                popup.Image = Properties.Resources.Error;
+                popup.TitleText = "UniPark";
+                popup.ContentText = "Database Connection Error";
+                popup.Popup();
+            }
+        }
+
+        public void CreateWordDocumentParking(string filePath, DataTable data1, DataTable data2, string text, string text2, string[] heading1, string[] heading2)
 
         {
             WordprocessingDocument doc = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document);
@@ -2965,6 +3069,26 @@ namespace uniPark.Main.Forms.Landing
                         { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
                 );
             table.Append(tblProp);
+
+            TableRow row2 = new TableRow();
+
+            for (int k = 0; k < heading1.Count(); k++)
+            {
+
+
+                TableCell cell2 = new TableCell();
+                cell2.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(heading1[k].ToString()))));
+
+
+
+                cell2.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                row2.Append(cell2);
+
+
+            }
+            table.Append(row2);
+
+
             for (int i = 0; i < data1.Rows.Count; ++i)
             {
                 TableRow row = new TableRow();
@@ -2998,7 +3122,29 @@ namespace uniPark.Main.Forms.Landing
                         { Val = new EnumValue<BorderValues>(BorderValues.Sawtooth), Size = 2 })
                 );
             table2.Append(tblProp2);
-           
+
+            TableRow row3 = new TableRow();
+
+            for (int k = 0; k < heading2.Count(); k++)
+            {
+
+
+                TableCell cell3 = new TableCell();
+                cell3.Append(new Paragraph(new DocumentFormat.OpenXml.Wordprocessing.Run(new DocumentFormat.OpenXml.Wordprocessing.Text(heading2[k].ToString()))));
+
+
+
+                cell3.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = "1500" }));
+                row3.Append(cell3);
+
+
+            }
+            table2.Append(row3);
+
+
+
+
+
 
             for (int i = 0; i < data2.Rows.Count; ++i)
             {
