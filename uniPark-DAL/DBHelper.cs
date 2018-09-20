@@ -105,6 +105,7 @@ namespace uniPark_DAL
                     }
                     catch
                     {
+                        
                         throw;
                     }
                 }

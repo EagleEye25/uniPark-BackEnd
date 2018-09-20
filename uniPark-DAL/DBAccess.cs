@@ -394,14 +394,15 @@ namespace uniPark_DAL
             return DBHelper.NonQuery("uspAddParkingArea", CommandType.StoredProcedure,
                 parameters.ToArray());
         }
-        public bool AddPakingSpace(string ParkingType,string ParkingAreaID)
+        public bool AddPakingSpace(string ParkingType,string ParkingAreaID, int FeeID)
         {
             SqlParameter[] pars = new SqlParameter[]
            {
                     new SqlParameter("@ParkingType", ParkingType),
                     new SqlParameter("@ParkingAreaID",ParkingAreaID),
-                   
-                   
+                    new SqlParameter("@FeeID",FeeID),
+
+
            };
             return DBHelper.NonQuery("uspAddSpace", CommandType.StoredProcedure, pars);
 

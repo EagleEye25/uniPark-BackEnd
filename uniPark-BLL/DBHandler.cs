@@ -90,9 +90,9 @@ namespace uniPark_BLL
             return db.AddParkingArea(PA);
         }
 
-        public bool BLL_AddPakingSpace(string ParkingType, string ParkingAreaID)
+        public bool BLL_AddPakingSpace(string ParkingType, string ParkingAreaID, int FeeID)
         {
-           return db.AddPakingSpace(ParkingType, ParkingAreaID);
+           return db.AddPakingSpace(ParkingType, ParkingAreaID, FeeID);
         }
         public bool BLL_UpdateParkingArea(ParkingArea PA)
         {
