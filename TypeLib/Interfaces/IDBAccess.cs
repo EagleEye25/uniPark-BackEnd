@@ -59,6 +59,8 @@ namespace TypeLib.Interfaces
 
         bool UpdateInfringementPaid(string userid);
 
+        DataTable GetLicensePlateLog(string numberplate);
+
 
     }
 }

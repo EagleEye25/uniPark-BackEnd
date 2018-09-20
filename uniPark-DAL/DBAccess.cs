@@ -551,6 +551,14 @@ namespace uniPark_DAL
             return dt;
         }
 
+        public DataTable GetLicensePlateLog(string numberplate)
+        {
+            DataTable dt = new DataTable();
+            SqlParameter[] pars = new SqlParameter[] { new SqlParameter("@plate", numberplate) };
+            dt = DBHelper.ParamSelect("uspGetlicenseplatelog", CommandType.StoredProcedure, pars);
+            return dt;
+        }
+
         public bool UpdateInfringementPaid(string userid)
         {
             SqlParameter[] pars = new SqlParameter[]
