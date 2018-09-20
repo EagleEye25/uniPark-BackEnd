@@ -27,7 +27,7 @@ namespace TypeLib.Interfaces
         bool deleteuser(string userid);
 
         bool AddParkingArea(ParkingArea PA);
-        bool AddPakingSpace(string ParkingType, string ParkingAreaID);
+        bool AddPakingSpace(string ParkingType, string ParkingAreaID, int FeeID);
 
         bool UpdateParkingArea(ParkingArea PA);
         bool UpdateParkingSpace(string parkingAreaID, string parkingSpaceType, int spaceID, bool available, bool status);
