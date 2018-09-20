@@ -1766,10 +1766,9 @@
             this.pnlSearchUsers.Controls.Add(this.mattextReportResult);
             this.pnlSearchUsers.Controls.Add(this.materialFlatButton6);
             this.pnlSearchUsers.Controls.Add(this.mattextboxReportSearch);
-            this.pnlSearchUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSearchUsers.Location = new System.Drawing.Point(207, 30);
+            this.pnlSearchUsers.Location = new System.Drawing.Point(405, 62);
             this.pnlSearchUsers.Name = "pnlSearchUsers";
-            this.pnlSearchUsers.Size = new System.Drawing.Size(1073, 683);
+            this.pnlSearchUsers.Size = new System.Drawing.Size(232, 210);
             this.pnlSearchUsers.TabIndex = 8;
             // 
             // materialFlatButton11
@@ -1779,7 +1778,7 @@
             this.materialFlatButton11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton11.Depth = 0;
             this.materialFlatButton11.Icon = global::uniPark.Properties.Resources.rightTick;
-            this.materialFlatButton11.Location = new System.Drawing.Point(563, 68);
+            this.materialFlatButton11.Location = new System.Drawing.Point(-278, 68);
             this.materialFlatButton11.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton11.Name = "materialFlatButton11";
@@ -1801,7 +1800,7 @@
             this.panelReport.Controls.Add(this.materialLabel6);
             this.panelReport.Controls.Add(this.datepickerEnd);
             this.panelReport.Controls.Add(this.datepickerBegin);
-            this.panelReport.Location = new System.Drawing.Point(134, 168);
+            this.panelReport.Location = new System.Drawing.Point(-707, 168);
             this.panelReport.Name = "panelReport";
             this.panelReport.Size = new System.Drawing.Size(673, 364);
             this.panelReport.TabIndex = 51;
@@ -1933,7 +1932,7 @@
             this.materialFlatButton9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton9.Depth = 0;
             this.materialFlatButton9.Icon = global::uniPark.Properties.Resources.info2;
-            this.materialFlatButton9.Location = new System.Drawing.Point(846, 30);
+            this.materialFlatButton9.Location = new System.Drawing.Point(5, 30);
             this.materialFlatButton9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton9.Name = "materialFlatButton9";
@@ -1951,7 +1950,7 @@
             this.materialFlatButton8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton8.Depth = 0;
             this.materialFlatButton8.Icon = global::uniPark.Properties.Resources.rightTick;
-            this.materialFlatButton8.Location = new System.Drawing.Point(568, 30);
+            this.materialFlatButton8.Location = new System.Drawing.Point(-273, 30);
             this.materialFlatButton8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton8.Name = "materialFlatButton8";
@@ -1968,7 +1967,7 @@
             this.mattextReportResult.Depth = 0;
             this.mattextReportResult.Enabled = false;
             this.mattextReportResult.Hint = "";
-            this.mattextReportResult.Location = new System.Drawing.Point(134, 101);
+            this.mattextReportResult.Location = new System.Drawing.Point(-707, 101);
             this.mattextReportResult.MaxLength = 32767;
             this.mattextReportResult.MouseState = MaterialSkin.MouseState.HOVER;
             this.mattextReportResult.Name = "mattextReportResult";
@@ -1988,7 +1987,7 @@
             this.materialFlatButton6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton6.Depth = 0;
             this.materialFlatButton6.Icon = ((System.Drawing.Image)(resources.GetObject("materialFlatButton6.Icon")));
-            this.materialFlatButton6.Location = new System.Drawing.Point(441, 24);
+            this.materialFlatButton6.Location = new System.Drawing.Point(-400, 24);
             this.materialFlatButton6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton6.Name = "materialFlatButton6";
@@ -2003,7 +2002,7 @@
             this.mattextboxReportSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mattextboxReportSearch.Depth = 0;
             this.mattextboxReportSearch.Hint = "";
-            this.mattextboxReportSearch.Location = new System.Drawing.Point(141, 38);
+            this.mattextboxReportSearch.Location = new System.Drawing.Point(-700, 38);
             this.mattextboxReportSearch.MaxLength = 32767;
             this.mattextboxReportSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.mattextboxReportSearch.Name = "mattextboxReportSearch";
@@ -2034,10 +2033,11 @@
             this.pnlAddParkings.Controls.Add(this.matTextAddParkingLocation);
             this.pnlAddParkings.Controls.Add(this.matBtnAddParkingAreas);
             this.pnlAddParkings.Controls.Add(this.matTextParkingAreaNameAD);
+            this.pnlAddParkings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAddParkings.ForeColor = System.Drawing.Color.White;
-            this.pnlAddParkings.Location = new System.Drawing.Point(966, 354);
+            this.pnlAddParkings.Location = new System.Drawing.Point(207, 30);
             this.pnlAddParkings.Name = "pnlAddParkings";
-            this.pnlAddParkings.Size = new System.Drawing.Size(199, 278);
+            this.pnlAddParkings.Size = new System.Drawing.Size(1073, 683);
             this.pnlAddParkings.TabIndex = 26;
             // 
             // label6
@@ -2045,7 +2045,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(-14, 318);
+            this.label6.Location = new System.Drawing.Point(860, 520);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 20);
             this.label6.TabIndex = 19;
@@ -2058,7 +2058,7 @@
             this.matBtnAddCoordinates.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matBtnAddCoordinates.Depth = 0;
             this.matBtnAddCoordinates.Icon = global::uniPark.Properties.Resources.map;
-            this.matBtnAddCoordinates.Location = new System.Drawing.Point(135, 308);
+            this.matBtnAddCoordinates.Location = new System.Drawing.Point(1009, 510);
             this.matBtnAddCoordinates.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matBtnAddCoordinates.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddCoordinates.Name = "matBtnAddCoordinates";
@@ -2118,7 +2118,7 @@
             this.dgvAddParkings.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvAddParkings.RowTemplate.Height = 26;
             this.dgvAddParkings.RowTemplate.ReadOnly = true;
-            this.dgvAddParkings.Size = new System.Drawing.Size(172, 460);
+            this.dgvAddParkings.Size = new System.Drawing.Size(1046, 460);
             this.dgvAddParkings.TabIndex = 17;
             // 
             // lblParkingAreaAccesslevel
@@ -2248,7 +2248,7 @@
             this.matBtnAddParkingAreas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matBtnAddParkingAreas.Depth = 0;
             this.matBtnAddParkingAreas.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnAddParkingAreas.Icon")));
-            this.matBtnAddParkingAreas.Location = new System.Drawing.Point(29, 228);
+            this.matBtnAddParkingAreas.Location = new System.Drawing.Point(903, 633);
             this.matBtnAddParkingAreas.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matBtnAddParkingAreas.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddParkingAreas.Name = "matBtnAddParkingAreas";
@@ -3029,8 +3029,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1280, 713);
-            this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.pnlAddParkings);
+            this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlSearchParkings);
             this.Controls.Add(this.pnlViewInfringements);
