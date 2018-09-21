@@ -3013,33 +3013,36 @@ namespace uniPark.Main.Forms.Landing
 
         private void materialFlatButton11_Click(object sender, EventArgs e)
         {
-            if (mattextboxReportSearch.Text =="" || mattextboxReportSearch.Text == "Personnel Number / Numberplate")
-            mattextReportResult.Text = mattextboxReportSearch.Text;
-            try
+            if (mattextboxReportSearch.Text != "" || mattextboxReportSearch.Text != "Personnel Number / Numberplate")
             {
-                IDBHandler handler1 = new DBHandler();
-                DataTable dt = handler1.BLL_GetLicensePlateLog(mattextReportResult.Text);
-                if (dt.Rows.Count > 0)
+                mattextReportResult.Text = mattextboxReportSearch.Text;
+                try
                 {
-                    string text = "Lisence Plate report for: " + mattextReportResult.Text;
-                    string[] headingLisence = new string[] { };
-                    //CreateWordDocument(@"..\" + mattextReportResult.Text + "_Lisence_Plate_Report.docx", dt, text,"");
+                    IDBHandler handler1 = new DBHandler();
+                    DataTable dt = handler1.BLL_GetLicensePlateLog(mattextReportResult.Text);
+                    if (dt.Rows.Count > 0)
+                    {
+                        string text = "Lisence Plate report for: " + mattextReportResult.Text;
+                        string[] headingLisence = new string[] { "Lisenceplate"};
+                        CreateWordDocument(@"..\" + mattextReportResult.Text + "_Lisence_Plate_Report.docx", dt, text,headingLisence);
+                    }
+                    else
+                    {
+                        PopupNotifier popup = new PopupNotifier();
+                        popup.Image = Properties.Resources.Error;
+                        popup.TitleText = "UniPark";
+                        popup.ContentText = "Lisence Plate Not Found.";
+                        popup.Popup();
+                    }
                 }
-                else
+                catch
                 {
                     PopupNotifier popup = new PopupNotifier();
                     popup.Image = Properties.Resources.Error;
                     popup.TitleText = "UniPark";
-                    popup.ContentText = "Lisence Plate Not Found.";
+                    popup.ContentText = "Database Connection Error";
                     popup.Popup();
                 }
-            }
-            catch {
-                PopupNotifier popup = new PopupNotifier();
-                popup.Image = Properties.Resources.Error;
-                popup.TitleText = "UniPark";
-                popup.ContentText = "Database Connection Error";
-                popup.Popup();
             }
         }
 
