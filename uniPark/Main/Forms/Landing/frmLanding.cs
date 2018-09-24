@@ -633,6 +633,8 @@ namespace uniPark.Main.Forms.Landing
 
         private void matBtnSearchUser_Click(object sender, EventArgs e)
         {
+            datepickerEnd.Value = DateTime.Today;
+
             PopupNotifier popup = new PopupNotifier();
             popup.Image = Properties.Resources.Info;
             popup.TitleText = "UniPark";
@@ -3023,7 +3025,7 @@ namespace uniPark.Main.Forms.Landing
                     if (dt.Rows.Count > 0)
                     {
                         string text = "Lisence Plate report for: " + mattextReportResult.Text;
-                        string[] headingLisence = new string[] { "Lisenceplate"};
+                        string[] headingLisence = new string[] { "Log ID","Personnel ID", "Gate ID", "Lisenceplate IN", "Time IN", "Lisence OUT", "Time OUT"};
                         CreateWordDocument(@"..\" + mattextReportResult.Text + "_Lisence_Plate_Report.docx", dt, text,headingLisence);
                     }
                     else
