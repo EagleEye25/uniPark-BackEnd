@@ -18,7 +18,7 @@ namespace uniPark
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLanding());
+            Application.Run(new frmLogin());
         }
     }
 }

@@ -3048,6 +3048,11 @@ namespace uniPark.Main.Forms.Landing
             }
         }
 
+        private void mattextReportResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public void CreateWordDocumentParking(string filePath, DataTable data1, DataTable data2, string text, string text2, string[] heading1, string[] heading2)
 
         {
