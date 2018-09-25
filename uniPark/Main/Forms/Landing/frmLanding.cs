@@ -52,7 +52,7 @@ namespace uniPark.Main.Forms.Landing
         uspGetAllInfo infos;
 
         
-            Thread th = new Thread(() =>
+          /*  Thread th = new Thread(() =>
             {
                 IDBHandler handler = new DBHandler();
                 DataTable dt = handler.BLL_GetParkingRequests();
@@ -67,8 +67,7 @@ namespace uniPark.Main.Forms.Landing
 
                 Thread.Sleep(5000);
             });
-        
-
+        /*
         /* Task tt = new Task(() =>
         {
             Thread.Sleep(3000);
@@ -485,9 +484,15 @@ namespace uniPark.Main.Forms.Landing
                 matbtnAutoAssign.Visible = false;
                 lblNoRequests.Visible = true;
                 dgvAssignParkings.Visible = false;
+                
             }
-            else matbtnAutoAssign.Visible = true;
-
+            else
+            {
+                
+                matbtnAutoAssign.Visible = true;
+                dgvAssignParkings.Visible = true;
+                lblNoRequests.Visible = false;
+            }
         }
 
         private void matTextFacilityNoAS_Click(object sender, EventArgs e)
@@ -771,6 +776,8 @@ namespace uniPark.Main.Forms.Landing
         {
             /* Sets text to nothing */
             matTextParkingAreaNameAD.Text = "";
+
+            
         }
 
         private void matTextParkingAreaNameAD_Leave(object sender, EventArgs e)
@@ -2062,7 +2069,7 @@ namespace uniPark.Main.Forms.Landing
                 MessageBox.Show(ex.Message);
             }
 
-            th.Start();
+            //th.Start();
         }
 
 
@@ -2141,6 +2148,9 @@ namespace uniPark.Main.Forms.Landing
         private void cmbParkingAreas_SelectionChangeCommitted(object sender, EventArgs e)
         {
             // show on map 
+
+            lblParkingSpace.Visible = true;
+            cmbParkingSpace.Visible = true;
 
             mapSearch.Visible = true;
             
