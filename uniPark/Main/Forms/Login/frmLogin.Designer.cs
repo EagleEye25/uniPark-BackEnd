@@ -95,7 +95,7 @@
             this.matTextUsername.SelectionLength = 0;
             this.matTextUsername.SelectionStart = 0;
             this.matTextUsername.Size = new System.Drawing.Size(380, 28);
-            this.matTextUsername.TabIndex = 10;
+            this.matTextUsername.TabIndex = 0;
             this.matTextUsername.TabStop = false;
             this.matTextUsername.UseSystemPasswordChar = false;
             this.matTextUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matTextUsername_KeyDown);
@@ -113,7 +113,7 @@
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(415, 462);
-            this.pnlMenu.TabIndex = 11;
+            this.pnlMenu.TabIndex = 1;
             // 
             // matBtnShowPassword
             // 
@@ -128,7 +128,7 @@
             this.matBtnShowPassword.Name = "matBtnShowPassword";
             this.matBtnShowPassword.Primary = false;
             this.matBtnShowPassword.Size = new System.Drawing.Size(44, 36);
-            this.matBtnShowPassword.TabIndex = 10;
+            this.matBtnShowPassword.TabIndex = 4;
             this.matBtnShowPassword.UseVisualStyleBackColor = true;
             this.matBtnShowPassword.Click += new System.EventHandler(this.matBtnShowPassword_Click);
             this.matBtnShowPassword.MouseLeave += new System.EventHandler(this.matBtnShowPassword_MouseLeave);
@@ -175,7 +175,7 @@
             this.matTextPass.SelectionLength = 0;
             this.matTextPass.SelectionStart = 0;
             this.matTextPass.Size = new System.Drawing.Size(350, 28);
-            this.matTextPass.TabIndex = 12;
+            this.matTextPass.TabIndex = 1;
             this.matTextPass.TabStop = false;
             this.matTextPass.UseSystemPasswordChar = false;
             this.matTextPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.matTextPass_KeyDown);
@@ -215,7 +215,7 @@
             this.matBtnLogin.Name = "matBtnLogin";
             this.matBtnLogin.Primary = false;
             this.matBtnLogin.Size = new System.Drawing.Size(100, 36);
-            this.matBtnLogin.TabIndex = 19;
+            this.matBtnLogin.TabIndex = 2;
             this.matBtnLogin.Text = "Login";
             this.matBtnLogin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.matBtnLogin.UseVisualStyleBackColor = true;
@@ -236,7 +236,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.Resize += new System.EventHandler(this.frmLogin_Resize);
             this.pnlMenu.ResumeLayout(false);

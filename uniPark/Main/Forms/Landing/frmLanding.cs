@@ -52,7 +52,7 @@ namespace uniPark.Main.Forms.Landing
         uspGetAllInfo infos;
 
         
-            Thread th = new Thread(() =>
+          /*  Thread th = new Thread(() =>
             {
                 IDBHandler handler = new DBHandler();
                 DataTable dt = handler.BLL_GetParkingRequests();
@@ -67,8 +67,7 @@ namespace uniPark.Main.Forms.Landing
 
                 Thread.Sleep(5000);
             });
-        
-
+        /*
         /* Task tt = new Task(() =>
         {
             Thread.Sleep(3000);
@@ -426,7 +425,9 @@ namespace uniPark.Main.Forms.Landing
             dt = handler.BLL_GetParkingAreas();
             dgvUpdateParkings.DataSource = dt;
 
-            
+
+
+
 
 
         }
@@ -485,9 +486,15 @@ namespace uniPark.Main.Forms.Landing
                 matbtnAutoAssign.Visible = false;
                 lblNoRequests.Visible = true;
                 dgvAssignParkings.Visible = false;
+                
             }
-            else matbtnAutoAssign.Visible = true;
-
+            else
+            {
+                
+                matbtnAutoAssign.Visible = true;
+                dgvAssignParkings.Visible = true;
+                lblNoRequests.Visible = false;
+            }
         }
 
         private void matTextFacilityNoAS_Click(object sender, EventArgs e)
@@ -771,6 +778,8 @@ namespace uniPark.Main.Forms.Landing
         {
             /* Sets text to nothing */
             matTextParkingAreaNameAD.Text = "";
+
+            
         }
 
         private void matTextParkingAreaNameAD_Leave(object sender, EventArgs e)
@@ -1589,6 +1598,7 @@ namespace uniPark.Main.Forms.Landing
         {
             matlblUpdateSpace.Visible = true;
             cmbSelectArea.Visible = true;
+            dgvUpdateParkings.Visible = false;
 
             selectedSpace = true;
 
@@ -1603,8 +1613,13 @@ namespace uniPark.Main.Forms.Landing
             cmbSelectArea.DisplayMember = "ParkingAreaName";
             cmbSelectArea.ValueMember = "ParkingAreaID";
 
-            
-          
+            IDBHandler handler2 = new DBHandler();
+            DataTable dt2 = new DataTable();
+            dt2 = handler.BLL_GetParkingSpaces(cmbSelectArea.SelectedValue.ToString());
+
+            dgvUpdateParkings.DataSource = dt2;
+
+
         }
 
         
@@ -1835,6 +1850,7 @@ namespace uniPark.Main.Forms.Landing
             dgvUpdateParkings.Visible = true;
 
             matlblSelectSpace.Visible = true;
+            dgvUpdateParkings.Visible = true;
 
             IDBHandler handler = new DBHandler();
             DataTable dt = new DataTable();
@@ -2062,7 +2078,7 @@ namespace uniPark.Main.Forms.Landing
                 MessageBox.Show(ex.Message);
             }
 
-            th.Start();
+            //th.Start();
         }
 
 
@@ -2141,6 +2157,9 @@ namespace uniPark.Main.Forms.Landing
         private void cmbParkingAreas_SelectionChangeCommitted(object sender, EventArgs e)
         {
             // show on map 
+
+            lblParkingSpace.Visible = true;
+            cmbParkingSpace.Visible = true;
 
             mapSearch.Visible = true;
             
@@ -3051,6 +3070,16 @@ namespace uniPark.Main.Forms.Landing
         private void mattextReportResult_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbSelectArea_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialFlatButton3_Click(object sender, EventArgs e)
+        {
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
 
         public void CreateWordDocumentParking(string filePath, DataTable data1, DataTable data2, string text, string text2, string[] heading1, string[] heading2)
