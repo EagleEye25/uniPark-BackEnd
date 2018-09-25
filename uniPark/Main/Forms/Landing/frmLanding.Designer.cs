@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLanding));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle127 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle128 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle129 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle130 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.matBtnVerifyGuest = new MaterialSkin.Controls.MaterialFlatButton();
             this.matBtnAddParking = new MaterialSkin.Controls.MaterialFlatButton();
@@ -71,6 +71,14 @@
             this.dgvSearchParkings = new System.Windows.Forms.DataGridView();
             this.mapSearch = new GMap.NET.WindowsForms.GMapControl();
             this.pnlUpdateParkings = new System.Windows.Forms.Panel();
+            this.pnlUpdateSpace = new System.Windows.Forms.Panel();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.matBtnUpdateParkingSpace = new MaterialSkin.Controls.MaterialFlatButton();
+            this.cbDeleteSpace = new System.Windows.Forms.CheckBox();
+            this.cmbEditType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbAvailibality = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dgvUpdateParkings = new System.Windows.Forms.DataGridView();
             this.pnlUpdateArea = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -87,14 +95,6 @@
             this.matTextParkingAreaLocationUpdate = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matTextParkingAreaNameUpadate = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.matBtnUpdateParkingA = new MaterialSkin.Controls.MaterialFlatButton();
-            this.pnlUpdateSpace = new System.Windows.Forms.Panel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.matBtnUpdateParkingSpace = new MaterialSkin.Controls.MaterialFlatButton();
-            this.cbDeleteSpace = new System.Windows.Forms.CheckBox();
-            this.cmbEditType = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbAvailibality = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.matlblSelectSpace = new MaterialSkin.Controls.MaterialLabel();
             this.matlblEditArea = new MaterialSkin.Controls.MaterialLabel();
             this.matlblUpdateSpace = new MaterialSkin.Controls.MaterialLabel();
@@ -199,6 +199,7 @@
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.mapMain = new GMap.NET.WindowsForms.GMapControl();
             this.pnlAdd_EditMap = new System.Windows.Forms.Panel();
+            this.mapAdd_Edit_Coord = new GMap.NET.WindowsForms.GMapControl();
             this.matbtnRedo = new MaterialSkin.Controls.MaterialFlatButton();
             this.matbtnSaveTotalArea = new MaterialSkin.Controls.MaterialFlatButton();
             this.matbtnAddPolyPoint = new MaterialSkin.Controls.MaterialFlatButton();
@@ -207,7 +208,6 @@
             this.lblLatCoord = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.mapAdd_Edit_Coord = new GMap.NET.WindowsForms.GMapControl();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lblCaption = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
@@ -217,12 +217,12 @@
             this.pnlSearchParkings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchParkings)).BeginInit();
             this.pnlUpdateParkings.SuspendLayout();
+            this.pnlUpdateSpace.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateParkings)).BeginInit();
             this.pnlUpdateArea.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupUncovered)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCovered)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpParkingAL)).BeginInit();
-            this.pnlUpdateSpace.SuspendLayout();
             this.pnlAssignParkings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignParkings)).BeginInit();
             this.pnlViewInfringements.SuspendLayout();
@@ -550,15 +550,15 @@
             this.dgvParkings.AllowUserToResizeRows = false;
             this.dgvParkings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle25.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvParkings.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle121.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle121.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle121.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle121.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle121.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle121.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle121.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle121.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvParkings.DefaultCellStyle = dataGridViewCellStyle121;
             this.dgvParkings.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvParkings.Location = new System.Drawing.Point(0, 0);
             this.dgvParkings.Name = "dgvParkings";
@@ -689,45 +689,45 @@
             this.dgvSearchParkings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSearchParkings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSearchParkings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle122.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle122.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle122.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle122.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle122.SelectionBackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle122.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle122.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSearchParkings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle122;
             this.dgvSearchParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSearchParkings.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle123.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle123.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle123.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle123.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle123.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle123.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle123.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle123.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSearchParkings.DefaultCellStyle = dataGridViewCellStyle123;
             this.dgvSearchParkings.Location = new System.Drawing.Point(6, 44);
             this.dgvSearchParkings.Name = "dgvSearchParkings";
             this.dgvSearchParkings.ReadOnly = true;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSearchParkings.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle124.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle124.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle124.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle124.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle124.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle124.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle124.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSearchParkings.RowHeadersDefaultCellStyle = dataGridViewCellStyle124;
             this.dgvSearchParkings.RowHeadersWidth = 50;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvSearchParkings.RowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle125.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle125.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle125.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle125.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle125.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle125.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle125.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle125.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSearchParkings.RowsDefaultCellStyle = dataGridViewCellStyle125;
             this.dgvSearchParkings.RowTemplate.Height = 26;
             this.dgvSearchParkings.RowTemplate.ReadOnly = true;
             this.dgvSearchParkings.Size = new System.Drawing.Size(80, 627);
@@ -784,6 +784,105 @@
             this.pnlUpdateParkings.Size = new System.Drawing.Size(109, 106);
             this.pnlUpdateParkings.TabIndex = 8;
             // 
+            // pnlUpdateSpace
+            // 
+            this.pnlUpdateSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUpdateSpace.Controls.Add(this.materialLabel4);
+            this.pnlUpdateSpace.Controls.Add(this.matBtnUpdateParkingSpace);
+            this.pnlUpdateSpace.Controls.Add(this.cbDeleteSpace);
+            this.pnlUpdateSpace.Controls.Add(this.cmbEditType);
+            this.pnlUpdateSpace.Controls.Add(this.label2);
+            this.pnlUpdateSpace.Controls.Add(this.cmbAvailibality);
+            this.pnlUpdateSpace.Controls.Add(this.label1);
+            this.pnlUpdateSpace.Location = new System.Drawing.Point(-937, 537);
+            this.pnlUpdateSpace.Name = "pnlUpdateSpace";
+            this.pnlUpdateSpace.Size = new System.Drawing.Size(995, 171);
+            this.pnlUpdateSpace.TabIndex = 25;
+            this.pnlUpdateSpace.Visible = false;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(33, 7);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(296, 24);
+            this.materialLabel4.TabIndex = 24;
+            this.materialLabel4.Text = "Edit Parking space details below :";
+            // 
+            // matBtnUpdateParkingSpace
+            // 
+            this.matBtnUpdateParkingSpace.AutoSize = true;
+            this.matBtnUpdateParkingSpace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnUpdateParkingSpace.Depth = 0;
+            this.matBtnUpdateParkingSpace.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnUpdateParkingSpace.Icon")));
+            this.matBtnUpdateParkingSpace.Location = new System.Drawing.Point(767, 94);
+            this.matBtnUpdateParkingSpace.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnUpdateParkingSpace.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnUpdateParkingSpace.Name = "matBtnUpdateParkingSpace";
+            this.matBtnUpdateParkingSpace.Primary = false;
+            this.matBtnUpdateParkingSpace.Size = new System.Drawing.Size(239, 36);
+            this.matBtnUpdateParkingSpace.TabIndex = 23;
+            this.matBtnUpdateParkingSpace.Text = "Update Parking Area";
+            this.matBtnUpdateParkingSpace.UseVisualStyleBackColor = true;
+            this.matBtnUpdateParkingSpace.Click += new System.EventHandler(this.matBtnUpdateParkingSpace_Click);
+            // 
+            // cbDeleteSpace
+            // 
+            this.cbDeleteSpace.AutoSize = true;
+            this.cbDeleteSpace.ForeColor = System.Drawing.Color.White;
+            this.cbDeleteSpace.Location = new System.Drawing.Point(500, 104);
+            this.cbDeleteSpace.Name = "cbDeleteSpace";
+            this.cbDeleteSpace.Size = new System.Drawing.Size(193, 24);
+            this.cbDeleteSpace.TabIndex = 5;
+            this.cbDeleteSpace.Text = "Delete Parking Space";
+            this.cbDeleteSpace.UseVisualStyleBackColor = true;
+            // 
+            // cmbEditType
+            // 
+            this.cmbEditType.FormattingEnabled = true;
+            this.cmbEditType.Items.AddRange(new object[] {
+            "Covered",
+            "UnCovered"});
+            this.cmbEditType.Location = new System.Drawing.Point(215, 99);
+            this.cmbEditType.Name = "cmbEditType";
+            this.cmbEditType.Size = new System.Drawing.Size(185, 28);
+            this.cmbEditType.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(77, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Change Type :";
+            // 
+            // cmbAvailibality
+            // 
+            this.cmbAvailibality.FormattingEnabled = true;
+            this.cmbAvailibality.Items.AddRange(new object[] {
+            "Available",
+            "UnAvailable"});
+            this.cmbAvailibality.Location = new System.Drawing.Point(215, 58);
+            this.cmbAvailibality.Name = "cmbAvailibality";
+            this.cmbAvailibality.Size = new System.Drawing.Size(185, 28);
+            this.cmbAvailibality.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(34, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Change Availability :";
+            // 
             // dgvUpdateParkings
             // 
             this.dgvUpdateParkings.AllowUserToAddRows = false;
@@ -792,9 +891,9 @@
             this.dgvUpdateParkings.AllowUserToResizeRows = false;
             this.dgvUpdateParkings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUpdateParkings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUpdateParkings.Location = new System.Drawing.Point(-955, 131);
+            this.dgvUpdateParkings.Location = new System.Drawing.Point(-948, 135);
             this.dgvUpdateParkings.Name = "dgvUpdateParkings";
-            this.dgvUpdateParkings.Size = new System.Drawing.Size(991, 400);
+            this.dgvUpdateParkings.Size = new System.Drawing.Size(1024, 396);
             this.dgvUpdateParkings.TabIndex = 27;
             this.dgvUpdateParkings.Visible = false;
             this.dgvUpdateParkings.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUpdateParkings_RowHeaderMouseClick_1);
@@ -1012,105 +1111,6 @@
             this.matBtnUpdateParkingA.UseVisualStyleBackColor = true;
             this.matBtnUpdateParkingA.Click += new System.EventHandler(this.matBtnUpdateParkingA_Click);
             // 
-            // pnlUpdateSpace
-            // 
-            this.pnlUpdateSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlUpdateSpace.Controls.Add(this.materialLabel4);
-            this.pnlUpdateSpace.Controls.Add(this.matBtnUpdateParkingSpace);
-            this.pnlUpdateSpace.Controls.Add(this.cbDeleteSpace);
-            this.pnlUpdateSpace.Controls.Add(this.cmbEditType);
-            this.pnlUpdateSpace.Controls.Add(this.label2);
-            this.pnlUpdateSpace.Controls.Add(this.cmbAvailibality);
-            this.pnlUpdateSpace.Controls.Add(this.label1);
-            this.pnlUpdateSpace.Location = new System.Drawing.Point(-937, 537);
-            this.pnlUpdateSpace.Name = "pnlUpdateSpace";
-            this.pnlUpdateSpace.Size = new System.Drawing.Size(995, 171);
-            this.pnlUpdateSpace.TabIndex = 25;
-            this.pnlUpdateSpace.Visible = false;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(33, 7);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(296, 24);
-            this.materialLabel4.TabIndex = 24;
-            this.materialLabel4.Text = "Edit Parking space details below :";
-            // 
-            // matBtnUpdateParkingSpace
-            // 
-            this.matBtnUpdateParkingSpace.AutoSize = true;
-            this.matBtnUpdateParkingSpace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnUpdateParkingSpace.Depth = 0;
-            this.matBtnUpdateParkingSpace.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnUpdateParkingSpace.Icon")));
-            this.matBtnUpdateParkingSpace.Location = new System.Drawing.Point(767, 94);
-            this.matBtnUpdateParkingSpace.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matBtnUpdateParkingSpace.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnUpdateParkingSpace.Name = "matBtnUpdateParkingSpace";
-            this.matBtnUpdateParkingSpace.Primary = false;
-            this.matBtnUpdateParkingSpace.Size = new System.Drawing.Size(239, 36);
-            this.matBtnUpdateParkingSpace.TabIndex = 23;
-            this.matBtnUpdateParkingSpace.Text = "Update Parking Area";
-            this.matBtnUpdateParkingSpace.UseVisualStyleBackColor = true;
-            this.matBtnUpdateParkingSpace.Click += new System.EventHandler(this.matBtnUpdateParkingSpace_Click);
-            // 
-            // cbDeleteSpace
-            // 
-            this.cbDeleteSpace.AutoSize = true;
-            this.cbDeleteSpace.ForeColor = System.Drawing.Color.White;
-            this.cbDeleteSpace.Location = new System.Drawing.Point(500, 104);
-            this.cbDeleteSpace.Name = "cbDeleteSpace";
-            this.cbDeleteSpace.Size = new System.Drawing.Size(193, 24);
-            this.cbDeleteSpace.TabIndex = 5;
-            this.cbDeleteSpace.Text = "Delete Parking Space";
-            this.cbDeleteSpace.UseVisualStyleBackColor = true;
-            // 
-            // cmbEditType
-            // 
-            this.cmbEditType.FormattingEnabled = true;
-            this.cmbEditType.Items.AddRange(new object[] {
-            "Covered",
-            "UnCovered"});
-            this.cmbEditType.Location = new System.Drawing.Point(215, 99);
-            this.cmbEditType.Name = "cmbEditType";
-            this.cmbEditType.Size = new System.Drawing.Size(185, 28);
-            this.cmbEditType.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(77, 102);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Change Type :";
-            // 
-            // cmbAvailibality
-            // 
-            this.cmbAvailibality.FormattingEnabled = true;
-            this.cmbAvailibality.Items.AddRange(new object[] {
-            "Available",
-            "UnAvailable"});
-            this.cmbAvailibality.Location = new System.Drawing.Point(215, 58);
-            this.cmbAvailibality.Name = "cmbAvailibality";
-            this.cmbAvailibality.Size = new System.Drawing.Size(185, 28);
-            this.cmbAvailibality.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(34, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Change Availability :";
-            // 
             // matlblSelectSpace
             // 
             this.matlblSelectSpace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1166,6 +1166,7 @@
             this.cmbSelectArea.TabIndex = 31;
             this.cmbSelectArea.Visible = false;
             this.cmbSelectArea.SelectedIndexChanged += new System.EventHandler(this.cmbSelectArea_SelectedIndexChanged);
+            this.cmbSelectArea.SelectionChangeCommitted += new System.EventHandler(this.cmbSelectArea_SelectionChangeCommitted);
             // 
             // matBtnBackToUpdate
             // 
@@ -1193,7 +1194,7 @@
             this.matBtnEditParkingSpace.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matBtnEditParkingSpace.Depth = 0;
             this.matBtnEditParkingSpace.Icon = global::uniPark.Properties.Resources.pluss;
-            this.matBtnEditParkingSpace.Location = new System.Drawing.Point(-538, -120);
+            this.matBtnEditParkingSpace.Location = new System.Drawing.Point(-538, -104);
             this.matBtnEditParkingSpace.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matBtnEditParkingSpace.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnEditParkingSpace.Name = "matBtnEditParkingSpace";
@@ -1211,7 +1212,7 @@
             this.matmatBtnEditArea.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matmatBtnEditArea.Depth = 0;
             this.matmatBtnEditArea.Icon = global::uniPark.Properties.Resources.pluss;
-            this.matmatBtnEditArea.Location = new System.Drawing.Point(-538, -168);
+            this.matmatBtnEditArea.Location = new System.Drawing.Point(-538, -149);
             this.matmatBtnEditArea.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matmatBtnEditArea.MouseState = MaterialSkin.MouseState.HOVER;
             this.matmatBtnEditArea.Name = "matmatBtnEditArea";
@@ -1337,15 +1338,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAssignParkings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAssignParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAssignParkings.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle126.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle126.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle126.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle126.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle126.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle126.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle126.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle126.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAssignParkings.DefaultCellStyle = dataGridViewCellStyle126;
             this.dgvAssignParkings.Location = new System.Drawing.Point(3, 35);
             this.dgvAssignParkings.Name = "dgvAssignParkings";
             this.dgvAssignParkings.Size = new System.Drawing.Size(107, 409);
@@ -1403,15 +1404,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvViewUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle31.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvViewUsers.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle127.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle127.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle127.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle127.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle127.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle127.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle127.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle127.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvViewUsers.DefaultCellStyle = dataGridViewCellStyle127;
             this.dgvViewUsers.Location = new System.Drawing.Point(6, 63);
             this.dgvViewUsers.Name = "dgvViewUsers";
             this.dgvViewUsers.Size = new System.Drawing.Size(35, 400);
@@ -2044,11 +2045,10 @@
             this.pnlAddParkings.Controls.Add(this.matTextAddParkingLocation);
             this.pnlAddParkings.Controls.Add(this.matBtnAddParkingAreas);
             this.pnlAddParkings.Controls.Add(this.matTextParkingAreaNameAD);
-            this.pnlAddParkings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAddParkings.ForeColor = System.Drawing.Color.White;
-            this.pnlAddParkings.Location = new System.Drawing.Point(207, 30);
+            this.pnlAddParkings.Location = new System.Drawing.Point(894, 313);
             this.pnlAddParkings.Name = "pnlAddParkings";
-            this.pnlAddParkings.Size = new System.Drawing.Size(1073, 683);
+            this.pnlAddParkings.Size = new System.Drawing.Size(386, 400);
             this.pnlAddParkings.TabIndex = 26;
             // 
             // label6
@@ -2056,7 +2056,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(860, 520);
+            this.label6.Location = new System.Drawing.Point(173, 379);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(148, 20);
             this.label6.TabIndex = 19;
@@ -2069,7 +2069,7 @@
             this.matBtnAddCoordinates.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matBtnAddCoordinates.Depth = 0;
             this.matBtnAddCoordinates.Icon = global::uniPark.Properties.Resources.map;
-            this.matBtnAddCoordinates.Location = new System.Drawing.Point(1009, 510);
+            this.matBtnAddCoordinates.Location = new System.Drawing.Point(322, 369);
             this.matBtnAddCoordinates.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matBtnAddCoordinates.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddCoordinates.Name = "matBtnAddCoordinates";
@@ -2088,48 +2088,48 @@
             this.dgvAddParkings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAddParkings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAddParkings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle128.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle128.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle128.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle128.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle128.SelectionBackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle128.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle128.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAddParkings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle128;
             this.dgvAddParkings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle33.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAddParkings.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle129.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle129.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle129.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle129.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle129.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle129.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle129.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle129.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAddParkings.DefaultCellStyle = dataGridViewCellStyle129;
             this.dgvAddParkings.Location = new System.Drawing.Point(15, 24);
             this.dgvAddParkings.Name = "dgvAddParkings";
             this.dgvAddParkings.ReadOnly = true;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAddParkings.RowHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle130.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle130.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle130.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle130.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle130.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle130.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle130.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAddParkings.RowHeadersDefaultCellStyle = dataGridViewCellStyle130;
             this.dgvAddParkings.RowHeadersWidth = 50;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAddParkings.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle131.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle131.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle131.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle131.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle131.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle131.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle131.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle131.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAddParkings.RowsDefaultCellStyle = dataGridViewCellStyle131;
             this.dgvAddParkings.RowTemplate.Height = 26;
             this.dgvAddParkings.RowTemplate.ReadOnly = true;
-            this.dgvAddParkings.Size = new System.Drawing.Size(1046, 460);
+            this.dgvAddParkings.Size = new System.Drawing.Size(359, 460);
             this.dgvAddParkings.TabIndex = 17;
             // 
             // lblParkingAreaAccesslevel
@@ -2259,7 +2259,7 @@
             this.matBtnAddParkingAreas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matBtnAddParkingAreas.Depth = 0;
             this.matBtnAddParkingAreas.Icon = ((System.Drawing.Image)(resources.GetObject("matBtnAddParkingAreas.Icon")));
-            this.matBtnAddParkingAreas.Location = new System.Drawing.Point(888, 636);
+            this.matBtnAddParkingAreas.Location = new System.Drawing.Point(201, 353);
             this.matBtnAddParkingAreas.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matBtnAddParkingAreas.MouseState = MaterialSkin.MouseState.HOVER;
             this.matBtnAddParkingAreas.Name = "matBtnAddParkingAreas";
@@ -2321,6 +2321,7 @@
             this.materialFlatButton3.TabIndex = 38;
             this.materialFlatButton3.Text = "Help";
             this.materialFlatButton3.UseVisualStyleBackColor = true;
+            this.materialFlatButton3.Click += new System.EventHandler(this.materialFlatButton3_Click);
             // 
             // matTextEmailGuest
             // 
@@ -2653,15 +2654,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEditPersonel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEditPersonel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle36.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEditPersonel.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle132.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle132.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle132.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle132.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle132.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            dataGridViewCellStyle132.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle132.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle132.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEditPersonel.DefaultCellStyle = dataGridViewCellStyle132;
             this.dgvEditPersonel.Location = new System.Drawing.Point(25, 75);
             this.dgvEditPersonel.Name = "dgvEditPersonel";
             this.dgvEditPersonel.Size = new System.Drawing.Size(59, 460);
@@ -2862,12 +2863,44 @@
             this.pnlAdd_EditMap.Controls.Add(this.label4);
             this.pnlAdd_EditMap.Controls.Add(this.splitter1);
             this.pnlAdd_EditMap.Controls.Add(this.lblCaption);
-            this.pnlAdd_EditMap.Location = new System.Drawing.Point(432, 533);
+            this.pnlAdd_EditMap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAdd_EditMap.Location = new System.Drawing.Point(207, 30);
             this.pnlAdd_EditMap.Name = "pnlAdd_EditMap";
-            this.pnlAdd_EditMap.Size = new System.Drawing.Size(197, 118);
+            this.pnlAdd_EditMap.Size = new System.Drawing.Size(1073, 683);
             this.pnlAdd_EditMap.TabIndex = 29;
             this.pnlAdd_EditMap.Visible = false;
             this.pnlAdd_EditMap.Leave += new System.EventHandler(this.pnlAdd_EditMap_Leave);
+            // 
+            // mapAdd_Edit_Coord
+            // 
+            this.mapAdd_Edit_Coord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mapAdd_Edit_Coord.Bearing = 0F;
+            this.mapAdd_Edit_Coord.CanDragMap = true;
+            this.mapAdd_Edit_Coord.EmptyTileColor = System.Drawing.Color.Navy;
+            this.mapAdd_Edit_Coord.GrayScaleMode = false;
+            this.mapAdd_Edit_Coord.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.mapAdd_Edit_Coord.LevelsKeepInMemmory = 5;
+            this.mapAdd_Edit_Coord.Location = new System.Drawing.Point(13, 15);
+            this.mapAdd_Edit_Coord.MarkersEnabled = true;
+            this.mapAdd_Edit_Coord.MaxZoom = 2;
+            this.mapAdd_Edit_Coord.MinZoom = 2;
+            this.mapAdd_Edit_Coord.MouseWheelZoomEnabled = true;
+            this.mapAdd_Edit_Coord.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.mapAdd_Edit_Coord.Name = "mapAdd_Edit_Coord";
+            this.mapAdd_Edit_Coord.NegativeMode = false;
+            this.mapAdd_Edit_Coord.PolygonsEnabled = true;
+            this.mapAdd_Edit_Coord.RetryLoadTile = 0;
+            this.mapAdd_Edit_Coord.RoutesEnabled = true;
+            this.mapAdd_Edit_Coord.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.mapAdd_Edit_Coord.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.mapAdd_Edit_Coord.ShowTileGridLines = false;
+            this.mapAdd_Edit_Coord.Size = new System.Drawing.Size(698, 686);
+            this.mapAdd_Edit_Coord.TabIndex = 1;
+            this.mapAdd_Edit_Coord.Zoom = 0D;
+            this.mapAdd_Edit_Coord.Load += new System.EventHandler(this.mapAdd_Edit_Coord_Load);
+            this.mapAdd_Edit_Coord.Leave += new System.EventHandler(this.mapAdd_Edit_Coord_Leave);
+            this.mapAdd_Edit_Coord.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mapAdd_Edit_Coord_MouseClick);
             // 
             // matbtnRedo
             // 
@@ -2876,7 +2909,7 @@
             this.matbtnRedo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matbtnRedo.Depth = 0;
             this.matbtnRedo.Icon = global::uniPark.Properties.Resources.redo;
-            this.matbtnRedo.Location = new System.Drawing.Point(-130, 240);
+            this.matbtnRedo.Location = new System.Drawing.Point(746, 240);
             this.matbtnRedo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matbtnRedo.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnRedo.Name = "matbtnRedo";
@@ -2894,7 +2927,7 @@
             this.matbtnSaveTotalArea.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matbtnSaveTotalArea.Depth = 0;
             this.matbtnSaveTotalArea.Icon = global::uniPark.Properties.Resources.rightTick;
-            this.matbtnSaveTotalArea.Location = new System.Drawing.Point(-60, 185);
+            this.matbtnSaveTotalArea.Location = new System.Drawing.Point(816, 185);
             this.matbtnSaveTotalArea.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matbtnSaveTotalArea.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnSaveTotalArea.Name = "matbtnSaveTotalArea";
@@ -2913,7 +2946,7 @@
             this.matbtnAddPolyPoint.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matbtnAddPolyPoint.Depth = 0;
             this.matbtnAddPolyPoint.Icon = global::uniPark.Properties.Resources.pluss1;
-            this.matbtnAddPolyPoint.Location = new System.Drawing.Point(-60, 147);
+            this.matbtnAddPolyPoint.Location = new System.Drawing.Point(816, 147);
             this.matbtnAddPolyPoint.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matbtnAddPolyPoint.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnAddPolyPoint.Name = "matbtnAddPolyPoint";
@@ -2932,7 +2965,7 @@
             this.matbtnLoadMarker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.matbtnLoadMarker.Depth = 0;
             this.matbtnLoadMarker.Icon = global::uniPark.Properties.Resources.rightTick;
-            this.matbtnLoadMarker.Location = new System.Drawing.Point(-67, 147);
+            this.matbtnLoadMarker.Location = new System.Drawing.Point(809, 147);
             this.matbtnLoadMarker.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.matbtnLoadMarker.MouseState = MaterialSkin.MouseState.HOVER;
             this.matbtnLoadMarker.Name = "matbtnLoadMarker";
@@ -2948,7 +2981,7 @@
             this.lblLongCoord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLongCoord.AutoSize = true;
             this.lblLongCoord.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblLongCoord.Location = new System.Drawing.Point(11, 108);
+            this.lblLongCoord.Location = new System.Drawing.Point(887, 108);
             this.lblLongCoord.Name = "lblLongCoord";
             this.lblLongCoord.Size = new System.Drawing.Size(0, 20);
             this.lblLongCoord.TabIndex = 43;
@@ -2958,7 +2991,7 @@
             this.lblLatCoord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLatCoord.AutoSize = true;
             this.lblLatCoord.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblLatCoord.Location = new System.Drawing.Point(11, 72);
+            this.lblLatCoord.Location = new System.Drawing.Point(887, 72);
             this.lblLatCoord.Name = "lblLatCoord";
             this.lblLatCoord.Size = new System.Drawing.Size(0, 20);
             this.lblLatCoord.TabIndex = 42;
@@ -2968,7 +3001,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(-81, 108);
+            this.label5.Location = new System.Drawing.Point(795, 108);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 41;
@@ -2979,48 +3012,17 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(-81, 72);
+            this.label4.Location = new System.Drawing.Point(795, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 40;
             this.label4.Text = "Latitude :";
             // 
-            // mapAdd_Edit_Coord
-            // 
-            this.mapAdd_Edit_Coord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mapAdd_Edit_Coord.Bearing = 0F;
-            this.mapAdd_Edit_Coord.CanDragMap = true;
-            this.mapAdd_Edit_Coord.EmptyTileColor = System.Drawing.Color.Navy;
-            this.mapAdd_Edit_Coord.GrayScaleMode = false;
-            this.mapAdd_Edit_Coord.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.mapAdd_Edit_Coord.LevelsKeepInMemmory = 5;
-            this.mapAdd_Edit_Coord.Location = new System.Drawing.Point(0, 0);
-            this.mapAdd_Edit_Coord.MarkersEnabled = true;
-            this.mapAdd_Edit_Coord.MaxZoom = 2;
-            this.mapAdd_Edit_Coord.MinZoom = 2;
-            this.mapAdd_Edit_Coord.MouseWheelZoomEnabled = true;
-            this.mapAdd_Edit_Coord.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.mapAdd_Edit_Coord.Name = "mapAdd_Edit_Coord";
-            this.mapAdd_Edit_Coord.NegativeMode = false;
-            this.mapAdd_Edit_Coord.PolygonsEnabled = true;
-            this.mapAdd_Edit_Coord.RetryLoadTile = 0;
-            this.mapAdd_Edit_Coord.RoutesEnabled = true;
-            this.mapAdd_Edit_Coord.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.mapAdd_Edit_Coord.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.mapAdd_Edit_Coord.ShowTileGridLines = false;
-            this.mapAdd_Edit_Coord.Size = new System.Drawing.Size(0, 686);
-            this.mapAdd_Edit_Coord.TabIndex = 1;
-            this.mapAdd_Edit_Coord.Zoom = 0D;
-            this.mapAdd_Edit_Coord.Load += new System.EventHandler(this.mapAdd_Edit_Coord_Load);
-            this.mapAdd_Edit_Coord.Leave += new System.EventHandler(this.mapAdd_Edit_Coord_Leave);
-            this.mapAdd_Edit_Coord.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mapAdd_Edit_Coord_MouseClick);
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(726, 118);
+            this.splitter1.Size = new System.Drawing.Size(736, 683);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -3029,7 +3031,7 @@
             this.lblCaption.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCaption.AutoSize = true;
             this.lblCaption.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCaption.Location = new System.Drawing.Point(-131, 33);
+            this.lblCaption.Location = new System.Drawing.Point(745, 33);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(323, 20);
             this.lblCaption.TabIndex = 2;
@@ -3040,15 +3042,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this.ClientSize = new System.Drawing.Size(1280, 713);
-            this.Controls.Add(this.pnlAddParkings);
-            this.Controls.Add(this.pnlUpdateParkings);
-            this.Controls.Add(this.pnlSearchParkings);
             this.Controls.Add(this.pnlAdd_EditMap);
+            this.Controls.Add(this.pnlVerifyGuest);
+            this.Controls.Add(this.pnlUpdateParkings);
+            this.Controls.Add(this.pnlAddParkings);
+            this.Controls.Add(this.pnlSearchParkings);
             this.Controls.Add(this.pnlSearchUsers);
             this.Controls.Add(this.pnlAddUsers);
             this.Controls.Add(this.pnlViewInfringements);
             this.Controls.Add(this.pnlEditUser);
-            this.Controls.Add(this.pnlVerifyGuest);
             this.Controls.Add(this.pnlAssignParkings);
             this.Controls.Add(this.pnlViewParkings);
             this.Controls.Add(this.mapMain);
@@ -3072,14 +3074,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchParkings)).EndInit();
             this.pnlUpdateParkings.ResumeLayout(false);
             this.pnlUpdateParkings.PerformLayout();
+            this.pnlUpdateSpace.ResumeLayout(false);
+            this.pnlUpdateSpace.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateParkings)).EndInit();
             this.pnlUpdateArea.ResumeLayout(false);
             this.pnlUpdateArea.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupUncovered)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCovered)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpParkingAL)).EndInit();
-            this.pnlUpdateSpace.ResumeLayout(false);
-            this.pnlUpdateSpace.PerformLayout();
             this.pnlAssignParkings.ResumeLayout(false);
             this.pnlAssignParkings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssignParkings)).EndInit();

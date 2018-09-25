@@ -254,7 +254,7 @@
         mpq/QiC4DtHNZGSVA8rVnhx/jGJ+AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="matBtnUpdateParkingA.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="matBtnUpdateParkingSpace.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
         lU0KwjAUhLvxDLY9RdNuxYVLT+XGn0sKxR9EbxAj1KadRBPzng260Q8GkjczSUEhyf+QXUWDpbP+GtwF
@@ -264,7 +264,7 @@
         CJdcXkrDdA6+aD9MktwBXNyw/Nn2XdAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="matBtnUpdateParkingSpace.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="matBtnUpdateParkingA.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvd
         lU0KwjAUhLvxDLY9RdNuxYVLT+XGn0sKxR9EbxAj1KadRBPzng260Q8GkjczSUEhyf+QXUWDpbP+GtwF
