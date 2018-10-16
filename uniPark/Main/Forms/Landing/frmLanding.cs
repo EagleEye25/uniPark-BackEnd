@@ -29,6 +29,11 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using DocumentFormat.OpenXml;
 using Tulpep.NotificationWindow;
 using System.Threading;
+using DocumentFormat.OpenXml.Drawing.Pictures;
+using System.IO;
+
+
+
 
 
 
@@ -981,6 +986,7 @@ namespace uniPark.Main.Forms.Landing
             cmbParkingSpace.DataSource = dt;
             cmbParkingSpace.DisplayMember = "Space ID";
             cmbParkingSpace.ValueMember = "Space ID";
+            //
 
           
 
@@ -1217,7 +1223,10 @@ namespace uniPark.Main.Forms.Landing
 
         private void btnclose_Click(object sender, EventArgs e)
         {
+            
             Application.Exit();
+            
+            
         }
 
         private void matBtnEditUsers_Click(object sender, EventArgs e)
@@ -2299,9 +2308,10 @@ namespace uniPark.Main.Forms.Landing
                     mapSearch.Overlays.Add(polyOverlay);
                     mapSearch.Refresh();
                     mapSearch.Zoom += 1;
-                    mapSearch.Zoom -= 1; 
+                    mapSearch.Zoom -= 1;
+                    mapSearch.Position = new PointLatLng(dlat, dlong);
             }
-                else
+            else
                 {
                     
                      PopupNotifier popup = new PopupNotifier();
@@ -2833,6 +2843,12 @@ namespace uniPark.Main.Forms.Landing
             Body body = new Body();
             mainDocPart.Document.Append(body);
 
+
+
+
+
+
+
             Paragraph para = body.AppendChild(new Paragraph());
             Run run = para.AppendChild(new Run());
             run.AppendChild(new Text(text));
@@ -2888,6 +2904,8 @@ namespace uniPark.Main.Forms.Landing
             
             body.Append(table);
             doc.MainDocumentPart.Document.Save();
+            
+            
             doc.Dispose();
             Process.Start("WINWORD.exe", filePath);
         }
