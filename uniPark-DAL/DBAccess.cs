@@ -20,6 +20,14 @@ namespace uniPark_DAL
            
             return dt;
         }
+        public DataTable GetParkingAreasForView()
+        {
+
+
+            DataTable dt = DBHelper.Select("uspGetParkingAreasView", CommandType.StoredProcedure);
+
+            return dt;
+        }
 
         // Get All Parking Details in Model
         public List<ParkingArea> GetAllParkingAreaDetails()

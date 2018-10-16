@@ -196,7 +196,10 @@ namespace uniPark_BLL
         return db.GetLicensePlateLog(numberplate);
         }
 
-
+        public DataTable BLL_GetParkingAreasForView()
+        {
+            return db.GetParkingAreasForView();
+        }
 
 
     }
