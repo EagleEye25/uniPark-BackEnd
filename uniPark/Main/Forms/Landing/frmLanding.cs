@@ -259,10 +259,12 @@ namespace uniPark.Main.Forms.Landing
             IDBHandler handler = new DBHandler();
 
             DataTable dt = new DataTable();
-            dt = handler.BLL_GetParkingAreas();
+            dt = handler.BLL_GetParkingAreasForView();
             
             dgvParkings.DataSource = dt;
 
+            
+            
             // dgvParkings.Dock = DockStyle.Fill;
             dgvAddParkings.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
 
@@ -786,7 +788,48 @@ namespace uniPark.Main.Forms.Landing
         {
             /* will set text field back to message if user doesnt enter data */
             if (matTextParkingAreaNameAD.Text != "")
+            {
                 matTextParkingAreaNameAD.Text = matTextParkingAreaNameAD.Text;
+                string NewAreaID = matTextParkingAreaNameAD.Text;
+                IDBHandler handler = new DBHandler();
+                int num = 0;
+                bool greaterNumber = false;
+                string AreaID = "";
+
+                List<ParkingArea> list = new List<ParkingArea>();
+                list = handler.BLL_GetAllParkingAreaDetails();
+                foreach (ParkingArea PA in list)
+                {
+                    string areaNum = Regex.Match(PA.ParkingAreaID, @"\d+").Value;
+                    AreaID = PA.ParkingAreaID;
+                    if (NewAreaID[0] == AreaID[0] && ( areaNum == null || areaNum == "0"))
+                    {
+                        NewAreaID = NewAreaID[0] + "1";
+                        greaterNumber = false;
+                    }
+                    else if (NewAreaID[0] == AreaID[0] && int.Parse(areaNum) > 1)
+                    {
+                        int num1 = Int32.Parse(areaNum);
+                        if (num1 > num)
+                        {
+                            num = num1;
+                        }
+                        greaterNumber = true;
+                    }
+                    
+
+                }
+
+
+                if (greaterNumber == true)
+                {
+                    NewAreaID = NewAreaID[0].ToString() + (num + 1).ToString();
+                }
+                else NewAreaID = NewAreaID[0] + "1";
+
+                matTextAddParkinAreaID.Text = NewAreaID;
+
+            }
             else
                 matTextParkingAreaNameAD.Text = "Parking Area Name";
         }
@@ -814,12 +857,12 @@ namespace uniPark.Main.Forms.Landing
 
             IDBHandler handler = new DBHandler();
             DataTable dt = new DataTable();
-            dt = handler.BLL_GetParkingAreas();
+            dt = handler.BLL_GetParkingAreasForView();
 
             dgvAddParkings.DataSource = dt;
             dgvAddParkings.Visible = true;
 
-            
+            cmbAccessLevelAdd.SelectedIndex = 0;
             
         }
 
@@ -936,8 +979,8 @@ namespace uniPark.Main.Forms.Landing
             dt = handler.BLL_GetParkingSpaces(parkingAreaID);
             
             cmbParkingSpace.DataSource = dt;
-            cmbParkingSpace.DisplayMember = "ParkingSpaceID";
-            cmbParkingSpace.ValueMember = "ParkingSpaceID";
+            cmbParkingSpace.DisplayMember = "Space ID";
+            cmbParkingSpace.ValueMember = "Space ID";
 
           
 
@@ -955,17 +998,14 @@ namespace uniPark.Main.Forms.Landing
             if (dgvParkings.SelectedRows.Count > 0)
             {
                 
-                parkingAreaIDMap = dgvParkings.SelectedRows[0].Cells["ParkingAreaID"].Value.ToString();
+                parkingAreaIDMap = dgvParkings.SelectedRows[0].Cells["Area ID"].Value.ToString();
 
                 IDBHandler handler = new DBHandler();
                 DataTable dt = new DataTable();
                dt = handler.BLL_GetParkingSpaces(parkingAreaIDMap);
              
                 dgvParkings.DataSource = dt;
-
-                //dgvParkings.Dock = DockStyle.None;
-                //dgvParkings.Dock = DockStyle.Right;
-                // dgvAddParkings.Anchor = AnchorStyles.Left;
+                
                 dgvAddParkings.Anchor = (AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right );
 
                 matBtnBackToParkingAreas.Visible = true;
@@ -1106,11 +1146,42 @@ namespace uniPark.Main.Forms.Landing
 
         private void frmLanding_Load(object sender, EventArgs e)
         {
-
-
-
+            Thread getRequests = new Thread(new ThreadStart(InvokeMethod));
+            getRequests.Start();
             
             
+
+        }
+
+        public void InvokeMethod()
+        {
+            while(true)
+            {
+                GetNewRequests();
+                Thread.Sleep(1000 * 60 * 5); // 5 Minutes
+            }
+        }
+
+        public void GetNewRequests()
+        {
+            IDBHandler handler = new DBHandler();
+            DataTable dt = handler.BLL_GetParkingRequests();
+
+            int rowCount = dt.Rows.Count;
+
+            
+
+           // PopupNotifier popup = new PopupNotifier();
+           // popup.Image = Properties.Resources.Info;
+            //popup.TitleText = "UniPark";
+            //popup.ContentText =  Convert.ToString(rowCount) + "   Requests Waiting";
+            // popup.Popup();
+            if (rowCount >= 1)
+            {
+                MessageBox.Show((Convert.ToString(rowCount) + "   Requests Waiting"), "Notification");
+            }
+            
+            //lblRequestCounter.Text = rowCount.ToString();
         }
 
         private void mattextPhoneNum_Leave(object sender, EventArgs e)
@@ -1254,7 +1325,7 @@ namespace uniPark.Main.Forms.Landing
                 if (matTextPersonelSurED.Text == "Personnel Surname" || isAllString(matTextPersonelSurED.Text) == false)
                 { error = error + ", surname not correct"; }
                 }
-                MessageBox.Show(error);
+                MessageBox.Show(error,"Error Report");
             }
 
 
@@ -1377,7 +1448,7 @@ namespace uniPark.Main.Forms.Landing
                 matTextPhoneGuest.Text = "Guest Phone";
                 matTextEmailGuest.Text = "Guest Email Address";
                 matTextGuestVerifyNo.Text = "Guest Verification Number";
-                MessageBox.Show(error);
+                MessageBox.Show(error,"Error Report");
 
             }
             matBtnVerifyGuests.Enabled = false;
@@ -1422,30 +1493,30 @@ namespace uniPark.Main.Forms.Landing
                 if (dialogResult == DialogResult.Yes)
                 {
                     bool b = handler.BLL_deleteuser(matTextPersonelTagNoED.Text);
-                    MessageBox.Show("Deletion Successfull");
+                    MessageBox.Show("Deletion Successfull","Info");
                     DataTable dt3 = handler.BLL_GetPersonel();
                     dgvEditPersonel.DataSource = dt3;  
 
                 }
                 else if (dialogResult == DialogResult.No || matTextPersonelTagNoED.Text == "")
                 {
-                    MessageBox.Show("Deletion Cancelled");
+                    MessageBox.Show("Deletion Cancelled","Info");
                     DataTable dt3 = handler.BLL_GetPersonel();
                     dgvEditPersonel.DataSource = dt3;
                 }           
             }
             catch
-            { MessageBox.Show("Deletion could not take place"); }
+            { MessageBox.Show("Deletion could not take place","Error Report"); }
         }
 
         private void matBtnAddParkingAreas_Click(object sender, EventArgs e)
         
             {
-            string error = "Parking area not successfully added ";       
+            string error = "Parking area not successfully added " + Environment.NewLine;       
 
             if (matTextAddParkinAreaID.Text != "Parking Area ID" && matTextParkingAreaNameAD.Text != "Parking Area Name" 
-                && matTextAddParkingLocation.Text != "Parking Area Location" && (spinCoveredParking.Value + spinUncoveredParking.Value) != 0 
-                && NewCoordinates != "")
+                && matTextAddParkingLocation.Text != "Parking Area Location" && NewCoordinates != "")
+
             {
                 try
                 {
@@ -1455,7 +1526,7 @@ namespace uniPark.Main.Forms.Landing
                     PA.ParkingAreaID = matTextAddParkinAreaID.Text;
                     PA.ParkingAreaName = matTextParkingAreaNameAD.Text;
                     PA.ParkingAreaLocation = matTextAddParkingLocation.Text;
-                    PA.ParkingAreaAccessLevel = Convert.ToInt32(spinParkingAl.Value);
+                    PA.ParkingAreaAccessLevel = cmbAccessLevelAdd.SelectedIndex + 1;
                     PA.Status = true;
                     PA.ParkingAreaCoordinates = NewCoordinates;
                     bool b = handler.BLL_AddParkingArea(PA);
@@ -1481,7 +1552,7 @@ namespace uniPark.Main.Forms.Landing
                         popup.Popup();
 
                         DataTable dt = new DataTable();
-                        dt = handler.BLL_GetParkingAreas();
+                        dt = handler.BLL_GetParkingAreasForView();
                         dgvAddParkings.DataSource = dt;
                         matTextAddParkinAreaID.Text = "Parking Area ID";
 
@@ -1523,27 +1594,27 @@ namespace uniPark.Main.Forms.Landing
             {
                 if (matTextAddParkinAreaID.Text == "Parking Area ID")
                 {
-                    error += ", Parking Area ID is Incorrect ";
+                    error += "• Parking Area ID is Incorrect " + Environment.NewLine;
                 }
 
                 if (matTextAddParkingLocation.Text == "Parking Area Location")
                 {
-                    error += ", Parking Area Location is Incorrect ";
+                    error += "• Parking Area Location is Incorrect " + Environment.NewLine;
                 }
 
                 if (matTextParkingAreaNameAD.Text == "Parking Area Name")
                 {
-                    error += ", Parking Area Name is Incorrect ";
+                    error += "• Parking Area Name is Incorrect " + Environment.NewLine;
                 }
 
-                if ((spinCoveredParking.Value + spinUncoveredParking.Value) == 0)
-                {
-                    error += ", Parking Spaces can not be 0 ";
-                }
+               // if ((spinCoveredParking.Value + spinUncoveredParking.Value) == 0)
+               // {
+              //      error += "• Parking Spaces can not be 0 " + Environment.NewLine;
+               // }
 
                 if (NewCoordinates == "")
                 {
-                    error += ", Parking Area Map Coordinates was not Included ";
+                    error += "• Parking Area Map Coordinates was not Included " + Environment.NewLine;
                 }
 
                 matTextAddParkinAreaID.Text = "Parking Area ID";
@@ -1555,7 +1626,7 @@ namespace uniPark.Main.Forms.Landing
                 spinCoveredParking.Value = 0;
                 spinUncoveredParking.Value = 0;
 
-                MessageBox.Show(error);
+                MessageBox.Show(error,"Error Report");
 
             }
 
@@ -1663,7 +1734,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void matbtnHelpEd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1. First enter the Personnel number or name/surname in the above edit." + "\n" + "2. Then Select any member in the grid to edit." +"\n"+"3. Then adjust the edits below as required" + "\n" + "4. Then click the Apply Changes button to the right of the edited infromation.");
+            MessageBox.Show("1. First enter the Personnel number or name/surname in the above edit." + "\n" + "2. Then Select any member in the grid to edit." +"\n"+"3. Then adjust the edits below as required" + "\n" + "4. Then click the Apply Changes button to the right of the edited infromation.","Help");
         }
 
 
@@ -1674,7 +1745,7 @@ namespace uniPark.Main.Forms.Landing
             IDBHandler handler = new DBHandler();
 
             DataTable dt = new DataTable();
-            dt = handler.BLL_GetParkingAreas();
+            dt = handler.BLL_GetParkingAreasForView();
 
             dgvParkings.DataSource = dt;
            // dgvParkings.Dock = DockStyle.Fill;
@@ -1736,7 +1807,7 @@ namespace uniPark.Main.Forms.Landing
             {
                 pnlUpdateSpace.Visible = true;
                 
-                string available = dgvUpdateParkings.SelectedRows[0].Cells["Available"].Value.ToString();
+                string available = dgvUpdateParkings.SelectedRows[0].Cells["Availability"].Value.ToString();
 
                 if (available == "UnAvailable")
                 {
@@ -1744,14 +1815,14 @@ namespace uniPark.Main.Forms.Landing
                 }
                 else cmbAvailibality.SelectedIndex = 0;
 
-                string covered = dgvUpdateParkings.SelectedRows[0].Cells["ParkingType"].Value.ToString();
+                string covered = dgvUpdateParkings.SelectedRows[0].Cells["Type"].Value.ToString();
                 if (covered == "UnCovered")
                 {
                     cmbEditType.SelectedIndex = 1;
                 }
                 else cmbEditType.SelectedIndex = 0;
 
-                UpSpaceID = Convert.ToInt32(dgvUpdateParkings.SelectedRows[0].Cells["ParkingSpaceID"].Value.ToString());
+                UpSpaceID = Convert.ToInt32(dgvUpdateParkings.SelectedRows[0].Cells["Space ID"].Value.ToString());
             }
         }
 
@@ -1841,7 +1912,7 @@ namespace uniPark.Main.Forms.Landing
                     error += " Parking Area Coordinates are emptry ";
                 }
 
-                MessageBox.Show(error);
+                MessageBox.Show(error,"Error Report");
             }
         }
 
@@ -1918,12 +1989,7 @@ namespace uniPark.Main.Forms.Landing
                 dlat = Convert.ToDouble(locations[0]);
                 dlong = Convert.ToDouble(locations[1]);
 
-
-
-
                 
-
-
 
                 PointLatLng point = new PointLatLng(dlat, dlong);
                 GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.green_dot);
@@ -1965,11 +2031,7 @@ namespace uniPark.Main.Forms.Landing
                 popup.ContentText = "There is no location assigned to this parking area";
                 popup.Popup(); // show
             }
-
             
-
-           
-
 
         }
 
@@ -2349,7 +2411,7 @@ namespace uniPark.Main.Forms.Landing
 
 
             }
-            else MessageBox.Show("Please select Parking Area center point");
+            else MessageBox.Show("Please select Parking Area center point", "Help");
           
 
         }
@@ -2846,7 +2908,7 @@ namespace uniPark.Main.Forms.Landing
                 }
                 else if (mattextboxReportSearch.Text == "Personnel Number")
                 {
-                    MessageBox.Show("Please Enter A Value In The Search Bar");
+                    MessageBox.Show("Please Enter A Value In The Search Bar","Help");
                     PopupNotifier popup = new PopupNotifier();
                     popup.Image = Properties.Resources.Info;
                     popup.TitleText = "UniPark";
@@ -2983,7 +3045,7 @@ namespace uniPark.Main.Forms.Landing
 
         private void materialFlatButton9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1. First enter the Personnel number or name/surname in the Search Bar." + "\n" + "2. Then Select The Dates Between which The Report Must Be Generated" + "\n" + "3. Then Select The Type Of Report to be Generated" + "\n" + "4. Then click the Generate Report Button For a Document of the Generated Report.");
+            MessageBox.Show("1. First enter the Personnel number or name/surname in the Search Bar." + "\n" + "2. Then Select The Dates Between which The Report Must Be Generated" + "\n" + "3. Then Select The Type Of Report to be Generated" + "\n" + "4. Then click the Generate Report Button For a Document of the Generated Report.","Help");
         }
 
         private void materialFlatButton5_Click(object sender, EventArgs e)
@@ -3024,12 +3086,12 @@ namespace uniPark.Main.Forms.Landing
 
         private void materialFlatButton10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1. Search for the user you received fine payment from. \n2. Select the fine and press mark fine as paid.");
+            MessageBox.Show("1. Search for the user you received fine payment from. \n2. Select the fine and press mark fine as paid.","Help");
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1. Fill out relevant data into the fields to add a user to the system. \n2. Press enter to add the user to sytem.");
+            MessageBox.Show("1. Fill out relevant data into the fields to add a user to the system. \n2. Press enter to add the user to sytem.","Help");
         }
 
         private void materialFlatButton11_Click(object sender, EventArgs e)
@@ -3080,6 +3142,11 @@ namespace uniPark.Main.Forms.Landing
         private void materialFlatButton3_Click(object sender, EventArgs e)
         {
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
+
+        private void materialFlatButton12_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1. Fill out relevant data into the fields to add a parking area." + "\n" + "2. Then Select the map icon to create new parking area coordinates." + "\n" + "3. Then select the Add Parking button to verify data and submit new Area." + "\n" + "4. If any error occurs after pressing add parking button simply follow instructions.","Help" );
         }
 
         public void CreateWordDocumentParking(string filePath, DataTable data1, DataTable data2, string text, string text2, string[] heading1, string[] heading2)
